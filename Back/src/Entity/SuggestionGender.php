@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +23,16 @@ class SuggestionGender
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="suggestionGender")
+     */
+    private $suggestions;
+
+    public function __construct()
+    {
+        $this->suggestions = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +46,37 @@ class SuggestionGender
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Suggestion[]
+     */
+    public function getSuggestions(): Collection
+    {
+        return $this->suggestions;
+    }
+
+    public function addSuggestion(Suggestion $suggestion): self
+    {
+        if (!$this->suggestions->contains($suggestion)) {
+            $this->suggestions[] = $suggestion;
+            $suggestion->setSuggestionGender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuggestion(Suggestion $suggestion): self
+    {
+        if ($this->suggestions->contains($suggestion)) {
+            $this->suggestions->removeElement($suggestion);
+            // set the owning side to null (unless already changed)
+            if ($suggestion->getSuggestionGender() === $this) {
+                $suggestion->setSuggestionGender(null);
+            }
+        }
 
         return $this;
     }

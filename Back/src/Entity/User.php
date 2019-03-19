@@ -64,11 +64,29 @@ class User
      */
     private $projects;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Project", inversedBy="users")
+     */
+    private $project;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\VoteSuggestion", mappedBy="user")
+     */
+    private $voteSuggestions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="user")
+     */
+    private $suggestions;
+
     public function __construct()
     {
         $this->voteProjectDates = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this->project = new ArrayCollection();
+        $this->voteSuggestions = new ArrayCollection();
+        $this->suggestions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -235,6 +253,76 @@ class User
             // set the owning side to null (unless already changed)
             if ($project->getOwner() === $this) {
                 $project->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Project[]
+     */
+    public function getProject(): Collection
+    {
+        return $this->project;
+    }
+
+    /**
+     * @return Collection|VoteSuggestion[]
+     */
+    public function getVoteSuggestions(): Collection
+    {
+        return $this->voteSuggestions;
+    }
+
+    public function addVoteSuggestion(VoteSuggestion $voteSuggestion): self
+    {
+        if (!$this->voteSuggestions->contains($voteSuggestion)) {
+            $this->voteSuggestions[] = $voteSuggestion;
+            $voteSuggestion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVoteSuggestion(VoteSuggestion $voteSuggestion): self
+    {
+        if ($this->voteSuggestions->contains($voteSuggestion)) {
+            $this->voteSuggestions->removeElement($voteSuggestion);
+            // set the owning side to null (unless already changed)
+            if ($voteSuggestion->getUser() === $this) {
+                $voteSuggestion->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Suggestion[]
+     */
+    public function getSuggestions(): Collection
+    {
+        return $this->suggestions;
+    }
+
+    public function addSuggestion(Suggestion $suggestion): self
+    {
+        if (!$this->suggestions->contains($suggestion)) {
+            $this->suggestions[] = $suggestion;
+            $suggestion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuggestion(Suggestion $suggestion): self
+    {
+        if ($this->suggestions->contains($suggestion)) {
+            $this->suggestions->removeElement($suggestion);
+            // set the owning side to null (unless already changed)
+            if ($suggestion->getUser() === $this) {
+                $suggestion->setUser(null);
             }
         }
 

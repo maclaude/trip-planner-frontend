@@ -49,10 +49,22 @@ class Project
      */
     private $owner;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="project")
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="project")
+     */
+    private $suggestions;
+
     public function __construct()
     {
         $this->projectDates = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->suggestions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -166,6 +178,65 @@ class Project
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeProject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Suggestion[]
+     */
+    public function getSuggestions(): Collection
+    {
+        return $this->suggestions;
+    }
+
+    public function addSuggestion(Suggestion $suggestion): self
+    {
+        if (!$this->suggestions->contains($suggestion)) {
+            $this->suggestions[] = $suggestion;
+            $suggestion->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuggestion(Suggestion $suggestion): self
+    {
+        if ($this->suggestions->contains($suggestion)) {
+            $this->suggestions->removeElement($suggestion);
+            // set the owning side to null (unless already changed)
+            if ($suggestion->getProject() === $this) {
+                $suggestion->setProject(null);
+            }
+        }
 
         return $this;
     }
