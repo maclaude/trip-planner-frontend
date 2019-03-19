@@ -1,0 +1,30 @@
+@import 'src/styles/vars';
+
+#header {
+  position: relative;
+  background: $header-bg-color;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-logo {
+    margin-left: 2em;
+    width: 10%;
+    min-width: 100px;
+  }
+}
+
+.nav {
+  margin-right: 2em;
+
+  &-link {
+    margin-left: 2em;
+    padding: .5em .8em;
+
+    &:hover {
+      border-bottom: 3px solid $nav-link-border-bottom-color;
+    }
+  }
+}
