@@ -2,44 +2,40 @@
  * NPM import
  */
 import React from 'react';
-import { FaUserCircle, FaCog, FaSignOutAlt, FaPlus, FaAngleDoubleRight } from 'react-icons/fa';
 
 /**
  * Local import
  */
 // Style
-import './navbar.scss';
+// import './navbar.scss';
+import './navbarUI.scss';
 
 /**
  * Code
  */
 const Navbar = () => (
-  <div id="navbar">
+  <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-username">
-      <i><FaUserCircle /></i>
-      <p>Username</p>
+      <a className="item"><i className="camera retro icon" />Username</a>
     </div>
     <div id="navbar-main">
       <div id="new-project">
-        <p>Crée un nouveau projet</p>
-        <i><FaPlus /></i>
+        <a className="item"><i className="plus icon" /> Crée un nouveau projet </a>
       </div>
       <div id="projects">
-        <p>Mes projets</p>
-        <i><FaAngleDoubleRight /></i>
+        <a className="item"><i className="angle double right icon" />Mes projets </a>
       </div>
     </div>
     <div id="navbar-footer">
       <div id="modification">
-        <p>Modifier mon profil</p>
-        <i><FaCog /></i>
+        <a className="item"><i className="cog icon" /> Modifier mon profil </a>
       </div>
       <div id="deconnexion">
-        <p>Deconnexion</p>
-        <i><FaSignOutAlt /></i>
+        <a className="item"><i className="sign-out icon" /> Deconnexion </a>
       </div>
     </div>
   </div>
+
 );
 
 /**

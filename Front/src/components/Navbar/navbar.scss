@@ -1,14 +1,14 @@
 @import 'src/styles/vars';
 
 #navbar {
-  background-color: #E1E8EC;
-  width: 17vw;
+  // background-color: #E1E8EC;
+  // width: 17vw;
   height: 100vh;
-  color: #4C5175;
+  // color: #4C5175;
   font-size: 1.3em;
   display: flex;
-  flex-direction: column;
-  padding: 1.3em;
+  // flex-direction: column;
+  // padding: 1.3em;
   justify-content: space-between;
 
     &-main, &-footer, &-username {
@@ -27,8 +27,17 @@
       flex-direction: column;
     }
 }
-#deconnexion, #modification, #projects, #new-project {
-  display: flex;
-  padding-bottom: 1em;
-  justify-content: space-between;
+// #deconnexion, #modification, #projects, #new-project {
+//   display: flex;
+//   padding-bottom: 1em;
+//   justify-content: space-between;
+// }
+.ui.inverted.menu {
+  background-color: #E1E8EC;
+}
+.ui.inverted.menu .item, .ui.inverted.menu .item > a:not(.ui) {
+  color: #4C5175;
+}
+.ui.attached.segment, .ui.segment {
+  border: none;
 }

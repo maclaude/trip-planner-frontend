@@ -10,6 +10,7 @@ import React from 'react';
 import Header from 'src/components/Header';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
+
 // Style
 import './app.scss';
 
@@ -21,6 +22,7 @@ const App = () => (
     <Header />
     <Main />
     <Footer />
+
   </div>
 );
 
