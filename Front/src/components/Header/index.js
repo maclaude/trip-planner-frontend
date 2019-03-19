@@ -14,7 +14,7 @@ import './header.scss';
  */
 const Header = () => (
   <div id="header">
-    <img id="header-logo" src="src/assets/logo/logo_1.png" alt="logo trip-planner" />
+    <img id="header-logo" src="src/assets/logos/logo_1.png" alt="logo trip-planner" />
     <nav className="nav">
       <a className="nav-link">Login</a>
       <a className="nav-link">Sign-up</a>
