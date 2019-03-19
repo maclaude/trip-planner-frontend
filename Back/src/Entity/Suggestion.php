@@ -44,12 +44,6 @@ class Suggestion
     private $voteSuggestions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -60,6 +54,12 @@ class Suggestion
      * @ORM\JoinColumn(nullable=false)
      */
     private $suggestionGender;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function __construct()
     {
@@ -151,18 +151,6 @@ class Suggestion
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getProject(): ?Project
     {
         return $this->project;
@@ -183,6 +171,18 @@ class Suggestion
     public function setSuggestionGender(?SuggestionGender $suggestionGender): self
     {
         $this->suggestionGender = $suggestionGender;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

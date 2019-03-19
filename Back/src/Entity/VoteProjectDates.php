@@ -17,32 +17,20 @@ class VoteProjectDates
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="voteProjectDates")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ProjectDates", inversedBy="voteProjectDates")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projectDates;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="voteProjectDates")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUser(): ?user
-    {
-        return $this->user;
-    }
-
-    public function setUser(?user $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 
     public function getProjectDates(): ?ProjectDates
@@ -53,6 +41,18 @@ class VoteProjectDates
     public function setProjectDates(?ProjectDates $projectDates): self
     {
         $this->projectDates = $projectDates;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
