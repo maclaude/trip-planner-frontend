@@ -2,6 +2,9 @@
 
 #app {
   width: 100%;
-  text-align: center;
-  font-weight: 600;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'PT Sans', sans-serif;
 }

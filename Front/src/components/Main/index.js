@@ -19,6 +19,11 @@ const Main = () => (
         <h1 id="main-banner-text-title">Trip-planner</h1>
         <p id="main-banner-text-slogan">Organisez vos voyages entre amis</p>
       </div>
+      <div id="main-banner-graphics">
+        <img src="src/assets/graphics/group.png" alt="group graphic" />
+        <img src="src/assets/graphics/idea.png" alt="idea graphic" />
+        <img src="src/assets/graphics/plane.png" alt="plane graphic" />
+      </div>
     </div>
     <div id="main-fonctionalities">
       <div id="main-fonctionalities-text-up">
@@ -39,8 +44,8 @@ const Main = () => (
         />
       </div>
       <div id="main-fonctionalities-text-down">
-        <h2>Un espace de discussion dédié pour vous organiser</h2>
-        <h2>Bénéficier d'un récapitulatif complet</h2>
+        <h2>Un espace de discussion dédié à votre groupe</h2>
+        <h2>Bénéficiez d'un récapitulatif complet</h2>
       </div>
     </div>
   </div>

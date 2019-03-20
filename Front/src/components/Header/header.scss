@@ -1,9 +1,9 @@
 @import 'src/styles/vars';
 
 #header {
-  position: relative;
   background: $header-bg-color;
-  height: 10vh;
+  height: 15vh;
+  min-height: 60px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -20,11 +20,22 @@
   margin-right: 2em;
 
   &-link {
+    color: $nav-text-color;
+    font-size: 1.2em;
+    font-weight: 700;
     margin-left: 2em;
     padding: .5em .8em;
 
     &:hover {
+      color: $nav-text-color;
       border-bottom: 3px solid $nav-link-border-bottom-color;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 300px) {
+    &-link {
+      font-size: .9em;
     }
   }
 }
