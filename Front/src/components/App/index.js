@@ -10,6 +10,14 @@ import React from 'react';
 import Header from 'src/components/Header';
 import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
+import Navbar from 'src/components/Navbar';
+import NavbarProject from 'src/components/Navbar_project';
+import NavbarUser from 'src/components/Navbar_user';
+import MyProjects from 'src/components/MyProjects';
+import NewProject from 'src/components/NewProject';
+import ProjectDetails from 'src/components/ProjectDetails';
+import Availability from 'src/components/Availability';
+
 // Style
 import './app.scss';
 
@@ -18,9 +26,17 @@ import './app.scss';
  */
 const App = () => (
   <div>
-    <Header />
+    {/* <Header />
     <Main />
-    <Footer />
+    <Footer /> */}
+    {/* <Navbar /> */}
+    <NavbarProject />
+    {/* <NavbarUser /> */}
+    <ProjectDetails />
+    {/* <MyProjects /> */}
+    {/* <NewProject /> */}
+    {/* <Availability /> */}
+
   </div>
 );
 

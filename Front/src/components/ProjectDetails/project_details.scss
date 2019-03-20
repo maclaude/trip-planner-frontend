@@ -1,0 +1,58 @@
+@import 'src/styles/vars';
+
+@media (min-width: 901px) {
+  #projectDetails {
+    width: 80vw;
+    float: right;
+    height: 100vh;
+    padding: 2.5em;
+    &-banner, &-header, #handle-date, #accomodation, #activity {
+      margin-top: 2em;
+    }
+    &-header {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  #destination, #participants {
+    width: 50%;
+  }
+  #participants-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  #projectDetails {
+    width: 80%;
+    float: right;
+    height: 100%;
+    padding: 2.5em;
+    &-header,&-banner, #participants, #handle-date, #accomodation, #activity {
+      margin-top: 2em;
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+  #projectDetails {
+    width: 100%;
+    padding: 2em;
+    text-align: center;
+    &-header, &-banner, #participants, #handle-date, #accomodation, #activity {
+      margin-top: 2em;
+    }
+  }
+  
+}
+#projectDetails {
+  background: #E1E8EC;
+  color: #4C5175;
+}
+img {
+  max-width: 300;
+  max-height: 190;
+}
