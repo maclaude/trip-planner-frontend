@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 @media (min-width: 901px) {
-  #navbar {
+  #navbar-project {
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -25,20 +25,23 @@
         flex-direction: column;
       }
   }
+  #my_projects {
+    margin-left: 1em;
+  }
 }
 @media (min-width: 601px) and (max-width: 900px) {
-  #navbar {
+  #navbar-project {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20vw;
   }
-  #navbar > i {
+  #navbar-project > i {
     font-size: 2em;
   }
 }
 @media (max-width: 600px) {
-  #navbar {
+  #navbar-project {
     display: none;
   }
 }
@@ -50,8 +53,4 @@
 }
 .ui.attached.segment, .ui.segment {
   border: none;
-}
-#projects-details {
-  margin-left: 1em;
-  font-style: italic;
 }

@@ -26,8 +26,12 @@
       flex-direction: column;
     }
     &-next {
-      display: flex;
-      justify-content: flex-end;
+      width: 15%;
+      font-size: 1.5em;
+      color: #4C5175;
+      background: #BCE7D9;
+      float: right;
+      border-radius: 1em;
     }
   }
   button {

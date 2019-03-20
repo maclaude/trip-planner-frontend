@@ -24,17 +24,19 @@ const NavbarUser = () => (
       <div id="projects">
         <a className="item">Londres 2019</a>
       </div>
-      <div id="availability-navbar">
-        <a className="item">Définir ses disponibilités</a>
-      </div>
-      <div id="idea">
-        <a className="item">Idées du groupe</a>
-      </div>
-      <div id="summary">
-        <a className="item">Récapitulatif</a>
-      </div>
-      <div id="chat">
-        <a className="item">Espace de discussion</a>
+      <div id="projects-details">
+        <div id="availability-navbar">
+          <a className="item">Définir ses disponibilités</a>
+        </div>
+        <div id="idea">
+          <a className="item">Idées du groupe</a>
+        </div>
+        <div id="summary">
+          <a className="item">Récapitulatif</a>
+        </div>
+        <div id="chat">
+          <a className="item">Espace de discussion</a>
+        </div>
       </div>
     </div>
     <div id="navbar-footer">

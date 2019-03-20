@@ -28,8 +28,11 @@ const Availability = () => (
       <div id="availability-checkbox">
         <h3><input type="checkbox" /> Je ne suis pas disponible aux dates proposées</h3>
       </div>
-      <div id="availability-next">
-        <a>Etapes suivante <i className="arrow right icon" /></a>
+      <div id="availability-next" className="ui animated button">
+        <div className="visible content">Etape suivante</div>
+        <div className="hidden content">
+          <i className="right arrow icon" />
+        </div>
       </div>
     </div>
 

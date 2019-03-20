@@ -1,0 +1,55 @@
+@import 'src/styles/vars';
+
+@media (min-width: 901px) {
+  #myprojects {
+    width: 80vw;
+    float: right;
+    height: 100vh;
+    padding: 2.5em;
+    &-banner {
+      margin: 2em;
+    }
+  }
+  .ui.link.cards {
+    margin:1em auto;
+    display: flex;
+    justify-content: space-around;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  #myprojects {
+    width: 80%;
+    float: right;
+    height: 100%;
+    padding: 2.5em;
+    &-banner {
+      margin: 2em auto;
+    }
+  }
+  .ui.link.cards {
+    margin:1em auto;
+    display: flex;
+    justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+  #myprojects {
+    width: 100%;
+    padding: 2em;
+    text-align: center;
+    &-banner {
+      margin: 2em auto;
+    }
+  }
+  
+}
+#myprojects {
+  background: #E1E8EC;
+  color: #4C5175;
+}
+img {
+  max-width: 300;
+  max-height: 190;
+}
