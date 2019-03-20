@@ -14,7 +14,7 @@
       margin: 1em auto;
       font-size: 1.2em;
     }
-    &-title, &-description, &-dates, &-destination, &-participants {
+    &-title, &-description, &-date, &-destination, &-participants {
       display: flex;
       justify-content: space-between;
       padding-bottom: 2em;
@@ -22,15 +22,12 @@
     &-banner {
       padding-bottom: 5em;
     }
-    &-date {
-      width: 55%;
-    }
-    &-date > input {
-      margin-right: 1em;
-    }
   }
-  .ui.input {
-    width: 50%;
+  .input, #description-input {
+    width: 70%;
+  }
+  .input-date {
+    width: 35%;
   }
 }
 
@@ -55,14 +52,14 @@
         padding-bottom: 1.5em;
       }
   }
-  .ui.input {
+  .input {
     width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   #newproject {
-    width: 90%;
+    width: 100%;
     padding: 2em;
     text-align: center;
     &-form {
@@ -79,7 +76,7 @@
       flex-direction: column;
     }
   }
-  .ui.input {
+  .input {
     width: 95%;
   }
   
@@ -88,27 +85,8 @@
   background: #E1E8EC;
   color: #4C5175;
 }
-
-.ui.input :focus {
-  box-shadow: inset 0 0 30px #BCE7D9;
-  transition: box-shadow .3s;
-}
-.ui.input :hover {
-  box-shadow: inset 0 0 30px #BCE7D9;
-  transition: box-shadow .3s;
-}
-.ui.right.labeled.icon.button {
+#newproject-button {
   background-color: #BCE7D9;
   color: #4C5175;
+  width: 100%;
 }
-#description-input {
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: .28571429rem;
-  padding: .67857143em 1em;
-  color: rgba(0, 0, 0, 0.87);
-}
-::placeholder {
-  color: rgb(192, 196, 194);
-}
-
-

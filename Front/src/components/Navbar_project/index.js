@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import { Icon } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -15,14 +16,14 @@ import './navbar_project.scss';
 const NavbarProject = () => (
   <div id="navbar-project" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-project-username">
-      <a className="item"><i className="camera retro icon" />Username</a>
+      <a className="item"><Icon name="camera retro" />Username</a>
     </div>
     <div id="navbar-project-main">
       <div id="new-project">
-        <a className="item"><i className="plus icon" /> Crée un nouveau projet </a>
+        <a className="item"><Icon name="plus" />Crée un nouveau projet </a>
       </div>
       <div id="projects">
-        <a className="item"><i className="chevron down icon" />Mes projets </a>
+        <a className="item"><Icon name="chevron down" />Mes projets </a>
         <div id="my_projects">
           <a className="item">London</a>
           <a className="item">New-York</a>
@@ -31,10 +32,10 @@ const NavbarProject = () => (
     </div>
     <div id="navbar-project-footer">
       <div id="modification">
-        <a className="item"><i className="cog icon" /> Modifier mon profil </a>
+        <a className="item"><Icon name="cog" /> Modifier mon profil </a>
       </div>
       <div id="deconnexion">
-        <a className="item"><i className="sign-out icon" /> Deconnexion </a>
+        <a className="item"><Icon name="sign-out" /> Deconnexion </a>
       </div>
     </div>
   </div>

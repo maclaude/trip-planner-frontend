@@ -2,6 +2,7 @@
  * NPM IMPORT
  */
 import React from 'react';
+import { Radio, Button, Icon } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -26,14 +27,14 @@ const Availability = () => (
         <button className="button" type="button"><span>Du 03 au 10 Aout 2019</span></button>
       </div>
       <div id="availability-checkbox">
-        <h3><input type="checkbox" /> Je ne suis pas disponible aux dates proposées</h3>
+        <h3><Radio toggle /> Je ne suis pas disponible aux dates proposées</h3>
       </div>
-      <div id="availability-next" className="ui animated button">
-        <div className="visible content">Etape suivante</div>
-        <div className="hidden content">
-          <i className="right arrow icon" />
-        </div>
-      </div>
+      <Button animated id="availability-next">
+        <Button.Content visible>Etape suivante</Button.Content>
+        <Button.Content hidden>
+          <Icon name="arrow right" />
+        </Button.Content>
+      </Button>
     </div>
 
   </div>

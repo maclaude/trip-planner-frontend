@@ -2,6 +2,13 @@
  * NPM IMPORT
  */
 import React from 'react';
+import {
+  Button,
+  Icon,
+  Input,
+  TextArea,
+  Form,
+} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -16,47 +23,50 @@ const NewProject = () => (
     <div id="newproject-banner">
       <h1>Créer un projet</h1>
     </div>
-    <form id="newproject-form" action="">
-      <div id="newproject-title">
-        <p>Titre du projet</p>
-        <div className="ui input">
-          <input type="text" placeholder="Donnez un nom a votre projet..." />
+    <div id="newproject-container">
+      <Form id="newproject-form" action="">
+        <div id="newproject-title">
+          <p>Titre du projet</p>
+          <div className="input">
+            <Input placeholder="Donnez un nom a votre projet..." />
+          </div>
         </div>
-      </div>
-      <div id="newproject-description">
-        <p>description</p>
-        <div className="ui input">
-          <textarea
-            id="description-input"
-            type="text"
-            placeholder="Description du projet..."
-            rows="5"
-            cols="50"
-          />
+        <div id="newproject-description">
+          <p>Description</p>
+          <div className="input">
+            <TextArea
+              id="description-input"
+              placeholder="Description du projet..."
+              rows="5"
+              cols="50"
+            />
+          </div>
         </div>
-      </div>
-      <div id="newproject-dates">
-        <p>Suggérer des dates</p>
-        <div id="newproject-date" className="ui input">
-          <input type="date" placeholder="Date de debut..." />
-          <input type="date" placeholder="Date de fin..." />
+        <div id="newproject-date">
+          <p>Suggérer des dates</p>
+          <Input className="input-date" type="date" placeholder="Date de debut..." />
+          <Input className="input-date" type="date" placeholder="Date de fin..." />
         </div>
-      </div>
-      <div id="newproject-destination">
-        <p>Destination</p>
-        <div className="ui input">
-          <input type="text" placeholder="Définissez une destionation..." />
+        <div id="newproject-destination">
+          <p>Destination</p>
+          <div className="input">
+            <Input icon="world" placeholder="Définissez une destionation..." />
+          </div>
         </div>
-      </div>
-      <div id="newproject-participants">
-        <p>Ajouter des participants</p>
-        <div className="ui left icon input">
-          <input type="text" placeholder="Pseudo du participant..." />
-          <i className="users icon" />
+        <div id="newproject-participants">
+          <p>Ajouter des participants</p>
+          <div className="input">
+            <Input icon="users" placeholder="Pseudo du participant..." />
+          </div>
         </div>
-      </div>
-      <button id="newproject-button" type="button" className="ui right labeled icon button"><i className="right arrow icon" /> Créer le projet </button>
-    </form>
+        <Button animated id="newproject-button">
+          <Button.Content visible>Créer le projet</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow right" />
+          </Button.Content>
+        </Button>
+      </Form>
+    </div>
   </div>
 );
 
