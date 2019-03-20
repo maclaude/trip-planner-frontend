@@ -24,7 +24,7 @@ const NavbarUser = () => (
       <div id="projects">
         <a className="item">Londres 2019</a>
       </div>
-      <div id="availability">
+      <div id="availability-navbar">
         <a className="item">Définir ses disponibilités</a>
       </div>
       <div id="idea">
