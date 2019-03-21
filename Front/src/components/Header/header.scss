@@ -1,0 +1,41 @@
+@import 'src/styles/vars';
+
+#header {
+  background: $header-bg-color;
+  height: 15vh;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-logo {
+    margin-left: 2em;
+    width: 10%;
+    min-width: 100px;
+  }
+}
+
+.nav {
+  margin-right: 2em;
+
+  &-link {
+    color: $nav-text-color;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-left: 2em;
+    padding: .5em .8em;
+
+    &:hover {
+      color: $nav-text-color;
+      border-bottom: 3px solid $nav-link-border-bottom-color;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 300px) {
+    &-link {
+      font-size: .9em;
+    }
+  }
+}

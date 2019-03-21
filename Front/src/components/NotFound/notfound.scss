@@ -1,0 +1,16 @@
+@import 'src/styles/vars';
+
+#notFound {
+  text-align: center;
+  text-transform: uppercase;
+
+  &-title {
+    font-size: 2em;
+    font-weight: 500;
+  }
+
+  &-code {
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,41 @@
+@import 'src/styles/vars';
+
+#login {
+  &-form {
+    width: 40%;
+    margin: 20px auto;
+    padding: 2em;
+
+    &-title {
+      margin-bottom: 1em;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: 700;
+    }
+    
+    &-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-errors {
+      margin-bottom: 15px;
+    }
+
+    &:hover {
+      box-shadow: 0 0 5px 2px $form-box-shadow-color;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    &-form {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &-form {
+      width: 95%;
+    }
+  }
+}
