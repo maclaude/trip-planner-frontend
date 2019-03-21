@@ -8,24 +8,22 @@ import React from 'react';
  */
 // Components
 import Header from 'src/components/Header';
+import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
-import Form from './form';
 
-// Style
-import './signup.scss';
 
 /**
  * Code
  */
-const Signup = () => (
-  <>
+const Home = () => (
+  <div id="home">
     <Header />
-    <Form />
+    <Main />
     <Footer />
-  </>
+  </div>
 );
 
 /**
  * Export
  */
-export default Signup;
+export default Home;

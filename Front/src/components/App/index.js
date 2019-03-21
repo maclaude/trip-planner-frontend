@@ -2,23 +2,24 @@
  * NPM import
  */
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 /**
  * Local import
  */
 // Components
-import Header from 'src/components/Header';
-import Main from 'src/components/Main';
-import Footer from 'src/components/Footer';
+import Home from 'src/components/Home';
 import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
-import Navbar from 'src/components/Navbar';
-import NavbarProject from 'src/components/Navbar_project';
-import NavbarUser from 'src/components/Navbar_user';
-import MyProjects from 'src/components/MyProjects';
-import NewProject from 'src/components/NewProject';
-import ProjectDetails from 'src/components/ProjectDetails';
-import Availability from 'src/components/Availability';
+import NotFound from 'src/components/NotFound';
+
+// import Navbar from 'src/components/Navbar';
+// import NavbarProject from 'src/components/Navbar_project';
+// import NavbarUser from 'src/components/Navbar_user';
+// import MyProjects from 'src/components/MyProjects';
+// import NewProject from 'src/components/NewProject';
+// import ProjectDetails from 'src/components/ProjectDetails';
+// import Availability from 'src/components/Availability';
 
 // Style
 import './app.scss';
@@ -28,17 +29,21 @@ import './app.scss';
  */
 const App = () => (
   <div id="app">
-    <Header />
-    <Signup />
-    {/* <Main /> */}
-    <Footer />
-    {/* <Navbar /> */}
-    {/* <NavbarProject /> */}
-    {/* <NavbarUser /> */}
-    {/* <ProjectDetails /> */}
-    {/* <MyProjects /> */}
-    {/* <NewProject /> */}
-    {/* <Availability /> */}
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      {/* Fallback - gestion de 404 */}
+      <Route component={NotFound} />
+    </Switch>
+
+    {/* <Navbar />
+    <NavbarProject />
+    <NavbarUser />
+    <ProjectDetails />
+    <MyProjects />
+    <NewProject />
+    <Availability /> */}
 
   </div>
 );

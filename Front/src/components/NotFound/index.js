@@ -9,18 +9,20 @@ import React from 'react';
 // Components
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import Form from './form';
 
 // Style
-import './signup.scss';
+import './notfound.scss';
 
 /**
  * Code
  */
-const Signup = () => (
+const NotFound = () => (
   <>
     <Header />
-    <Form />
+    <div id="notFound">
+      <h1 id="notFound-title">Page non trouvée</h1>
+      <p id="notFound-code">404</p>
+    </div>
     <Footer />
   </>
 );
@@ -28,4 +30,4 @@ const Signup = () => (
 /**
  * Export
  */
-export default Signup;
+export default NotFound;
