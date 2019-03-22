@@ -2,7 +2,8 @@
  * NPM import
  */
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Image } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Local import
@@ -16,36 +17,71 @@ import './navbar_user.scss';
 const NavbarUser = () => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-username">
-      <a className="item"><Icon name="camera retro" />Username</a>
+      <Image id="avatar" src="src/assets/avatar/default.png" size="mini" circular />
     </div>
     <div id="navbar-main">
       <div id="new-project">
-        <a className="item"><Icon name="plus" /> Crée un nouveau projet</a>
+        <NavLink
+          to="/Nouveau-Projet"
+          className="item"
+        >
+          <Icon name="plus" /> Crée un nouveau projet
+        </NavLink>
       </div>
       <div id="projects">
-        <a className="item">Londres 2019</a>
+        <a className="item">New-York 2019</a>
       </div>
       <div id="projects-details">
         <div id="availability-navbar">
-          <a className="item">Définir ses disponibilités</a>
+          <NavLink
+            to="Disponibilites"
+            className="item"
+          >
+            Définir ses disponibilités
+          </NavLink>
         </div>
-        <div id="idea">
-          <a className="item">Idées du groupe</a>
+        <div id="Idées">
+          <NavLink
+            to="idea"
+            className="item"
+          >
+            Idées du groupe
+          </NavLink>
         </div>
         <div id="summary">
-          <a className="item">Récapitulatif</a>
+          <NavLink
+            to="Récapitulatif"
+            className="item"
+          >
+            Récapitulatif
+          </NavLink>
         </div>
         <div id="chat">
-          <a className="item">Espace de discussion</a>
+          <NavLink
+            to="Chat"
+            className="item"
+          >
+            Espace de discussion
+          </NavLink>
         </div>
       </div>
     </div>
     <div id="navbar-footer">
       <div id="modification">
-        <a className="item"><Icon name="cog" /> Modifier mon profil </a>
+        <NavLink
+          to="Profil"
+          className="item"
+        >
+          <Icon name="cog" /> Modifier mon profil
+        </NavLink>
       </div>
       <div id="deconnexion">
-        <a className="item"><Icon name="sign-out" /> Deconnexion </a>
+        <NavLink
+          to="/"
+          className="item"
+        >
+          <Icon name="sign-out" /> Deconnexion
+        </NavLink>
       </div>
     </div>
   </div>

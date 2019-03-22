@@ -82,11 +82,11 @@
   
 }
 #newproject {
-  background: #E1E8EC;
-  color: #4C5175;
+  background: $background-main-color;
+  color: $font-color;
 }
 #newproject-button {
-  background-color: #BCE7D9;
-  color: #4C5175;
+  background-color: $button-color;
+  color: $font-color;
   width: 100%;
 }

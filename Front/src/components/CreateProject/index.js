@@ -2,26 +2,27 @@
  * NPM import
  */
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 /**
  * Local import
  */
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import Availability from 'src/components/Availability/Availability';
+import NewProject from './NewProject';
 
 
 /**
  * Code
  */
-const Availabilities = () => (
+const CreateProject = () => (
   <div>
     <NavbarUser />
-    <Availability />
+    <NewProject />
   </div>
 );
 
 /**
  * Export
  */
-export default Availabilities;
+export default CreateProject;
