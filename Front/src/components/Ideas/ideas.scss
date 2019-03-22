@@ -1,0 +1,33 @@
+@import 'src/styles/vars';
+
+#suggestions {
+  width: 80vw;
+  float: right;
+  height: 100vh;
+  padding: 2.5em;
+
+  &-banner {
+    margin: 0 2em 2em 2em;
+  }
+
+  &-form {
+    width: 60%;
+    margin: auto;
+
+    &-up {
+      display: flex;
+      justify-content: space-between;
+      padding: .8em 0;
+      margin-bottom: 1em;
+      border-bottom: 1px solid lightgray;
+
+      &-title {
+        font-size: 1.2em;
+      }
+    }
+
+    &-details {
+      width: 60%;
+    }
+  }
+}
