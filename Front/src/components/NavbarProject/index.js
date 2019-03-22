@@ -22,7 +22,7 @@ const NavbarProject = () => (
     <div id="navbar-project-main">
       <div id="new-project">
         <NavLink
-          to="/nouveauprojet"
+          to="/Nouveau-Projet"
           className="item"
         >
           <Icon name="plus" /> Crée un nouveau projet
@@ -30,7 +30,7 @@ const NavbarProject = () => (
       </div>
       <div id="projects">
         <NavLink
-          to="/mesprojets"
+          to="/Mes-projets"
           className="item"
         >
           <Icon name="chevron down" />Mes projets

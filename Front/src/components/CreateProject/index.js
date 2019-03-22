@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router-dom';
  * Local import
  */
 // Components
-import Navbar from 'src/components/Navbar';
+import NavbarUser from 'src/components/NavbarUser';
 import NewProject from './NewProject';
 
 
@@ -17,7 +17,7 @@ import NewProject from './NewProject';
  */
 const CreateProject = () => (
   <div>
-    <Navbar />
+    <NavbarUser />
     <NewProject />
   </div>
 );

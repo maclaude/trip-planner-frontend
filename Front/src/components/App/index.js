@@ -32,12 +32,11 @@ const App = () => (
       {/* <Route exact path="/login" component={Login} /> */}
       {/* Fallback - gestion de 404 */}
       {/* <Route component={NotFound} /> */}
+      <Route exact path="/Mes-projets" component={MyProjects} />
+      <Route exact path="/Nouveau-Projet" component={CreateProject} />
+      <Route exact path="/Disponibilites" component={Availabilities} />
+      <Route exact path="/Récapitulatif" component={MyProjectDetails} />
     </Switch>
-
-    {/* <CreateProject /> */}
-    {/* <Availabilities /> */}
-    <MyProjects />
-    {/* <MyProjectDetails /> */}
 
   </div>
 );
