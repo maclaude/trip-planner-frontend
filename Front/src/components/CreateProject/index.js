@@ -7,8 +7,8 @@ import React from 'react';
  * Local import
  */
 // Components
-import Navbar from 'src/components/CreateProject/Navbar';
-import NewProject from 'src/components/CreateProject/NewProject';
+import Navbar from 'src/components/Navbar';
+import NewProject from './NewProject.js';
 
 
 /**

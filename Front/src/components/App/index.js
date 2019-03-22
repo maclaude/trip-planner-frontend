@@ -34,10 +34,11 @@ const App = () => (
       {/* <Route component={NotFound} /> */}
     </Switch>
 
-    {/* <CreateProject /> */}
+    <CreateProject />
     {/* <Availabilities /> */}
     {/* <MyProjects /> */}
     {/* <MyProjectDetails /> */}
+
   </div>
 );
 
