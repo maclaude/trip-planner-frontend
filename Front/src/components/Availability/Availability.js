@@ -17,7 +17,7 @@ const Availability = () => (
     <div id="availability-banner">
       <h1>Définir mes disponibilités</h1>
     </div>
-    <div id="main">
+    <div id="avaibility-main">
       <div id="availability-content">
         <h2>Sélectionner ses disponibilités parmi les dates suivantes</h2>
       </div>

@@ -36,8 +36,12 @@ const NavbarProject = () => (
           <Icon name="chevron down" />Mes projets
         </NavLink>
         <div id="my_projects">
-          <a className="item">London</a>
-          <a className="item">New-York</a>
+          <NavLink
+            to="Récapitulatif"
+            className="item"
+          >
+            New-York
+          </NavLink>
         </div>
       </div>
     </div>

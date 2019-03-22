@@ -29,7 +29,7 @@ const NavbarUser = () => (
         </NavLink>
       </div>
       <div id="projects">
-        <a className="item">Londres 2019</a>
+        <a className="item">New-York 2019</a>
       </div>
       <div id="projects-details">
         <div id="availability-navbar">

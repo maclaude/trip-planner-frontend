@@ -4,7 +4,7 @@
   #projectDetails {
     width: 80vw;
     float: right;
-    // height: 100%;
+    height: 100vh;
     padding: 2em 5em;
     &-banner, &-header, #handle-date, #accomodation, #activity {
       margin-top: 3em;
@@ -35,14 +35,6 @@
     align-items: baseline;
     justify-content: space-between;
   }
-  #dates {
-    font-size: 1.5em;
-    border: solid 1px #4C5175;
-    background: #BCE7D9;
-    border-radius: 1em;
-    padding: 0.5em 1em;
-    font-weight: bold;
-  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
@@ -53,9 +45,16 @@
     padding: 2.5em;
     &-header,&-banner, #participants, #handle-date, #accomodation, #activity {
       margin-top: 2em;
+      text-align: center;
+    }
+    .ui.card.trip, .ui.card {
+      width: 50%;
+      margin: 1em auto;
     }
   }
-
+  #date-title {
+    margin-bottom: 1em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -66,10 +65,21 @@
     &-header, &-banner, #participants, #handle-date, #accomodation, #activity {
       margin-top: 2em;
     }
+    #date-title {
+      margin-bottom: 1em;
+    }
   }
   
 }
 #projectDetails {
-  background: #E1E8EC;
-  color: #4C5175;
+  background: $background-main-color;
+  color: $font-color;
+}
+#dates {
+  font-size: 1.5em;
+  border: solid 1px $font-color;
+  background: $button-color;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  font-weight: bold;
 }

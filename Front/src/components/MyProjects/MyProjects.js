@@ -4,6 +4,7 @@
 import React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { Formatizer } from 'formatizer';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Local import
@@ -41,13 +42,13 @@ const Projects = () => (
           <Image src="src/assets/images/homepage_img_down.jpg" />
           <Card.Content>
             <Card.Header>
-              San francisco
+            San francisco
             </Card.Header>
             <Card.Meta>
-              Date: 10/08/2019 au 25/09/2019
+            Date: 10/08/2019 au 25/09/2019
             </Card.Meta>
             <Card.Description>
-              Voyage a San Francisco
+            Voyage a San Francisco
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
