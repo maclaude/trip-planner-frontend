@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Local import
@@ -23,7 +24,12 @@ const Navbar = () => (
         <a className="item"><Icon name="plus" /> Crée un nouveau projet </a>
       </div>
       <div id="projects">
-        <a className="item"><Icon name="angle double right" />Mes projets </a>
+        <NavLink
+          to="/mesprojets"
+          className="item"
+        >
+          <Icon name="angle double right" />Mes projets
+        </NavLink>
       </div>
     </div>
     <div id="navbar-footer">

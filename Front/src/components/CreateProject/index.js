@@ -8,7 +8,7 @@ import React from 'react';
  */
 // Components
 import Navbar from 'src/components/Navbar';
-import NewProject from './NewProject.js';
+import NewProject from './NewProject';
 
 
 /**
