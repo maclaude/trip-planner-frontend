@@ -17,6 +17,7 @@ import Availabilities from 'src/components/Availability';
 import MyProjects from 'src/components/MyProjects';
 import MyProjectDetails from 'src/components/ProjectDetails';
 import UserProfil from 'src/components/UserProfil';
+import Ideas from 'src/components/Ideas';
 
 
 // Style
@@ -37,6 +38,7 @@ const App = () => (
       <Route exact path="/Nouveau-Projet" component={CreateProject} />
       <Route exact path="/Disponibilites" component={Availabilities} />
       <Route exact path="/Récapitulatif" component={MyProjectDetails} />
+      <Route exact path="/idées" component={Ideas} />
       <Route exact path="/Profil" component={UserProfil} />
     </Switch>
 

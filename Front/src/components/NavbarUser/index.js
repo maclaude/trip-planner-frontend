@@ -42,7 +42,7 @@ const NavbarUser = () => (
         </div>
         <div id="Idées">
           <NavLink
-            to="idea"
+            to="idées"
             className="item"
           >
             Idées du groupe
