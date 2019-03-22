@@ -8,7 +8,7 @@ import React from 'react';
  */
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import Availability from 'src/components/Availability/Availability.js';
+import Availability from 'src/components/Availability/Availability';
 
 
 /**

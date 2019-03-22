@@ -34,8 +34,8 @@ const App = () => (
       {/* <Route component={NotFound} /> */}
     </Switch>
 
-    <CreateProject />
-    {/* <Availabilities /> */}
+    {/* <CreateProject /> */}
+    <Availabilities />
     {/* <MyProjects /> */}
     {/* <MyProjectDetails /> */}
 

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Local import
@@ -20,32 +21,67 @@ const NavbarUser = () => (
     </div>
     <div id="navbar-main">
       <div id="new-project">
-        <a className="item"><Icon name="plus" /> Crée un nouveau projet</a>
+        <NavLink
+          to="/nouveauprojet"
+          className="item"
+        >
+          <Icon name="plus" /> Crée un nouveau projet
+        </NavLink>
       </div>
       <div id="projects">
         <a className="item">Londres 2019</a>
       </div>
       <div id="projects-details">
         <div id="availability-navbar">
-          <a className="item">Définir ses disponibilités</a>
+          <NavLink
+            to="Availability"
+            className="item"
+          >
+            Définir ses disponibilités
+          </NavLink>
         </div>
         <div id="idea">
-          <a className="item">Idées du groupe</a>
+          <NavLink
+            to="idea"
+            className="item"
+          >
+            Idées du groupe
+          </NavLink>
         </div>
         <div id="summary">
-          <a className="item">Récapitulatif</a>
+          <NavLink
+            to="Récapitulatif"
+            className="item"
+          >
+            Récapitulatif
+          </NavLink>
         </div>
         <div id="chat">
-          <a className="item">Espace de discussion</a>
+          <NavLink
+            to="Chat"
+            className="item"
+          >
+            Espace de discussion
+          </NavLink>
         </div>
       </div>
     </div>
     <div id="navbar-footer">
       <div id="modification">
-        <a className="item"><Icon name="cog" /> Modifier mon profil </a>
+        <NavLink
+          to="Profil"
+          className="item"
+        >
+          <Icon name="cog" /> Modifier mon profil
+        </NavLink>
       </div>
       <div id="deconnexion">
-        <a className="item"><Icon name="sign-out" /> Deconnexion </a>
+        <NavLink
+          to="/"
+          className="item"
+        >
+          <Icon name="sign-out" /> Deconnexion
+        </NavLink>
       </div>
     </div>
   </div>

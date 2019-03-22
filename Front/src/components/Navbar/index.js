@@ -21,7 +21,12 @@ const Navbar = () => (
     </div>
     <div id="navbar-main">
       <div id="new-project">
-        <a className="item"><Icon name="plus" /> Crée un nouveau projet </a>
+        <NavLink
+          to="/nouveauprojet"
+          className="item"
+        >
+          <Icon name="plus" /> Crée un nouveau projet
+        </NavLink>
       </div>
       <div id="projects">
         <NavLink
