@@ -21,7 +21,7 @@ const ProjectDetails = () => (
       <div id="destination">
         <h2>Destination</h2>
         <div id="project-card">
-          <Card>
+          <Card className="trip">
             <Image src="src/assets/images/new-york.jpg" />
             <Card.Content>
               <Card.Header>
@@ -65,8 +65,12 @@ const ProjectDetails = () => (
       </div>
     </div>
     <div id="handle-date">
-      <h2>Date retenue</h2>
-      <h3>10/07/2019 au 25/07/2019</h3>
+      <div id="date-title">
+        <h2>Date retenue</h2>
+      </div>
+      <div id="dates">
+        <p>10/07/2019 au 25/07/2019</p>
+      </div>
     </div>
     <div id="accomodation">
       <h2>Hebergement</h2>

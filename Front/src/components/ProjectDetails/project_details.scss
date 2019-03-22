@@ -4,10 +4,10 @@
   #projectDetails {
     width: 80vw;
     float: right;
-    height: 100vh;
-    padding: 2.5em;
+    // height: 100%;
+    padding: 2em 5em;
     &-banner, &-header, #handle-date, #accomodation, #activity {
-      margin-top: 2em;
+      margin-top: 3em;
     }
     &-header {
       display: flex;
@@ -19,8 +19,29 @@
   }
   #participants-card {
     display: flex;
-    flex-wrap: wrap;
-    margin: 2em;
+  }
+  .ui.card {
+    width: 20%;
+    height: 50%;
+    margin: 0 2em 0 0;
+  }
+  .ui.card.trip {
+    width: 50%;
+    height: 50%;
+  }
+  #handle-date {
+    width: 70%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  #dates {
+    font-size: 1.5em;
+    border: solid 1px #4C5175;
+    background: #BCE7D9;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    font-weight: bold;
   }
 }
 
@@ -51,8 +72,4 @@
 #projectDetails {
   background: #E1E8EC;
   color: #4C5175;
-}
-img {
-  max-width: 300;
-  max-height: 190;
 }

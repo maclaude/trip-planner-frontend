@@ -9,6 +9,7 @@ import React from 'react';
 // Components
 import NavbarProject from 'src/components/NavbarProject';
 import ProjectDetails from './ProjectDetails';
+import './project_details.scss';
 
 
 /**

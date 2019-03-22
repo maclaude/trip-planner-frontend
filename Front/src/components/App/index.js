@@ -27,9 +27,9 @@ import './app.scss';
 const App = () => (
   <div id="app">
     <Switch>
-      {/* <Route exact path="/" component={Home} /> */}
-      {/* <Route exact path="/signup" component={Signup} /> */}
-      {/* <Route exact path="/login" component={Login} /> */}
+      <Route exact path="/" component={Home} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
       {/* Fallback - gestion de 404 */}
       {/* <Route component={NotFound} /> */}
       <Route exact path="/Mes-projets" component={MyProjects} />
