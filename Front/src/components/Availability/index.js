@@ -14,7 +14,7 @@ import Availability from 'src/components/Availability/Availability.js';
 /**
  * Code
  */
-const CreateProject = () => (
+const Availabilities = () => (
   <div>
     <NavbarUser />
     <Availability />
@@ -24,4 +24,4 @@ const CreateProject = () => (
 /**
  * Export
  */
-export default CreateProject;
+export default Availabilities;

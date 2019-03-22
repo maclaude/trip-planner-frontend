@@ -13,12 +13,10 @@ import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
 import NotFound from 'src/components/NotFound';
 import CreateProject from 'src/components/CreateProject';
-
-// import NavbarProject from 'src/components/Navbar_project';
-// import NavbarUser from 'src/components/NavbarUser';
-// import MyProjects from 'src/components/MyProjects';
-// import ProjectDetails from 'src/components/ProjectDetails';
 import Availabilities from 'src/components/Availability';
+import MyProjects from 'src/components/MyProjects';
+import MyProjectDetails from 'src/components/ProjectDetails';
+
 
 // Style
 import './app.scss';
@@ -37,12 +35,9 @@ const App = () => (
     </Switch>
 
     {/* <CreateProject /> */}
-
-    {/* <NavbarProject /> */}
-    {/* <ProjectDetails /> */}
+    {/* <Availabilities /> */}
     {/* <MyProjects /> */}
-    <Availabilities />
-
+    {/* <MyProjectDetails /> */}
   </div>
 );
 
