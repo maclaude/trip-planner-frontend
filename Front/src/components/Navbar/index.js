@@ -39,10 +39,20 @@ const Navbar = () => (
     </div>
     <div id="navbar-footer">
       <div id="modification">
-        <a className="item"><Icon name="cog" /> Modifier mon profil </a>
+        <NavLink
+          to="Profil"
+          className="item"
+        >
+          <Icon name="cog" /> Modifier mon profil
+        </NavLink>
       </div>
       <div id="deconnexion">
-        <a className="item"><Icon name="sign-out" /> Deconnexion </a>
+        <NavLink
+          to="/"
+          className="item"
+        >
+          <Icon name="sign-out" /> Deconnexion
+        </NavLink>
       </div>
     </div>
   </div>

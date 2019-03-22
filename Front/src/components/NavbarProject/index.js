@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Local import
@@ -20,10 +21,20 @@ const NavbarProject = () => (
     </div>
     <div id="navbar-project-main">
       <div id="new-project">
-        <a className="item"><Icon name="plus" />Crée un nouveau projet </a>
+        <NavLink
+          to="/nouveauprojet"
+          className="item"
+        >
+          <Icon name="plus" /> Crée un nouveau projet
+        </NavLink>
       </div>
       <div id="projects">
-        <a className="item"><Icon name="chevron down" />Mes projets </a>
+        <NavLink
+          to="/mesprojets"
+          className="item"
+        >
+          <Icon name="chevron down" />Mes projets
+        </NavLink>
         <div id="my_projects">
           <a className="item">London</a>
           <a className="item">New-York</a>
@@ -32,10 +43,21 @@ const NavbarProject = () => (
     </div>
     <div id="navbar-project-footer">
       <div id="modification">
-        <a className="item"><Icon name="cog" /> Modifier mon profil </a>
+        <NavLink
+          to="Profil"
+          className="item"
+        >
+          <Icon name="cog" /> Modifier mon profil
+        </NavLink>
       </div>
       <div id="deconnexion">
-        <a className="item"><Icon name="sign-out" /> Deconnexion </a>
+        <NavLink
+          to="/"
+          className="item"
+          exact
+        >
+          <Icon name="sign-out" /> Deconnexion
+        </NavLink>
       </div>
     </div>
   </div>

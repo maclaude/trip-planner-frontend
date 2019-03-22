@@ -35,8 +35,8 @@ const App = () => (
     </Switch>
 
     {/* <CreateProject /> */}
-    <Availabilities />
-    {/* <MyProjects /> */}
+    {/* <Availabilities /> */}
+    <MyProjects />
     {/* <MyProjectDetails /> */}
 
   </div>
