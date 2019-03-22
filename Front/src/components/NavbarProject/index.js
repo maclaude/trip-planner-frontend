@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Image } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /**
@@ -17,7 +17,7 @@ import './navbar_project.scss';
 const NavbarProject = () => (
   <div id="navbar-project" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-project-username">
-      <a className="item"><Icon name="camera retro" />Username</a>
+      <Image id="avatar" src="src/assets/avatar/default.png" size="mini" circular />
     </div>
     <div id="navbar-project-main">
       <div id="new-project">
