@@ -64,8 +64,6 @@ class SignupForm extends React.Component {
       termsChecked,
     );
 
-    showErrors(errors);
-
     if (
       (firstname && lastname && email !== '')
       && password === confirmedPassword
@@ -74,6 +72,9 @@ class SignupForm extends React.Component {
       // eslint-disable-next-line no-console
       console.log('Signup :: handleSubmit');
       addNewUser();
+    }
+    else {
+      showErrors(errors);
     }
   }
 
@@ -192,7 +193,8 @@ class SignupForm extends React.Component {
                 </Button.Content>
               </Button>
             </NavLink>
-            <Button type="submit" animated color="green">
+
+            <Button animated color="green" onClick={this.handleSubmit}>
               <Button.Content visible>S'inscrire</Button.Content>
               <Button.Content hidden>
                 <Icon name="angle double right" />

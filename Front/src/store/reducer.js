@@ -17,7 +17,7 @@ const initialState = {
 const CHANGE_INPUT = 'CHANGE_INPUT';
 const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
 const SHOW_ERRORS = 'SHOW_ERRORS';
-const ADD_NEW_USER = 'ADD_NEW_USER';
+export const ADD_NEW_USER = 'ADD_NEW_USER';
 
 /**
  * Reducer
@@ -46,14 +46,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case ADD_NEW_USER: {
-      // Création de l'objet newUser
-      const newUser = {
-        firstname: state.firstname,
-        lastname: state.lastname,
-        email: state.email,
-        password: state.password,
-      };
-
       return {
         ...state,
         firstname: '',
@@ -62,7 +54,6 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         confirmedPassword: '',
         termsChecked: false,
-        newUser,
       };
     }
 
