@@ -13,6 +13,8 @@ import {
 /**
  * Local import
  */
+// Utils
+import getLoginFormErrors from 'src/utils/login_form_errors';
 
 /**
  * Code
@@ -44,9 +46,13 @@ class LoginForm extends React.Component {
 
     const { email, password } = this.state;
 
-    const { manageErrors } = this;
     // Gestion des erreurs
-    manageErrors();
+    const errors = getLoginFormErrors(email, password);
+
+    this.setState({
+      errors,
+      password: '',
+    });
 
     // Création de l'objet user
     const user = {
@@ -54,10 +60,7 @@ class LoginForm extends React.Component {
       password,
     };
 
-    if (
-      user !== ''
-      && password !== ''
-    ) {
+    if (email && password !== '') {
       console.log('Login :: handleSubmit');
       console.log(user);
 
@@ -71,30 +74,6 @@ class LoginForm extends React.Component {
         password: '',
       });
     }
-  }
-
-  /**
-   * Actions
-   */
-  manageErrors = () => {
-    const { email, password } = this.state;
-
-    const errors = [];
-
-    // Ecriture des différentes erreurs
-    if (email === '') {
-      const error = 'Le champ email doit être rempli';
-      errors.push(error);
-    }
-
-    if (password === '') {
-      const error = 'Le champ password doit être rempli';
-      errors.push(error);
-    }
-
-    this.setState({
-      errors,
-    });
   }
 
   /**
