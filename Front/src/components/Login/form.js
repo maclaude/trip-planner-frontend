@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -152,16 +153,21 @@ class LoginForm extends React.Component {
         )}
 
         <div id="login-form-buttons">
-          <Button
-            animated
-            color="green"
-            type="submit"
+          <NavLink
+            to="/profil"
+            exact
           >
-            <Button.Content visible>Connexion</Button.Content>
-            <Button.Content hidden>
-              <Icon name="angle double right" />
-            </Button.Content>
-          </Button>
+            <Button
+              animated
+              color="green"
+              type="submit"
+            >
+              <Button.Content visible>Connexion</Button.Content>
+              <Button.Content hidden>
+                <Icon name="angle double right" />
+              </Button.Content>
+            </Button>
+          </NavLink>
         </div>
       </Form>
     );

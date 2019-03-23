@@ -22,18 +22,20 @@ const NavbarProject = () => (
     <div id="navbar-project-main">
       <div id="new-project">
         <NavLink
-          to="/Nouveau-Projet"
+          to="/nouveau-projet"
           className="item"
         >
-          <Icon name="plus" /> Crée un nouveau projet
+          <Icon name="plus" />
+            Créer un nouveau projet
         </NavLink>
       </div>
       <div id="projects">
         <NavLink
-          to="/Mes-projets"
+          to="/mes-projets"
           className="item"
         >
-          <Icon name="chevron down" />Mes projets
+          <Icon name="chevron down" />
+            Mes projets
         </NavLink>
         <div id="my_projects">
           <NavLink
@@ -51,7 +53,8 @@ const NavbarProject = () => (
           to="Profil"
           className="item"
         >
-          <Icon name="cog" /> Modifier mon profil
+          <Icon name="cog" />
+            Modifier mon profil
         </NavLink>
       </div>
       <div id="deconnexion">
@@ -60,7 +63,8 @@ const NavbarProject = () => (
           className="item"
           exact
         >
-          <Icon name="sign-out" /> Deconnexion
+          <Icon name="sign-out" />
+            Déconnexion
         </NavLink>
       </div>
     </div>

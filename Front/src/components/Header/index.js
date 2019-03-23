@@ -23,13 +23,13 @@ const Header = () => (
     </NavLink>
     <nav className="nav">
       <NavLink
-        to="/signup"
+        to="/inscription"
         className="nav-link"
       >
         Sign-up
       </NavLink>
       <NavLink
-        to="/login"
+        to="/connexion"
         className="nav-link"
       >
       Login

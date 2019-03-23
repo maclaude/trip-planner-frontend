@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 /**
  * Local import
  */
-// Components
+// Views
 import Home from 'src/components/Home';
 import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
@@ -30,16 +30,17 @@ const App = () => (
   <div id="app">
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/signup" component={Signup} />
-      <Route exact path="/login" component={Login} />
-      {/* Fallback - gestion de 404 */}
-      {/* <Route component={NotFound} /> */}
-      <Route exact path="/Mes-projets" component={MyProjects} />
-      <Route exact path="/Nouveau-Projet" component={CreateProject} />
-      <Route exact path="/Disponibilites" component={Availabilities} />
-      <Route exact path="/Récapitulatif" component={MyProjectDetails} />
+      <Route exact path="/inscription" component={Signup} />
+      <Route exact path="/connexion" component={Login} />
+      <Route exact path="/mes-projets" component={MyProjects} />
+      <Route exact path="/nouveau-projet" component={CreateProject} />
+      <Route exact path="/disponibilites" component={Availabilities} />
+      <Route exact path="/recapitulatif" component={MyProjectDetails} />
       <Route exact path="/idées" component={Ideas} />
-      <Route exact path="/Profil" component={UserProfil} />
+      <Route exact path="/profil" component={UserProfil} />
+
+      {/* Fallback - gestion de 404 */}
+      <Route component={NotFound} />
     </Switch>
 
   </div>

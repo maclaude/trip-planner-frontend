@@ -22,10 +22,11 @@ const NavbarUser = () => (
     <div id="navbar-main">
       <div id="new-project">
         <NavLink
-          to="/Nouveau-Projet"
+          to="/nouveau-projet"
           className="item"
         >
-          <Icon name="plus" /> Crée un nouveau projet
+          <Icon name="plus" />
+            Créer un nouveau projet
         </NavLink>
       </div>
       <div id="projects">
@@ -34,7 +35,7 @@ const NavbarUser = () => (
       <div id="projects-details">
         <div id="availability-navbar">
           <NavLink
-            to="Disponibilites"
+            to="disponibilites"
             className="item"
           >
             Définir ses disponibilités
@@ -42,7 +43,7 @@ const NavbarUser = () => (
         </div>
         <div id="Idées">
           <NavLink
-            to="idées"
+            to="idees"
             className="item"
           >
             Idées du groupe
@@ -50,7 +51,7 @@ const NavbarUser = () => (
         </div>
         <div id="summary">
           <NavLink
-            to="Récapitulatif"
+            to="recapitulatif"
             className="item"
           >
             Récapitulatif
@@ -58,7 +59,7 @@ const NavbarUser = () => (
         </div>
         <div id="chat">
           <NavLink
-            to="Chat"
+            to="chat"
             className="item"
           >
             Espace de discussion
@@ -72,7 +73,8 @@ const NavbarUser = () => (
           to="Profil"
           className="item"
         >
-          <Icon name="cog" /> Modifier mon profil
+          <Icon name="cog" />
+            Modifier mon profil
         </NavLink>
       </div>
       <div id="deconnexion">
@@ -80,7 +82,8 @@ const NavbarUser = () => (
           to="/"
           className="item"
         >
-          <Icon name="sign-out" /> Deconnexion
+          <Icon name="sign-out" />
+            Déconnexion
         </NavLink>
       </div>
     </div>
