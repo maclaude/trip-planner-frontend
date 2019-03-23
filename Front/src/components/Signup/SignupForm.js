@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {
   Button,
@@ -21,37 +21,23 @@ import getSignupFormErrors from 'src/utils/signup_form_errors';
 /**
  * Code
  */
-class Signup extends React.Component {
-  /**
-   * Local state
-   */
-  state = {
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    confirmedPassword: '',
-    termsChecked: false,
-    errors: [],
-  };
-
+class SignupForm extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt, data) => {
+  handleChange = (evt) => {
     const { name, value } = evt.target;
 
-    // J'enregistre la valeur de l'input dans le state
-    this.setState({
-      [name]: value,
-    });
+    const { changeInput } = this.props;
+
+    changeInput(name, value);
+  }
+
+  handleClick = () => {
+    const { toogleTermsCheckbox } = this.props;
 
     // Gestion de termsCheked
-    if (data !== undefined) {
-      this.setState({
-        termsChecked: data.checked,
-      });
-    }
+    toogleTermsCheckbox();
   }
 
   handleSubmit = (evt) => {
@@ -64,7 +50,9 @@ class Signup extends React.Component {
       password,
       confirmedPassword,
       termsChecked,
-    } = this.state;
+      showErrors,
+      addNewUser,
+    } = this.props;
 
     // Gestion des erreurs
     const errors = getSignupFormErrors(
@@ -76,47 +64,16 @@ class Signup extends React.Component {
       termsChecked,
     );
 
-    this.setState({
-      errors,
-      password: '',
-      confirmedPassword: '',
-      termsChecked: false,
-    });
-
-    // Création du nouvel utilisateur
-    const newUser = {
-      firstname,
-      lastname,
-      email,
-      password,
-    };
+    showErrors(errors);
 
     if (
       (firstname && lastname && email !== '')
       && password === confirmedPassword
       && termsChecked
     ) {
+      // eslint-disable-next-line no-console
       console.log('Signup :: handleSubmit');
-      console.log(newUser);
-
-      // @TODO Action de création d'un nouvel utilisateur
-      // Object newUser à envoyer en POST via axios à la bdd
-
-      // Requête axios
-      axios.post('url', newUser)
-        // Succès
-        .then(() => console.log('Requête effectuée avec succès'))
-        // Échec
-        .catch(() => console.error('Echec de la requête'));
-
-      this.setState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-        confirmedPassword: '',
-        errors: [],
-      });
+      addNewUser();
     }
   }
 
@@ -132,7 +89,7 @@ class Signup extends React.Component {
       confirmedPassword,
       termsChecked,
       errors,
-    } = this.state;
+    } = this.props;
 
     return (
       <div id="signup">
@@ -207,7 +164,7 @@ class Signup extends React.Component {
             <Checkbox
               label="J'accepte les termes et conditions"
               checked={termsChecked}
-              onClick={this.handleChange}
+              onClick={this.handleClick}
             />
           </Form.Field>
 
@@ -248,8 +205,23 @@ class Signup extends React.Component {
   }
 }
 
+// PropTypes validation
+SignupForm.propTypes = {
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmedPassword: PropTypes.string.isRequired,
+  termsChecked: PropTypes.bool.isRequired,
+  errors: PropTypes.array.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  toogleTermsCheckbox: PropTypes.func.isRequired,
+  showErrors: PropTypes.func.isRequired,
+  addNewUser: PropTypes.func.isRequired,
+};
+
 
 /**
  * Export
  */
-export default Signup;
+export default SignupForm;

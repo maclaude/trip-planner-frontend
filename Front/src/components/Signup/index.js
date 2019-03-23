@@ -9,7 +9,7 @@ import React from 'react';
 // Components
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import Form from './form';
+import SignupForm from 'src/containers/Signup/SignupForm';
 
 // Style
 import './signup.scss';
@@ -20,7 +20,7 @@ import './signup.scss';
 const Signup = () => (
   <>
     <Header />
-    <Form />
+    <SignupForm />
     <Footer />
   </>
 );
