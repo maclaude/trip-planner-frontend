@@ -21,7 +21,7 @@
     &-checkbox {
       margin-bottom: 2em;
     }
-    &-button {
+    &-buttons {
       display: flex;
       flex-direction: column;
     }
@@ -34,7 +34,8 @@
       border-radius: 1em;
     }
   }
-  button {
+  
+  .availability-button {
     margin: 2em auto;
     padding: 1em;
     width: 35%;
