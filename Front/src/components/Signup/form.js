@@ -15,6 +15,8 @@ import {
 /**
  * Local import
  */
+// Utils
+import getSignupFormErrors from 'src/utils/signup_form_errors';
 
 /**
  * Code
@@ -64,9 +66,22 @@ class Signup extends React.Component {
       termsChecked,
     } = this.state;
 
-    const { manageErrors } = this;
     // Gestion des erreurs
-    manageErrors();
+    const errors = getSignupFormErrors(
+      firstname,
+      lastname,
+      email,
+      password,
+      confirmedPassword,
+      termsChecked,
+    );
+
+    this.setState({
+      errors,
+      password: '',
+      confirmedPassword: '',
+      termsChecked: false,
+    });
 
     // Création du nouvel utilisateur
     const newUser = {
@@ -77,7 +92,7 @@ class Signup extends React.Component {
     };
 
     if (
-      email.length > 0
+      (firstname && lastname && email !== '')
       && password === confirmedPassword
       && termsChecked
     ) {
@@ -103,66 +118,6 @@ class Signup extends React.Component {
         errors: [],
       });
     }
-  }
-
-  /**
-   * Actions
-   */
-  manageErrors = () => {
-    const {
-      firstname,
-      lastname,
-      email,
-      password,
-      confirmedPassword,
-      termsChecked,
-    } = this.state;
-
-    const errors = [];
-
-    // Ecriture des différentes erreurs
-    if (firstname === '') {
-      const error = 'Le champ Prénom doit être rempli';
-      errors.push(error);
-    }
-
-    if (lastname === '') {
-      const error = 'Le champ Nom doit être rempli';
-      errors.push(error);
-    }
-
-    if (email === '') {
-      const error = 'Le champ Email doit être rempli';
-      errors.push(error);
-    }
-
-    if (password.length < 8) {
-      const error = 'Le mot de passe doit contenir au moins 8 caractères';
-      errors.push(error);
-
-      this.setState({
-        password: '',
-        confirmedPassword: '',
-      });
-    }
-
-    if (password !== confirmedPassword) {
-      const error = 'Les mots de passe ne sont pas identiques';
-      errors.push(error);
-
-      this.setState({
-        password: '',
-        confirmedPassword: '',
-      });
-    }
-    if (!termsChecked) {
-      const error = 'Vous devez accepter les termes et conditions du site';
-      errors.push(error);
-    }
-
-    this.setState({
-      errors,
-    });
   }
 
   /**
@@ -270,7 +225,7 @@ class Signup extends React.Component {
 
           <div id="signup-form-buttons">
             <NavLink
-              to="/login"
+              to="/connexion"
               exact
             >
               <Button animated="vertical">
