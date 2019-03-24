@@ -8,7 +8,7 @@ import React from 'react';
  */
 // Components
 import NavabarUser from 'src/components/Navbar';
-import Suggestions from './suggestions';
+import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
 
 // Styles
 import './ideas.scss';
@@ -19,7 +19,7 @@ import './ideas.scss';
 const Ideas = () => (
   <div id="ideas">
     <NavabarUser />
-    <Suggestions />
+    <SuggestionForm />
   </div>
 );
 

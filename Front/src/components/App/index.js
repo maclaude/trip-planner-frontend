@@ -36,7 +36,7 @@ const App = () => (
       <Route exact path="/nouveau-projet" component={CreateProject} />
       <Route exact path="/disponibilites" component={Availabilities} />
       <Route exact path="/recapitulatif" component={MyProjectDetails} />
-      <Route exact path="/idées" component={Ideas} />
+      <Route exact path="/idees" component={Ideas} />
       <Route exact path="/profil" component={UserProfil} />
 
       {/* Fallback - gestion de 404 */}

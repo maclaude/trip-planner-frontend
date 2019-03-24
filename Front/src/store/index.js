@@ -14,6 +14,7 @@ import {
 // Reducers
 import signup from 'src/store/reducers/signup';
 import login from 'src/store/reducers/login';
+import ideas from 'src/store/reducers/ideas';
 
 // Middleware
 import ajaxMiddleware from './middlewares/ajax';
@@ -31,6 +32,7 @@ const enhancers = composeEnhancers(
 const rootReducer = combineReducers({
   signup,
   login,
+  ideas,
 });
 
 /**
