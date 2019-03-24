@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import {
   Button,
   Checkbox,
@@ -70,7 +69,7 @@ class SignupForm extends React.Component {
       && termsChecked
     ) {
       // eslint-disable-next-line no-console
-      console.log('Signup :: handleSubmit');
+      console.log('SignupForm :: handleSubmit');
       addNewUser();
     }
     else {
@@ -182,19 +181,19 @@ class SignupForm extends React.Component {
           )}
 
           <div id="signup-form-buttons">
-            <NavLink
-              to="/connexion"
-              exact
-            >
-              <Button animated="vertical">
-                <Button.Content visible>J'ai déjà un compte</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="user" />
-                </Button.Content>
-              </Button>
-            </NavLink>
+            <Button animated="vertical">
+              <Button.Content visible>J'ai déjà un compte</Button.Content>
+              <Button.Content hidden>
+                <Icon name="user" />
+              </Button.Content>
+            </Button>
 
-            <Button animated color="green" onClick={this.handleSubmit}>
+            <Button
+              animated
+              color="green"
+              type="submit"
+              onClick={this.handleSubmit}
+            >
               <Button.Content visible>S'inscrire</Button.Content>
               <Button.Content hidden>
                 <Icon name="angle double right" />

@@ -8,8 +8,8 @@ import React from 'react';
  */
 // Components
 import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
 import SignupForm from 'src/containers/Signup/SignupForm';
+import Footer from 'src/components/Footer';
 
 // Style
 import './signup.scss';

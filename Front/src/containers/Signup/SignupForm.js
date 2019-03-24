@@ -10,36 +10,36 @@ import SignupForm from 'src/components/Signup/SignupForm';
 
 // Action Creators
 import {
-  changeInput,
+  changeSignupInputs,
   toogleTermsCheckbox,
-  showErrors,
+  showSignupErrors,
   addNewUser,
-} from 'src/store/reducer';
+} from 'src/store/reducers/signup';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  firstname: state.firstname,
-  lastname: state.lastname,
-  email: state.email,
-  password: state.password,
-  confirmedPassword: state.confirmedPassword,
-  termsChecked: state.termsChecked,
-  errors: state.errors,
+  firstname: state.signup.firstname,
+  lastname: state.signup.lastname,
+  email: state.signup.email,
+  password: state.signup.password,
+  confirmedPassword: state.signup.confirmedPassword,
+  termsChecked: state.signup.termsChecked,
+  errors: state.signup.errors,
 });
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
   changeInput: (name, value) => {
-    dispatch(changeInput(name, value));
+    dispatch(changeSignupInputs(name, value));
   },
   toogleTermsCheckbox: () => {
     dispatch(toogleTermsCheckbox());
   },
   showErrors: (errors) => {
-    dispatch(showErrors(errors));
+    dispatch(showSignupErrors(errors));
   },
   addNewUser: () => {
     dispatch(addNewUser());

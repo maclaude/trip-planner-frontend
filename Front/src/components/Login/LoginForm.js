@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button,
   Form,
@@ -21,58 +21,36 @@ import getLoginFormErrors from 'src/utils/login_form_errors';
  */
 class LoginForm extends React.Component {
   /**
-   * Local state
-   */
-  state = {
-    email: '',
-    password: '',
-    errors: [],
-  };
-
-  /**
    * Handlers
    */
   handleChange = (evt) => {
     const { name, value } = evt.target;
 
-    // J'enregistre la valeur de l'input dans le state
-    this.setState({
-      [name]: value,
-    });
+    const { changeInput } = this.props;
+
+    changeInput(name, value);
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
 
-    const { email, password } = this.state;
+    const {
+      email,
+      password,
+      showErrors,
+      connectUser,
+    } = this.props;
 
     // Gestion des erreurs
     const errors = getLoginFormErrors(email, password);
 
-    this.setState({
-      errors,
-      password: '',
-    });
-
-    // Création de l'objet user
-    const user = {
-      email,
-      password,
-    };
-
     if (email && password !== '') {
-      console.log('Login :: handleSubmit');
-      console.log(user);
-
-      // @TODO Action de comparaison de des données de l'utilisateur
-      // avec celles en base de donnée.
-      // Requête GET via axios à la bdd avec l'email en paramêtre.
-      // Si les données matchs -> return true -> connexion
-
-      this.setState({
-        email: '',
-        password: '',
-      });
+      // eslint-disable-next-line no-console
+      console.log('LoginForm :: handleSubmit');
+      connectUser();
+    }
+    else {
+      showErrors(errors);
     }
   }
 
@@ -84,7 +62,7 @@ class LoginForm extends React.Component {
       email,
       password,
       errors,
-    } = this.state;
+    } = this.props;
 
     return (
       <Form
@@ -132,26 +110,31 @@ class LoginForm extends React.Component {
         )}
 
         <div id="login-form-buttons">
-          <NavLink
-            to="/profil"
-            exact
+          <Button
+            animated
+            color="green"
+            type="submit"
           >
-            <Button
-              animated
-              color="green"
-              type="submit"
-            >
-              <Button.Content visible>Connexion</Button.Content>
-              <Button.Content hidden>
-                <Icon name="angle double right" />
-              </Button.Content>
-            </Button>
-          </NavLink>
+            <Button.Content visible>Connexion</Button.Content>
+            <Button.Content hidden>
+              <Icon name="angle double right" />
+            </Button.Content>
+          </Button>
         </div>
       </Form>
     );
   }
 }
+
+// PropTypes validation
+LoginForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  errors: PropTypes.array.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  showErrors: PropTypes.func.isRequired,
+  connectUser: PropTypes.func.isRequired,
+};
 
 /**
  * Export

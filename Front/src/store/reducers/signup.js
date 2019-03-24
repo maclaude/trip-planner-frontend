@@ -14,9 +14,9 @@ const initialState = {
 /**
  * Types
  */
-const CHANGE_INPUT = 'CHANGE_INPUT';
+const CHANGE_SIGNUP_INPUTS = 'CHANGE_SIGNUP_INPUTS';
 const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
-const SHOW_ERRORS = 'SHOW_ERRORS';
+const SHOW_SIGNUP_ERRORS = 'SHOW_SIGNUP_ERRORS';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 
 /**
@@ -24,7 +24,7 @@ export const ADD_NEW_USER = 'ADD_NEW_USER';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_INPUT:
+    case CHANGE_SIGNUP_INPUTS:
       return {
         ...state,
         [action.name]: action.value,
@@ -36,7 +36,7 @@ const reducer = (state = initialState, action = {}) => {
         termsChecked: !state.termsChecked,
       };
 
-    case SHOW_ERRORS:
+    case SHOW_SIGNUP_ERRORS:
       return {
         ...state,
         password: '',
@@ -65,8 +65,8 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const changeInput = (name, value) => ({
-  type: CHANGE_INPUT,
+export const changeSignupInputs = (name, value) => ({
+  type: CHANGE_SIGNUP_INPUTS,
   name,
   value,
 });
@@ -79,8 +79,8 @@ export const addNewUser = () => ({
   type: ADD_NEW_USER,
 });
 
-export const showErrors = errors => ({
-  type: SHOW_ERRORS,
+export const showSignupErrors = errors => ({
+  type: SHOW_SIGNUP_ERRORS,
   errors,
 });
 

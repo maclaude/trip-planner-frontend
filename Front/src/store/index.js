@@ -1,13 +1,19 @@
 /**
  * Npm import
  */
-import { createStore, applyMiddleware, compose } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers,
+} from 'redux';
 
 /**
  * Local import
  */
-// Reducer
-import reducer from 'src/store/reducer';
+// Reducers
+import signup from 'src/store/reducers/signup';
+import login from 'src/store/reducers/login';
 
 // Middleware
 import ajaxMiddleware from './middlewares/ajax';
@@ -22,12 +28,17 @@ const enhancers = composeEnhancers(
   applyMiddleware(ajaxMiddleware),
 );
 
+const rootReducer = combineReducers({
+  signup,
+  login,
+});
+
 /**
  * Store
  */
 // Store, configuré avec le reducer et les "enhancers"
 const store = createStore(
-  reducer,
+  rootReducer,
   enhancers,
 );
 
