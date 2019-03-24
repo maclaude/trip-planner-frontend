@@ -1,5 +1,5 @@
 /**
- * Utils; getSignupFormErrors
+ * Utils: getSignupFormErrors
  */
 const getSignupFormErrors = (
   firstname,

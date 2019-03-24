@@ -9,11 +9,14 @@ import {
   Icon,
   Input,
   FormField,
+  Message,
 } from 'semantic-ui-react';
 
 /**
  * Local import
  */
+// Utils
+import getSuggestionFormErrors from 'src/utils/suggestion_form_errors';
 
 /**
  * Code
@@ -45,10 +48,11 @@ class SuggestionForm extends React.Component {
       type,
       title,
       sendSuggestion,
+      showErrors,
     } = this.props;
 
     // Gestion des erreurs
-    // @TODO
+    const errors = getSuggestionFormErrors(type, title);
 
     if (type && title !== '') {
       // eslint-disable-next-line no-console
@@ -56,7 +60,7 @@ class SuggestionForm extends React.Component {
       sendSuggestion();
     }
     else {
-      // showErrors(errors);
+      showErrors(errors);
     }
   }
 
@@ -74,6 +78,7 @@ class SuggestionForm extends React.Component {
       description,
       link,
       price,
+      errors,
     } = this.props;
 
     return (
@@ -141,6 +146,19 @@ class SuggestionForm extends React.Component {
               />
             </FormField>
           </div>
+
+          {(errors.length > 0) && (
+            <div id="suggestions-form-errors">
+              {errors.map(error => (
+                <Message negative key={error}>
+                  <p>
+                    {error}
+                  </p>
+                </Message>
+              ))}
+            </div>
+          )}
+
           <Button
             animated
             basic
@@ -167,8 +185,10 @@ SuggestionForm.propTypes = {
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
+  errors: PropTypes.array.isRequired,
   changeInput: PropTypes.func.isRequired,
   changeType: PropTypes.func.isRequired,
+  showErrors: PropTypes.func.isRequired,
   sendSuggestion: PropTypes.func.isRequired,
 };
 

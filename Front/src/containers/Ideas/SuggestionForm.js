@@ -12,6 +12,7 @@ import suggestionForm from 'src/components/Ideas/suggestionForm';
 import {
   changeSuggestionInputs,
   changeSuggestionType,
+  showSuggestionErrors,
   sendSuggestion,
 } from 'src/store/reducers/ideas';
 
@@ -25,6 +26,7 @@ const mapStateToProps = state => ({
   description: state.ideas.description,
   link: state.ideas.link,
   price: state.ideas.price,
+  errors: state.ideas.errors,
 });
 
 // === Actions ===
@@ -34,6 +36,9 @@ const mapDispatchToProps = dispatch => ({
   },
   changeType: (value) => {
     dispatch(changeSuggestionType(value));
+  },
+  showErrors: (errors) => {
+    dispatch(showSuggestionErrors(errors));
   },
   sendSuggestion: () => {
     dispatch(sendSuggestion());

@@ -7,6 +7,7 @@ const initialState = {
   description: '',
   link: '',
   price: '',
+  errors: [],
 };
 
 /**
@@ -14,6 +15,7 @@ const initialState = {
  */
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
 const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
+const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
 export const SEND_SUGGESTION = 'SEND_SUGGESTION';
 
 /**
@@ -32,6 +34,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         type: action.value,
       };
+    
+    case SHOW_SUGGESTION_ERRORS:
+      return {
+        ...state,
+        errors: action.errors,
+      };
 
     case SEND_SUGGESTION:
       return {
@@ -40,6 +48,7 @@ const reducer = (state = initialState, action = {}) => {
         description: '',
         link: '',
         price: '',
+        errors: [],
       };
 
     default:
@@ -59,6 +68,11 @@ export const changeSuggestionInputs = (name, value) => ({
 export const changeSuggestionType = value => ({
   type: CHANGE_SUGGESTION_TYPE,
   value,
+});
+
+export const showSuggestionErrors = errors => ({
+  type: SHOW_SUGGESTION_ERRORS,
+  errors,
 });
 
 export const sendSuggestion = () => ({

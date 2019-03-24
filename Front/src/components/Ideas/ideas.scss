@@ -3,7 +3,7 @@
 #suggestions {
   width: 80vw;
   float: right;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2.5em;
   background: $background-main-color;
   color: $font-color;
@@ -26,6 +26,10 @@
       &-title {
         font-size: 1.2em;
       }
+    }
+
+    &-errors {
+      margin: 15px 0;
     }
 
     &-details {
