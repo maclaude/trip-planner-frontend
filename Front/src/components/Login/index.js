@@ -7,8 +7,8 @@ import React from 'react';
  * Local import
  */
 import Header from 'src/components/Header';
+import LoginForm from 'src/containers/Login/LoginForm';
 import Footer from 'src/components/Footer';
-import LoginForm from './form';
 
 // Style
 import './login.scss';

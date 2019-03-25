@@ -1,0 +1,52 @@
+@import 'src/styles/vars';
+
+#suggestions {
+  width: 80vw;
+  float: right;
+  min-height: 100vh;
+  padding: 2.5em;
+  background: $background-main-color;
+  color: $font-color;
+
+  &-banner {
+    margin: 0 2em 2em 2em;
+  }
+
+  &-form {
+    width: 60%;
+    margin: 0 auto 70px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      padding: .8em 0;
+      margin-bottom: 1em;
+      border-bottom: 1px solid lightgray;
+
+      &-title {
+        font-size: 1.2em;
+      }
+    }
+
+    &-details {
+      width: 60%;
+    }
+
+    &-errors {
+      margin: 15px 0;
+    }
+
+  }
+
+  &-ideas {
+    width: 80%;
+    margin: auto;
+
+    &-title {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin: 30px 0;
+      text-transform: uppercase;
+    }
+  }
+}

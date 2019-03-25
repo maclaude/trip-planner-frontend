@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Form,
@@ -12,88 +13,45 @@ import {
 /**
  * Local import
  */
+// Utils
+import getLoginFormErrors from 'src/utils/login_form_errors';
 
 /**
  * Code
  */
 class LoginForm extends React.Component {
   /**
-   * Local state
-   */
-  state = {
-    email: '',
-    password: '',
-    errors: [],
-  };
-
-  /**
    * Handlers
    */
   handleChange = (evt) => {
     const { name, value } = evt.target;
 
-    // J'enregistre la valeur de l'input dans le state
-    this.setState({
-      [name]: value,
-    });
+    const { changeInput } = this.props;
+
+    changeInput(name, value);
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
 
-    const { email, password } = this.state;
-
-    const { manageErrors } = this;
-    // Gestion des erreurs
-    manageErrors();
-
-    // Création de l'objet user
-    const user = {
+    const {
       email,
       password,
-    };
+      showErrors,
+      connectUser,
+    } = this.props;
 
-    if (
-      user !== ''
-      && password !== ''
-    ) {
-      console.log('Login :: handleSubmit');
-      console.log(user);
+    // Gestion des erreurs
+    const errors = getLoginFormErrors(email, password);
 
-      // @TODO Action de comparaison de des données de l'utilisateur
-      // avec celles en base de donnée.
-      // Requête GET via axios à la bdd avec l'email en paramêtre.
-      // Si les données matchs -> return true -> connexion
-
-      this.setState({
-        email: '',
-        password: '',
-      });
+    if (email && password !== '') {
+      // eslint-disable-next-line no-console
+      console.log('LoginForm :: handleSubmit');
+      connectUser();
     }
-  }
-
-  /**
-   * Actions
-   */
-  manageErrors = () => {
-    const { email, password } = this.state;
-
-    const errors = [];
-
-    // Ecriture des différentes erreurs
-    if (email === '') {
-      const error = 'Le champ email doit être rempli';
-      errors.push(error);
+    else {
+      showErrors(errors);
     }
-
-    if (password === '') {
-      const error = 'Le champ password doit être rempli';
-      errors.push(error);
-    }
-
-    this.setState({
-      errors,
-    });
   }
 
   /**
@@ -104,7 +62,7 @@ class LoginForm extends React.Component {
       email,
       password,
       errors,
-    } = this.state;
+    } = this.props;
 
     return (
       <Form
@@ -167,6 +125,16 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+// PropTypes validation
+LoginForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  errors: PropTypes.array.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  showErrors: PropTypes.func.isRequired,
+  connectUser: PropTypes.func.isRequired,
+};
 
 /**
  * Export
