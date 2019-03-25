@@ -2,6 +2,7 @@
  * NPM IMPORT
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Icon,
@@ -18,57 +19,123 @@ import './newproject.scss';
 /**
  * Code
  */
-const NewProject = () => (
-  <div id="newproject">
-    <div id="newproject-banner">
-      <h1>Créer un projet</h1>
-    </div>
-    <div id="newproject-container">
-      <Form id="newproject-form" action="">
-        <div id="newproject-title">
-          <p>Titre du projet</p>
-          <div className="input">
-            <Input placeholder="Donnez un nom a votre projet..." />
-          </div>
+class NewProject extends React.Component {
+  handleChange = (evt) => {
+    const { name, value } = evt.target;
+
+    const { changeInput } = this.props;
+
+    changeInput(name, value);
+  }
+
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+  };
+
+  render() {
+    const {
+      title,
+      description,
+      debutDates,
+      endDates,
+      destination,
+      participants,
+    } = this.props;
+
+    return (
+      <div id="newproject">
+        <div id="newproject-banner">
+          <h1>Créer un projet</h1>
         </div>
-        <div id="newproject-description">
-          <p>Description</p>
-          <div className="input">
-            <TextArea
-              id="description-input"
-              placeholder="Description du projet..."
-              rows="5"
-              cols="50"
-            />
-          </div>
+        <div id="newproject-container">
+          <Form
+            id="newproject-form"
+            action=""
+            onSubmit={this.handleSubmit}
+          >
+            <div id="newproject-title">
+              <p>Titre du projet</p>
+              <div className="input">
+                <Input
+                  placeholder="Donnez un nom a votre projet..."
+                  value={title}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div id="newproject-description">
+              <p>Description</p>
+              <div className="input">
+                <TextArea
+                  id="description-input"
+                  placeholder="Description du projet..."
+                  rows="5"
+                  cols="50"
+                  value={description}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div id="newproject-date">
+              <p>Suggérer des dates</p>
+              <Input
+                className="input-date"
+                type="date"
+                value={debutDates}
+                onChange={this.handleChange}
+              />
+              <Input
+                className="input-date"
+                type="date"
+                value={endDates}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div id="newproject-destination">
+              <p>Destination</p>
+              <div className="input">
+                <Input
+                  icon="world"
+                  placeholder="Définissez une destionation..."
+                  value={destination}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div id="newproject-participants">
+              <p>Ajouter des participants</p>
+              <div className="input">
+                <Input
+                  icon="users"
+                  placeholder="Pseudo du participant..."
+                  value={participants}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <Button animated id="newproject-button">
+              <Button.Content visible>Créer le projet</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+          </Form>
         </div>
-        <div id="newproject-date">
-          <p>Suggérer des dates</p>
-          <Input className="input-date" type="date" placeholder="Date de debut..." />
-          <Input className="input-date" type="date" placeholder="Date de fin..." />
-        </div>
-        <div id="newproject-destination">
-          <p>Destination</p>
-          <div className="input">
-            <Input icon="world" placeholder="Définissez une destionation..." />
-          </div>
-        </div>
-        <div id="newproject-participants">
-          <p>Ajouter des participants</p>
-          <div className="input">
-            <Input icon="users" placeholder="Pseudo du participant..." />
-          </div>
-        </div>
-        <Button animated id="newproject-button">
-          <Button.Content visible>Créer le projet</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow right" />
-          </Button.Content>
-        </Button>
-      </Form>
-    </div>
-  </div>
-);
+      </div>
+    );
+  }
+}
+
+// PropTypes validation
+NewProject.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  debutDates: PropTypes.string.isRequired,
+  endDates: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+  participants: PropTypes.array.isRequired,
+  changeInput: PropTypes.func.isRequired,
+};
 
 /**
  * Export
