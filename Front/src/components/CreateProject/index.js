@@ -9,7 +9,7 @@ import { Route, Switch } from 'react-router-dom';
  */
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import NewProject from './NewProject';
+import NewProject from 'src/containers/CreateProject/CreateProjectForm';
 
 
 /**

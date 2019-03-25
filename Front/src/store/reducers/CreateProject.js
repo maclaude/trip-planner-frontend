@@ -7,7 +7,7 @@ const initialState = {
   debutDates: '',
   endDates: '',
   destination: '',
-  participants: [],
+  participants: '',
 };
 
 /**

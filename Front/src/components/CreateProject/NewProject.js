@@ -20,17 +20,19 @@ import './newproject.scss';
  * Code
  */
 class NewProject extends React.Component {
+
   handleChange = (evt) => {
     const { name, value } = evt.target;
-
     const { changeInput } = this.props;
-
     changeInput(name, value);
+    console.log('changement de linput');
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
+    // console.log('formulaire sousmis');
   };
+
 
   render() {
     const {
@@ -57,6 +59,7 @@ class NewProject extends React.Component {
               <p>Titre du projet</p>
               <div className="input">
                 <Input
+                  name="title"
                   placeholder="Donnez un nom a votre projet..."
                   value={title}
                   onChange={this.handleChange}
@@ -67,6 +70,7 @@ class NewProject extends React.Component {
               <p>Description</p>
               <div className="input">
                 <TextArea
+                  name="description"
                   id="description-input"
                   placeholder="Description du projet..."
                   rows="5"
@@ -79,12 +83,14 @@ class NewProject extends React.Component {
             <div id="newproject-date">
               <p>Suggérer des dates</p>
               <Input
+                name="debutDates"
                 className="input-date"
                 type="date"
                 value={debutDates}
                 onChange={this.handleChange}
               />
               <Input
+                name="endDates"
                 className="input-date"
                 type="date"
                 value={endDates}
@@ -95,6 +101,7 @@ class NewProject extends React.Component {
               <p>Destination</p>
               <div className="input">
                 <Input
+                  name="destination"
                   icon="world"
                   placeholder="Définissez une destionation..."
                   value={destination}
@@ -106,6 +113,7 @@ class NewProject extends React.Component {
               <p>Ajouter des participants</p>
               <div className="input">
                 <Input
+                  name="participants"
                   icon="users"
                   placeholder="Pseudo du participant..."
                   value={participants}
