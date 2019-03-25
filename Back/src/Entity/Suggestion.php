@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\SuggestionRepository")
  */
 class Suggestion
@@ -19,7 +21,7 @@ class Suggestion
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      */
     private $name;
 
@@ -39,15 +41,16 @@ class Suggestion
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\VoteSuggestion", mappedBy="suggestion")
-     */
-    private $voteSuggestions;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
      */
     private $project;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\SuggestionGender", inversedBy="suggestions")
@@ -56,16 +59,14 @@ class Suggestion
     private $suggestionGender;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\VoteSuggestion", mappedBy="suggestion", orphanRemoval=true)
      */
-    private $user;
+    private $voteSuggestions;
 
     public function __construct()
     {
         $this->voteSuggestions = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -120,6 +121,42 @@ class Suggestion
         return $this;
     }
 
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getSuggestionGender(): ?SuggestionGender
+    {
+        return $this->suggestionGender;
+    }
+
+    public function setSuggestionGender(?SuggestionGender $suggestionGender): self
+    {
+        $this->suggestionGender = $suggestionGender;
+
+        return $this;
+    }
+
     /**
      * @return Collection|VoteSuggestion[]
      */
@@ -147,42 +184,6 @@ class Suggestion
                 $voteSuggestion->setSuggestion(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getProject(): ?Project
-    {
-        return $this->project;
-    }
-
-    public function setProject(?Project $project): self
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    public function getSuggestionGender(): ?SuggestionGender
-    {
-        return $this->suggestionGender;
-    }
-
-    public function setSuggestionGender(?SuggestionGender $suggestionGender): self
-    {
-        $this->suggestionGender = $suggestionGender;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

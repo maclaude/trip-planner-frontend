@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\RoleRepository")
  */
 class Role
@@ -19,17 +21,17 @@ class Role
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $code;
-
-    /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=30)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="role")
+     * @ORM\Column(type="string", length=30)
+     */
+    private $code;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="role", orphanRemoval=true)
      */
     private $users;
 
@@ -43,18 +45,6 @@ class Role
         return $this->id;
     }
 
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    public function setCode(string $code): self
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -63,6 +53,18 @@ class Role
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\SuggestionGenderRepository")
  */
 class SuggestionGender
@@ -24,7 +26,7 @@ class SuggestionGender
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="suggestionGender")
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="suggestionGender", orphanRemoval=true)
      */
     private $suggestions;
 

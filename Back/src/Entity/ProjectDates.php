@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ProjectDatesRepository")
  */
 class ProjectDates
@@ -21,15 +23,15 @@ class ProjectDates
     /**
      * @ORM\Column(type="date")
      */
-    private $start;
+    private $starDate;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $end;
+    private $endDate;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\VoteProjectDates", mappedBy="projectDates")
+     * @ORM\OneToMany(targetEntity="App\Entity\VoteProjectDates", mappedBy="projectDates", orphanRemoval=true)
      */
     private $voteProjectDates;
 
@@ -49,26 +51,26 @@ class ProjectDates
         return $this->id;
     }
 
-    public function getStart(): ?\DateTimeInterface
+    public function getStarDate(): ?\DateTimeInterface
     {
-        return $this->start;
+        return $this->starDate;
     }
 
-    public function setStart(\DateTimeInterface $start): self
+    public function setStarDate(\DateTimeInterface $starDate): self
     {
-        $this->start = $start;
+        $this->starDate = $starDate;
 
         return $this;
     }
 
-    public function getEnd(): ?\DateTimeInterface
+    public function getEndDate(): ?\DateTimeInterface
     {
-        return $this->end;
+        return $this->endDate;
     }
 
-    public function setEnd(\DateTimeInterface $end): self
+    public function setEndDate(\DateTimeInterface $endDate): self
     {
-        $this->end = $end;
+        $this->endDate = $endDate;
 
         return $this;
     }

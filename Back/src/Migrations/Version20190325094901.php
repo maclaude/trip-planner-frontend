@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190319110926 extends AbstractMigration
+final class Version20190325094901 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,11 +22,11 @@ final class Version20190319110926 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE user_message ADD user_id INT NOT NULL, ADD project_id INT NOT NULL');
-        $this->addSql('ALTER TABLE user_message ADD CONSTRAINT FK_EEB02E75A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
+        $this->addSql('ALTER TABLE user_message ADD project_id INT NOT NULL, ADD user_id INT NOT NULL');
         $this->addSql('ALTER TABLE user_message ADD CONSTRAINT FK_EEB02E75166D1F9C FOREIGN KEY (project_id) REFERENCES project (id)');
-        $this->addSql('CREATE INDEX IDX_EEB02E75A76ED395 ON user_message (user_id)');
+        $this->addSql('ALTER TABLE user_message ADD CONSTRAINT FK_EEB02E75A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_EEB02E75166D1F9C ON user_message (project_id)');
+        $this->addSql('CREATE INDEX IDX_EEB02E75A76ED395 ON user_message (user_id)');
     }
 
     public function down(Schema $schema) : void
@@ -34,10 +34,10 @@ final class Version20190319110926 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE user_message DROP FOREIGN KEY FK_EEB02E75A76ED395');
         $this->addSql('ALTER TABLE user_message DROP FOREIGN KEY FK_EEB02E75166D1F9C');
-        $this->addSql('DROP INDEX IDX_EEB02E75A76ED395 ON user_message');
+        $this->addSql('ALTER TABLE user_message DROP FOREIGN KEY FK_EEB02E75A76ED395');
         $this->addSql('DROP INDEX IDX_EEB02E75166D1F9C ON user_message');
-        $this->addSql('ALTER TABLE user_message DROP user_id, DROP project_id');
+        $this->addSql('DROP INDEX IDX_EEB02E75A76ED395 ON user_message');
+        $this->addSql('ALTER TABLE user_message DROP project_id, DROP user_id');
     }
 }

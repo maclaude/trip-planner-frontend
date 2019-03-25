@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
  */
 class Project
@@ -19,7 +21,7 @@ class Project
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      */
     private $title;
 
@@ -29,42 +31,42 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      */
     private $destination;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ProjectDates", mappedBy="project")
+     * @ORM\OneToMany(targetEntity="App\Entity\ProjectDates", mappedBy="project", orphanRemoval=true)
      */
     private $projectDates;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\UserMessage", mappedBy="project")
-     */
-    private $userMessages;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="project")
-     */
-    private $suggestions;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projects")
-     */
-    private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="projectsOwner")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projectsParticipation")
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserMessage", mappedBy="project", orphanRemoval=true)
+     */
+    private $userMessages;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="project", orphanRemoval=true)
+     */
+    private $suggestions;
+
     public function __construct()
     {
         $this->projectDates = new ArrayCollection();
+        $this->user = new ArrayCollection();
         $this->userMessages = new ArrayCollection();
         $this->suggestions = new ArrayCollection();
-        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,6 +141,44 @@ class Project
         return $this;
     }
 
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
+        }
+
+        return $this;
+    }
+
     /**
      * @return Collection|UserMessage[]
      */
@@ -197,44 +237,6 @@ class Project
                 $suggestion->setProject(null);
             }
         }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
-    {
-        return $this->user;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-        }
-
-        return $this;
-    }
-
-    public function getOwner(): ?User
-    {
-        return $this->owner;
-    }
-
-    public function setOwner(?User $owner): self
-    {
-        $this->owner = $owner;
 
         return $this;
     }

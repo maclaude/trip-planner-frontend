@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190319150211 extends AbstractMigration
+final class Version20190325093145 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,12 +22,11 @@ final class Version20190319150211 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE user ADD role_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D649D60322AC FOREIGN KEY (role_id) REFERENCES role (id)');
-        $this->addSql('CREATE INDEX IDX_8D93D649D60322AC ON user (role_id)');
-        $this->addSql('ALTER TABLE vote_project_dates ADD user_id INT NOT NULL');
+        $this->addSql('ALTER TABLE vote_project_dates ADD user_id INT NOT NULL, ADD project_dates_id INT NOT NULL');
         $this->addSql('ALTER TABLE vote_project_dates ADD CONSTRAINT FK_A94C7EC4A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
+        $this->addSql('ALTER TABLE vote_project_dates ADD CONSTRAINT FK_A94C7EC4E71918 FOREIGN KEY (project_dates_id) REFERENCES project_dates (id)');
         $this->addSql('CREATE INDEX IDX_A94C7EC4A76ED395 ON vote_project_dates (user_id)');
+        $this->addSql('CREATE INDEX IDX_A94C7EC4E71918 ON vote_project_dates (project_dates_id)');
     }
 
     public function down(Schema $schema) : void
@@ -35,11 +34,10 @@ final class Version20190319150211 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE user DROP FOREIGN KEY FK_8D93D649D60322AC');
-        $this->addSql('DROP INDEX IDX_8D93D649D60322AC ON user');
-        $this->addSql('ALTER TABLE user DROP role_id');
         $this->addSql('ALTER TABLE vote_project_dates DROP FOREIGN KEY FK_A94C7EC4A76ED395');
+        $this->addSql('ALTER TABLE vote_project_dates DROP FOREIGN KEY FK_A94C7EC4E71918');
         $this->addSql('DROP INDEX IDX_A94C7EC4A76ED395 ON vote_project_dates');
-        $this->addSql('ALTER TABLE vote_project_dates DROP user_id');
+        $this->addSql('DROP INDEX IDX_A94C7EC4E71918 ON vote_project_dates');
+        $this->addSql('ALTER TABLE vote_project_dates DROP user_id, DROP project_dates_id');
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190319151909 extends AbstractMigration
+final class Version20190325093627 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -25,6 +25,9 @@ final class Version20190319151909 extends AbstractMigration
         $this->addSql('ALTER TABLE project ADD owner_id INT NOT NULL');
         $this->addSql('ALTER TABLE project ADD CONSTRAINT FK_2FB3D0EE7E3C61F9 FOREIGN KEY (owner_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_2FB3D0EE7E3C61F9 ON project (owner_id)');
+        $this->addSql('ALTER TABLE project_dates ADD project_id INT NOT NULL');
+        $this->addSql('ALTER TABLE project_dates ADD CONSTRAINT FK_B821C080166D1F9C FOREIGN KEY (project_id) REFERENCES project (id)');
+        $this->addSql('CREATE INDEX IDX_B821C080166D1F9C ON project_dates (project_id)');
     }
 
     public function down(Schema $schema) : void
@@ -35,5 +38,8 @@ final class Version20190319151909 extends AbstractMigration
         $this->addSql('ALTER TABLE project DROP FOREIGN KEY FK_2FB3D0EE7E3C61F9');
         $this->addSql('DROP INDEX IDX_2FB3D0EE7E3C61F9 ON project');
         $this->addSql('ALTER TABLE project DROP owner_id');
+        $this->addSql('ALTER TABLE project_dates DROP FOREIGN KEY FK_B821C080166D1F9C');
+        $this->addSql('DROP INDEX IDX_B821C080166D1F9C ON project_dates');
+        $this->addSql('ALTER TABLE project_dates DROP project_id');
     }
 }
