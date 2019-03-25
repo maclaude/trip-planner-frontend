@@ -180,16 +180,7 @@ class SignupForm extends React.Component {
             </div>
           )}
 
-          <div id="signup-form
-
-const {
-  title,
-  description,
-  debutDates,
-  endDates,
-  destination,
-  participants,
-} = this.props;ttons">
+          <div id="signup-form-buttons">
             <Button animated="vertical">
               <Button.Content visible>J'ai déjà un compte</Button.Content>
               <Button.Content hidden>
