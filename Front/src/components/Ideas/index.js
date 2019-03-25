@@ -9,7 +9,7 @@ import React from 'react';
 // Components
 import NavabarUser from 'src/components/Navbar';
 import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
-import Suggestions from 'src/containers/Ideas/Suggestions';
+import Suggestions from 'src/containers/Ideas/SuggestionIdeas';
 
 // Styles
 import './ideas.scss';

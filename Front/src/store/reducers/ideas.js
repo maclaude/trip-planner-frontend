@@ -4,9 +4,9 @@ import suggestionsData from 'src/data/suggestions';
  */
 const initialState = {
   type: '',
-  title: '',
+  name: '',
   description: '',
-  link: '',
+  url: '',
   price: '',
   errors: [],
   suggestions: suggestionsData,
@@ -18,6 +18,7 @@ const initialState = {
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
 const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
 const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
+const VOTE_ON_SUGGESTION = 'VOTE_ON_SUGGESTION';
 export const SEND_SUGGESTION = 'SEND_SUGGESTION';
 
 /**
@@ -46,12 +47,31 @@ const reducer = (state = initialState, action = {}) => {
     case SEND_SUGGESTION:
       return {
         ...state,
-        title: '',
+        name: '',
         description: '',
-        link: '',
+        url: '',
         price: '',
         errors: [],
       };
+
+    case VOTE_ON_SUGGESTION: {
+      // @TODO: Voter pour ou contre une suggestion
+      /*
+        const newSuggestions = state.suggestions.map((suggestion) => {
+          if (suggestion.id === action.id) {
+            return {
+              @TODO
+            };
+          }
+          return suggestion;
+        });
+
+      */
+      return {
+        ...state,
+        // suggestions: newSuggestions;
+      };
+    }
 
     default:
       return state;
@@ -81,10 +101,17 @@ export const sendSuggestion = () => ({
   type: SEND_SUGGESTION,
 });
 
+export const voteOnSuggestion = id => ({
+  type: VOTE_ON_SUGGESTION,
+  id,
+});
+
 /**
  * Selectors
  */
-
+export const getFilteredSuggestions = (suggestions, typeId) => [
+  ...suggestions.filter(suggestion => suggestion.suggestion_gender_id === parseInt(typeId, 0)),
+];
 
 /**
  * Export
