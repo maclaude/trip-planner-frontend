@@ -1,3 +1,4 @@
+import suggestionsData from 'src/data/suggestions';
 /**
  * Initial State
  */
@@ -8,6 +9,7 @@ const initialState = {
   link: '',
   price: '',
   errors: [],
+  suggestions: suggestionsData,
 };
 
 /**
@@ -34,7 +36,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         type: action.value,
       };
-    
+
     case SHOW_SUGGESTION_ERRORS:
       return {
         ...state,
