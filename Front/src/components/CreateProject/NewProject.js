@@ -9,6 +9,7 @@ import {
   Input,
   TextArea,
   Form,
+  Message,
 } from 'semantic-ui-react';
 
 /**
@@ -16,23 +17,48 @@ import {
  */
 import './newproject.scss';
 
+// Utils
+import NewProjectErrors from 'src/utils/newProject_form_errors';
+
 /**
  * Code
  */
 class NewProject extends React.Component {
-
   handleChange = (evt) => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
-    console.log('changement de linput');
+    // console.log('changement de linput');
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
     // console.log('formulaire sousmis');
-  };
+    const {
+      title,
+      description,
+      debutDates,
+      endDates,
+      destination,
+      showErrors,
+      newProject,
+    } = this.props;
 
+    const errors = NewProjectErrors(
+      title,
+      description,
+      debutDates,
+      endDates,
+      destination,
+    );
+    if (
+      (title && description && destination && debutDates && endDates !== '')
+    ) {
+      newProject();
+    } else {
+      showErrors(errors);
+    }
+  };
 
   render() {
     const {
@@ -42,6 +68,7 @@ class NewProject extends React.Component {
       endDates,
       destination,
       participants,
+      errors,
     } = this.props;
 
     return (
@@ -129,6 +156,17 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
+        {/* {(errors.length > 0) && (
+          <div id="signup-form-errors">
+            {errors.map(error => (
+              <Message negative key={error}>
+                <p>
+                  {error}
+                </p>
+              </Message>
+            ))}
+          </div>
+        )} */}
       </div>
     );
   }
@@ -141,8 +179,12 @@ NewProject.propTypes = {
   debutDates: PropTypes.string.isRequired,
   endDates: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
-  participants: PropTypes.array.isRequired,
+  participants: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
+};
+
+NewProject.defaultProps = {
+  participants: '',
 };
 
 /**
