@@ -66,11 +66,11 @@ class SuggestionForm extends React.Component {
 
   render() {
     const options = [
-      { key: 'activity', text: 'Activité', value: '1' },
-      { key: 'accomodation', text: 'Hébergement', value: '2' },
-      { key: 'transport', text: 'Transport', value: '3' },
-      { key: 'restaurant', text: 'Restaurant', value: '4' },
-      { key: 'others', text: 'Autres', value: '5' },
+      { key: 'activity', text: 'Activité', value: 1 },
+      { key: 'accomodation', text: 'Hébergement', value: 2 },
+      { key: 'transport', text: 'Transport', value: 3 },
+      { key: 'restaurant', text: 'Restaurant', value: 4 },
+      { key: 'others', text: 'Autres', value: 5 },
     ];
 
     const {

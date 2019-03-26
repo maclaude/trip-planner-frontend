@@ -110,7 +110,7 @@ export const voteOnSuggestion = id => ({
  * Selectors
  */
 export const getFilteredSuggestions = (suggestions, typeId) => [
-  ...suggestions.filter(suggestion => suggestion.suggestion_gender_id === parseInt(typeId, 0)),
+  ...suggestions.filter(suggestion => suggestion.suggestion_gender_id === typeId),
 ];
 
 /**
