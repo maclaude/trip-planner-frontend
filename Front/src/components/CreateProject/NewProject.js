@@ -11,7 +11,7 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react';
-import uuidV4 from 'uuid-v4';
+import uuidV4 from 'uuid/v4';
 
 /**
  * Local import
