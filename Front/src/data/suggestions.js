@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    id: '1',
     name: 'Visite de Big Ben',
     description: 'Une excusion de 2h pour visiter la célèbre horloge et le parlement.',
     url: 'https://www.londres.fr/big-ben',
@@ -10,7 +10,7 @@ export default [
     suggestion_gender_id: 1,
   },
   {
-    id: 2,
+    id: '2',
     name: 'Balade à vélo dans la ville',
     description: 'Location de vélo durant 2 jours pour se balader dans la ville',
     url: 'https://www.onyourbike.com/london-bike-rental.php',
@@ -20,7 +20,7 @@ export default [
     suggestion_gender_id: 1,
   },
   {
-    id: 3,
+    id: '3',
     name: 'Hôtel dans le centre ville',
     description: 'Super hôtel, bien situé, proche des lieux touristiques',
     url: 'test',
@@ -30,7 +30,7 @@ export default [
     suggestion_gender_id: 2,
   },
   {
-    id: 4,
+    id: '4',
     name: 'AirBnb',
     description: 'Bel appartement avec 3 chambres dans le quartier d\'Oxford',
     url: 'test',
@@ -40,7 +40,7 @@ export default [
     suggestion_gender_id: 2,
   },
   {
-    id: 5,
+    id: '5',
     name: 'Resto atypique',
     description: 'Super restaurant conseillé par un ami, de bonnes viandes, super notes sur trip advisor',
     url: 'test',
@@ -50,7 +50,7 @@ export default [
     suggestion_gender_id: 4,
   },
   {
-    id: 6,
+    id: '6',
     name: 'Billets de train Eurostar',
     description: 'Super promo aux dates de nos vacances ! Checkez moi le lien ci-dessous',
     url: 'https://www.eurostar.com/fr-fr',
@@ -60,7 +60,7 @@ export default [
     suggestion_gender_id: 3,
   },
   {
-    id: 7,
+    id: '7',
     name: 'Avion Air-France',
     description: 'Billets pas trop chers avec des horaires intéressants',
     url: 'test',
@@ -70,7 +70,7 @@ export default [
     suggestion_gender_id: 3,
   },
   {
-    id: 8,
+    id: '8',
     name: 'Nobu London',
     description: 'Restaurant classique de Londres, très réputé, parfait pour l\'anniversaire de Florent',
     url: 'test',
@@ -80,7 +80,7 @@ export default [
     suggestion_gender_id: 4,
   },
   {
-    id: 8,
+    id: '9',
     name: 'Visite famille',
     description: 'Mes cousins habitent à Londres ils proposent de venir déjeuner chez eux !',
     url: 'test',
