@@ -19,9 +19,6 @@ import './newproject.scss';
 
 // Utils
 import NewProjectErrors from 'src/utils/newProject_form_errors';
-import suggestDates from 'src/utils/dateSuggest_form';
-import Dates from './Dates';
-import { addDates } from '../../store/reducers/CreateProject';
 
 /**
  * Code
@@ -63,22 +60,12 @@ class NewProject extends React.Component {
     }
   };
 
-  handleClick = (evt) => {
-    evt.preventDefault();
+  handleClick = () => {
+    const { addDates } = this.props;
 
-    const {
-      debutDates,
-      endDates,
-    } = this.props;
-
-    const dateSuggest = suggestDates(
-      debutDates,
-      endDates,
-    );
-    console.log(suggestDates());
-    addDates(dateSuggest);
+    addDates();
   };
-
+  
   render() {
     const {
       title,
@@ -88,8 +75,9 @@ class NewProject extends React.Component {
       destination,
       user,
       errors,
+      dateSuggest,
     } = this.props;
-
+    
     return (
       <div id="newproject">
         <div id="newproject-banner">
@@ -131,18 +119,18 @@ class NewProject extends React.Component {
               <Input
                 name="debutDates"
                 className="input-date"
-                type="text"
+                type="date"
                 value={debutDates}
                 onChange={this.handleChange}
               />
               <Input
                 name="endDates"
                 className="input-date"
-                type="text"
+                type="date"
                 value={endDates}
                 onChange={this.handleChange}
               />
-              <Button icon>
+              <Button type="button" icon>
                 <Icon
                   name="plus"
                   onClick={this.handleClick}
@@ -214,6 +202,7 @@ NewProject.propTypes = {
   newProject: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
   showErrors: PropTypes.func.isRequired,
+  addDates: PropTypes.func.isRequired,
 };
 
 NewProject.defaultProps = {

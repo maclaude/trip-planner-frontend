@@ -41,8 +41,8 @@ const mapDispatchToProps = dispatch => ({
   newProject: () => {
     dispatch(newProject());
   },
-  addDates: (dateSuggest) => {
-    dispatch(addDates(dateSuggest));
+  addDates: () => {
+    dispatch(addDates());
   },
 });
 

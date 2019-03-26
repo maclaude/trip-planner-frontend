@@ -80,7 +80,7 @@ const ajaxMiddleware = store => next => (action) => {
         destination: state.CreateProject.destination,
         debutDates: state.CreateProject.debutDates,
         endDates: state.CreateProject.endDates,
-        participants: state.CreateProject.participants,
+        user: state.CreateProject.user,
       };
 
       console.log('Requête AJAX inscrire le nouveau projet', newProject);

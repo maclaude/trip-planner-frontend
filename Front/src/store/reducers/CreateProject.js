@@ -45,13 +45,21 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         errors: action.errors,
       };
-    case ADD_DATES:
+    case ADD_DATES: {
+      // Creation de l'objet date suggéré
+      const date = {
+        date_de_debut: state.debutDates,
+        date_de_fin: state.endDates,
+      };
+      // Creation du nouveau tableau de date
+      const dateSuggest = [...state.dateSuggest, date];
       return {
         ...state,
         debutDates: '',
         endDates: '',
-        dateSuggest: action.dateSuggest,
+        dateSuggest,
       };
+    }
 
     default:
       return state;
@@ -66,16 +74,18 @@ export const changeProjectInputs = (name, value) => ({
   name,
   value,
 });
+
 export const newProject = () => ({
   type: NEW_PROJECT,
 });
+
 export const showNewprojectErrors = errors => ({
   type: SHOW_NEWPROJECT_ERRORS,
   errors,
 });
-export const addDates = dateSuggest => ({
+
+export const addDates = () => ({
   type: ADD_DATES,
-  dateSuggest,
 });
 
 /**

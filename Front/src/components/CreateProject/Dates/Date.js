@@ -12,14 +12,16 @@ import PropTypes from 'prop-types';
 /**
  * Code
  */
-const Dates = (debutDates, endDates) => (
-  <li>
-    <p>{debutDates}</p>
-    <p>{endDates}</p>
-  </li>
+const Date = (debutDates, endDates) => (
+  <div>
+    <li>
+      <p>{debutDates}</p>
+      <p>{endDates}</p>
+    </li>
+  </div>
 );
 
-Dates.propTypes = {
+Date.propTypes = {
   debutDates: PropTypes.string.isRequired,
   endDates: PropTypes.string.isRequired,
 };
@@ -27,4 +29,4 @@ Dates.propTypes = {
 /**
  * Export
  */
-export default Dates;
+export default Date;
