@@ -4,34 +4,24 @@
   #myprojects {
     width: 80vw;
     float: right;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2.5em;
     &-banner {
       margin: 2em;
     }
   }
-  .ui.link.cards {
-    margin:1em auto;
-    display: flex;
-    justify-content: space-around;
-    }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
   #myprojects {
     width: 80%;
     float: right;
-    height: 100%;
+    min-height: 100%;
     padding: 2.5em;
     &-banner {
       margin: 2em auto;
     }
   }
-  .ui.link.cards {
-    margin:1em auto;
-    display: flex;
-    justify-content: center;
-    }
 }
 
 @media (max-width: 600px) {
@@ -42,9 +32,9 @@
     &-banner {
       margin: 2em auto;
     }
-  }
-  
+  }  
 }
+
 #myprojects {
   background: $background-main-color;
   color: $font-color;
