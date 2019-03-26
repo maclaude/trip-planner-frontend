@@ -8,6 +8,7 @@ import { Button, Card, Icon } from 'semantic-ui-react';
 /**
  * Local import
  */
+import './single_card.scss';
 
 /**
  * Code

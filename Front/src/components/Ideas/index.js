@@ -2,12 +2,13 @@
  * NPM import
  */
 import React from 'react';
+import { Divider } from 'semantic-ui-react';
 
 /**
  * Local import
  */
 // Components
-import NavabarUser from 'src/components/Navbar';
+import NavabarUser from 'src/components/NavbarUser';
 import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
 import Suggestions from 'src/containers/Ideas/SuggestionIdeas';
 
@@ -22,6 +23,7 @@ const Ideas = () => (
     <NavabarUser />
     <div id="suggestions">
       <SuggestionForm />
+      <Divider />
       <Suggestions />
     </div>
   </div>

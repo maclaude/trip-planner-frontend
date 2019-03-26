@@ -16,7 +16,7 @@ import SingleCard from 'src/containers/Ideas/SingleCard';
 const SuggestionIdeas = ({ suggestions }) => (
   <div id="suggestions-ideas">
     <div id="suggestions-ideas-title">
-      Idées du groupe
+      suggestions du groupe
     </div>
     <div id="suggestion-ideas-cards">
       <Card.Group>
@@ -33,7 +33,11 @@ const SuggestionIdeas = ({ suggestions }) => (
 
 // PropTypes validation
 SuggestionIdeas.propTypes = {
-  suggestions: PropTypes.array.isRequired,
+  suggestions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 /**

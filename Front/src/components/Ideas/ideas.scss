@@ -14,6 +14,8 @@
 
   &-form {
     width: 60%;
+    min-width:300px;
+    max-width: 600px;
     margin: 0 auto 70px;
 
     &-header {
@@ -25,6 +27,11 @@
 
       &-title {
         font-size: 1.2em;
+        width: 70%;
+      }
+
+      &-options {
+        width: 30%;
       }
     }
 
@@ -47,6 +54,23 @@
       font-weight: 600;
       margin: 30px 0;
       text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  #suggestions {
+    &-form {
+      &-header {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &-title {
+          text-align: center;
+        }
+      }
     }
   }
 }
