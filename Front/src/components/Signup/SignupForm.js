@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import {
   Button,
   Checkbox,
@@ -89,7 +90,12 @@ class SignupForm extends React.Component {
       confirmedPassword,
       termsChecked,
       errors,
+      loggedIn,
     } = this.props;
+
+    if (loggedIn) {
+      return <Redirect to="/profil" />;
+    }
 
     return (
       <div id="signup">
@@ -215,6 +221,7 @@ SignupForm.propTypes = {
   confirmedPassword: PropTypes.string.isRequired,
   termsChecked: PropTypes.bool.isRequired,
   errors: PropTypes.array.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
   changeInput: PropTypes.func.isRequired,
   toogleTermsCheckbox: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

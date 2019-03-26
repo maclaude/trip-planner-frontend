@@ -28,6 +28,7 @@ const mapStateToProps = state => ({
   confirmedPassword: state.signup.confirmedPassword,
   termsChecked: state.signup.termsChecked,
   errors: state.signup.errors,
+  loggedIn: state.signup.loggedIn,
 });
 
 // === Actions ===
