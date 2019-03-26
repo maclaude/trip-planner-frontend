@@ -28,12 +28,11 @@ class NewProject extends React.Component {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
-    // console.log('changement de linput');
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    // console.log('formulaire sousmis');
+
     const {
       title,
       description,
@@ -55,7 +54,8 @@ class NewProject extends React.Component {
       (title && description && destination && debutDates && endDates !== '')
     ) {
       newProject();
-    } else {
+    }
+    else {
       showErrors(errors);
     }
   };
@@ -67,7 +67,7 @@ class NewProject extends React.Component {
       debutDates,
       endDates,
       destination,
-      participants,
+      user,
       errors,
     } = this.props;
 
@@ -112,14 +112,14 @@ class NewProject extends React.Component {
               <Input
                 name="debutDates"
                 className="input-date"
-                type="date"
+                type="text"
                 value={debutDates}
                 onChange={this.handleChange}
               />
               <Input
                 name="endDates"
                 className="input-date"
-                type="date"
+                type="text"
                 value={endDates}
                 onChange={this.handleChange}
               />
@@ -140,10 +140,10 @@ class NewProject extends React.Component {
               <p>Ajouter des participants</p>
               <div className="input">
                 <Input
-                  name="participants"
+                  name="user"
                   icon="users"
                   placeholder="Pseudo du participant..."
-                  value={participants}
+                  value={user}
                   onChange={this.handleChange}
                 />
               </div>
@@ -156,7 +156,7 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
-        {/* {(errors.length > 0) && (
+        {(errors.length > 0) && (
           <div id="signup-form-errors">
             {errors.map(error => (
               <Message negative key={error}>
@@ -166,7 +166,7 @@ class NewProject extends React.Component {
               </Message>
             ))}
           </div>
-        )} */}
+        )}
       </div>
     );
   }
@@ -176,15 +176,20 @@ class NewProject extends React.Component {
 NewProject.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  debutDates: PropTypes.string.isRequired,
-  endDates: PropTypes.string.isRequired,
+  debutDates: PropTypes.string,
+  endDates: PropTypes.string,
   destination: PropTypes.string.isRequired,
-  participants: PropTypes.string,
+  user: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
+  newProject: PropTypes.func.isRequired,
+  errors: PropTypes.array.isRequired,
+  showErrors: PropTypes.func.isRequired,
 };
 
 NewProject.defaultProps = {
-  participants: '',
+  user: '',
+  debutDates: '',
+  endDates: '',
 };
 
 /**

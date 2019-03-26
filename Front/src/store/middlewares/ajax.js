@@ -31,7 +31,7 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('Requête AJAX pour inscrire le nouvel utilisateur', newUser);
 
-      axios.post('url', newUser)
+      axios.post('http://127.0.0.1:8000/api/users', newUser)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
@@ -77,15 +77,15 @@ const ajaxMiddleware = store => next => (action) => {
       const newProject = {
         title: state.CreateProject.title,
         description: state.CreateProject.description,
+        destination: state.CreateProject.destination,
         debutDates: state.CreateProject.debutDates,
         endDates: state.CreateProject.endDates,
-        destination: state.CreateProject.destination,
         participants: state.CreateProject.participants,
       };
 
       console.log('Requête AJAX inscrire le nouveau projet', newProject);
 
-      axios.post('url', newProject)
+      axios.post('127.0.0.1:8000/api/projects', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
