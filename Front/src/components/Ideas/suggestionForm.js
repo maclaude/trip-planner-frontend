@@ -181,7 +181,7 @@ class SuggestionForm extends React.Component {
 
 // PropTypes validation
 SuggestionForm.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,

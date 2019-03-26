@@ -1,9 +1,16 @@
+/**
+ * Import
+ */
+// NPM
+import uuidv4 from 'uuid/v4';
+// Local
 import suggestionsData from 'src/data/suggestions';
+
 /**
  * Initial State
  */
 const initialState = {
-  type: '',
+  type: 0,
   name: '',
   description: '',
   url: '',
@@ -44,7 +51,22 @@ const reducer = (state = initialState, action = {}) => {
         errors: action.errors,
       };
 
-    case SEND_SUGGESTION:
+    case SEND_SUGGESTION: {
+      // Création de la nouvelle suggestion
+      const newSuggestion = {
+        id: uuidv4(),
+        name: state.name,
+        description: state.description,
+        url: state.url,
+        price: state.price,
+        project_id: 1,
+        author: 'Marc-Antoine',
+        suggestion_gender_id: state.type,
+      };
+
+      // Création du nouveau tableau de suggestions
+      const newSuggestions = [...state.suggestions, newSuggestion];
+
       return {
         ...state,
         name: '',
@@ -52,7 +74,9 @@ const reducer = (state = initialState, action = {}) => {
         url: '',
         price: '',
         errors: [],
+        suggestions: newSuggestions,
       };
+    }
 
     case VOTE_ON_SUGGESTION: {
       // @TODO: Voter pour ou contre une suggestion

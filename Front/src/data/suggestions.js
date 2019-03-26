@@ -15,8 +15,8 @@ export default [
     description: 'Location de vélo durant 2 jours pour se balader dans la ville',
     url: 'https://www.onyourbike.com/london-bike-rental.php',
     price: '35',
-    author: 'Anthony',
     project_id: 1,
+    author: 'Anthony',
     suggestion_gender_id: 1,
   },
   {
@@ -25,8 +25,8 @@ export default [
     description: 'Super hôtel, bien situé, proche des lieux touristiques',
     url: 'test',
     price: '170',
-    author: 'Florent',
     project_id: 1,
+    author: 'Florent',
     suggestion_gender_id: 2,
   },
   {
@@ -35,8 +35,8 @@ export default [
     description: 'Bel appartement avec 3 chambres dans le quartier d\'Oxford',
     url: 'test',
     price: '150',
-    author: 'Marc-Antoine',
     project_id: 1,
+    author: 'Marc-Antoine',
     suggestion_gender_id: 2,
   },
   {
@@ -45,8 +45,8 @@ export default [
     description: 'Super restaurant conseillé par un ami, de bonnes viandes, super notes sur trip advisor',
     url: 'test',
     price: '30',
-    author: 'Romain',
     project_id: 1,
+    author: 'Romain',
     suggestion_gender_id: 4,
   },
   {
@@ -55,8 +55,8 @@ export default [
     description: 'Super promo aux dates de nos vacances ! Checkez moi le lien ci-dessous',
     url: 'https://www.eurostar.com/fr-fr',
     price: '80',
-    author: 'Anthony',
     project_id: 1,
+    author: 'Anthony',
     suggestion_gender_id: 3,
   },
   {
@@ -65,8 +65,8 @@ export default [
     description: 'Billets pas trop chers avec des horaires intéressants',
     url: 'test',
     price: '90',
-    author: 'Marc-Antoine',
     project_id: 1,
+    author: 'Marc-Antoine',
     suggestion_gender_id: 3,
   },
   {
@@ -75,8 +75,8 @@ export default [
     description: 'Restaurant classique de Londres, très réputé, parfait pour l\'anniversaire de Florent',
     url: 'test',
     price: '70',
-    author: 'Anthony',
     project_id: 1,
+    author: 'Anthony',
     suggestion_gender_id: 4,
   },
   {
@@ -85,8 +85,8 @@ export default [
     description: 'Mes cousins habitent à Londres ils proposent de venir déjeuner chez eux !',
     url: 'test',
     price: '',
-    author: 'Marc-Antoine',
     project_id: 1,
+    author: 'Marc-Antoine',
     suggestion_gender_id: 5,
   },
 ];
