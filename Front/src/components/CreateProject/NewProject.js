@@ -19,6 +19,9 @@ import './newproject.scss';
 
 // Utils
 import NewProjectErrors from 'src/utils/newProject_form_errors';
+import suggestDates from 'src/utils/dateSuggest_form';
+import Dates from './Dates';
+import { addDates } from '../../store/reducers/CreateProject';
 
 /**
  * Code
@@ -58,6 +61,22 @@ class NewProject extends React.Component {
     else {
       showErrors(errors);
     }
+  };
+
+  handleClick = (evt) => {
+    evt.preventDefault();
+
+    const {
+      debutDates,
+      endDates,
+    } = this.props;
+
+    const dateSuggest = suggestDates(
+      debutDates,
+      endDates,
+    );
+    console.log(suggestDates());
+    addDates(dateSuggest);
   };
 
   render() {
@@ -123,6 +142,17 @@ class NewProject extends React.Component {
                 value={endDates}
                 onChange={this.handleChange}
               />
+              <Button icon>
+                <Icon
+                  name="plus"
+                  onClick={this.handleClick}
+                />
+              </Button>
+            </div>
+            <div id="newproject-date-suggested">
+              <ul id="date-list">
+                {/* <Dates /> */}
+              </ul>
             </div>
             <div id="newproject-destination">
               <p>Destination</p>

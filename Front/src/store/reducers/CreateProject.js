@@ -6,8 +6,9 @@ const initialState = {
   description: '',
   debutDates: '',
   endDates: '',
+  dateSuggest: [],
   destination: '',
-  participants: '',
+  user: '',
   errors: [],
 };
 
@@ -16,6 +17,7 @@ const initialState = {
  */
 const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
+const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
 
 /**
@@ -28,7 +30,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-    case NEW_PROJECT: {
+    case NEW_PROJECT:
       return {
         ...state,
         title: '',
@@ -36,13 +38,19 @@ const reducer = (state = initialState, action = {}) => {
         debutDates: '',
         endDates: '',
         destination: '',
-        participants: '',
+        user: '',
       };
-    }
     case SHOW_NEWPROJECT_ERRORS:
       return {
         ...state,
         errors: action.errors,
+      };
+    case ADD_DATES:
+      return {
+        ...state,
+        debutDates: '',
+        endDates: '',
+        dateSuggest: action.dateSuggest,
       };
 
     default:
@@ -64,6 +72,10 @@ export const newProject = () => ({
 export const showNewprojectErrors = errors => ({
   type: SHOW_NEWPROJECT_ERRORS,
   errors,
+});
+export const addDates = dateSuggest => ({
+  type: ADD_DATES,
+  dateSuggest,
 });
 
 /**
