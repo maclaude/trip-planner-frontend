@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -116,6 +116,18 @@ class LoginForm extends React.Component {
         )}
 
         <div id="login-form-buttons">
+          <NavLink to="/inscription">
+            <Button
+              animated="vertical"
+              type="button"
+            >
+              <Button.Content visible>Je n'ai pas de compte</Button.Content>
+              <Button.Content hidden>
+                <Icon name="edit" />
+              </Button.Content>
+            </Button>
+          </NavLink>
+
           <Button
             animated
             color="green"

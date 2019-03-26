@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import {
   Button,
   Checkbox,
@@ -187,12 +187,17 @@ class SignupForm extends React.Component {
           )}
 
           <div id="signup-form-buttons">
-            <Button animated="vertical">
-              <Button.Content visible>J'ai déjà un compte</Button.Content>
-              <Button.Content hidden>
-                <Icon name="user" />
-              </Button.Content>
-            </Button>
+            <NavLink to="/connexion">
+              <Button
+                animated="vertical"
+                type="button"
+              >
+                <Button.Content visible>J'ai déjà un compte</Button.Content>
+                <Button.Content hidden>
+                  <Icon name="user" />
+                </Button.Content>
+              </Button>
+            </NavLink>
 
             <Button
               animated
