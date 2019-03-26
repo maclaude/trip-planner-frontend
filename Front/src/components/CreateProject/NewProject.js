@@ -11,6 +11,7 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react';
+import uuidV4 from 'uuid-v4';
 
 /**
  * Local import
@@ -19,6 +20,7 @@ import './newproject.scss';
 
 // Utils
 import NewProjectErrors from 'src/utils/newProject_form_errors';
+import SuggestDatesErrors from 'src/utils/dateSuggest_form';
 
 /**
  * Code
@@ -61,11 +63,25 @@ class NewProject extends React.Component {
   };
 
   handleClick = () => {
-    const { addDates } = this.props;
+    const {
+      addDates,
+      debutDates,
+      endDates,
+      showErrors,
+    } = this.props;
 
-    addDates();
+    const dateErrors = SuggestDatesErrors(
+      debutDates,
+      endDates,
+    );
+    if (debutDates && endDates !== '') {
+      addDates();
+    }
+    else {
+      showErrors(dateErrors);
+    }
   };
-  
+
   render() {
     const {
       title,
@@ -77,7 +93,7 @@ class NewProject extends React.Component {
       errors,
       dateSuggest,
     } = this.props;
-    
+
     return (
       <div id="newproject">
         <div id="newproject-banner">
@@ -138,9 +154,13 @@ class NewProject extends React.Component {
               </Button>
             </div>
             <div id="newproject-date-suggested">
-              <ul id="date-list">
-                {/* <Dates /> */}
-              </ul>
+              {dateSuggest.map(date => (
+                <div id="date" key={uuidV4()}>
+                  <p>
+                    Du {date.date_de_debut} au {date.date_de_fin}
+                  </p>
+                </div>
+              ))}
             </div>
             <div id="newproject-destination">
               <p>Destination</p>
@@ -203,6 +223,7 @@ NewProject.propTypes = {
   errors: PropTypes.array.isRequired,
   showErrors: PropTypes.func.isRequired,
   addDates: PropTypes.func.isRequired,
+  dateSuggest: PropTypes.array.isRequired,
 };
 
 NewProject.defaultProps = {

@@ -20,14 +20,6 @@ const NewProjectErrors = (
     const error = 'Vous devez ajouter une description à votre projet';
     errors.push(error);
   }
-  // if (debutDates === '') {
-  //   const error = 'Vous devez ajouter une date de debut à votre projet';
-  //   errors.push(error);
-  // }
-  // if (endDates === '') {
-  //   const error = 'Vous devez ajouter une date de fin à votre projet';
-  //   errors.push(error);
-  // }
   if (destination === '') {
     const error = 'Vous devez ajouter une destination à votre projet';
     errors.push(error);
