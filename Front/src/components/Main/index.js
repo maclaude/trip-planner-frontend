@@ -8,6 +8,12 @@ import React from 'react';
  */
 // Style
 import './main.scss';
+// Assets
+import group from 'src/assets/graphics/group.png';
+import idea from 'src/assets/graphics/idea.png';
+import plane from 'src/assets/graphics/plane.png';
+import worldMap from 'src/assets/images/homepage_img_up.jpg';
+import sanFrancisco from 'src/assets/images/homepage_img_down.jpg';
 
 /**
  * Code
@@ -20,9 +26,9 @@ const Main = () => (
         <p id="main-banner-text-slogan">Organisez vos voyages entre amis</p>
       </div>
       <div id="main-banner-graphics">
-        <img src="src/assets/graphics/group.png" alt="group graphic" />
-        <img src="src/assets/graphics/idea.png" alt="idea graphic" />
-        <img src="src/assets/graphics/plane.png" alt="plane graphic" />
+        <img src={group} alt="group graphic" />
+        <img src={idea} alt="idea graphic" />
+        <img src={plane} alt="plane graphic" />
       </div>
     </div>
     <div id="main-fonctionalities">
@@ -33,13 +39,13 @@ const Main = () => (
       </div>
       <div id="main-fonctionalities-img-up">
         <img
-          src="src/assets/images/homepage_img_up.jpg"
+          src={worldMap}
           alt="Carte du monde"
         />
       </div>
       <div id="main-fonctionalities-img-down">
         <img
-          src="src/assets/images/homepage_img_down.jpg"
+          src={sanFrancisco}
           alt="San-francisco bridge"
         />
       </div>

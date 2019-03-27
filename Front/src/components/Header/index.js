@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './header.scss';
+import logo from 'src/assets/logo/logo_1.png';
 
 /**
  * Code
@@ -19,7 +20,7 @@ const Header = () => (
       to="/"
       exact
     >
-      <img id="header-logo" src="src/assets/logo/logo_1.png" alt="logo trip-planner" />
+      <img id="header-logo" src={logo} alt="logo trip-planner" />
     </NavLink>
     <nav className="nav">
       <NavLink
