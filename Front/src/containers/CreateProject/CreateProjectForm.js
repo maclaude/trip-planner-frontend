@@ -9,7 +9,12 @@ import { connect } from 'react-redux';
 import NewProjectForm from 'src/components/CreateProject/NewProject';
 
 // Action Creators
-import { changeProjectInputs } from 'src/store/reducers/CreateProject';
+import {
+  changeProjectInputs,
+  showNewprojectErrors,
+  newProject,
+  addDates,
+} from 'src/store/reducers/CreateProject';
 
 /**
  * Code
@@ -18,14 +23,26 @@ import { changeProjectInputs } from 'src/store/reducers/CreateProject';
 const mapStateToProps = state => ({
   title: state.CreateProject.title,
   description: state.CreateProject.description,
-  dates: state.CreateProject.dates,
+  debutDates: state.CreateProject.debutDates,
+  endDates: state.CreateProject.endDates,
+  dateSuggest: state.CreateProject.dateSuggest,
   destination: state.CreateProject.destination,
+  errors: state.CreateProject.errors,
 });
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
   changeInput: (name, value) => {
     dispatch(changeProjectInputs(name, value));
+  },
+  showErrors: (errors) => {
+    dispatch(showNewprojectErrors(errors));
+  },
+  newProject: () => {
+    dispatch(newProject());
+  },
+  addDates: () => {
+    dispatch(addDates());
   },
 });
 

@@ -46,15 +46,15 @@ class SuggestionForm extends React.Component {
 
     const {
       type,
-      title,
+      name,
       sendSuggestion,
       showErrors,
     } = this.props;
 
     // Gestion des erreurs
-    const errors = getSuggestionFormErrors(type, title);
+    const errors = getSuggestionFormErrors(type, name);
 
-    if (type && title !== '') {
+    if (type && name !== '') {
       // eslint-disable-next-line no-console
       console.log('SuggestionForm :: handleSubmit');
       sendSuggestion();
@@ -66,17 +66,17 @@ class SuggestionForm extends React.Component {
 
   render() {
     const options = [
-      { key: 'activity', text: 'Activité', value: 'activity' },
-      { key: 'accomodation', text: 'Hebergement', value: 'accomodation' },
-      { key: 'transport', text: 'Transport', value: 'transport' },
-      { key: 'restaurant', text: 'Restaurant', value: 'restaurant' },
-      { key: 'others', text: 'Autres', value: 'others' },
+      { key: 'activity', text: 'Activité', value: 1 },
+      { key: 'accomodation', text: 'Hébergement', value: 2 },
+      { key: 'transport', text: 'Transport', value: 3 },
+      { key: 'restaurant', text: 'Restaurant', value: 4 },
+      { key: 'others', text: 'Autres', value: 5 },
     ];
 
     const {
-      title,
+      name,
       description,
-      link,
+      url,
       price,
       errors,
     } = this.props;
@@ -84,7 +84,7 @@ class SuggestionForm extends React.Component {
     return (
       <>
         <div id="suggestions-banner">
-          <h1>Idées du groupe</h1>
+          <h1>Idées</h1>
         </div>
         <div id="suggestions-form">
           <Form
@@ -105,32 +105,32 @@ class SuggestionForm extends React.Component {
             </div>
             <div id="suggestion-form-details">
               <FormField>
-                <label htmlFor="title">
+                <label htmlFor="name">
                   Titre
                   <input
                     type="text"
-                    name="title"
+                    name="name"
                     placeholder="Votre idée"
-                    value={title}
+                    value={name}
                     onChange={this.handleInputChange}
                   />
                 </label>
               </FormField>
               <Form.TextArea
-                label="description"
+                label="Description"
                 name="description"
                 placeholder="Votre description"
                 value={description}
                 onChange={this.handleInputChange}
               />
               <FormField>
-                <label htmlFor="idea-link">
+                <label htmlFor="idea-url">
                   Lien
                   <input
                     type="text"
-                    name="link"
+                    name="url"
                     placeholder="Lien"
-                    value={link}
+                    value={url}
                     onChange={this.handleInputChange}
                   />
                 </label>
@@ -181,10 +181,10 @@ class SuggestionForm extends React.Component {
 
 // PropTypes validation
 SuggestionForm.propTypes = {
-  type: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  type: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
   changeInput: PropTypes.func.isRequired,

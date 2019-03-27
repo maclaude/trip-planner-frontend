@@ -22,9 +22,9 @@ import {
 // === State (données) ===
 const mapStateToProps = state => ({
   type: state.ideas.type,
-  title: state.ideas.title,
+  name: state.ideas.name,
   description: state.ideas.description,
-  link: state.ideas.link,
+  url: state.ideas.url,
   price: state.ideas.price,
   errors: state.ideas.errors,
 });

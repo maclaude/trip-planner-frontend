@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -62,7 +63,12 @@ class LoginForm extends React.Component {
       email,
       password,
       errors,
+      loggedIn,
     } = this.props;
+
+    if (loggedIn) {
+      return <Redirect to="/profil" />;
+    }
 
     return (
       <Form
@@ -110,6 +116,18 @@ class LoginForm extends React.Component {
         )}
 
         <div id="login-form-buttons">
+          <NavLink to="/inscription">
+            <Button
+              animated="vertical"
+              type="button"
+            >
+              <Button.Content visible>Je n'ai pas de compte</Button.Content>
+              <Button.Content hidden>
+                <Icon name="edit" />
+              </Button.Content>
+            </Button>
+          </NavLink>
+
           <Button
             animated
             color="green"
@@ -131,6 +149,7 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   connectUser: PropTypes.func.isRequired,

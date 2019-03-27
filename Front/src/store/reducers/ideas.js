@@ -1,12 +1,19 @@
+/**
+ * Import
+ */
+// NPM
+import uuidv4 from 'uuid/v4';
+// Local
 import suggestionsData from 'src/data/suggestions';
+
 /**
  * Initial State
  */
 const initialState = {
-  type: '',
-  title: '',
+  type: 0,
+  name: '',
   description: '',
-  link: '',
+  url: '',
   price: '',
   errors: [],
   suggestions: suggestionsData,
@@ -18,6 +25,7 @@ const initialState = {
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
 const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
 const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
+const VOTE_ON_SUGGESTION = 'VOTE_ON_SUGGESTION';
 export const SEND_SUGGESTION = 'SEND_SUGGESTION';
 
 /**
@@ -43,15 +51,51 @@ const reducer = (state = initialState, action = {}) => {
         errors: action.errors,
       };
 
-    case SEND_SUGGESTION:
+    case SEND_SUGGESTION: {
+      // Création de la nouvelle suggestion
+      const newSuggestion = {
+        id: uuidv4(),
+        name: state.name,
+        description: state.description,
+        url: state.url,
+        price: state.price,
+        project_id: 1,
+        author: 'Marc-Antoine',
+        suggestion_gender_id: state.type,
+      };
+
+      // Création du nouveau tableau de suggestions
+      const newSuggestions = [...state.suggestions, newSuggestion];
+
       return {
         ...state,
-        title: '',
+        name: '',
         description: '',
-        link: '',
+        url: '',
         price: '',
         errors: [],
+        suggestions: newSuggestions,
       };
+    }
+
+    case VOTE_ON_SUGGESTION: {
+      // @TODO: Voter pour ou contre une suggestion
+      /*
+        const newSuggestions = state.suggestions.map((suggestion) => {
+          if (suggestion.id === action.id) {
+            return {
+              @TODO
+            };
+          }
+          return suggestion;
+        });
+
+      */
+      return {
+        ...state,
+        // suggestions: newSuggestions;
+      };
+    }
 
     default:
       return state;
@@ -81,10 +125,17 @@ export const sendSuggestion = () => ({
   type: SEND_SUGGESTION,
 });
 
+export const voteOnSuggestion = id => ({
+  type: VOTE_ON_SUGGESTION,
+  id,
+});
+
 /**
  * Selectors
  */
-
+export const getFilteredSuggestions = (suggestions, typeId) => [
+  ...suggestions.filter(suggestion => suggestion.suggestion_gender_id === typeId),
+];
 
 /**
  * Export

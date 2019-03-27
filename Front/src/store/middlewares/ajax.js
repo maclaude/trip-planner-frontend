@@ -10,6 +10,7 @@ import axios from 'axios';
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
+import { NEW_PROJECT } from 'src/store/reducers/CreateProject';
 
 /**
  * Middleware
@@ -30,7 +31,7 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('Requête AJAX pour inscrire le nouvel utilisateur', newUser);
 
-      axios.post('url', newUser)
+      axios.post('http://127.0.0.1:8000/api/users', newUser)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
@@ -66,6 +67,25 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('Requête AJAX inscrire la nouvelle suggestion', newSuggestion);
 
       axios.post('url', newSuggestion)
+        .then(response => console.log(response))
+        .catch(() => console.error('Request has failed'));
+
+      break;
+    }
+    case NEW_PROJECT: {
+      // Objet newProject à envoyer au back
+      const newProject = {
+        title: state.CreateProject.title,
+        description: state.CreateProject.description,
+        destination: state.CreateProject.destination,
+        debutDates: state.CreateProject.debutDates,
+        endDates: state.CreateProject.endDates,
+        user: state.CreateProject.user,
+      };
+
+      console.log('Requête AJAX inscrire le nouveau projet', newProject);
+
+      axios.post('127.0.0.1:8000/api/projects', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 

@@ -8,21 +8,21 @@ import { Card } from 'semantic-ui-react';
 /**
  * Local import
  */
-import SingleCard from './singleCard';
+import SingleCard from 'src/containers/Ideas/SingleCard';
 
 /**
  * Code
  */
-const Suggestions = ({ suggestions }) => (
+const SuggestionIdeas = ({ suggestions }) => (
   <div id="suggestions-ideas">
     <div id="suggestions-ideas-title">
-      Activités
+      Suggestions du groupe
     </div>
     <div id="suggestion-ideas-cards">
       <Card.Group>
         {suggestions.map(suggestion => (
           <SingleCard
-            key={suggestion.title}
+            key={suggestion.id}
             {...suggestion}
           />
         ))}
@@ -32,11 +32,15 @@ const Suggestions = ({ suggestions }) => (
 );
 
 // PropTypes validation
-Suggestions.propTypes = {
-  suggestions: PropTypes.array.isRequired,
+SuggestionIdeas.propTypes = {
+  suggestions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 /**
  * Export
  */
-export default Suggestions;
+export default SuggestionIdeas;

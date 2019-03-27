@@ -9,6 +9,7 @@ const initialState = {
   confirmedPassword: '',
   termsChecked: false,
   errors: [],
+  loggedIn: false,
 };
 
 /**
@@ -54,6 +55,10 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         confirmedPassword: '',
         termsChecked: false,
+        // @TODO
+        // Si le retour de la requête de connexion est 200 set true
+        // Action dédiée dans ajaxMiddleware ?
+        loggedIn: true,
       };
     }
 

@@ -12,49 +12,63 @@ import { Button, Card, Icon } from 'semantic-ui-react';
 /**
  * Code
  */
-const SingleCard = ({
-  title,
-  description,
-  link,
-  price,
-  author,
-}) => (
-  <Card className="card">
-    <Card.Content
-      header={title}
-      description={description}
-    />
-    <Card.Content
-      meta={<a href={link}>Lien</a>}
-    />
-    <Card.Content
-      description={`Prix: ${price}€`}
-    />
-    <Card.Content textAlign="center" extra>
-      <Icon name="user" />
-      <strong>{author}</strong>
-    </Card.Content>
-    <Card.Content textAlign="center" extra>
-      <Button
-        content="like"
-        icon="thumbs up"
-        label={{
-          pointing: 'right',
-          content: '3',
-        }}
-        labelPosition="left"
-      />
-    </Card.Content>
-  </Card>
-);
+class SingleCard extends React.Component {
+  handleClick = () => {
+    const { voteOnSuggestion } = this.props;
+
+    voteOnSuggestion();
+  }
+
+  render() {
+    const {
+      name,
+      description,
+      url,
+      price,
+      author,
+    } = this.props;
+
+    return (
+      <Card className="card">
+        <Card.Content
+          header={name}
+          description={description}
+        />
+        <Card.Content
+          meta={<a href={url}>Lien</a>}
+        />
+        <Card.Content
+          description={`Prix: ${price}€`}
+        />
+        <Card.Content textAlign="center" extra>
+          <Icon name="user" />
+          <strong>{author}</strong>
+        </Card.Content>
+        <Card.Content textAlign="center" extra>
+          <Button
+            content="like"
+            icon="thumbs up"
+            label={{
+              pointing: 'right',
+              content: '3',
+            }}
+            labelPosition="left"
+            onClick={this.handleClick}
+          />
+        </Card.Content>
+      </Card>
+    );
+  }
+}
 
 // PropTypes validation
 SingleCard.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  voteOnSuggestion: PropTypes.func.isRequired,
 };
 
 /**

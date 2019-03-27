@@ -2,13 +2,12 @@
  * NPM import
  */
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 
 /**
  * Local import
  */
 // Components
-import NavbarUser from 'src/components/NavbarUser';
+import Navbar from 'src/components/Navbar';
 import NewProject from 'src/containers/CreateProject/CreateProjectForm';
 
 
@@ -17,7 +16,7 @@ import NewProject from 'src/containers/CreateProject/CreateProjectForm';
  */
 const CreateProject = () => (
   <div>
-    <NavbarUser />
+    <Navbar />
     <NewProject />
   </div>
 );

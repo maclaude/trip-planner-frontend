@@ -5,6 +5,7 @@ const initialState = {
   email: '',
   password: '',
   errors: [],
+  loggedIn: false,
 };
 
 /**
@@ -37,6 +38,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
+        // @TODO
+        // Si le retour de la requête de connexion est 200 set true
+        // Action dédiée dans ajaxMiddleware ?
+        loggedIn: true,
       };
 
     default:

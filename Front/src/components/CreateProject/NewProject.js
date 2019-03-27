@@ -9,30 +9,78 @@ import {
   Input,
   TextArea,
   Form,
+  Message,
 } from 'semantic-ui-react';
+import uuidV4 from 'uuid/v4';
 
 /**
  * Local import
  */
 import './newproject.scss';
 
+// Utils
+import NewProjectErrors from 'src/utils/newProject_form_errors';
+import SuggestDatesErrors from 'src/utils/dateSuggest_form';
+
 /**
  * Code
  */
 class NewProject extends React.Component {
-
   handleChange = (evt) => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
-    console.log('changement de linput');
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    // console.log('formulaire sousmis');
+
+    const {
+      title,
+      description,
+      debutDates,
+      endDates,
+      destination,
+      showErrors,
+      newProject,
+    } = this.props;
+
+    const errors = NewProjectErrors(
+      title,
+      description,
+      debutDates,
+      endDates,
+      destination,
+    );
+    if (
+      (title && description && destination && debutDates && endDates !== '')
+    ) {
+      newProject();
+    }
+    else {
+      showErrors(errors);
+    }
   };
 
+  handleClick = () => {
+    const {
+      addDates,
+      debutDates,
+      endDates,
+      showErrors,
+    } = this.props;
+
+    const dateErrors = SuggestDatesErrors(
+      debutDates,
+      endDates,
+    );
+    if (debutDates && endDates !== '') {
+      addDates();
+    }
+    else {
+      showErrors(dateErrors);
+    }
+  };
 
   render() {
     const {
@@ -41,7 +89,9 @@ class NewProject extends React.Component {
       debutDates,
       endDates,
       destination,
-      participants,
+      user,
+      errors,
+      dateSuggest,
     } = this.props;
 
     return (
@@ -96,6 +146,21 @@ class NewProject extends React.Component {
                 value={endDates}
                 onChange={this.handleChange}
               />
+              <Button type="button" icon>
+                <Icon
+                  name="plus"
+                  onClick={this.handleClick}
+                />
+              </Button>
+            </div>
+            <div id="newproject-date-suggested">
+              {dateSuggest.map(date => (
+                <div id="date" key={uuidV4()}>
+                  <p>
+                    Du {date.date_de_debut} au {date.date_de_fin}
+                  </p>
+                </div>
+              ))}
             </div>
             <div id="newproject-destination">
               <p>Destination</p>
@@ -113,10 +178,10 @@ class NewProject extends React.Component {
               <p>Ajouter des participants</p>
               <div className="input">
                 <Input
-                  name="participants"
+                  name="user"
                   icon="users"
                   placeholder="Pseudo du participant..."
-                  value={participants}
+                  value={user}
                   onChange={this.handleChange}
                 />
               </div>
@@ -129,6 +194,17 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
+        {(errors.length > 0) && (
+          <div id="signup-form-errors">
+            {errors.map(error => (
+              <Message negative key={error}>
+                <p>
+                  {error}
+                </p>
+              </Message>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
@@ -138,11 +214,22 @@ class NewProject extends React.Component {
 NewProject.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  debutDates: PropTypes.string.isRequired,
-  endDates: PropTypes.string.isRequired,
+  debutDates: PropTypes.string,
+  endDates: PropTypes.string,
   destination: PropTypes.string.isRequired,
-  participants: PropTypes.array.isRequired,
+  user: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
+  newProject: PropTypes.func.isRequired,
+  errors: PropTypes.array.isRequired,
+  showErrors: PropTypes.func.isRequired,
+  addDates: PropTypes.func.isRequired,
+  dateSuggest: PropTypes.array.isRequired,
+};
+
+NewProject.defaultProps = {
+  user: '',
+  debutDates: '',
+  endDates: '',
 };
 
 /**
