@@ -39,3 +39,9 @@
   background: $background-main-color;
   color: $font-color;
 }
+
+.cards {
+  &-card {
+    min-height: 800px;
+  }
+}

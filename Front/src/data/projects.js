@@ -2,7 +2,7 @@ export default [
   {
     id: '1',
     title: 'Voyage à Barcelone',
-    description: 'Voyages à Barca entre potes. Objectif: Louer une maison, bien manger et faire la fête',
+    description: 'Voyages à Barca entre amis, profitez du soleil, des plages et faire la fête',
     destination: 'Barcelone',
     projectDates: [
       '10/07/2019',
