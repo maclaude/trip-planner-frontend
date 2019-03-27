@@ -61,7 +61,6 @@ class SingleCard extends React.Component {
   }
 }
 
-
 // PropTypes validation
 SingleCard.propTypes = {
   name: PropTypes.string.isRequired,

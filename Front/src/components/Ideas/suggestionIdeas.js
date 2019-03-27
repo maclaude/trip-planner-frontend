@@ -16,7 +16,7 @@ import SingleCard from 'src/containers/Ideas/SingleCard';
 const SuggestionIdeas = ({ suggestions }) => (
   <div id="suggestions-ideas">
     <div id="suggestions-ideas-title">
-      suggestions du groupe
+      Suggestions du groupe
     </div>
     <div id="suggestion-ideas-cards">
       <Card.Group>

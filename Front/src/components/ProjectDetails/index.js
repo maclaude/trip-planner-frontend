@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import NavbarProject from 'src/components/NavbarProject';
+import NavbarUser from 'src/components/NavbarUser';
 import ProjectDetails from './ProjectDetails';
 import './project_details.scss';
 
@@ -17,7 +17,7 @@ import './project_details.scss';
  */
 const MyProjectDetails = () => (
   <div>
-    <NavbarProject />
+    <NavbarUser />
     <ProjectDetails />
   </div>
 );

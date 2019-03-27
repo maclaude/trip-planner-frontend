@@ -39,7 +39,7 @@ const NavbarProject = () => (
         </NavLink>
         <div id="my_projects">
           <NavLink
-            to="Récapitulatif"
+            to="recapitulatif"
             className="item"
           >
             New-York
