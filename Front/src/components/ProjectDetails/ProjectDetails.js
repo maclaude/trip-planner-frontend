@@ -8,6 +8,9 @@ import { Card, Image } from 'semantic-ui-react';
  * Local import
  */
 import './project_details.scss';
+// Assets
+import avatar from 'src/assets/avatar/default.png';
+import newYork from 'src/assets/images/new-york.jpg';
 
 /**
  * Code
@@ -22,7 +25,7 @@ const ProjectDetails = () => (
         <h2>Destination</h2>
         <div id="project-card">
           <Card className="trip">
-            <Image src="src/assets/images/new-york.jpg" />
+            <Image src={newYork} />
             <Card.Content>
               <Card.Header>
                 New-York
@@ -44,19 +47,19 @@ const ProjectDetails = () => (
         <h2>Participants</h2>
         <div id="participants-card">
           <Card>
-            <Image src="src/assets/avatar/default.png" />
+            <Image src={avatar} />
             <Card.Header>
               Anthony
             </Card.Header>
           </Card>
           <Card>
-            <Image src="src/assets/avatar/default.png" />
+            <Image src={avatar} />
             <Card.Header>
               Marc-Antoine
             </Card.Header>
           </Card>
           <Card>
-            <Image src="src/assets/avatar/default.png" />
+            <Image src={avatar} />
             <Card.Header>
               Florent
             </Card.Header>

@@ -11,7 +11,7 @@ import { Image } from 'semantic-ui-react';
 
 // styles
 import './UserProfil.scss';
-
+import avatar from 'src/assets/avatar/default.png';
 
 /**
  * Code
@@ -21,7 +21,7 @@ const Profil = () => (
     <h1>Bienvenue</h1>
     <div id="profil-main">
       <div id="profil-avatar">
-        <Image src="src/assets/avatar/default.png" size="medium" circular />
+        <Image src={avatar} size="medium" circular />
         <h2>Modifier mon avatar</h2>
       </div>
       <div id="profil-username">

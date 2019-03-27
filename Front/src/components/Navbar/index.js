@@ -10,6 +10,8 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './navbar.scss';
+// Assets
+import avatar from 'src/assets/avatar/default.png';
 
 /**
  * Code
@@ -17,7 +19,7 @@ import './navbar.scss';
 const Navbar = () => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-username">
-      <Image id="avatar" src="src/assets/avatar/default.png" size="mini" circular />
+      <Image id="avatar" src={avatar} size="mini" circular />
     </div>
     <div id="navbar-main">
       <div id="new-project">
