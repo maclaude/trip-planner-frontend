@@ -15,7 +15,10 @@ import './footer.scss';
  */
 const Footer = () => (
   <div id="footer">
-    <FaGithubSquare />
+    <p id="footer-copyright">Trip-planner 2019 &copy;</p>
+    <div id="footer-social">
+      <FaGithubSquare />
+    </div>
   </div>
 );
 

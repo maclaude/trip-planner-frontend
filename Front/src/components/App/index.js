@@ -2,7 +2,7 @@
  * NPM import
  */
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 /**
  * Local import
@@ -40,8 +40,6 @@ const App = () => (
       <Route exact path="/disponibilites" component={Availabilities} />
       <Route exact path="/idees" component={Ideas} />
       <Route exact path="/profil" component={UserProfil} />
-
-      {/* <Route exact path="/recapitulatif" component={MyProjectDetails} /> */}
 
       <Route
         path="/recapitulatif/:slug"

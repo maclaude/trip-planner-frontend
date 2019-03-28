@@ -30,6 +30,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+
     case NEW_PROJECT:
       return {
         ...state,
@@ -40,18 +41,22 @@ const reducer = (state = initialState, action = {}) => {
         destination: '',
         user: '',
       };
+
     case SHOW_NEWPROJECT_ERRORS:
       return {
         ...state,
         errors: action.errors,
       };
+
     case ADD_DATES: {
       // Creation de l'objet date suggéré
       const date = {
         date_de_debut: state.debutDates,
         date_de_fin: state.endDates,
       };
+
       // Creation du nouveau tableau de date
+
       const dateSuggest = [...state.dateSuggest, date];
       return {
         ...state,

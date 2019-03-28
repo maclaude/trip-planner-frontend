@@ -1,5 +1,5 @@
 /**
- * NPM IMPORT
+ * Npm import
  */
 import React from 'react';
 import { Radio, Button, Icon } from 'semantic-ui-react';
@@ -7,9 +7,9 @@ import { Radio, Button, Icon } from 'semantic-ui-react';
 /**
  * Local import
  */
-// styles
+// Styles
 import './availability.scss';
-// data
+// Data
 import avaibility from 'src/data/availability';
 
 /**
@@ -34,10 +34,10 @@ const Availability = () => (
         ))}
       </div>
       <div id="availability-checkbox">
-        <h3><Radio toggle /> Je ne suis pas disponible aux dates proposées</h3>
+        <h3><Radio toggle />Je ne suis pas disponible aux dates proposées</h3>
       </div>
       <Button animated id="availability-next">
-        <Button.Content visible>Etape suivante</Button.Content>
+        <Button.Content visible>Étape suivante</Button.Content>
         <Button.Content hidden>
           <Icon name="arrow right" />
         </Button.Content>

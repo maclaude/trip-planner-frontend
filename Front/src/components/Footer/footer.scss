@@ -4,8 +4,12 @@
   height: 100px;
   background-color: $footer-bg-color;
   color: $footer-text-color;
-  font-size: 1.5em;
+  font-size: 1.1em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  &-copyright, &-social {
+    text-align: center;
+  }
 }

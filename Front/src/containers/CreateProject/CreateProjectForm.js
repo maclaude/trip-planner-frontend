@@ -14,7 +14,7 @@ import {
   showNewprojectErrors,
   newProject,
   addDates,
-} from 'src/store/reducers/CreateProject';
+} from 'src/store/reducers/createProject';
 
 /**
  * Code

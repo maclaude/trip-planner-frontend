@@ -11,8 +11,9 @@ import 'semantic-ui-css/semantic.min.css';
 /**
  * Local import
  */
+// Component
 import App from 'src/components/App';
-
+// Store
 import store from 'src/store';
 
 /**

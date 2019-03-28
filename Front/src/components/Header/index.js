@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './header.scss';
+// Assets
 import logo from 'src/assets/logo/logo_1.png';
 
 /**
