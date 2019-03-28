@@ -3,7 +3,7 @@
  */
 // NPM
 import uuidv4 from 'uuid/v4';
-// Local
+// Local data
 import suggestionsData from 'src/data/suggestions';
 
 /**

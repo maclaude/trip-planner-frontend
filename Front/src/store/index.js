@@ -16,6 +16,7 @@ import signup from 'src/store/reducers/signup';
 import login from 'src/store/reducers/login';
 import ideas from 'src/store/reducers/ideas';
 import CreateProject from 'src/store/reducers/CreateProject';
+import projects from 'src/store/reducers/projects';
 
 // Middleware
 import ajaxMiddleware from './middlewares/ajax';
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
   login,
   ideas,
   CreateProject,
+  projects,
 });
 
 /**
