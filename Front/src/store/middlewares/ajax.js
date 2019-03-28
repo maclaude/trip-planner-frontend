@@ -10,7 +10,7 @@ import axios from 'axios';
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
-import { NEW_PROJECT } from 'src/store/reducers/CreateProject';
+import { NEW_PROJECT, ADD_DATES } from 'src/store/reducers/CreateProject';
 
 /**
  * Middleware
@@ -78,14 +78,28 @@ const ajaxMiddleware = store => next => (action) => {
         title: state.CreateProject.title,
         description: state.CreateProject.description,
         destination: state.CreateProject.destination,
-        debutDates: state.CreateProject.debutDates,
-        endDates: state.CreateProject.endDates,
         user: state.CreateProject.user,
+        owner: state.login.email,
       };
 
       console.log('Requête AJAX inscrire le nouveau projet', newProject);
 
       axios.post('127.0.0.1:8000/api/projects', newProject)
+        .then(response => console.log(response))
+        .catch(() => console.error('Request has failed'));
+
+      break;
+    }
+    case ADD_DATES: {
+      // Objet addDates à envoyer au back
+      const addDates = {
+        starDate: state.CreateProject.debutDates,
+        endDate: state.CreateProject.endDates,
+      };
+
+      console.log('Requête AJAX inscrire les suggestions de dates', addDates);
+
+      axios.post('127.0.0.1:8000/api/project_dates', addDates)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 

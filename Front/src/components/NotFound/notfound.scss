@@ -1,9 +1,19 @@
 @import 'src/styles/vars';
 
 #notFound {
+  height: 70vh;
   text-align: center;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 3.5em;
+  -webkit-text-stroke: 2px black;
 
+  &-title, &-code {
+    color: white;
+    height: 15vh;
+  } 
   &-title {
     font-size: 2em;
     font-weight: 500;
@@ -14,3 +24,11 @@
     font-weight: 700;
   }
 }
+
+#container {
+  background-image: url('https://source.unsplash.com/1600x900/?travel, landscape');
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  height: 100%;
+}
+
