@@ -63,16 +63,20 @@
     &-checkbox {
       margin-bottom: 2em;
     }
-    &-button {
+    &-buttons {
+      justify-content: center;
       display: flex;
       flex-direction: column;
     }
     &-next {
       display: flex;
       justify-content: flex-end;
+      color: $font-color;
+      background: $button-color;
+      float: right;
     }
   } 
-  button {
+  .availability-button {
     margin-bottom: 2em;
     padding: 1em;
   }
@@ -93,9 +97,14 @@
     &-checkbox {
       margin-bottom: 2em;
     }
+    &-next {
+      color: $font-color;
+      background: $button-color;
+    }
   } 
-  button {
+  .availability-button {
     margin-bottom: 2em;
+    padding: 0.5em;
   }
 }
 #availability {
@@ -103,7 +112,7 @@
   color: $font-color;
 }
 
-button {
+.availability-button {
   border: none;
   border-radius: 1.2em;
   background: $button-color;
@@ -111,7 +120,7 @@ button {
   font-size: 1.5em;
   box-shadow: 0 9px rgba(76, 81, 117, 0.432);
 }
-.button:active {
+.availability-button:active {
   box-shadow: 0 5px rgba(76, 81, 117, 0.432);
   transform: translateY(7px);
 }

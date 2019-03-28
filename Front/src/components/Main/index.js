@@ -22,14 +22,16 @@ const Main = () => (
   <div id="main">
     <div id="main-banner">
       <div id="main-banner-text">
-        <h1 id="main-banner-text-title">Trip-planner</h1>
-        <p id="main-banner-text-slogan">Organisez vos voyages entre amis</p>
+        <div id="text" className="focus-in-contract">
+          <h1 id="main-banner-text-title">Trip-planner</h1>
+          <p id="main-banner-text-slogan">Organisez vos voyages entre amis</p>
+        </div>
       </div>
-      <div id="main-banner-graphics">
+      {/* <div id="main-banner-graphics">
         <img src={group} alt="group graphic" />
         <img src={idea} alt="idea graphic" />
         <img src={plane} alt="plane graphic" />
-      </div>
+      </div> */}
     </div>
     <div id="main-fonctionalities">
       <div id="main-fonctionalities-text-up">

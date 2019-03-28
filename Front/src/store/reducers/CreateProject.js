@@ -17,7 +17,7 @@ const initialState = {
  */
 const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
-const ADD_DATES = 'ADD_DATES';
+export const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
 
 /**
