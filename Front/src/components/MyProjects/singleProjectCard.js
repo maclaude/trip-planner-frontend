@@ -9,17 +9,27 @@ import { Card } from 'semantic-ui-react';
 /**
  * Local import
  */
+// Utils
+import { getURL } from 'src/utils/url';
 
 /**
  * Code
  */
-const SingleProjectCard = ({ title, description, projectDates }) => (
+const SingleProjectCard = ({
+  id,
+  title,
+  description,
+  projectDates,
+}) => (
   <Card
     className="card"
   >
     <Card.Content>
       <Card.Header textAlign="center">
         <NavLink
+          to={getURL('recapitulatif', title)}
+          key={id}
+          exact
           className="card-title"
         >
           {title}
@@ -41,6 +51,7 @@ const SingleProjectCard = ({ title, description, projectDates }) => (
 
 // PropTypes validation
 SingleProjectCard.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   projectDates: PropTypes.array.isRequired,

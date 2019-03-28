@@ -48,15 +48,15 @@ const NavbarUser = () => (
       <div id="projects-details">
         <div id="availability-navbar">
           <NavLink
-            to="disponibilites"
+            to="/disponibilites"
             className="item"
           >
-            Définir ses disponibilités
+            Définir mes disponibilités
           </NavLink>
         </div>
         <div id="Idées">
           <NavLink
-            to="idees"
+            to="/idees"
             className="item"
           >
             Idées du groupe
@@ -64,7 +64,7 @@ const NavbarUser = () => (
         </div>
         <div id="summary">
           <NavLink
-            to="recapitulatif"
+            to="/recapitulatif"
             className="item"
           >
             Récapitulatif
@@ -72,7 +72,7 @@ const NavbarUser = () => (
         </div>
         <div id="chat">
           <NavLink
-            to="chat"
+            to="/chat"
             className="item"
           >
             Espace de discussion
@@ -83,7 +83,7 @@ const NavbarUser = () => (
     <div id="navbar-footer">
       <div id="modification">
         <NavLink
-          to="Profil"
+          to="/profil"
           className="item"
         >
           <Icon name="cog" />

@@ -2,6 +2,7 @@
  * NPM IMPORT
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, Image, List } from 'semantic-ui-react';
 
 /**
@@ -11,15 +12,11 @@ import './project_details.scss';
 // Assets
 import avatar from 'src/assets/avatar/default.png';
 import newYork from 'src/assets/images/new-york.jpg';
-// Data
-import Projects from 'src/data/projects';
-
-const project = Projects[3];
 
 /**
  * Code
  */
-const ProjectDetails = () => (
+const ProjectDetails = ({ project }) => (
   <div id="projectDetails">
 
     <div id="projectDetails-banner">
@@ -53,9 +50,10 @@ const ProjectDetails = () => (
             verticalAlign="middle"
             size="big"
           >
-            {project.user.map(user => (
+            {project.user.map((user, index) => (
               <List.Item
-                key={user}
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
               >
                 <Image avatar src={avatar} />
                 <List.Content>
@@ -107,6 +105,16 @@ const ProjectDetails = () => (
     </div>
   </div>
 );
+
+// PropTypes validation
+ProjectDetails.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    projectDates: PropTypes.array.isRequired,
+  }).isRequired,
+};
 
 /**
  * Export

@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -15,12 +16,17 @@ import './project_details.scss';
 /**
  * Code
  */
-const MyProjectDetails = () => (
+const MyProjectDetails = ({ project }) => (
   <div>
     <NavbarUser />
-    <ProjectDetails />
+    <ProjectDetails project={project} />
   </div>
 );
+
+// PropTypes validation
+MyProjectDetails.propTypes = {
+  project: PropTypes.object.isRequired,
+};
 
 /**
  * Export

@@ -9,6 +9,8 @@ import { NavLink } from 'react-router-dom';
 /**
  * Local import
  */
+// Utils
+import { getURL } from 'src/utils/url';
 // Style
 import './navbar_project.scss';
 // Assets
@@ -44,8 +46,9 @@ const NavbarProject = ({ projects }) => (
 
           {projects.map(project => (
             <NavLink
-              to="recapitulatif"
+              to={getURL('recapitulatif', project.title)}
               key={project.id}
+              exact
               className="item"
             >
               {project.title}
