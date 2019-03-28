@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon, Image } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
@@ -10,15 +11,13 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './navbar_project.scss';
-// Data
-import projects from 'src/data/projects';
 // Assets
 import avatar from 'src/assets/avatar/default.png';
 
 /**
  * Code
  */
-const NavbarProject = () => (
+const NavbarProject = ({ projects }) => (
   <div id="navbar-project" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-project-username">
       <Image id="avatar" src={avatar} size="mini" circular />
@@ -78,6 +77,15 @@ const NavbarProject = () => (
     </div>
   </div>
 );
+
+// PropTypes validation
+NavbarProject.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 /**
  * Export
