@@ -21,16 +21,16 @@ const Projects = ({ projects }) => (
     <div id="myprojects-banner">
       <h1>Mes projets</h1>
     </div>
-    <div id="project-cards">
-      <Card.Group>
-        {projects.map(project => (
-          <SingleProjectCard
-            key={project.id}
-            {...project}
-          />
-        ))}
-      </Card.Group>
-    </div>
+    <Card.Group
+      id="myprojects-cards"
+    >
+      {projects.map(project => (
+        <SingleProjectCard
+          key={project.id}
+          {...project}
+        />
+      ))}
+    </Card.Group>
   </div>
 );
 

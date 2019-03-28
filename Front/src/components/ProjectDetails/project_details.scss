@@ -4,82 +4,98 @@
   #projectDetails {
     width: 80vw;
     float: right;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2em 5em;
-    &-banner, &-header, #handle-date, #accomodation, #activity {
-      margin-top: 3em;
-    }
+    background: $background-main-color;
+    color: $font-color;
+    
     &-header {
+      margin-top: 3em;
       display: flex;
       justify-content: space-between;
+
+      &-left, &-right {
+        width: 50%;
+      }
+
+      &-right {
+        &-participants-list {
+          width: 50%;
+          margin-left: 50px;
+          margin-bottom: 20px;
+        }
+
+        &-dates {
+          width: auto;
+          font-size: 1.5em;
+          border: solid 1px $font-color;
+          background: $button-color;
+          border-radius: 10px;
+          padding: 0.5em 1em;
+          font-weight: bold;
+          margin: auto;
+          text-align: center;
+          display: inline-block;
+        }
+      }
     }
-  }
-  #destination, #participants {
-    width: 50%;
-  }
-  #participants-card {
-    display: flex;
-  }
-  .ui.card {
-    width: 20%;
-    height: 50%;
-    margin: 0 2em 0 0;
-  }
-  .ui.card.trip {
-    width: 50%;
-    height: 50%;
-  }
-  #handle-date {
-    width: 70%;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+
+    &-suggestions {
+      margin: 3em;
+    }
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
+.suggestion {
+  &-title {
+    padding-bottom: 1em;
+  }
+}
+
+@media (max-width: 900px) {
   #projectDetails {
-    width: 80%;
+    width: 80vw;
     float: right;
-    height: 100%;
-    padding: 2.5em;
-    &-header,&-banner, #participants, #handle-date, #accomodation, #activity {
-      margin-top: 2em;
-      text-align: center;
-    }
-    .ui.card.trip, .ui.card {
-      width: 50%;
-      margin: 1em auto;
-    }
-  }
-  #date-title {
-    margin-bottom: 1em;
-  }
-}
+    min-height: 100vh;
+    padding: 2em 5em;
+    background: $background-main-color;
+    color: $font-color;
+    
+    &-header {
+      margin-top: 3em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
-@media (max-width: 600px) {
-  #projectDetails {
-    width: 100%;
-    padding: 2em;
-    text-align: center;
-    &-header, &-banner, #participants, #handle-date, #accomodation, #activity {
-      margin-top: 2em;
+      &-left, &-right {
+        width: 100%;
+        margin-bottom: 2em;
+      }
+
+      &-right {
+        &-participants-list {
+          width: 50%;
+          margin-left: 50px;
+          margin-bottom: 20px;
+        }
+
+        &-dates {
+          width: auto;
+          font-size: 1.5em;
+          border: solid 1px $font-color;
+          background: $button-color;
+          border-radius: 10px;
+          padding: 0.5em 1em;
+          font-weight: bold;
+          margin: auto;
+          text-align: center;
+          display: inline-block;
+        }
+      }
     }
-    #date-title {
-      margin-bottom: 1em;
+
+    &-suggestions {
+      margin: 3em;
     }
   }
-  
-}
-#projectDetails {
-  background: $background-main-color;
-  color: $font-color;
-}
-#dates {
-  font-size: 1.5em;
-  border: solid 1px $font-color;
-  background: $button-color;
-  border-radius: 1em;
-  padding: 0.5em 1em;
-  font-weight: bold;
 }

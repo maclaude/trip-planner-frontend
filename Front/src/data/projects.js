@@ -44,7 +44,6 @@ export default [
     ],
     owner: 'Anthony',
     user: [
-      '',
       'Camille',
       'Anthony',
       'Romain',
