@@ -10,6 +10,8 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './navbar_project.scss';
+// Data
+import projects from 'src/data/projects';
 // Assets
 import avatar from 'src/assets/avatar/default.png';
 
@@ -40,12 +42,16 @@ const NavbarProject = () => (
             Mes projets
         </NavLink>
         <div id="my_projects">
-          <NavLink
-            to="recapitulatif"
-            className="item"
-          >
-            New-York
-          </NavLink>
+
+          {projects.map(project => (
+            <NavLink
+              to="recapitulatif"
+              key={project.id}
+              className="item"
+            >
+              {project.title}
+            </NavLink>
+          ))}
         </div>
       </div>
     </div>
@@ -71,7 +77,6 @@ const NavbarProject = () => (
       </div>
     </div>
   </div>
-
 );
 
 /**
