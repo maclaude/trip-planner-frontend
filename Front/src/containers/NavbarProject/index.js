@@ -2,6 +2,7 @@
  * NPM import
  */
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 /**
  * Local import
@@ -32,4 +33,4 @@ const NavbarProjectContainer = connect(
 /**
  * Export
  */
-export default NavbarProjectContainer;
+export default withRouter(NavbarProjectContainer);

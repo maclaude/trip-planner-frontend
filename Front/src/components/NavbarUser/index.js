@@ -46,6 +46,14 @@ const NavbarUser = () => (
         <a className="item">New-York 2019</a>
       </div>
       <div id="projects-details">
+        <div id="summary">
+          <NavLink
+            to="/recapitulatif"
+            className="item"
+          >
+            Récapitulatif
+          </NavLink>
+        </div>
         <div id="availability-navbar">
           <NavLink
             to="/disponibilites"
@@ -60,14 +68,6 @@ const NavbarUser = () => (
             className="item"
           >
             Idées du groupe
-          </NavLink>
-        </div>
-        <div id="summary">
-          <NavLink
-            to="/recapitulatif"
-            className="item"
-          >
-            Récapitulatif
           </NavLink>
         </div>
         <div id="chat">
