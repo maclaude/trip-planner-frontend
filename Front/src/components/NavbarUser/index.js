@@ -18,8 +18,10 @@ import avatar from 'src/assets/avatar/default.png';
  */
 const NavbarUser = () => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
-    <div id="navbar-username">
-      <Image id="avatar" src={avatar} size="mini" circular />
+    <div id="navbar-header">
+      <div id="navbar-username">
+        <Image id="avatar" src={avatar} size="mini" circular />
+      </div>
     </div>
     <div id="navbar-main">
       <div id="new-project">
@@ -29,6 +31,15 @@ const NavbarUser = () => (
         >
           <Icon name="plus" />
             Créer un nouveau projet
+        </NavLink>
+      </div>
+      <div id="my-projects">
+        <NavLink
+          to="/mes-projets"
+          className="item"
+        >
+          <Icon name="reply" />
+            Mes projets
         </NavLink>
       </div>
       <div id="projects">
