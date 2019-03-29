@@ -1,18 +1,18 @@
 export default [
   {
     id: '1',
-    title: 'Voyage à Barcelone',
-    description: 'Voyages à Barca entre amis, profitez du soleil, des plages et faire la fête',
-    destination: 'Barcelone',
+    title: 'Voyage à Londres',
+    description: 'Week-end à Londres entre potes pour l\'anniversaire de Florent',
+    destination: 'Londres',
     projectDates: [
       '10/07/2019',
       '25/07/2019',
     ],
     owner: 'Marc-Antoine',
     user: [
-      'Donald',
-      'Kim',
-      'Vladimir',
+      'Florent',
+      'Anthony',
+      'Romain',
       'Marc-Antoine',
     ],
   },
@@ -44,7 +44,6 @@ export default [
     ],
     owner: 'Anthony',
     user: [
-      '',
       'Camille',
       'Anthony',
       'Romain',

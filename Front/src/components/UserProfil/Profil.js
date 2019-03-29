@@ -7,8 +7,6 @@ import { Image } from 'semantic-ui-react';
 /**
  * Local import
  */
-// Components
-
 // styles
 import './UserProfil.scss';
 import avatar from 'src/assets/avatar/default.png';

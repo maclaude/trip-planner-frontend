@@ -1,5 +1,5 @@
 /**
- * NPM IMPORT
+ * NPM import
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -53,7 +53,7 @@ class NewProject extends React.Component {
       destination,
     );
     if (
-      (title && description && destination && debutDates && endDates !== '')
+      (title && description && destination !== '')
     ) {
       newProject();
     }

@@ -18,8 +18,10 @@ import avatar from 'src/assets/avatar/default.png';
  */
 const NavbarUser = () => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
-    <div id="navbar-username">
-      <Image id="avatar" src={avatar} size="mini" circular />
+    <div id="navbar-header">
+      <div id="navbar-username">
+        <Image id="avatar" src={avatar} size="mini" circular />
+      </div>
     </div>
     <div id="navbar-main">
       <div id="new-project">
@@ -31,37 +33,46 @@ const NavbarUser = () => (
             Créer un nouveau projet
         </NavLink>
       </div>
+      <div id="my-projects">
+        <NavLink
+          to="/mes-projets"
+          className="item"
+        >
+          <Icon name="reply" />
+            Mes projets
+        </NavLink>
+      </div>
       <div id="projects">
         <a className="item">New-York 2019</a>
       </div>
       <div id="projects-details">
-        <div id="availability-navbar">
-          <NavLink
-            to="disponibilites"
-            className="item"
-          >
-            Définir ses disponibilités
-          </NavLink>
-        </div>
-        <div id="Idées">
-          <NavLink
-            to="idees"
-            className="item"
-          >
-            Idées du groupe
-          </NavLink>
-        </div>
         <div id="summary">
           <NavLink
-            to="recapitulatif"
+            to="/recapitulatif"
             className="item"
           >
             Récapitulatif
           </NavLink>
         </div>
+        <div id="availability-navbar">
+          <NavLink
+            to="/disponibilites"
+            className="item"
+          >
+            Définir mes disponibilités
+          </NavLink>
+        </div>
+        <div id="Idées">
+          <NavLink
+            to="/idees"
+            className="item"
+          >
+            Idées du groupe
+          </NavLink>
+        </div>
         <div id="chat">
           <NavLink
-            to="chat"
+            to="/chat"
             className="item"
           >
             Espace de discussion
@@ -72,7 +83,7 @@ const NavbarUser = () => (
     <div id="navbar-footer">
       <div id="modification">
         <NavLink
-          to="Profil"
+          to="/profil"
           className="item"
         >
           <Icon name="cog" />

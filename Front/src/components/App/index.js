@@ -19,7 +19,10 @@ import MyProjectDetails from 'src/components/ProjectDetails';
 import UserProfil from 'src/components/UserProfil';
 import Ideas from 'src/components/Ideas';
 
-
+// Data
+import projectsData from 'src/data/projects';
+// Utils
+import { getSlug } from 'src/utils/url';
 // Style
 import './app.scss';
 
@@ -35,9 +38,19 @@ const App = () => (
       <Route exact path="/mes-projets" component={MyProjects} />
       <Route exact path="/nouveau-projet" component={CreateProject} />
       <Route exact path="/disponibilites" component={Availabilities} />
-      <Route exact path="/recapitulatif" component={MyProjectDetails} />
       <Route exact path="/idees" component={Ideas} />
       <Route exact path="/profil" component={UserProfil} />
+
+      <Route
+        path="/recapitulatif/:slug"
+        render={({ match }) => {
+          const { slug } = match.params;
+
+          const currentProject = projectsData.find(project => getSlug(project.title) === slug);
+
+          return <MyProjectDetails project={currentProject} />;
+        }}
+      />
 
       {/* Fallback - gestion de 404 */}
       <Route component={NotFound} />

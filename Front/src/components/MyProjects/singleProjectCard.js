@@ -2,21 +2,38 @@
  * NPM import
  */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 
 /**
  * Local import
  */
+// Utils
+import { getURL } from 'src/utils/url';
 
 /**
  * Code
  */
-const SingleProjectCard = ({ title, description, projectDates }) => (
-  <Card>
+const SingleProjectCard = ({
+  id,
+  title,
+  description,
+  projectDates,
+}) => (
+  <Card
+    className="card"
+  >
     <Card.Content>
-      <Card.Header>
-        {title}
+      <Card.Header textAlign="center">
+        <NavLink
+          to={getURL('recapitulatif', title)}
+          key={id}
+          exact
+          className="card-title"
+        >
+          {title}
+        </NavLink>
       </Card.Header>
     </Card.Content>
     <Card.Content>
@@ -24,7 +41,7 @@ const SingleProjectCard = ({ title, description, projectDates }) => (
         {description}
       </Card.Description>
     </Card.Content>
-    <Card.Content>
+    <Card.Content textAlign="center">
       <Card.Meta>
         {`Dates: ${projectDates[0]} au ${projectDates[1]}`}
       </Card.Meta>
@@ -34,6 +51,7 @@ const SingleProjectCard = ({ title, description, projectDates }) => (
 
 // PropTypes validation
 SingleProjectCard.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   projectDates: PropTypes.array.isRequired,

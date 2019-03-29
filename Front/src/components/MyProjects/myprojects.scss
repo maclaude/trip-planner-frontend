@@ -7,7 +7,11 @@
     min-height: 100vh;
     padding: 2.5em;
     &-banner {
-      margin: 2em;
+      margin: 0 2em 2em 2em;
+    }
+    &-cards {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
@@ -21,6 +25,10 @@
     &-banner {
       margin: 2em auto;
     }
+    &-cards {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -32,6 +40,10 @@
     &-banner {
       margin: 2em auto;
     }
+    &-cards {
+      display: flex;
+      justify-content: space-between;
+    }
   }  
 }
 
@@ -40,8 +52,10 @@
   color: $font-color;
 }
 
-.cards {
-  &-card {
-    min-height: 800px;
+.card {
+  min-height: 200px !important;
+
+  &-title {
+    color: black;
   }
 }

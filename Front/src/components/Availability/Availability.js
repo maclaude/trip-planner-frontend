@@ -1,5 +1,5 @@
 /**
- * NPM IMPORT
+ * Npm import
  */
 import React from 'react';
 import { Radio, Button, Icon } from 'semantic-ui-react';
@@ -7,7 +7,10 @@ import { Radio, Button, Icon } from 'semantic-ui-react';
 /**
  * Local import
  */
+// Styles
 import './availability.scss';
+// Data
+import avaibility from 'src/data/availability';
 
 /**
  * Code
@@ -22,15 +25,19 @@ const Availability = () => (
         <h2>Sélectionner ses disponibilités parmi les dates suivantes</h2>
       </div>
       <div id="availability-buttons">
-        <button className="availability-button" type="button"><span>Du 15 au 22 Juillet 2019</span></button>
-        <button className="availability-button" type="button"><span>Du 22 au 29 Juillet 2019</span></button>
-        <button className="availability-button" type="button"><span>Du 03 au 10 Aout 2019</span></button>
+        {avaibility.map(date => (
+          <button className="availability-button" type="button">
+            <span>
+              Du {date.starDate} au {date.endDate}
+            </span>
+          </button>
+        ))}
       </div>
       <div id="availability-checkbox">
-        <h3><Radio toggle /> Je ne suis pas disponible aux dates proposées</h3>
+        <h3><Radio toggle />Je ne suis pas disponible aux dates proposées</h3>
       </div>
       <Button animated id="availability-next">
-        <Button.Content visible>Etape suivante</Button.Content>
+        <Button.Content visible>Étape suivante</Button.Content>
         <Button.Content hidden>
           <Icon name="arrow right" />
         </Button.Content>

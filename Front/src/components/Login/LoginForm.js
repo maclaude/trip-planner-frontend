@@ -121,7 +121,9 @@ class LoginForm extends React.Component {
               animated="vertical"
               type="button"
             >
-              <Button.Content visible>Je n'ai pas de compte</Button.Content>
+              <Button.Content visible>
+                Je n'ai pas de compte
+              </Button.Content>
               <Button.Content hidden>
                 <Icon name="edit" />
               </Button.Content>
@@ -133,7 +135,9 @@ class LoginForm extends React.Component {
             color="green"
             type="submit"
           >
-            <Button.Content visible>Connexion</Button.Content>
+            <Button.Content visible>
+              Connexion
+            </Button.Content>
             <Button.Content hidden>
               <Icon name="angle double right" />
             </Button.Content>

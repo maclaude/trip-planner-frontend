@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/NavbarProject';
 import NewProject from 'src/containers/CreateProject/CreateProjectForm';
 
 
