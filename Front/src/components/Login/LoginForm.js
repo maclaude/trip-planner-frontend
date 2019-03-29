@@ -40,6 +40,7 @@ class LoginForm extends React.Component {
       password,
       showErrors,
       connectUser,
+      getProjects,
     } = this.props;
 
     // Gestion des erreurs
@@ -49,6 +50,7 @@ class LoginForm extends React.Component {
       // eslint-disable-next-line no-console
       console.log('LoginForm :: handleSubmit');
       connectUser();
+      getProjects();
     }
     else {
       showErrors(errors);
@@ -157,6 +159,7 @@ LoginForm.propTypes = {
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   connectUser: PropTypes.func.isRequired,
+  getProjects: PropTypes.func.isRequired,
 };
 
 /**

@@ -10,7 +10,7 @@ import axios from 'axios';
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
-import { NEW_PROJECT, ADD_DATES } from 'src/store/reducers/createProject';
+import { NEW_PROJECT, ADD_DATES, GET_PROJECTS } from 'src/store/reducers/createProject';
 
 /**
  * Middleware
@@ -96,15 +96,24 @@ const ajaxMiddleware = store => next => (action) => {
     case ADD_DATES: {
       // Objet addDates à envoyer au back
       const addDates = {
-        // starDate: state.createProject.debutDates,
-        // endDate: state.createProject.endDates,
-        // starDate: state.createProject.debutDates,
-        // endDate: state.createProject.endDates,
+        starDate: state.createProject.debutDates,
+        endDate: state.createProject.endDates,
+        project: '/api/projects/1',
       };
 
       console.log('Requête AJAX inscrire les suggestions de dates', addDates);
 
       axios.post('http://127.0.0.1:8000/api/project_dates', addDates)
+        .then(response => console.log(response))
+        .catch(() => console.error('Request has failed'));
+
+      break;
+    }
+
+    case GET_PROJECTS: {
+      console.log('Requête AJAX pour récupérer les projets');
+
+      axios.get('http://127.0.0.1:8000/api/projects')
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
