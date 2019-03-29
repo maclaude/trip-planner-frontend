@@ -30,7 +30,7 @@ const mapStateToProps = state => ({
 });
 
 // === Actions ===
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
     dispatch(changeSuggestionInputs(name, value));
   },
@@ -41,7 +41,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(showSuggestionErrors(errors));
   },
   sendSuggestion: () => {
-    dispatch(sendSuggestion());
+    dispatch(sendSuggestion(ownProps.project.id));
   },
 });
 

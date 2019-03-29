@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Divider } from 'semantic-ui-react';
 
 /**
@@ -18,16 +19,21 @@ import './ideas.scss';
 /**
  * Code
  */
-const Ideas = () => (
+const Ideas = ({ project }) => (
   <div id="ideas">
-    <NavabarUser />
+    <NavabarUser project={project} />
     <div id="suggestions">
-      <SuggestionForm />
+      <SuggestionForm project={project} />
       <Divider />
-      <Suggestions />
+      <Suggestions project={project} />
     </div>
   </div>
 );
+
+// PropTypes validation
+Ideas.propTypes = {
+  project: PropTypes.object.isRequired,
+};
 
 /**
  * Export

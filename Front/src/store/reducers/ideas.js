@@ -59,7 +59,7 @@ const reducer = (state = initialState, action = {}) => {
         description: state.description,
         url: state.url,
         price: state.price,
-        project_id: 1,
+        project_id: action.projectId,
         author: 'Marc-Antoine',
         suggestion_gender_id: state.type,
       };
@@ -121,8 +121,9 @@ export const showSuggestionErrors = errors => ({
   errors,
 });
 
-export const sendSuggestion = () => ({
+export const sendSuggestion = projectId => ({
   type: SEND_SUGGESTION,
+  projectId,
 });
 
 export const voteOnSuggestion = id => ({
@@ -133,9 +134,15 @@ export const voteOnSuggestion = id => ({
 /**
  * Selectors
  */
-export const getFilteredSuggestions = (suggestions, typeId) => [
-  ...suggestions.filter(suggestion => suggestion.suggestion_gender_id === typeId),
-];
+export const getFilteredSuggestions = (suggestions, typeId, projectId) => {
+  const projectSuggestions = [
+    ...suggestions.filter(suggestion => suggestion.project_id === projectId),
+  ];
+
+  return [
+    ...projectSuggestions.filter(suggestion => suggestion.suggestion_gender_id === typeId),
+  ];
+};
 
 /**
  * Export
