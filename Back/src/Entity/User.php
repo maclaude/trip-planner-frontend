@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -31,66 +32,79 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("user")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("user")
      */
     private $firstname;
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups("user")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups("user")
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("user")
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Groups("user")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("user")
      */
     private $avatar;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\VoteProjectDates", mappedBy="user", orphanRemoval=true)
+     * @Groups("user")
      */
     private $voteProjectDates;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="owner", orphanRemoval=true)
+     * @Groups("user")
      */
     private $projects;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="user")
+     * @Groups("user")
      */
     private $projectsParticipation;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\UserMessage", mappedBy="user", orphanRemoval=true)
+     * @Groups("user")
      */
     private $userMessages;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="user", orphanRemoval=true)
+     * @Groups("user")
      */
     private $suggestions;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\VoteSuggestion", mappedBy="user", orphanRemoval=true)
+     * @Groups("user")
      */
     private $voteSuggestions;
 

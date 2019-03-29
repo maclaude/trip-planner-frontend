@@ -2,7 +2,7 @@
  * Import
  */
 // NPM
-import uuidv4 from 'uuid/v4';
+import uuidv4 from 'uuid-v4';
 // Local data
 import suggestionsData from 'src/data/suggestions';
 

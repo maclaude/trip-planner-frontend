@@ -21,13 +21,13 @@ import {
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  title: state.CreateProject.title,
-  description: state.CreateProject.description,
-  debutDates: state.CreateProject.debutDates,
-  endDates: state.CreateProject.endDates,
-  dateSuggest: state.CreateProject.dateSuggest,
-  destination: state.CreateProject.destination,
-  errors: state.CreateProject.errors,
+  title: state.createProject.title,
+  description: state.createProject.description,
+  debutDates: state.createProject.debutDates,
+  endDates: state.createProject.endDates,
+  dateSuggest: state.createProject.dateSuggest,
+  destination: state.createProject.destination,
+  errors: state.createProject.errors,
 });
 
 // === Actions ===

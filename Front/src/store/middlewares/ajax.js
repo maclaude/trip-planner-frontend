@@ -10,7 +10,7 @@ import axios from 'axios';
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
-import { NEW_PROJECT, ADD_DATES } from 'src/store/reducers/CreateProject';
+import { NEW_PROJECT, ADD_DATES } from 'src/store/reducers/createProject';
 
 /**
  * Middleware
@@ -57,49 +57,54 @@ const ajaxMiddleware = store => next => (action) => {
     case SEND_SUGGESTION: {
       // Objet newSuggestion à envoyer au back
       const newSuggestion = {
-        type: state.ideas.type,
-        title: state.ideas.title,
+        name: state.ideas.name,
         description: state.ideas.description,
-        link: state.ideas.link,
-        price: state.ideas.price,
+        url: state.ideas.url,
+        price: parseInt(state.ideas.price, 10),
+        suggestionGender: '/api/suggestion_genders/1',
+        project: '/api/projects/1',
+        user: '/api/users/1',
       };
 
       console.log('Requête AJAX inscrire la nouvelle suggestion', newSuggestion);
 
-      axios.post('url', newSuggestion)
+      axios.post('http://127.0.0.1:8000/api/suggestions', newSuggestion)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
       break;
     }
+
     case NEW_PROJECT: {
       // Objet newProject à envoyer au back
       const newProject = {
-        title: state.CreateProject.title,
-        description: state.CreateProject.description,
-        destination: state.CreateProject.destination,
-        user: state.CreateProject.user,
-        owner: state.login.email,
+        title: state.createProject.title,
+        description: state.createProject.description,
+        destination: state.createProject.destination,
+        owner: '/api/users/1',
       };
 
       console.log('Requête AJAX inscrire le nouveau projet', newProject);
 
-      axios.post('127.0.0.1:8000/api/projects', newProject)
+      axios.post('http://127.0.0.1:8000/api/projects', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
       break;
     }
+
     case ADD_DATES: {
       // Objet addDates à envoyer au back
       const addDates = {
-        starDate: state.CreateProject.debutDates,
-        endDate: state.CreateProject.endDates,
+        // starDate: state.createProject.debutDates,
+        // endDate: state.createProject.endDates,
+        // starDate: state.createProject.debutDates,
+        // endDate: state.createProject.endDates,
       };
 
       console.log('Requête AJAX inscrire les suggestions de dates', addDates);
 
-      axios.post('127.0.0.1:8000/api/project_dates', addDates)
+      axios.post('http://127.0.0.1:8000/api/project_dates', addDates)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
