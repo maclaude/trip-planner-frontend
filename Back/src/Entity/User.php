@@ -2,16 +2,30 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *  attributes={
+ *      "normalization_context"={"groups"={"user", "user-read"}},
+ *      "denormalization_context"={"groups"={"user", "user-write"}}
+ *  }, itemOperations={
+ *      "get",
+ *      "delete",
+ *      "put"={"route_name"="api_users_put"}
+ *  }, collectionOperations={
+ *      "get",
+ *      "post"={"route_name"="api_users_post"}
+ *  }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -24,19 +38,24 @@ class User
      * @ORM\Column(type="string", length=30)
      */
     private $firstname;
-
     /**
      * @ORM\Column(type="string", length=30)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
     private $password;
 
@@ -44,12 +63,6 @@ class User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $avatar;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $role;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\VoteProjectDates", mappedBy="user", orphanRemoval=true)
@@ -100,23 +113,18 @@ class User
     {
         return $this->firstname;
     }
-
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
-
         return $this;
     }
-
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
-
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
         return $this;
     }
 
@@ -132,9 +140,41 @@ class User
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
     {
-        return $this->password;
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
     }
 
     public function setPassword(string $password): self
@@ -148,24 +188,27 @@ class User
     {
         return $this->avatar;
     }
-
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
-
         return $this;
     }
 
-    public function getRole(): ?Role
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
     {
-        return $this->role;
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
-    public function setRole(?Role $role): self
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
     {
-        $this->role = $role;
-
-        return $this;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     /**
@@ -175,17 +218,14 @@ class User
     {
         return $this->voteProjectDates;
     }
-
     public function addVoteProjectDate(VoteProjectDates $voteProjectDate): self
     {
         if (!$this->voteProjectDates->contains($voteProjectDate)) {
             $this->voteProjectDates[] = $voteProjectDate;
             $voteProjectDate->setUser($this);
         }
-
         return $this;
     }
-
     public function removeVoteProjectDate(VoteProjectDates $voteProjectDate): self
     {
         if ($this->voteProjectDates->contains($voteProjectDate)) {
@@ -195,10 +235,8 @@ class User
                 $voteProjectDate->setUser(null);
             }
         }
-
         return $this;
     }
-
     /**
      * @return Collection|Project[]
      */
@@ -206,17 +244,14 @@ class User
     {
         return $this->projects;
     }
-
     public function addProject(Project $project): self
     {
         if (!$this->projects->contains($project)) {
             $this->projects[] = $project;
             $project->setOwner($this);
         }
-
         return $this;
     }
-
     public function removeProject(Project $project): self
     {
         if ($this->projects->contains($project)) {
@@ -226,10 +261,8 @@ class User
                 $project->setOwner(null);
             }
         }
-
         return $this;
     }
-
     /**
      * @return Collection|Project[]
      */
@@ -237,27 +270,22 @@ class User
     {
         return $this->projectsParticipation;
     }
-
     public function addProjectsParticipation(Project $projectsParticipation): self
     {
         if (!$this->projectsParticipation->contains($projectsParticipation)) {
             $this->projectsParticipation[] = $projectsParticipation;
             $projectsParticipation->addUser($this);
         }
-
         return $this;
     }
-
     public function removeProjectsParticipation(Project $projectsParticipation): self
     {
         if ($this->projectsParticipation->contains($projectsParticipation)) {
             $this->projectsParticipation->removeElement($projectsParticipation);
             $projectsParticipation->removeUser($this);
         }
-
         return $this;
     }
-
     /**
      * @return Collection|UserMessage[]
      */
@@ -265,17 +293,14 @@ class User
     {
         return $this->userMessages;
     }
-
     public function addUserMessage(UserMessage $userMessage): self
     {
         if (!$this->userMessages->contains($userMessage)) {
             $this->userMessages[] = $userMessage;
             $userMessage->setUser($this);
         }
-
         return $this;
     }
-
     public function removeUserMessage(UserMessage $userMessage): self
     {
         if ($this->userMessages->contains($userMessage)) {
@@ -285,10 +310,8 @@ class User
                 $userMessage->setUser(null);
             }
         }
-
         return $this;
     }
-
     /**
      * @return Collection|Suggestion[]
      */
@@ -296,17 +319,14 @@ class User
     {
         return $this->suggestions;
     }
-
     public function addSuggestion(Suggestion $suggestion): self
     {
         if (!$this->suggestions->contains($suggestion)) {
             $this->suggestions[] = $suggestion;
             $suggestion->setUser($this);
         }
-
         return $this;
     }
-
     public function removeSuggestion(Suggestion $suggestion): self
     {
         if ($this->suggestions->contains($suggestion)) {
@@ -316,10 +336,8 @@ class User
                 $suggestion->setUser(null);
             }
         }
-
         return $this;
     }
-
     /**
      * @return Collection|VoteSuggestion[]
      */
@@ -327,17 +345,14 @@ class User
     {
         return $this->voteSuggestions;
     }
-
     public function addVoteSuggestion(VoteSuggestion $voteSuggestion): self
     {
         if (!$this->voteSuggestions->contains($voteSuggestion)) {
             $this->voteSuggestions[] = $voteSuggestion;
             $voteSuggestion->setUser($this);
         }
-
         return $this;
     }
-
     public function removeVoteSuggestion(VoteSuggestion $voteSuggestion): self
     {
         if ($this->voteSuggestions->contains($voteSuggestion)) {
@@ -347,7 +362,6 @@ class User
                 $voteSuggestion->setUser(null);
             }
         }
-
         return $this;
     }
 }
