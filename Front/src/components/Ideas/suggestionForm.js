@@ -161,8 +161,7 @@ class SuggestionForm extends React.Component {
 
             <Button
               animated
-              basic
-              color="black"
+              color="green"
               type="submit"
               floated="right"
               onClick={this.handleSubmit}
