@@ -61,6 +61,18 @@
   &:hover {
     border: 1px solid #5D6D7E !important;
   }
+
+  &-votes {
+    color: black;
+    padding: 0 0 .6em;
+  }
+
+  &-icons {
+    &-disapproved, &-approved {
+      margin: 0 1em !important;
+      cursor: pointer;
+    }
+  }
 }
 
 @media (max-width: 750px) {

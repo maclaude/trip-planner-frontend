@@ -8,6 +8,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 1,
+    vote: 0,
   },
   {
     id: '2',
@@ -18,6 +19,7 @@ export default [
     project_id: '1',
     author: 'Anthony',
     suggestion_gender_id: 1,
+    vote: 0,
   },
   {
     id: '3',
@@ -28,6 +30,7 @@ export default [
     project_id: '1',
     author: 'Florent',
     suggestion_gender_id: 2,
+    vote: 0,
   },
   {
     id: '4',
@@ -38,6 +41,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 2,
+    vote: 0,
   },
   {
     id: '5',
@@ -48,6 +52,7 @@ export default [
     project_id: '1',
     author: 'Romain',
     suggestion_gender_id: 4,
+    vote: 0,
   },
   {
     id: '6',
@@ -58,6 +63,7 @@ export default [
     project_id: 1,
     author: 'Anthony',
     suggestion_gender_id: 3,
+    vote: 0,
   },
   {
     id: '7',
@@ -68,6 +74,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 3,
+    vote: 0,
   },
   {
     id: '8',
@@ -78,6 +85,7 @@ export default [
     project_id: '1',
     author: 'Anthony',
     suggestion_gender_id: 4,
+    vote: 0,
   },
   {
     id: '9',
@@ -88,6 +96,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 5,
+    vote: 0,
   },
   {
     id: '10',
@@ -98,6 +107,7 @@ export default [
     project_id: '2',
     author: 'Daniel',
     suggestion_gender_id: 1,
+    vote: 0,
   },
   {
     id: '11',
@@ -108,6 +118,7 @@ export default [
     project_id: '2',
     author: 'John',
     suggestion_gender_id: 1,
+    vote: 0,
   },
   {
     id: '12',
@@ -118,6 +129,7 @@ export default [
     project_id: '2',
     author: 'Dany',
     suggestion_gender_id: 2,
+    vote: 0,
   },
   {
     id: '13',
@@ -128,5 +140,6 @@ export default [
     project_id: '2',
     author: 'Mary',
     suggestion_gender_id: 3,
+    vote: 0,
   },
 ];

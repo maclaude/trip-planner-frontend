@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Icon } from 'semantic-ui-react';
+import { Card, Icon } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -13,12 +13,23 @@ import { Button, Card, Icon } from 'semantic-ui-react';
  * Code
  */
 class SingleCard extends React.Component {
-  handleClick = () => {
-    const { voteOnSuggestion } = this.props;
+  /**
+   * Handlers
+   */
+  handleClick = (evt, data) => {
+    const { approvedSuggestion, disapprovedSuggestion } = this.props;
 
-    voteOnSuggestion();
+    if (data.name === 'heart') {
+      approvedSuggestion();
+    }
+    else if (data.name === 'thumbs down') {
+      disapprovedSuggestion();
+    }
   }
 
+  /**
+   * Render
+   */
   render() {
     const {
       name,
@@ -26,6 +37,7 @@ class SingleCard extends React.Component {
       url,
       price,
       author,
+      vote,
     } = this.props;
 
     return (
@@ -45,16 +57,23 @@ class SingleCard extends React.Component {
           <strong>{author}</strong>
         </Card.Content>
         <Card.Content textAlign="center" extra>
-          <Button
-            content="like"
-            icon="thumbs up"
-            label={{
-              pointing: 'right',
-              content: '3',
-            }}
-            labelPosition="left"
-            onClick={this.handleClick}
-          />
+          <div className="card-votes">
+            {vote} participants ont votés pour
+          </div>
+          <div className="card-icons">
+            <Icon
+              className="card-icons-disapproved"
+              name="thumbs down"
+              size="large"
+              onClick={this.handleClick}
+            />
+            <Icon
+              className="card-icons-approved"
+              name="heart"
+              size="large"
+              onClick={this.handleClick}
+            />
+          </div>
         </Card.Content>
       </Card>
     );
@@ -68,7 +87,9 @@ SingleCard.propTypes = {
   url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  voteOnSuggestion: PropTypes.func.isRequired,
+  vote: PropTypes.number.isRequired,
+  approvedSuggestion: PropTypes.func.isRequired,
+  disapprovedSuggestion: PropTypes.func.isRequired,
 };
 
 /**

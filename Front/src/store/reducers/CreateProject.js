@@ -4,7 +4,7 @@
 // Utils
 import { getSlug } from 'src/utils/url';
 // Local data
-import projects from 'src/data/projects';
+import projectsData from 'src/data/projects';
 
 /**
  * Initial State
@@ -18,7 +18,7 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
-  projects,
+  projects: projectsData,
 };
 
 /**
