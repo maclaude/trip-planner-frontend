@@ -213,6 +213,20 @@ export const getFilteredTransportSuggestions = (
     )];
 };
 
+export const getFilteredRestaurantSuggestions = (
+  suggestions,
+  typeId,
+  projectId,
+  participants,
+) => {
+  const restaurantSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+
+  return [
+    ...restaurantSuggestions.filter(
+      suggestion => (suggestion.vote >= (participants.length * 0.75)),
+    )];
+};
+
 /**
  * Export
  */

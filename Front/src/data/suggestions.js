@@ -52,7 +52,7 @@ export default [
     project_id: '1',
     author: 'Romain',
     suggestion_gender_id: 4,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '6',
@@ -85,7 +85,7 @@ export default [
     project_id: '1',
     author: 'Anthony',
     suggestion_gender_id: 4,
-    vote: 0,
+    vote: 2,
   },
   {
     id: '9',

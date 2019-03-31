@@ -22,6 +22,7 @@ import newYork from 'src/assets/images/new-york.jpg';
 import Activity from 'src/containers/ProjectDetails/activity';
 import Accomodation from 'src/containers/ProjectDetails/accomodation';
 import Transport from 'src/containers/ProjectDetails/transport';
+import Restaurant from 'src/containers/ProjectDetails/restaurant';
 
 /**
  * Code
@@ -115,6 +116,11 @@ const ProjectDetails = ({ project }) => (
       </div>
       <div id="projectDetails-suggestions-restaurant">
         <h2 className="suggestion-title">Restaurant</h2>
+        <Restaurant
+          type={4}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-others">
         <h2 className="suggestion-title">Autres</h2>
