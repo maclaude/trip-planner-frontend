@@ -23,6 +23,7 @@ import Activity from 'src/containers/ProjectDetails/activity';
 import Accomodation from 'src/containers/ProjectDetails/accomodation';
 import Transport from 'src/containers/ProjectDetails/transport';
 import Restaurant from 'src/containers/ProjectDetails/restaurant';
+import Other from 'src/containers/ProjectDetails/other';
 
 /**
  * Code
@@ -124,6 +125,11 @@ const ProjectDetails = ({ project }) => (
       </div>
       <div id="projectDetails-suggestions-others">
         <h2 className="suggestion-title">Autres</h2>
+        <Other
+          type={5}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
     </div>
   </div>

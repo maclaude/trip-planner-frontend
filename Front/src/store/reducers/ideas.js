@@ -227,6 +227,20 @@ export const getFilteredRestaurantSuggestions = (
     )];
 };
 
+export const getFilteredOtherSuggestions = (
+  suggestions,
+  typeId,
+  projectId,
+  participants,
+) => {
+  const otherSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+
+  return [
+    ...otherSuggestions.filter(
+      suggestion => (suggestion.vote >= (participants.length * 0.75)),
+    )];
+};
+
 /**
  * Export
  */

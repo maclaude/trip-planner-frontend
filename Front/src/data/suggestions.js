@@ -96,7 +96,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 5,
-    vote: 0,
+    vote: 4,
   },
   {
     id: '10',
