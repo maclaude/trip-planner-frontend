@@ -30,7 +30,7 @@ export default [
     project_id: '1',
     author: 'Florent',
     suggestion_gender_id: 2,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '4',
@@ -41,7 +41,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 2,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '5',

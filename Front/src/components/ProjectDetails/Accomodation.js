@@ -13,8 +13,8 @@ import SuggestionCard from './SuggestionCard';
 /**
  * Code
  */
-const Activity = ({ suggestions }) => (
-  <div id="activity">
+const Accomodation = ({ suggestions }) => (
+  <div id="accomodation">
     <Card.Group>
       {suggestions.map(suggestion => (
         <SuggestionCard
@@ -27,7 +27,7 @@ const Activity = ({ suggestions }) => (
 );
 
 // PropTypes validation
-Activity.propTypes = {
+Accomodation.propTypes = {
   suggestions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -37,4 +37,4 @@ Activity.propTypes = {
 /**
  * Export
  */
-export default Activity;
+export default Accomodation;

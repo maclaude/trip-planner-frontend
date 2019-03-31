@@ -184,6 +184,21 @@ export const getFilteredActivitySuggestions = (suggestions, typeId, projectId, p
       suggestion => (suggestion.vote >= (participants.length * 0.75)),
     )];
 };
+
+export const getFilteredAccomodationSuggestions = (
+  suggestions,
+  typeId,
+  projectId,
+  participants,
+) => {
+  const accomodationSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+
+  return [
+    ...accomodationSuggestions.filter(
+      suggestion => (suggestion.vote >= (participants.length)),
+    )];
+};
+
 /**
  * Export
  */

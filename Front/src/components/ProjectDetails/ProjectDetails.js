@@ -20,6 +20,7 @@ import avatar from 'src/assets/avatar/default.png';
 import newYork from 'src/assets/images/new-york.jpg';
 // Components
 import Activity from 'src/containers/ProjectDetails/activity';
+import Accomodation from 'src/containers/ProjectDetails/accomodation';
 
 /**
  * Code
@@ -97,6 +98,11 @@ const ProjectDetails = ({ project }) => (
       </div>
       <div id="projectDetails-suggestions-accomodation">
         <h2 className="suggestion-title">Hébergement</h2>
+        <Accomodation
+          type={2}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-transport">
         <h2 className="suggestion-title">Transport</h2>
