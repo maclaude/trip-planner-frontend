@@ -199,6 +199,20 @@ export const getFilteredAccomodationSuggestions = (
     )];
 };
 
+export const getFilteredTransportSuggestions = (
+  suggestions,
+  typeId,
+  projectId,
+  participants,
+) => {
+  const transportSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+
+  return [
+    ...transportSuggestions.filter(
+      suggestion => (suggestion.vote >= (participants.length * 0.75)),
+    )];
+};
+
 /**
  * Export
  */

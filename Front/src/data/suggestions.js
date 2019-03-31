@@ -30,7 +30,7 @@ export default [
     project_id: '1',
     author: 'Florent',
     suggestion_gender_id: 2,
-    vote: 3,
+    vote: 4,
   },
   {
     id: '4',
@@ -60,10 +60,10 @@ export default [
     description: 'Super promo aux dates de nos vacances ! Checkez moi le lien ci-dessous',
     url: 'https://www.eurostar.com/fr-fr',
     price: '80',
-    project_id: 1,
+    project_id: '1',
     author: 'Anthony',
     suggestion_gender_id: 3,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '7',
@@ -74,7 +74,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 3,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '8',
