@@ -8,7 +8,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  background: $background-main-color;
+  color: $font-color;
 
   &-banner {
     margin: 0 2em 2em 2em;
@@ -75,15 +76,10 @@
   }  
 }
 
-#myprojects {
-  background: $background-main-color;
-  color: $font-color;
-}
-
-.card {
+.project-card {
   min-height: 200px !important;
 
   &-title {
-    color: black;
+    color: $card-title-color;
   }
 }
