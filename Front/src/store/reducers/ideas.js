@@ -81,8 +81,7 @@ const reducer = (state = initialState, action = {}) => {
     }
 
     case APPROVED_SUGGESTION: {
-      // @TODO: Voter pour ou contre une suggestion
-
+      // Voter pour ou contre une suggestion
       const newSuggestions = state.suggestions.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote += 1, 10);
@@ -102,8 +101,7 @@ const reducer = (state = initialState, action = {}) => {
     }
 
     case DISAPPROVED_SUGGESTION: {
-      // @TODO: Voter pour ou contre une suggestion
-
+      // Voter pour ou contre une suggestion
       const newSuggestions = state.suggestions.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote -= 1, 10);
@@ -176,70 +174,24 @@ export const getFilteredSuggestions = (suggestions, typeId, projectId) => {
     )];
 };
 
-export const getFilteredActivitySuggestions = (suggestions, typeId, projectId, participants) => {
-  const activitySuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+export const getMajorityApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
+  const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
 
   return [
-    ...activitySuggestions.filter(
+    ...currentSuggestions.filter(
       suggestion => (suggestion.vote >= (participants.length * 0.75)),
     )];
 };
 
-export const getFilteredAccomodationSuggestions = (
-  suggestions,
-  typeId,
-  projectId,
-  participants,
-) => {
-  const accomodationSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+export const getFullyApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
+  const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
 
   return [
-    ...accomodationSuggestions.filter(
+    ...currentSuggestions.filter(
       suggestion => (suggestion.vote >= (participants.length)),
     )];
 };
 
-export const getFilteredTransportSuggestions = (
-  suggestions,
-  typeId,
-  projectId,
-  participants,
-) => {
-  const transportSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-  return [
-    ...transportSuggestions.filter(
-      suggestion => (suggestion.vote >= (participants.length * 0.75)),
-    )];
-};
-
-export const getFilteredRestaurantSuggestions = (
-  suggestions,
-  typeId,
-  projectId,
-  participants,
-) => {
-  const restaurantSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-  return [
-    ...restaurantSuggestions.filter(
-      suggestion => (suggestion.vote >= (participants.length * 0.75)),
-    )];
-};
-
-export const getFilteredOtherSuggestions = (
-  suggestions,
-  typeId,
-  projectId,
-  participants,
-) => {
-  const otherSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-  return [
-    ...otherSuggestions.filter(
-      suggestion => (suggestion.vote >= (participants.length * 0.75)),
-    )];
-};
 
 /**
  * Export

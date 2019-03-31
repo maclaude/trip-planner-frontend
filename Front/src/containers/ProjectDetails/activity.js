@@ -9,14 +9,14 @@ import { connect } from 'react-redux';
 import Activity from 'src/components/ProjectDetails/Activity';
 
 // Action Creators
-import { getFilteredActivitySuggestions } from 'src/store/reducers/ideas';
+import { getMajorityApprovedSuggestions } from 'src/store/reducers/ideas';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
-  suggestions: getFilteredActivitySuggestions(
+  suggestions: getMajorityApprovedSuggestions(
     state.ideas.suggestions,
     ownProps.type,
     ownProps.projectId,

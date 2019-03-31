@@ -9,14 +9,14 @@ import { connect } from 'react-redux';
 import Accomodation from 'src/components/ProjectDetails/Accomodation';
 
 // Action Creators
-import { getFilteredAccomodationSuggestions } from 'src/store/reducers/ideas';
+import { getFullyApprovedSuggestions } from 'src/store/reducers/ideas';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
-  suggestions: getFilteredAccomodationSuggestions(
+  suggestions: getFullyApprovedSuggestions(
     state.ideas.suggestions,
     ownProps.type,
     ownProps.projectId,

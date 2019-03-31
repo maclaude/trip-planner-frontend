@@ -9,14 +9,14 @@ import { connect } from 'react-redux';
 import Restaurant from 'src/components/ProjectDetails/Restaurant';
 
 // Action Creators
-import { getFilteredRestaurantSuggestions } from 'src/store/reducers/ideas';
+import { getMajorityApprovedSuggestions } from 'src/store/reducers/ideas';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
-  suggestions: getFilteredRestaurantSuggestions(
+  suggestions: getMajorityApprovedSuggestions(
     state.ideas.suggestions,
     ownProps.type,
     ownProps.projectId,
