@@ -82,39 +82,43 @@ const reducer = (state = initialState, action = {}) => {
 
     case APPROVED_SUGGESTION: {
       // @TODO: Voter pour ou contre une suggestion
-      /*
-        const newSuggestions = state.suggestions.map((suggestion) => {
-          if (suggestion.id === action.id) {
-            return {
-              @TODO
-            };
-          }
-          return suggestion;
-        });
 
-      */
+      const newSuggestions = state.suggestions.map((suggestion) => {
+        if (suggestion.id === action.id) {
+          const newVote = parseInt(suggestion.vote += 1, 10);
+
+          return {
+            ...suggestion,
+            vote: newVote,
+          };
+        }
+        return suggestion;
+      });
+
       return {
         ...state,
-        // suggestions: newSuggestions;
+        suggestions: newSuggestions,
       };
     }
 
     case DISAPPROVED_SUGGESTION: {
       // @TODO: Voter pour ou contre une suggestion
-      /*
-        const newSuggestions = state.suggestions.map((suggestion) => {
-          if (suggestion.id === action.id) {
-            return {
-              @TODO
-            };
-          }
-          return suggestion;
-        });
 
-      */
+      const newSuggestions = state.suggestions.map((suggestion) => {
+        if (suggestion.id === action.id) {
+          const newVote = parseInt(suggestion.vote -= 1, 10);
+
+          return {
+            ...suggestion,
+            vote: newVote,
+          };
+        }
+        return suggestion;
+      });
+
       return {
         ...state,
-        // suggestions: newSuggestions;
+        suggestions: newSuggestions,
       };
     }
 

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Card, Icon } from 'semantic-ui-react';
 
 /**
@@ -14,16 +15,33 @@ import { Card, Icon } from 'semantic-ui-react';
  */
 class SingleCard extends React.Component {
   /**
+   * Local state
+   */
+  state = {
+    isApproved: false,
+  }
+
+  /**
    * Handlers
    */
-  handleClick = (evt, data) => {
+  handleClick = () => {
     const { approvedSuggestion, disapprovedSuggestion } = this.props;
 
-    if (data.name === 'heart') {
+    const { isApproved } = this.state;
+
+    if (!isApproved) {
       approvedSuggestion();
+
+      this.setState({
+        isApproved: true,
+      });
     }
-    else if (data.name === 'thumbs down') {
+    else if (isApproved) {
       disapprovedSuggestion();
+
+      this.setState({
+        isApproved: false,
+      });
     }
   }
 
@@ -39,6 +57,8 @@ class SingleCard extends React.Component {
       author,
       vote,
     } = this.props;
+
+    const { isApproved } = this.state;
 
     return (
       <Card className="card">
@@ -62,15 +82,12 @@ class SingleCard extends React.Component {
           </div>
           <div className="card-icons">
             <Icon
-              className="card-icons-disapproved"
-              name="thumbs down"
-              size="large"
-              onClick={this.handleClick}
-            />
-            <Icon
-              className="card-icons-approved"
+              className={classNames(
+                'card-icons-heart',
+                { 'card-icons-heart--active': isApproved },
+              )}
               name="heart"
-              size="large"
+              size="big"
               onClick={this.handleClick}
             />
           </div>

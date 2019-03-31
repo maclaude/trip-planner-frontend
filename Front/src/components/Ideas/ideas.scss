@@ -68,9 +68,12 @@
   }
 
   &-icons {
-    &-disapproved, &-approved {
-      margin: 0 1em !important;
+     &-heart {
       cursor: pointer;
+
+      &--active {
+        color: #FF0000;
+      }
     }
   }
 }
