@@ -8,7 +8,7 @@ export default [
     project_id: '1',
     author: 'Marc-Antoine',
     suggestion_gender_id: 1,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '2',
@@ -19,7 +19,7 @@ export default [
     project_id: '1',
     author: 'Anthony',
     suggestion_gender_id: 1,
-    vote: 0,
+    vote: 3,
   },
   {
     id: '3',

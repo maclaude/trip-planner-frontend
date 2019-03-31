@@ -166,14 +166,24 @@ export const disapprovedSuggestion = id => ({
  */
 export const getFilteredSuggestions = (suggestions, typeId, projectId) => {
   const projectSuggestions = [
-    ...suggestions.filter(suggestion => suggestion.project_id === projectId),
-  ];
+    ...suggestions.filter(
+      suggestion => suggestion.project_id === projectId,
+    )];
 
   return [
-    ...projectSuggestions.filter(suggestion => suggestion.suggestion_gender_id === typeId),
-  ];
+    ...projectSuggestions.filter(
+      suggestion => suggestion.suggestion_gender_id === typeId,
+    )];
 };
 
+export const getFilteredActivitySuggestions = (suggestions, typeId, projectId, participants) => {
+  const activitySuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+
+  return [
+    ...activitySuggestions.filter(
+      suggestion => (suggestion.vote >= (participants.length * 0.75)),
+    )];
+};
 /**
  * Export
  */
