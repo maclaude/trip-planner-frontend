@@ -143,6 +143,7 @@ ProjectDetails.propTypes = {
     destination: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     projectDates: PropTypes.array.isRequired,
+    user: PropTypes.array.isRequired,
   }).isRequired,
 };
 

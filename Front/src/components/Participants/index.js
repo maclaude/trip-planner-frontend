@@ -19,7 +19,7 @@ import AddParticipants from './addParticipants';
 const Participants = ({ project }) => (
   <div id="participants">
     <NavbarUser project={project} />
-    <AddParticipants />
+    <AddParticipants project={project} />
   </div>
 );
 

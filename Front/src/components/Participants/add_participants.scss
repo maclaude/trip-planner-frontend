@@ -13,7 +13,44 @@
   }
 
   &-form {
-    width: 60%;
+    width: 40%;
     margin: 5em auto 7em; 
+  }
+
+  &-participants {
+    &-title {
+      margin: 1.5em 0 2em;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+
+      &-confirmed, &-pending {
+        // border: 1px solid black;
+        width: 50%;
+        height: 200px;
+        text-align: center;
+        margin-bottom: 4em;
+      }
+
+      &-confirmed h3, &-pending h3 {
+        text-decoration: underline;
+        margin-bottom: 1.8em;
+      }
+
+      &-confirmed {
+        border-right: 1px solid lightgrey;
+      }
+      
+      &-list {
+        text-align: left;
+        width: fit-content;
+        margin: auto;
+      }
+    }
   }
 }
