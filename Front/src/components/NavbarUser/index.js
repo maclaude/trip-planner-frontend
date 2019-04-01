@@ -90,7 +90,9 @@ const NavbarUser = ({ project }) => (
       </div>
       <div id="define-dates">
         <NavLink
-          to="/definir-des-dates"
+          to={getURL('/dates', project.title)}
+          key={project.id}
+          exact
           className="item"
         >
           <Icon name="plus" />

@@ -18,17 +18,22 @@
     }
     &-input {
       padding-bottom: 2em;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
     }
     &-suggested {
       text-align: center;
-      width: 50%;;
+      width: 50%;
       font-size: 1.5em;
       margin: 0.5em auto;
+
     }
   }
   .input-date {
     width: 40%;
     margin-right: 2em;
+    min-width: 180px !important;
   }
   .date {
     background: #1F618D;
@@ -43,7 +48,7 @@
   #dates {
     width: 80%;
     float: right;
-    min-height: 100%;
+    min-height: 100vh;
     padding: 2.5em;
       &-form {
       width: 80%;
@@ -71,6 +76,7 @@
 @media (max-width: 600px) {
   #dates {
     width: 100%;
+    min-height: 100vh;
     padding: 2em;
     text-align: center;
     &-form {

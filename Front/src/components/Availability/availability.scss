@@ -35,7 +35,7 @@
     &-next {
       width: 15%;
       font-size: 1.5em;
-      color: $font-color;
+      color: $navbar-font-color;
       background: $button-color;
       float: right;
       border-radius: 1em;
@@ -83,7 +83,7 @@
     &-next {
       display: flex;
       justify-content: flex-end;
-      color: $font-color;
+      color: $navbar-font-color;
       background: $button-color;
       float: right;
     }
@@ -115,7 +115,7 @@
       margin-bottom: 2em;
     }
     &-next {
-      color: $font-color;
+      color: $navbar-font-color;
       background: $button-color;
     }
   } 
@@ -134,7 +134,7 @@
   border: none;
   border-radius: 1.2em;
   background: $button-color;
-  color: $font-color;
+  color: $navbar-font-color;
   font-size: 1.5em;
   box-shadow: 0 9px rgba(76, 81, 117, 0.432);
 }

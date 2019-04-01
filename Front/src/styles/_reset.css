@@ -51,7 +51,7 @@ a, del, ins {
   text-decoration: none;
 }
 a {	
-  color: inherit;
+	color: inherit;
 }
 
 label, button {

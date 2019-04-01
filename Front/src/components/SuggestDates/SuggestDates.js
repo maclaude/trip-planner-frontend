@@ -15,9 +15,6 @@ import uuidV4 from 'uuid-v4';
 /**
  * Local import
  */
-// Styles
-import './dates.scss';
-
 // Utils
 import SuggestDatesErrors from 'src/utils/dateSuggest_form';
 
@@ -93,7 +90,7 @@ class SuggestDates extends React.Component {
             action=""
             onSubmit={this.handleSubmit}
           >
-            <p>Definissez les dates du projet</p>
+            <h2>Definissez les dates du projet</h2>
             <div id="dates-input">
               <Input
                 name="debutDates"
@@ -111,11 +108,11 @@ class SuggestDates extends React.Component {
               />
               <Button
                 type="button"
+                color="green"
                 icon
                 className="date-button"
               >
                 <Icon
-                  
                   name="plus"
                   onClick={this.handleClick}
                 />

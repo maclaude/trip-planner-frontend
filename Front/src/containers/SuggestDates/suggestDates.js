@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import SuggestDates from 'src/components/CreateProject/SuggestDates/SuggestDates';
+import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 
 // Action creators
 import {

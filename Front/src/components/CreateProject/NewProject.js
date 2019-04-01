@@ -11,7 +11,6 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react';
-import uuidV4 from 'uuid/v4';
 
 /**
  * Local import
@@ -45,8 +44,6 @@ class NewProject extends React.Component {
     const errors = NewProjectErrors(
       title,
       description,
-      debutDates,
-      endDates,
       destination,
     );
     if (
@@ -64,7 +61,6 @@ class NewProject extends React.Component {
       title,
       description,
       destination,
-      user,
       errors,
     } = this.props;
 
@@ -116,18 +112,17 @@ class NewProject extends React.Component {
                 />
               </div>
             </div>
-            <div id="newproject-participants">
-              <p>Ajouter des participants</p>
-              <div className="input">
-                <Input
-                  name="user"
-                  icon="users"
-                  placeholder="Pseudo du participant..."
-                  value={user}
-                  onChange={this.handleChange}
-                />
+            {(errors.length > 0) && (
+              <div id="signup-form-errors">
+                {errors.map(error => (
+                  <Message negative key={error}>
+                    <p>
+                      {error}
+                    </p>
+                  </Message>
+                ))}
               </div>
-            </div>
+            )}
             <Button animated id="newproject-button">
               <Button.Content visible>Créer le projet</Button.Content>
               <Button.Content hidden>
@@ -136,17 +131,6 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
-        {(errors.length > 0) && (
-          <div id="signup-form-errors">
-            {errors.map(error => (
-              <Message negative key={error}>
-                <p>
-                  {error}
-                </p>
-              </Message>
-            ))}
-          </div>
-        )}
       </div>
     );
   }
@@ -157,15 +141,10 @@ NewProject.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
-  user: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
   newProject: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
   showErrors: PropTypes.func.isRequired,
-};
-
-NewProject.defaultProps = {
-  user: '',
 };
 
 /**
