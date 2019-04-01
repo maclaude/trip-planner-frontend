@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import './add_participants.scss';
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import AddParticipants from './addParticipants';
+import AddParticipants from 'src/containers/Participants/addParticipants';
 
 /**
  * Code
