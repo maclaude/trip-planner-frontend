@@ -22,7 +22,7 @@ const SingleProjectCard = ({
   projectDates,
 }) => (
   <Card
-    className="card"
+    className="project-card"
   >
     <Card.Content>
       <Card.Header textAlign="center">
@@ -30,7 +30,7 @@ const SingleProjectCard = ({
           to={getURL('recapitulatif', title)}
           key={id}
           exact
-          className="card-title"
+          className="project-card-title"
         >
           {title}
         </NavLink>

@@ -1,17 +1,29 @@
 /**
- * NPM IMPORT
+ * NPM import
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, List } from 'semantic-ui-react';
+import {
+  Card,
+  Image,
+  List,
+  Divider,
+} from 'semantic-ui-react';
 
 /**
  * Local import
  */
+// Style
 import './project_details.scss';
 // Assets
 import avatar from 'src/assets/avatar/default.png';
 import newYork from 'src/assets/images/new-york.jpg';
+// Components
+import Activity from 'src/containers/ProjectDetails/activity';
+import Accomodation from 'src/containers/ProjectDetails/accomodation';
+import Transport from 'src/containers/ProjectDetails/transport';
+import Restaurant from 'src/containers/ProjectDetails/restaurant';
+import Other from 'src/containers/ProjectDetails/other';
 
 /**
  * Code
@@ -71,36 +83,53 @@ const ProjectDetails = ({ project }) => (
           </div>
         </div>
       </div>
-
     </div>
+
+    <Divider />
+
     <div
       id="projectDetails-suggestions"
       className="suggestion"
     >
       <div id="projectDetails-suggestions-activity">
-        <h2 className="suggestion-title">
-          Activité
-        </h2>
+        <h2 className="suggestion-title">Activités</h2>
+        <Activity
+          type={1}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-accomodation">
-        <h2 className="suggestion-title">
-          Hébergement
-        </h2>
+        <h2 className="suggestion-title">Hébergement</h2>
+        <Accomodation
+          type={2}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-transport">
-        <h2 className="suggestion-title">
-          Transport
-        </h2>
+        <h2 className="suggestion-title">Transport</h2>
+        <Transport
+          type={3}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-restaurant">
-        <h2 className="suggestion-title">
-          Restaurant
-        </h2>
+        <h2 className="suggestion-title">Restaurant</h2>
+        <Restaurant
+          type={4}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
       <div id="projectDetails-suggestions-others">
-        <h2 className="suggestion-title">
-          Autres
-        </h2>
+        <h2 className="suggestion-title">Autres</h2>
+        <Other
+          type={5}
+          projectId={project.id}
+          participants={project.user}
+        />
       </div>
     </div>
   </div>
@@ -109,6 +138,7 @@ const ProjectDetails = ({ project }) => (
 // PropTypes validation
 ProjectDetails.propTypes = {
   project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     destination: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

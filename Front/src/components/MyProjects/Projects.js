@@ -31,6 +31,9 @@ const Projects = ({ projects }) => (
         />
       ))}
     </Card.Group>
+    <div id="myprojects-create">
+      Créer un nouveau projet
+    </div>
   </div>
 );
 

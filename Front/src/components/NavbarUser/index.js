@@ -2,12 +2,15 @@
  * NPM import
  */
 import React from 'react';
-import { Icon, Image } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { Icon, Image } from 'semantic-ui-react';
 
 /**
  * Local import
  */
+// Utils
+import { getURL } from 'src/utils/url';
 // Style
 import './navbar_user.scss';
 // Assets
@@ -16,7 +19,7 @@ import avatar from 'src/assets/avatar/default.png';
 /**
  * Code
  */
-const NavbarUser = () => (
+const NavbarUser = ({ project }) => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-header">
       <div id="navbar-username">
@@ -43,12 +46,14 @@ const NavbarUser = () => (
         </NavLink>
       </div>
       <div id="projects">
-        <a className="item">New-York 2019</a>
+        <a className="item">{project.title}</a>
       </div>
       <div id="projects-details">
         <div id="summary">
           <NavLink
-            to="/recapitulatif"
+            to={getURL('/recapitulatif', project.title)}
+            key={project.id}
+            exact
             className="item"
           >
             Récapitulatif
@@ -56,7 +61,9 @@ const NavbarUser = () => (
         </div>
         <div id="availability-navbar">
           <NavLink
-            to="/disponibilites"
+            to={getURL('/disponibilites', project.title)}
+            key={project.id}
+            exact
             className="item"
           >
             Définir mes disponibilités
@@ -64,7 +71,9 @@ const NavbarUser = () => (
         </div>
         <div id="Idées">
           <NavLink
-            to="/idees"
+            to={getURL('/idees', project.title)}
+            key={project.id}
+            exact
             className="item"
           >
             Idées du groupe
@@ -101,8 +110,15 @@ const NavbarUser = () => (
       </div>
     </div>
   </div>
-
 );
+
+// PropTypes validation
+NavbarUser.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 /**
  * Export

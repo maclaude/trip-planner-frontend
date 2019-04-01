@@ -13,16 +13,12 @@ import Signup from 'src/components/Signup';
 import Login from 'src/components/Login';
 import NotFound from 'src/components/NotFound';
 import CreateProject from 'src/components/CreateProject';
-import Availabilities from 'src/components/Availability';
+import Availabilities from 'src/containers/Availability';
 import MyProjects from 'src/components/MyProjects';
-import MyProjectDetails from 'src/components/ProjectDetails';
+import MyProjectDetails from 'src/containers/ProjectDetails';
 import UserProfil from 'src/components/UserProfil';
-import Ideas from 'src/components/Ideas';
+import Ideas from 'src/containers/Ideas';
 
-// Data
-import projectsData from 'src/data/projects';
-// Utils
-import { getSlug } from 'src/utils/url';
 // Style
 import './app.scss';
 
@@ -35,22 +31,13 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/inscription" component={Signup} />
       <Route exact path="/connexion" component={Login} />
+      <Route exact path="/profil" component={UserProfil} />
       <Route exact path="/mes-projets" component={MyProjects} />
       <Route exact path="/nouveau-projet" component={CreateProject} />
-      <Route exact path="/disponibilites" component={Availabilities} />
-      <Route exact path="/idees" component={Ideas} />
-      <Route exact path="/profil" component={UserProfil} />
 
-      <Route
-        path="/recapitulatif/:slug"
-        render={({ match }) => {
-          const { slug } = match.params;
-
-          const currentProject = projectsData.find(project => getSlug(project.title) === slug);
-
-          return <MyProjectDetails project={currentProject} />;
-        }}
-      />
+      <Route exact path="/recapitulatif/:slug" component={MyProjectDetails} />
+      <Route exact path="/disponibilites/:slug" component={Availabilities} />
+      <Route exact path="/idees/:slug" component={Ideas} />
 
       {/* Fallback - gestion de 404 */}
       <Route component={NotFound} />

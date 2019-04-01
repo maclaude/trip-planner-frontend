@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -14,12 +15,17 @@ import Availability from 'src/components/Availability/Availability';
 /**
  * Code
  */
-const Availabilities = () => (
+const Availabilities = ({ project }) => (
   <div>
-    <NavbarUser />
-    <Availability />
+    <NavbarUser project={project} />
+    <Availability project={project} />
   </div>
 );
+
+// PropTypes validation
+Availabilities.propTypes = {
+  project: PropTypes.object.isRequired,
+};
 
 /**
  * Export

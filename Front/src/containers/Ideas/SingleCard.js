@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Example from 'src/components/Ideas/singleCard';
 
 // Action Creators
-import { voteOnSuggestion } from 'src/store/reducers/ideas';
+import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/ideas';
 
 /**
  * Code
@@ -19,8 +19,11 @@ const mapStateToProps = null;
 
 // === Actions ===
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  voteOnSuggestion: () => {
-    dispatch(voteOnSuggestion(ownProps.id));
+  approvedSuggestion: () => {
+    dispatch(approvedSuggestion(ownProps.id));
+  },
+  disapprovedSuggestion: () => {
+    dispatch(disapprovedSuggestion(ownProps.id));
   },
 });
 

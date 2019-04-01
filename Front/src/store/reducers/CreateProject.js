@@ -1,4 +1,12 @@
 /**
+ * Import
+ */
+// Utils
+import { getSlug } from 'src/utils/url';
+// Local data
+import projectsData from 'src/data/projects';
+
+/**
  * Initial State
  */
 const initialState = {
@@ -10,6 +18,7 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
+  projects: projectsData,
 };
 
 /**
@@ -96,6 +105,13 @@ export const addDates = () => ({
 export const getProjects = () => ({
   type: GET_PROJECTS,
 });
+
+/**
+ * Selector
+ */
+export const getCurrentProject = (projects, slug) => (
+  projects.find(project => getSlug(project.title) === slug)
+);
 
 /**
  * Export

@@ -18,7 +18,7 @@ import './project_details.scss';
  */
 const MyProjectDetails = ({ project }) => (
   <div>
-    <NavbarUser />
+    <NavbarUser project={project} />
     <ProjectDetails project={project} />
   </div>
 );

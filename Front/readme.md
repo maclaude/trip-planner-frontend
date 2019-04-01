@@ -1,1 +1,1 @@
-Welcome to the front branch !
+Projet Trip-planner ! Welcome to the React readme

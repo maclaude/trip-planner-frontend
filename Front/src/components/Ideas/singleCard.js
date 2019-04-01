@@ -3,7 +3,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Icon } from 'semantic-ui-react';
+import classNames from 'classnames';
+import { Card, Icon } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -13,12 +14,40 @@ import { Button, Card, Icon } from 'semantic-ui-react';
  * Code
  */
 class SingleCard extends React.Component {
-  handleClick = () => {
-    const { voteOnSuggestion } = this.props;
-
-    voteOnSuggestion();
+  /**
+   * Local state
+   */
+  state = {
+    isApproved: false,
   }
 
+  /**
+   * Handlers
+   */
+  handleClick = () => {
+    const { approvedSuggestion, disapprovedSuggestion } = this.props;
+
+    const { isApproved } = this.state;
+
+    if (!isApproved) {
+      approvedSuggestion();
+
+      this.setState({
+        isApproved: true,
+      });
+    }
+    else if (isApproved) {
+      disapprovedSuggestion();
+
+      this.setState({
+        isApproved: false,
+      });
+    }
+  }
+
+  /**
+   * Render
+   */
   render() {
     const {
       name,
@@ -26,7 +55,10 @@ class SingleCard extends React.Component {
       url,
       price,
       author,
+      vote,
     } = this.props;
+
+    const { isApproved } = this.state;
 
     return (
       <Card className="card">
@@ -45,16 +77,20 @@ class SingleCard extends React.Component {
           <strong>{author}</strong>
         </Card.Content>
         <Card.Content textAlign="center" extra>
-          <Button
-            content="like"
-            icon="thumbs up"
-            label={{
-              pointing: 'right',
-              content: '3',
-            }}
-            labelPosition="left"
-            onClick={this.handleClick}
-          />
+          <div className="card-votes">
+            {vote} participants ont votés pour
+          </div>
+          <div className="card-icons">
+            <Icon
+              className={classNames(
+                'card-icons-heart',
+                { 'card-icons-heart--active': isApproved },
+              )}
+              name="heart"
+              size="big"
+              onClick={this.handleClick}
+            />
+          </div>
         </Card.Content>
       </Card>
     );
@@ -68,7 +104,9 @@ SingleCard.propTypes = {
   url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  voteOnSuggestion: PropTypes.func.isRequired,
+  vote: PropTypes.number.isRequired,
+  approvedSuggestion: PropTypes.func.isRequired,
+  disapprovedSuggestion: PropTypes.func.isRequired,
 };
 
 /**
