@@ -18,6 +18,7 @@ import MyProjects from 'src/components/MyProjects';
 import MyProjectDetails from 'src/containers/ProjectDetails';
 import UserProfil from 'src/components/UserProfil';
 import Ideas from 'src/containers/Ideas';
+import Participants from 'src/containers/Participants';
 
 // Style
 import './app.scss';
@@ -38,6 +39,7 @@ const App = () => (
       <Route exact path="/recapitulatif/:slug" component={MyProjectDetails} />
       <Route exact path="/disponibilites/:slug" component={Availabilities} />
       <Route exact path="/idees/:slug" component={Ideas} />
+      <Route exact path="/participants/:slug" component={Participants} />
 
       {/* Fallback - gestion de 404 */}
       <Route component={NotFound} />
