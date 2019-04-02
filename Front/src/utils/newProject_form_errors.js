@@ -5,8 +5,6 @@
 const NewProjectErrors = (
   title,
   description,
-  debutDates,
-  endDates,
   destination,
 ) => {
   // Initialisation du tableau d'erreurs

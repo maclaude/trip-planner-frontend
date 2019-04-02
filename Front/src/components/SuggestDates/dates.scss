@@ -1,42 +1,51 @@
 @import 'src/styles/vars';
 
 @media (min-width: 901px) {
-  #newproject {
+  #dates {
     width: 80vw;
     float: right;
     min-height: 100vh;
     padding: 2.5em;
     &-form {
-      width: 70%;
-      display: flex;
-      flex-direction: column;
+      width: 55%;
       text-align: center;
       margin: 1em auto;
       font-size: 1.2em;
-    }
-    &-title, &-description, &-date, &-destination, &-participants {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 2em;
     }
     &-banner {
       padding-bottom: 5em;
       margin: 0 2em 2em 2em;
     }
-    #date {
+    &-input {
       padding-bottom: 2em;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    &-suggested {
+      text-align: center;
+      width: 50%;
+      font-size: 1.5em;
+      margin: 0.5em auto;
+
     }
   }
-  .input, #description-input {
-    width: 70%;
-  }
   .input-date {
-    width: 35%;
+    width: 40%;
+    margin-right: 2em;
+    min-width: 180px !important;
+  }
+  .date {
+    background: #1F618D;
+    color: white;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin-bottom: 1.5em
   }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-  #newproject {
+  #dates {
     width: 80%;
     float: right;
     min-height: 100vh;
@@ -48,25 +57,24 @@
       font-size: 1.5em;
       margin: 0.5em auto;
       }
-      &-title, &-description, &-dates, &-destination, &-participants {
-      padding-bottom: 2em;
-      }
       &-banner {
         text-align: center;
         padding-bottom: 1.5em;
         margin: 0 2em 2em 2em;
       }
-      &-destination {
-        padding-top: 2em;
+      &-input {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2em;
       }
   }
-  .input {
-    width: 100%;
+  .input-date {
+    padding-bottom: 2em;
   }
 }
 
 @media (max-width: 600px) {
-  #newproject {
+  #dates {
     width: 100%;
     min-height: 100vh;
     padding: 2em;
@@ -77,25 +85,22 @@
       margin: 1em auto;
       font-size: 1.2em;
     }
-    &-title, &-description, &-dates, &-destination, &-participants {
-      padding-bottom: 2em;
-    }
-    &-date {
-      display: flex;
-      flex-direction: column;
-    }
   }
-  .input {
-    width: 95%;
+  .input-date {
+    padding-bottom: 2em;
   }
-  
+  .date-button {
+    width: 30vw;
+    font-size: 2em;
+  }
 }
-#newproject {
+#dates {
   background: $background-main-color;
   color: $font-color;
 }
-#newproject-button {
+#dates-button {
   background-color: $button-color;
   color: $font-color;
   width: 100%;
 }
+

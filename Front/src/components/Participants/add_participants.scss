@@ -1,0 +1,19 @@
+@import 'src/styles/vars';
+
+#addParticipants {
+  width: 80vw;
+  float: right;
+  min-height: 100vh;
+  padding: 2.5em;
+  background: $background-main-color;
+  color: $font-color;
+
+  &-banner {
+    margin: 0 2em 2em 2em;
+  }
+
+  &-form {
+    width: 60%;
+    margin: 5em auto 7em; 
+  }
+}

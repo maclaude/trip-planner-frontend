@@ -49,16 +49,6 @@ const NavbarUser = ({ project }) => (
         <a className="item">{project.title}</a>
       </div>
       <div id="projects-details">
-        <div id="summary">
-          <NavLink
-            to={getURL('/recapitulatif', project.title)}
-            key={project.id}
-            exact
-            className="item"
-          >
-            Récapitulatif
-          </NavLink>
-        </div>
         <div id="availability-navbar">
           <NavLink
             to={getURL('/disponibilites', project.title)}
@@ -79,6 +69,16 @@ const NavbarUser = ({ project }) => (
             Idées du groupe
           </NavLink>
         </div>
+        <div id="summary">
+          <NavLink
+            to={getURL('/recapitulatif', project.title)}
+            key={project.id}
+            exact
+            className="item"
+          >
+            Récapitulatif
+          </NavLink>
+        </div>
         <div id="chat">
           <NavLink
             to="/chat"
@@ -87,6 +87,28 @@ const NavbarUser = ({ project }) => (
             Espace de discussion
           </NavLink>
         </div>
+      </div>
+      <div id="define-dates">
+        <NavLink
+          to={getURL('/dates', project.title)}
+          key={project.id}
+          exact
+          className="item"
+        >
+          <Icon name="plus" />
+            Ajouter des dates
+        </NavLink>
+      </div>
+      <div id="add-participants">
+        <NavLink
+          to={getURL('/participants', project.title)}
+          key={project.id}
+          exact
+          className="item"
+        >
+          <Icon name="add user" />
+            Ajouter des participants
+        </NavLink>
       </div>
     </div>
     <div id="navbar-footer">
