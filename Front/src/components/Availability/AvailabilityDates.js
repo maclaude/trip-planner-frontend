@@ -4,14 +4,13 @@
 import React from 'react';
 import { Radio, Button, Icon } from 'semantic-ui-react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
  */
 // Styles
 import './availability.scss';
-// Data
-import avaibility from 'src/data/availability';
 
 /**
  * Code
@@ -87,6 +86,11 @@ render() {
   );
 }
 }
+
+// PropTypes validation
+Availability.propTypes = {
+  filteredDates: PropTypes.array.isRequired,
+};
 
 /**
  * Export
