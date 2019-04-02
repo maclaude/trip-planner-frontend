@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card,
   Image,
   List,
   Divider,
@@ -17,7 +16,6 @@ import {
 import './project_details.scss';
 // Assets
 import avatar from 'src/assets/avatar/default.png';
-import newYork from 'src/assets/images/new-york.jpg';
 // Components
 import Activity from 'src/containers/ProjectDetails/activity';
 import Accomodation from 'src/containers/ProjectDetails/accomodation';
@@ -25,6 +23,7 @@ import Transport from 'src/containers/ProjectDetails/transport';
 import Restaurant from 'src/containers/ProjectDetails/restaurant';
 import Other from 'src/containers/ProjectDetails/other';
 import UserFooter from 'src/components/UserFooter';
+import GoogleMap from 'src/components/Map';
 
 /**
  * Code
@@ -39,18 +38,11 @@ const ProjectDetails = ({ project }) => (
     <div id="projectDetails-header">
       <div id="projectDetails-header-left">
         <h2>Destination</h2>
-        <div id="project-card">
-          <Card className="trip">
-            <Image src={newYork} />
-            <Card.Content>
-              <Card.Header>
-                {project.destination}
-              </Card.Header>
-              <Card.Description>
-                {project.description}
-              </Card.Description>
-            </Card.Content>
-          </Card>
+        <div id="projectDetails-header-left-map">
+          <GoogleMap
+            lat={project.destination.lat}
+            lng={project.destination.lng}
+          />
         </div>
       </div>
 
@@ -142,7 +134,6 @@ ProjectDetails.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    destination: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     projectDates: PropTypes.array.isRequired,
     user: PropTypes.array.isRequired,

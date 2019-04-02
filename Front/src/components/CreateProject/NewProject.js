@@ -82,7 +82,7 @@ class NewProject extends React.Component {
               <div className="input">
                 <Input
                   name="title"
-                  placeholder="Donnez un nom a votre projet..."
+                  placeholder="Donnez un nom a votre projet"
                   value={title}
                   onChange={this.handleChange}
                 />
@@ -94,7 +94,7 @@ class NewProject extends React.Component {
                 <TextArea
                   name="description"
                   id="description-input"
-                  placeholder="Description du projet..."
+                  placeholder="Description du projet"
                   rows="5"
                   cols="50"
                   value={description}
@@ -108,7 +108,7 @@ class NewProject extends React.Component {
                 <Input
                   name="destination"
                   icon="world"
-                  placeholder="Définissez une destionation..."
+                  placeholder="Définissez une destination"
                   value={destination}
                   onChange={this.handleChange}
                 />
