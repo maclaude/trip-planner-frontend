@@ -86,6 +86,7 @@ class AddParticipants extends React.Component {
             <label htmlFor="name">
               Nom
               <input
+                className="addParticipants-form-input"
                 name="name"
                 type="text"
                 placeholder="Nom du participant"
@@ -96,6 +97,7 @@ class AddParticipants extends React.Component {
             <label htmlFor="email">
               Email
               <input
+                className="addParticipants-form-input"
                 name="email"
                 type="email"
                 placeholder="Email du participant"
