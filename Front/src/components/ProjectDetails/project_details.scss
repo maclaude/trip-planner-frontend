@@ -7,6 +7,9 @@
   padding: 2em 5em;
   background: $background-main-color;
   color: $font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
   &-header {
     margin-top: 3em;

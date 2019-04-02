@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Divider } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -11,8 +10,8 @@ import { Divider } from 'semantic-ui-react';
 // Components
 import NavabarUser from 'src/components/NavbarUser';
 import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
-import Suggestions from 'src/containers/Ideas/SuggestionIdeas';
-
+import SuggestionIdeas from 'src/containers/Ideas/SuggestionIdeas';
+import UserFooter from 'src/components/UserFooter';
 // Styles
 import './ideas.scss';
 
@@ -24,8 +23,8 @@ const Ideas = ({ project }) => (
     <NavabarUser project={project} />
     <div id="suggestions">
       <SuggestionForm project={project} />
-      <Divider />
-      <Suggestions project={project} />
+      <SuggestionIdeas project={project} />
+      <UserFooter />
     </div>
   </div>
 );

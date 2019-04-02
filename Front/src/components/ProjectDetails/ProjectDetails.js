@@ -24,6 +24,7 @@ import Accomodation from 'src/containers/ProjectDetails/accomodation';
 import Transport from 'src/containers/ProjectDetails/transport';
 import Restaurant from 'src/containers/ProjectDetails/restaurant';
 import Other from 'src/containers/ProjectDetails/other';
+import UserFooter from 'src/components/UserFooter';
 
 /**
  * Code
@@ -132,6 +133,7 @@ const ProjectDetails = ({ project }) => (
         />
       </div>
     </div>
+    <UserFooter />
   </div>
 );
 

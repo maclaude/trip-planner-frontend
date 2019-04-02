@@ -15,8 +15,10 @@ import {
 /**
  * Local import
  */
+// Components
+import UserFooter from 'src/components/UserFooter';
+// Styles
 import './newproject.scss';
-
 // Utils
 import NewProjectErrors from 'src/utils/newProject_form_errors';
 
@@ -131,6 +133,7 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
+        <UserFooter />
       </div>
     );
   }

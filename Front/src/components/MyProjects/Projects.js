@@ -12,6 +12,7 @@ import { Card } from 'semantic-ui-react';
 // Styles
 import './myprojects.scss';
 // Components
+import UserFooter from 'src/components/UserFooter';
 import SingleProjectCard from './singleProjectCard';
 
 /**
@@ -40,6 +41,7 @@ const Projects = ({ projects }) => (
         Créer un nouveau projet
       </NavLink>
     </div>
+    <UserFooter />
   </div>
 );
 
