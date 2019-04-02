@@ -17,7 +17,10 @@
   &-cards {
     padding: 2em;
     display: flex;
+    width: 90%;
+    align-self: center;
     justify-content: center;
+    background-color: #F2F3F4;
   }
   &-create {
     width: fit-content;

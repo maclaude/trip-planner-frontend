@@ -7,6 +7,9 @@
   padding: 2.5em;
   background: $background-main-color;
   color: $font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &-banner {
     margin: 0 2em 2em 2em;
@@ -14,7 +17,7 @@
 
   &-form {
     width: 40%;
-    margin: 5em auto 7em; 
+    margin: 3em auto 5em; 
 
     &-errors {
       margin-bottom: 15px;
@@ -23,7 +26,7 @@
 
   &-participants {
     &-title {
-      margin: 1.5em 0 2em;
+      margin: 1em 0 1.5em;
       font-weight: 600;
       text-align: center;
     }
@@ -73,12 +76,12 @@
   
     &-form {
       width: 80%;
-      margin: 3em auto 7em; 
+      margin: 3em auto 5em; 
     }
   
     &-participants {
       &-title {
-        margin: 1.5em 0 2em;
+        margin: 1em 0 1.5em;
         font-weight: 600;
         text-align: center;
       }

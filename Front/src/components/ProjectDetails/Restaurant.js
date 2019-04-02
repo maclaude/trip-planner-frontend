@@ -15,6 +15,11 @@ import SuggestionCard from './SuggestionCard';
  */
 const Restaurant = ({ suggestions }) => (
   <div id="restaurant">
+    {suggestions.length === 0 && (
+      <p className="suggestion-message">
+        Aucune suggestion n'est encore remontée
+      </p>
+    )}
     <Card.Group>
       {suggestions.map(suggestion => (
         <SuggestionCard

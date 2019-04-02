@@ -22,6 +22,8 @@ import './add_participants.scss';
 import avatar from 'src/assets/avatar/default.png';
 // Utils
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
+// Components
+import UserFooter from 'src/components/UserFooter';
 
 /**
  * Code
@@ -182,6 +184,7 @@ class AddParticipants extends React.Component {
             </div>
           </div>
         </div>
+        <UserFooter />
       </div>
     );
   }
