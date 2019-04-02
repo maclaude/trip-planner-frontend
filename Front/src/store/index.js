@@ -16,10 +16,11 @@ import signup from 'src/store/reducers/signup';
 import login from 'src/store/reducers/login';
 import ideas from 'src/store/reducers/ideas';
 import createProject from 'src/store/reducers/createProject';
-import projects from 'src/store/reducers/projects';
+import participants from 'src/store/reducers/participants';
 
 // Middleware
 import ajaxMiddleware from './middlewares/ajax';
+import gecodeMiddleware from './middlewares/geocode';
 
 // Compose : les extensions/outils + les middlewares custom
 // On utilise la fonction `compose` des redux devtools si elle existe sinon celle de redux
@@ -28,7 +29,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Composition des enhancers
 const enhancers = composeEnhancers(
-  applyMiddleware(ajaxMiddleware),
+  applyMiddleware(ajaxMiddleware, gecodeMiddleware),
 );
 
 const rootReducer = combineReducers({
@@ -36,7 +37,7 @@ const rootReducer = combineReducers({
   login,
   ideas,
   createProject,
-  projects,
+  participants,
 });
 
 /**

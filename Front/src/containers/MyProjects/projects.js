@@ -15,7 +15,7 @@ import Projects from 'src/components/MyProjects/Projects';
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  projects: state.projects.projects,
+  projects: state.createProject.projects,
 });
 
 // === Actions ===
