@@ -8,7 +8,7 @@ import axios from 'axios';
  * Local import
  */
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
-import { CONNECT_USER } from 'src/store/reducers/login';
+import { CONNECT_USER, setToken } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
 import { NEW_PROJECT, ADD_DATES, GET_PROJECTS } from 'src/store/reducers/createProject';
 
@@ -47,8 +47,10 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('Requête AJAX pour connecter l\'utilisateur', user);
 
-      axios.post('url', user)
-        .then(response => console.log(response))
+      axios.post('http://127.0.0.1:8000/api/login_check', user)
+        .then(response => (
+          store.dispatch(setToken(response.data.token))
+        ))
         .catch(() => console.error('Request has failed'));
 
       break;

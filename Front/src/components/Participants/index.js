@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import './add_participants.scss';
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import AddParticipants from './addParticipants';
+import AddParticipants from 'src/containers/Participants/addParticipants';
 
 /**
  * Code
@@ -19,7 +19,7 @@ import AddParticipants from './addParticipants';
 const Participants = ({ project }) => (
   <div id="participants">
     <NavbarUser project={project} />
-    <AddParticipants />
+    <AddParticipants project={project} />
   </div>
 );
 

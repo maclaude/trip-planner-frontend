@@ -15,10 +15,10 @@
       justify-content: space-between;
       }
       &-username{
-        border-bottom: solid 1px #4C5175;
+        border-bottom: solid 1px $navbar-separator-color;
       }
       &-footer{
-        border-top: solid 1px #4C5175;
+        border-top: solid 1px $navbar-separator-color;
       }
       &-footer, &-main{
         display: flex;
