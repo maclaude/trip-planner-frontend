@@ -19,6 +19,13 @@ const ajaxMiddleware = store => next => (action) => {
   // Récuperation du state
   const state = store.getState();
 
+  // Configuration de l'instance axiosToken
+  const axiosToken = axios.create({
+    baseURL: 'http://127.0.0.1:8000/api/',
+    headers: { Authorization: `Bearer ${state.login.token}` },
+  });
+
+
   switch (action.type) {
     case ADD_NEW_USER: {
       // Création de l'objet newUser
@@ -70,7 +77,7 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('Requête AJAX inscrire la nouvelle suggestion', newSuggestion);
 
-      axios.post('http://127.0.0.1:8000/api/suggestions', newSuggestion)
+      axiosToken.post('suggestions', newSuggestion)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
@@ -83,12 +90,12 @@ const ajaxMiddleware = store => next => (action) => {
         title: state.createProject.title,
         description: state.createProject.description,
         destination: state.createProject.destination,
-        owner: '/api/users/1',
+        owner: '/api/users/3',
       };
 
       console.log('Requête AJAX inscrire le nouveau projet', newProject);
 
-      axios.post('http://127.0.0.1:8000/api/projects', newProject)
+      axiosToken.post('projects', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
@@ -105,7 +112,7 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('Requête AJAX inscrire les suggestions de dates', addDates);
 
-      axios.post('http://127.0.0.1:8000/api/project_dates', addDates)
+      axiosToken.post('project_dates', addDates)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
@@ -115,7 +122,7 @@ const ajaxMiddleware = store => next => (action) => {
     case GET_PROJECTS: {
       console.log('Requête AJAX pour récupérer les projets');
 
-      axios.get('http://127.0.0.1:8000/api/projects')
+      axiosToken.get('projects')
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
