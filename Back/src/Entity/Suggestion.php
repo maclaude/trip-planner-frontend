@@ -70,6 +70,11 @@ class Suggestion
      */
     private $voteSuggestions;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $vote = 0;
+
     public function __construct()
     {
         $this->voteSuggestions = new ArrayCollection();
@@ -191,6 +196,18 @@ class Suggestion
                 $voteSuggestion->setSuggestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVote(): ?int
+    {
+        return $this->vote;
+    }
+
+    public function setVote(?int $vote): self
+    {
+        $this->vote = $vote;
 
         return $this;
     }

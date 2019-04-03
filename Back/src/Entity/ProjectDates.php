@@ -44,6 +44,11 @@ class ProjectDates
      */
     private $project;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $vote;
+
     public function __construct()
     {
         $this->voteProjectDates = new ArrayCollection();
@@ -117,6 +122,18 @@ class ProjectDates
     public function setProject(?Project $project): self
     {
         $this->project = $project;
+
+        return $this;
+    }
+
+    public function getVote(): ?int
+    {
+        return $this->vote;
+    }
+
+    public function setVote(?int $vote): self
+    {
+        $this->vote = $vote;
 
         return $this;
     }
