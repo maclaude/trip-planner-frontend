@@ -15,7 +15,10 @@
       justify-content: space-between;
       }
       &-username{
-        border-bottom: solid 1px $navbar-separator-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-around !important;
+        color: $navbar-font-color;
       }
       &-footer{
         border-top: solid 1px $navbar-separator-color;
@@ -54,8 +57,16 @@
 .ui.attached.segment, .ui.segment {
   border: none;
 }
-#avatar {
-  width: 90px;
-  height: 70px;
-  margin: 0.5em auto;
+
+
+#navbar-username-avatar {
+  margin-left: .6em;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2.5px solid #33FF66;
+}
+
+#navbar-username-name {
+  width: 200px;
 }

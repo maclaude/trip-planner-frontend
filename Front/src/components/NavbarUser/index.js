@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Icon, Image } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -14,7 +14,7 @@ import { getURL } from 'src/utils/url';
 // Style
 import './navbar_user.scss';
 // Assets
-import avatar from 'src/assets/avatar/default.png';
+import avatar from 'src/assets/avatar/marc_antoine_avatar.jpg';
 
 /**
  * Code
@@ -23,7 +23,11 @@ const NavbarUser = ({ project }) => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-header">
       <div id="navbar-username">
-        <Image id="avatar" src={avatar} size="mini" circular />
+        <img id="navbar-username-avatar" src={avatar} alt="avatar" />
+        <div id="navbar-username-name">
+        Vous êtes connecté<br />
+        Marc-Antoine
+        </div>
       </div>
     </div>
     <div id="navbar-main">
