@@ -1,47 +1,49 @@
 @import 'src/styles/vars';
 
-@media (min-width: 901px) {
-  #dates {
-    width: 80vw;
-    float: right;
-    min-height: 100vh;
-    padding: 2.5em;
-    &-form {
-      width: 55%;
-      text-align: center;
-      margin: 1em auto;
-      font-size: 1.2em;
-    }
-    &-banner {
-      padding-bottom: 5em;
-      margin: 0 2em 2em 2em;
-    }
-    &-input {
-      padding-bottom: 2em;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-    &-suggested {
-      text-align: center;
-      width: 50%;
-      font-size: 1.5em;
-      margin: 0.5em auto;
+#dates {
+  width: 80vw;
+  float: right;
+  min-height: 100vh;
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    }
+  &-form {
+    width: 55%;
+    text-align: center;
+    margin: 1em auto;
+    font-size: 1.2em;
   }
-  .input-date {
-    width: 40%;
-    margin-right: 2em;
-    min-width: 180px !important;
+  &-banner {
+    padding-bottom: 5em;
+    margin: 0 2em 2em 2em;
   }
-  .date {
-    background: #1F618D;
-    color: white;
-    border-radius: 1em;
-    padding: 0.5em;
-    margin-bottom: 1.5em
+  &-input {
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
+  &-suggested {
+    text-align: center;
+    width: 50%;
+    font-size: 1.5em;
+    margin: 0.5em auto;
+
+  }
+}
+.input-date {
+  width: 40%;
+  margin-right: 2em;
+  min-width: 180px !important;
+}
+.date {
+  background: #1F618D;
+  color: white;
+  border-radius: 1em;
+  padding: 0.5em;
+  margin-bottom: 1.5em
 }
 
 @media (min-width: 601px) and (max-width: 900px) {

@@ -17,6 +17,8 @@ import uuidV4 from 'uuid-v4';
  */
 // Utils
 import SuggestDatesErrors from 'src/utils/dateSuggest_form';
+// Components
+import UserFooter from 'src/components/UserFooter';
 
 /**
  * Code
@@ -140,6 +142,7 @@ class SuggestDates extends React.Component {
             </div>
           ))}
         </div>
+        <UserFooter />
       </div>
     );
   }

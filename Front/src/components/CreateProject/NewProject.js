@@ -125,7 +125,12 @@ class NewProject extends React.Component {
                 ))}
               </div>
             )}
-            <Button animated id="newproject-button">
+            <Button
+              animated
+              color="green"
+              type="submit"
+              className="newproject-button"
+            >
               <Button.Content visible>Créer le projet</Button.Content>
               <Button.Content hidden>
                 <Icon name="arrow right" />

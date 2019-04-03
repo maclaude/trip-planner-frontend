@@ -1,38 +1,42 @@
 @import 'src/styles/vars';
 
-@media (min-width: 901px) {
-  #newproject {
-    width: 80vw;
-    float: right;
-    min-height: 100vh;
-    padding: 2.5em;
-    &-form {
-      width: 70%;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin: 1em auto;
-      font-size: 1.2em;
-    }
-    &-title, &-description, &-date, &-destination, &-participants {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 2em;
-    }
-    &-banner {
-      padding-bottom: 5em;
-      margin: 0 2em 2em 2em;
-    }
-    #date {
-      padding-bottom: 2em;
-    }
-  }
-  .input, #description-input {
+#newproject {
+  width: 80vw;
+  float: right;
+  min-height: 100vh;
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: $background-main-color;
+  color: $font-color;
+
+  &-form {
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1em auto;
+    font-size: 1.2em;
   }
-  .input-date {
-    width: 35%;
+  &-title, &-description, &-date, &-destination, &-participants {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2em;
   }
+  &-banner {
+    padding-bottom: 5em;
+    margin: 0 2em 2em 2em;
+  }
+  #date {
+    padding-bottom: 2em;
+  }
+}
+.input, #description-input {
+  width: 70%;
+}
+.input-date {
+  width: 35%;
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
@@ -90,12 +94,9 @@
   }
   
 }
-#newproject {
-  background: $background-main-color;
-  color: $font-color;
-}
-#newproject-button {
-  background-color: $button-color;
-  color: $font-color;
-  width: 100%;
+
+.newproject-button {
+  width: 30%;
+  float: right;
+  margin: 2em auto !important;
 }

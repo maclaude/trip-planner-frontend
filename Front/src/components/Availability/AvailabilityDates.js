@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
  */
 // Styles
 import './availability.scss';
+// Components
+import UserFooter from 'src/components/UserFooter';
 
 /**
  * Code
@@ -82,6 +84,7 @@ render() {
           </Button.Content>
         </Button>
       </div>
+      <UserFooter />
     </div>
   );
 }

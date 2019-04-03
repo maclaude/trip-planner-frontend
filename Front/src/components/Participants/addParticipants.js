@@ -156,7 +156,7 @@ class AddParticipants extends React.Component {
                   >
                     <Image avatar src={avatar} />
                     <List.Content>
-                      <List.Header>{user}</List.Header>
+                      <List.Header>{user.firstname}</List.Header>
                     </List.Content>
                   </List.Item>
                 ))}
@@ -193,7 +193,7 @@ class AddParticipants extends React.Component {
 // PropTypes validation
 AddParticipants.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     user: PropTypes.array.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,

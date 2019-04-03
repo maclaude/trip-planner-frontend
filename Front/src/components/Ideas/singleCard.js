@@ -67,7 +67,7 @@ class SingleCard extends React.Component {
           description={description}
         />
         <Card.Content
-          meta={<a href={url}>Lien</a>}
+          meta={<a target="new" href={url}>Lien</a>}
         />
         <Card.Content
           description={`Prix: ${price}€`}
