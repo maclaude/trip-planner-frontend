@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  */
 // Components
 import NavbarUser from 'src/components/NavbarUser';
-import Availability from 'src/components/Availability/Availability';
+import AvailabilityDates from 'src/containers/Availability/availabilityDates';
 
 
 /**
@@ -18,7 +18,7 @@ import Availability from 'src/components/Availability/Availability';
 const Availabilities = ({ project }) => (
   <div>
     <NavbarUser project={project} />
-    <Availability project={project} />
+    <AvailabilityDates project={project} />
   </div>
 );
 

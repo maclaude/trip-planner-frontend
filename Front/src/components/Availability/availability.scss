@@ -47,6 +47,9 @@
     padding: 1em;
     width: 35%;
   }
+  .availability-button.availability-button--active {
+    // background-color: pink;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {

@@ -5,6 +5,7 @@
 import { getSlug } from 'src/utils/url';
 // Local data
 import projectsData from 'src/data/projects';
+import availabilityData from 'src/data/availability';
 
 /**
  * Initial State
@@ -19,6 +20,7 @@ const initialState = {
   user: '',
   errors: [],
   projects: projectsData,
+  availability: availabilityData,
 };
 
 /**
@@ -112,6 +114,10 @@ export const getProjects = () => ({
 export const getCurrentProject = (projects, slug) => (
   projects.find(project => getSlug(project.title) === slug)
 );
+
+export const getFilteredDates = (projectId, availability) => ([
+  ...availability.filter(date => date.project_id === projectId),
+]);
 
 /**
  * Export
