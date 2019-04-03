@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(normalizationContext={"groups"={"project"}})
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
  */
 class Project
@@ -22,32 +23,38 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"project"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"project"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"project"})
      */
     private $destination;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ProjectDates", mappedBy="project", orphanRemoval=true)
+     * @Groups({"project"})
      */
     private $projectDates;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"project"})
      */
     private $owner;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projectsParticipation")
+     * @Groups({"project"})
      */
     private $user;
 
@@ -58,6 +65,7 @@ class Project
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="project", orphanRemoval=true)
+     * @Groups({"project"})
      */
     private $suggestions;
 

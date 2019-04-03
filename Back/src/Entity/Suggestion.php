@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -22,21 +23,25 @@ class Suggestion
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups("project")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("project")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("project")
      */
     private $url;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("project")
      */
     private $price;
 
@@ -49,12 +54,14 @@ class Suggestion
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("project")
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\SuggestionGender", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("project")
      */
     private $suggestionGender;
 
