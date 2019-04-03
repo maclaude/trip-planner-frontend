@@ -9,17 +9,28 @@ import React from 'react';
 // Components
 import NavbarProject from 'src/containers/NavbarProject';
 import Projects from 'src/containers/MyProjects/projects';
+// Store
+import store from 'src/store';
+import { getProjects } from 'src/store/reducers/createProject';
 
 
 /**
  * Code
  */
-const MyProjects = () => (
-  <div>
-    <NavbarProject />
-    <Projects />
-  </div>
-);
+class MyProjects extends React.Component {
+  componentDidMount() {
+    store.dispatch(getProjects());
+  }
+
+  render() {
+    return (
+      <div>
+        <NavbarProject />
+        <Projects />
+      </div>
+    );
+  }
+}
 
 /**
  * Export

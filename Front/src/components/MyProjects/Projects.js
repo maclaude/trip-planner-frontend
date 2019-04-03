@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
 
 /**
@@ -11,6 +12,7 @@ import { Card } from 'semantic-ui-react';
 // Styles
 import './myprojects.scss';
 // Components
+import UserFooter from 'src/components/UserFooter';
 import SingleProjectCard from './singleProjectCard';
 
 /**
@@ -32,8 +34,14 @@ const Projects = ({ projects }) => (
       ))}
     </Card.Group>
     <div id="myprojects-create">
-      Créer un nouveau projet
+      <NavLink
+        to="/nouveau-projet"
+        className="item"
+      >
+        Créer un nouveau projet
+      </NavLink>
     </div>
+    <UserFooter />
   </div>
 );
 

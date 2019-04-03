@@ -6,6 +6,7 @@ const initialState = {
   password: '',
   errors: [],
   loggedIn: false,
+  token: '',
 };
 
 /**
@@ -14,6 +15,7 @@ const initialState = {
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
+export const SET_TOKEN = 'SET_TOKEN';
 
 /**
  * Reducer
@@ -38,9 +40,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
-        // @TODO
-        // Si le retour de la requête de connexion est 200 set true
-        // Action dédiée dans ajaxMiddleware ?
+      };
+
+    case SET_TOKEN:
+
+      return {
+        ...state,
+        token: action.token,
         loggedIn: true,
       };
 
@@ -65,6 +71,11 @@ export const showLoginErrors = errors => ({
 
 export const connectUser = () => ({
   type: CONNECT_USER,
+});
+
+export const setToken = token => ({
+  type: SET_TOKEN,
+  token,
 });
 
 /**

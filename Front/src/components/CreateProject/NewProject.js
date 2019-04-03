@@ -11,16 +11,16 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react';
-import uuidV4 from 'uuid/v4';
 
 /**
  * Local import
  */
+// Components
+import UserFooter from 'src/components/UserFooter';
+// Styles
 import './newproject.scss';
-
 // Utils
 import NewProjectErrors from 'src/utils/newProject_form_errors';
-import SuggestDatesErrors from 'src/utils/dateSuggest_form';
 
 /**
  * Code
@@ -38,8 +38,6 @@ class NewProject extends React.Component {
     const {
       title,
       description,
-      debutDates,
-      endDates,
       destination,
       showErrors,
       newProject,
@@ -48,8 +46,6 @@ class NewProject extends React.Component {
     const errors = NewProjectErrors(
       title,
       description,
-      debutDates,
-      endDates,
       destination,
     );
     if (
@@ -62,36 +58,12 @@ class NewProject extends React.Component {
     }
   };
 
-  handleClick = () => {
-    const {
-      addDates,
-      debutDates,
-      endDates,
-      showErrors,
-    } = this.props;
-
-    const dateErrors = SuggestDatesErrors(
-      debutDates,
-      endDates,
-    );
-    if (debutDates && endDates !== '') {
-      addDates();
-    }
-    else {
-      showErrors(dateErrors);
-    }
-  };
-
   render() {
     const {
       title,
       description,
-      debutDates,
-      endDates,
       destination,
-      user,
       errors,
-      dateSuggest,
     } = this.props;
 
     return (
@@ -110,7 +82,7 @@ class NewProject extends React.Component {
               <div className="input">
                 <Input
                   name="title"
-                  placeholder="Donnez un nom a votre projet..."
+                  placeholder="Donnez un nom a votre projet"
                   value={title}
                   onChange={this.handleChange}
                 />
@@ -122,7 +94,7 @@ class NewProject extends React.Component {
                 <TextArea
                   name="description"
                   id="description-input"
-                  placeholder="Description du projet..."
+                  placeholder="Description du projet"
                   rows="5"
                   cols="50"
                   value={description}
@@ -130,62 +102,29 @@ class NewProject extends React.Component {
                 />
               </div>
             </div>
-            <div id="newproject-date">
-              <p>Suggérer des dates</p>
-              <Input
-                name="debutDates"
-                className="input-date"
-                type="date"
-                value={debutDates}
-                onChange={this.handleChange}
-              />
-              <Input
-                name="endDates"
-                className="input-date"
-                type="date"
-                value={endDates}
-                onChange={this.handleChange}
-              />
-              <Button type="button" icon>
-                <Icon
-                  name="plus"
-                  onClick={this.handleClick}
-                />
-              </Button>
-            </div>
-            <div id="newproject-date-suggested">
-              {dateSuggest.map(date => (
-                <div id="date" key={uuidV4()}>
-                  <p>
-                    Du {date.date_de_debut} au {date.date_de_fin}
-                  </p>
-                </div>
-              ))}
-            </div>
             <div id="newproject-destination">
               <p>Destination</p>
               <div className="input">
                 <Input
                   name="destination"
                   icon="world"
-                  placeholder="Définissez une destionation..."
+                  placeholder="Définissez une destination"
                   value={destination}
                   onChange={this.handleChange}
                 />
               </div>
             </div>
-            <div id="newproject-participants">
-              <p>Ajouter des participants</p>
-              <div className="input">
-                <Input
-                  name="user"
-                  icon="users"
-                  placeholder="Pseudo du participant..."
-                  value={user}
-                  onChange={this.handleChange}
-                />
+            {(errors.length > 0) && (
+              <div id="signup-form-errors">
+                {errors.map(error => (
+                  <Message negative key={error}>
+                    <p>
+                      {error}
+                    </p>
+                  </Message>
+                ))}
               </div>
-            </div>
+            )}
             <Button animated id="newproject-button">
               <Button.Content visible>Créer le projet</Button.Content>
               <Button.Content hidden>
@@ -194,17 +133,7 @@ class NewProject extends React.Component {
             </Button>
           </Form>
         </div>
-        {(errors.length > 0) && (
-          <div id="signup-form-errors">
-            {errors.map(error => (
-              <Message negative key={error}>
-                <p>
-                  {error}
-                </p>
-              </Message>
-            ))}
-          </div>
-        )}
+        <UserFooter />
       </div>
     );
   }
@@ -214,22 +143,11 @@ class NewProject extends React.Component {
 NewProject.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  debutDates: PropTypes.string,
-  endDates: PropTypes.string,
   destination: PropTypes.string.isRequired,
-  user: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
   newProject: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
   showErrors: PropTypes.func.isRequired,
-  addDates: PropTypes.func.isRequired,
-  dateSuggest: PropTypes.array.isRequired,
-};
-
-NewProject.defaultProps = {
-  user: '',
-  debutDates: '',
-  endDates: '',
 };
 
 /**

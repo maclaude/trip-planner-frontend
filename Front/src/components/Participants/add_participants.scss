@@ -1,0 +1,119 @@
+@import 'src/styles/vars';
+
+#addParticipants {
+  width: 80vw;
+  float: right;
+  min-height: 100vh;
+  padding: 2.5em;
+  background: $background-main-color;
+  color: $font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-banner {
+    margin: 0 2em 2em 2em;
+  }
+
+  &-form {
+    width: 40%;
+    margin: 3em auto 5em; 
+
+    &-errors {
+      margin-bottom: 15px;
+    }
+  }
+
+  &-participants {
+    &-title {
+      margin: 1em 0 1.5em;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+
+      &-confirmed, &-pending {
+        width: 50%;
+        height: auto;
+        text-align: center;
+        margin-bottom: 4em;
+      }
+
+      &-confirmed h3, &-pending h3 {
+        text-decoration: underline;
+        margin-bottom: 1.8em;
+      }
+
+      &-confirmed {
+        border-right: 1px solid lightgrey;
+      }
+      
+      &-list {
+        text-align: left;
+        width: fit-content;
+        min-width: 200px;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.addParticipants-form-input {
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  #addParticipants {
+  
+    &-banner {
+      margin: 0 2em 2em 2em;
+      text-align: center;
+    }
+  
+    &-form {
+      width: 80%;
+      margin: 3em auto 5em; 
+    }
+  
+    &-participants {
+      &-title {
+        margin: 1em 0 1.5em;
+        font-weight: 600;
+        text-align: center;
+      }
+  
+      &-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+  
+        &-confirmed, &-pending {
+          width: 90%;
+          height: auto;
+          padding: 1em;
+          text-align: center;
+          margin-bottom: 2em;
+        }
+  
+        &-confirmed h3, &-pending h3 {
+          text-decoration: underline;
+          margin-bottom: 1.8em;
+        }
+  
+        &-confirmed {
+          border-right: none;
+        }
+        
+        &-list {
+          text-align: left;
+          width: fit-content;
+          margin: auto;
+        }
+      }
+    }
+  }
+}

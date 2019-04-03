@@ -39,11 +39,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=30)
      * @Groups("user")
+     * @Groups("project")
      */
     private $firstname;
     /**
      * @ORM\Column(type="string", length=30)
      * @Groups("user")
+     * @Groups("project")
      */
     private $lastname;
 
@@ -69,6 +71,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("user")
+     * @Groups("project")
      */
     private $avatar;
 

@@ -7,6 +7,9 @@
   padding: 2.5em;
   background: $background-main-color;
   color: $font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &-banner {
     margin: 0 2em 2em 2em;
@@ -16,7 +19,7 @@
     width: 60%;
     min-width:300px;
     max-width: 600px;
-    margin: 0 auto 70px;
+    margin: 0 auto 50px;
 
     &-header {
       display: flex;
@@ -53,6 +56,10 @@
       font-weight: 600;
       margin: 30px 0;
       text-transform: uppercase;
+    }
+
+    &-cards {
+      margin: 2em 0;
     }
   }
 }

@@ -16,3 +16,10 @@ h1 {
 h2 {
   font-weight: 400;
 }
+
+.item {
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
