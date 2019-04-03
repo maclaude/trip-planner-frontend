@@ -8,37 +8,11 @@
   &-banner {
     height: 90vh;
     display: flex;
-    background-image: url('https://source.unsplash.com/1600x900/?travel, landscape');
-    // background-image: url('../../assets/images/background/jeshoots-com-722888-unsplash.jpg');
+    background-image: url('../../assets/images/background/main_header.png');
     background-size: 100% 100%;
-    background-attachment: fixed;
     background-repeat: no-repeat;
 
     &-text {
-      width: 100%;
-      margin-top: 2em;
-      text-align: center;
-      font-weight: 900;
-      font-size: 2.5em;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-      // color: $header-bg-color;
-      // -webkit-text-stroke: 2px rgba(0, 0, 0, 0.541);
-      color: $button-color;
-      -webkit-text-stroke: 2px $font-color;
-      // color: $font-color;
-      // -webkit-text-stroke: 2px white;
-
-      &-title, &-slogan {
-        // font-family: Permanent Marker;
-        font-family: Lobster;
-        // font-family: Kaushan Script;
-        letter-spacing: 0.1em;
-
-      }
-
       &-title {
         font-size: 4rem;
         margin-bottom: .2em;

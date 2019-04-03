@@ -55,8 +55,6 @@ class SuggestionForm extends React.Component {
     const errors = getSuggestionFormErrors(type, name);
 
     if (type && name !== '') {
-      // eslint-disable-next-line no-console
-      console.log('SuggestionForm :: handleSubmit');
       sendSuggestion();
     }
     else {

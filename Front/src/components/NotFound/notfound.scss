@@ -7,28 +7,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 3.5em;
-  -webkit-text-stroke: 2px black;
-
-  &-title, &-code {
-    color: white;
-    height: 15vh;
-  } 
-  &-title {
-    font-size: 2em;
-    font-weight: 500;
-  }
-
-  &-code {
-    font-size: 2.5em;
-    font-weight: 700;
-  }
 }
 
 #container {
-  background-image: url('https://source.unsplash.com/1600x900/?travel, landscape');
+  background-image: url('../../assets/images/background/not_found.png');
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment:fixed;
-  height: 100%;
 }
 

@@ -9,9 +9,6 @@ import React from 'react';
 // Style
 import './main.scss';
 // Assets
-import group from 'src/assets/graphics/group.png';
-import idea from 'src/assets/graphics/idea.png';
-import plane from 'src/assets/graphics/plane.png';
 import worldMap from 'src/assets/images/homepage_img_up.jpg';
 import sanFrancisco from 'src/assets/images/homepage_img_down.jpg';
 
@@ -20,19 +17,7 @@ import sanFrancisco from 'src/assets/images/homepage_img_down.jpg';
  */
 const Main = () => (
   <div id="main">
-    <div id="main-banner">
-      <div id="main-banner-text">
-        <div id="text" className="focus-in-contract">
-          <h1 id="main-banner-text-title">Trip-planner</h1>
-          <p id="main-banner-text-slogan">Organisez vos voyages entre amis</p>
-        </div>
-      </div>
-      {/* <div id="main-banner-graphics">
-        <img src={group} alt="group graphic" />
-        <img src={idea} alt="idea graphic" />
-        <img src={plane} alt="plane graphic" />
-      </div> */}
-    </div>
+    <div id="main-banner" />
     <div id="main-fonctionalities">
       <div id="main-fonctionalities-text-up">
         <h2>Organisez vos voyages entre amis simplement</h2>
