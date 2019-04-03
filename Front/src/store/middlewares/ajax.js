@@ -10,7 +10,12 @@ import axios from 'axios';
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER, setToken } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
-import { NEW_PROJECT, ADD_DATES, GET_PROJECTS } from 'src/store/reducers/createProject';
+import {
+  NEW_PROJECT,
+  ADD_DATES,
+  GET_PROJECTS,
+  stockProjects,
+} from 'src/store/reducers/createProject';
 
 /**
  * Middleware
@@ -123,7 +128,9 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('Requête AJAX pour récupérer les projets');
 
       axiosToken.get('projects')
-        .then(response => console.log(response))
+        .then(response => (
+          store.dispatch(stockProjects(response.data['hydra:member']))
+        ))
         .catch(() => console.error('Request has failed'));
 
       break;

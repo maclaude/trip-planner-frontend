@@ -20,6 +20,7 @@ const initialState = {
   user: '',
   errors: [],
   projects: projectsData,
+  projectsAPI: '',
   availability: availabilityData,
 };
 
@@ -31,6 +32,7 @@ const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
 export const GET_PROJECTS = 'GET_PROJECTS';
+export const STOCK_PROJECTS = 'STOCK_PROJECTS';
 
 /**
  * Reducer
@@ -77,6 +79,12 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
+    case STOCK_PROJECTS:
+      return {
+        ...state,
+        projectsAPI: action.data,
+      };
+
     default:
       return state;
   }
@@ -106,6 +114,11 @@ export const addDates = () => ({
 
 export const getProjects = () => ({
   type: GET_PROJECTS,
+});
+
+export const stockProjects = data => ({
+  type: STOCK_PROJECTS,
+  data,
 });
 
 /**
