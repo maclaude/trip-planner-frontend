@@ -62,7 +62,7 @@ const ProjectDetails = ({ project }) => (
               >
                 <Image avatar src={avatar} />
                 <List.Content>
-                  <List.Header>{user}</List.Header>
+                  <List.Header>{user.firstname}</List.Header>
                 </List.Content>
               </List.Item>
             ))}

@@ -85,7 +85,7 @@ const NavbarProject = ({ projects }) => (
 NavbarProject.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };
