@@ -4,7 +4,7 @@
 // Utils
 import { getSlug } from 'src/utils/url';
 // Local data
-import projectsData from 'src/data/projects';
+import projectsData from 'src/data/projectsAPI';
 import availabilityData from 'src/data/availability';
 
 /**
@@ -20,7 +20,7 @@ const initialState = {
   user: '',
   errors: [],
   projects: projectsData,
-  projectsAPI: '',
+  projectsAPI: [],
   availability: availabilityData,
 };
 

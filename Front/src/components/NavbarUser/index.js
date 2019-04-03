@@ -137,7 +137,7 @@ const NavbarUser = ({ project }) => (
 // PropTypes validation
 NavbarUser.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
 };

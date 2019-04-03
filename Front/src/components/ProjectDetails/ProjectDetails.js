@@ -132,7 +132,7 @@ const ProjectDetails = ({ project }) => (
 // PropTypes validation
 ProjectDetails.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     projectDates: PropTypes.array.isRequired,
