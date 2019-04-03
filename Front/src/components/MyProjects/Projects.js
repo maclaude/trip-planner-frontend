@@ -49,7 +49,7 @@ const Projects = ({ projects }) => (
 Projects.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };

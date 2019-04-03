@@ -15,6 +15,7 @@ const initialState = {
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
+export const GET_USER_INFO = 'GET_USER_INFO';
 export const SET_TOKEN = 'SET_TOKEN';
 
 /**
@@ -43,7 +44,6 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case SET_TOKEN:
-
       return {
         ...state,
         token: action.token,
@@ -71,6 +71,10 @@ export const showLoginErrors = errors => ({
 
 export const connectUser = () => ({
   type: CONNECT_USER,
+});
+
+export const getUserInfo = () => ({
+  type: GET_USER_INFO,
 });
 
 export const setToken = token => ({

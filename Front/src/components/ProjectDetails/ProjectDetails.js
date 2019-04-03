@@ -24,6 +24,8 @@ import Restaurant from 'src/containers/ProjectDetails/restaurant';
 import Other from 'src/containers/ProjectDetails/other';
 import UserFooter from 'src/components/UserFooter';
 import GoogleMap from 'src/components/Map';
+// Utils
+import getDateFormat from 'src/utils/date_format';
 
 /**
  * Code
@@ -40,8 +42,8 @@ const ProjectDetails = ({ project }) => (
         <h2>Destination</h2>
         <div id="projectDetails-header-left-map">
           <GoogleMap
-            lat={project.destination.lat}
-            lng={project.destination.lng}
+            lat={project.lat}
+            lng={project.lng}
           />
         </div>
       </div>
@@ -72,7 +74,7 @@ const ProjectDetails = ({ project }) => (
         <div>
           <h2>Dates retenues</h2>
           <div id="projectDetails-header-right-dates">
-            {`${project.projectDates[0]} au ${project.projectDates[1]}`}
+            {`Du ${getDateFormat(project.projectDates[0].starDate)} au ${getDateFormat(project.projectDates[0].endDate)}`}
           </div>
         </div>
       </div>

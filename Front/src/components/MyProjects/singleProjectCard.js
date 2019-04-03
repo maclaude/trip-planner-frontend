@@ -51,7 +51,7 @@ const SingleProjectCard = ({
 
 // PropTypes validation
 SingleProjectCard.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   projectDates: PropTypes.array.isRequired,

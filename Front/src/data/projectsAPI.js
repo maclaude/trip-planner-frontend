@@ -25,6 +25,18 @@ const projectsAPI = [
         '@type': 'ProjectDates',
         starDate: '2019-06-06T00:00:00+00:00',
         endDate: '2019-06-13T00:00:00+00:00'
+      },
+      {
+        '@id': '/api/project_dates/4',
+        '@type': 'ProjectDates',
+        starDate: '2019-04-10T00:00:00+00:00',
+        endDate: '2019-04-17T00:00:00+00:00'
+      },
+      {
+        '@id': '/api/project_dates/5',
+        '@type': 'ProjectDates',
+        starDate: '2019-04-24T00:00:00+00:00',
+        endDate: '2019-05-15T00:00:00+00:00'
       }
     ],
     owner: {
@@ -245,7 +257,9 @@ const projectsAPI = [
           name: 'Autres'
         }
       }
-    ]
+    ],
+    lat: 51.5073509,
+    lng: -0.1277583
   },
   {
     '@id': '/api/projects/8',
@@ -263,7 +277,9 @@ const projectsAPI = [
       avatar: null
     },
     user: [],
-    suggestions: []
+    suggestions: [],
+    lat: 40.7127753,
+    lng: -74.0059728
   },
   {
     '@id': '/api/projects/9',
@@ -281,7 +297,9 @@ const projectsAPI = [
       avatar: null
     },
     user: [],
-    suggestions: []
+    suggestions: [],
+    lat: 59.32932349999999,
+    lng: 18.0685808
   },
   {
     '@id': '/api/projects/10',
@@ -299,7 +317,9 @@ const projectsAPI = [
       avatar: null
     },
     user: [],
-    suggestions: []
+    suggestions: [],
+    lat: 38.8026097,
+    lng: -116.419389
   }
 ]
 
