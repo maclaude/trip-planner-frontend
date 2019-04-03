@@ -2,6 +2,7 @@
  * Initial State
  */
 const initialState = {
+
   email: '',
   password: '',
   errors: [],
@@ -17,6 +18,7 @@ const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
 export const GET_USER_INFO = 'GET_USER_INFO';
 export const SET_TOKEN = 'SET_TOKEN';
+const STOCK_USER_INFO = 'STOCK_USER_INFO';
 
 /**
  * Reducer
@@ -41,6 +43,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
+      };
+
+    case STOCK_USER_INFO:
+      // @TODO - Stock user info
+      return {
+        ...state,
       };
 
     case SET_TOKEN:
@@ -75,6 +83,10 @@ export const connectUser = () => ({
 
 export const getUserInfo = () => ({
   type: GET_USER_INFO,
+});
+
+export const stockUserInfo = () => ({
+  type: STOCK_USER_INFO,
 });
 
 export const setToken = token => ({

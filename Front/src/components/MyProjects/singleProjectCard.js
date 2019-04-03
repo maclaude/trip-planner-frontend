@@ -11,6 +11,7 @@ import { Card } from 'semantic-ui-react';
  */
 // Utils
 import { getURL } from 'src/utils/url';
+import getDateFormat from 'src/utils/date_format';
 
 /**
  * Code
@@ -43,7 +44,7 @@ const SingleProjectCard = ({
     </Card.Content>
     <Card.Content textAlign="center">
       <Card.Meta>
-        {`Dates: ${projectDates[0]} au ${projectDates[1]}`}
+        {`Dates ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`}
       </Card.Meta>
     </Card.Content>
   </Card>

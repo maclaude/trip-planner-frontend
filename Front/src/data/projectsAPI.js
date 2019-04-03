@@ -29,14 +29,8 @@ const projectsAPI = [
       {
         '@id': '/api/project_dates/4',
         '@type': 'ProjectDates',
-        starDate: '2019-04-10T00:00:00+00:00',
-        endDate: '2019-04-17T00:00:00+00:00'
-      },
-      {
-        '@id': '/api/project_dates/5',
-        '@type': 'ProjectDates',
-        starDate: '2019-04-24T00:00:00+00:00',
-        endDate: '2019-05-15T00:00:00+00:00'
+        starDate: '2019-07-03T00:00:00+00:00',
+        endDate: '2019-07-18T00:00:00+00:00'
       }
     ],
     owner: {
@@ -266,9 +260,22 @@ const projectsAPI = [
     '@type': 'Project',
     id: 8,
     title: 'New-York pour Noël',
-    description: 'Voyage à New-York en famille, pour visiter ses célèbres monuments et surtout profiter de l\\\'ambiance de la ville pendant les fêtes',
+    description: 'Voyage à New-York en famille, pour visiter ses célèbres monuments et surtout profiter de l\'ambiance de la ville pendant les fêtes',
     destination: 'New-York',
-    projectDates: [],
+    projectDates: [
+      {
+        '@id': '/api/project_dates/6',
+        '@type': 'ProjectDates',
+        starDate: '2019-12-20T00:00:00+00:00',
+        endDate: '2019-12-31T00:00:00+00:00'
+      },
+      {
+        '@id': '/api/project_dates/7',
+        '@type': 'ProjectDates',
+        starDate: '2019-12-22T00:00:00+00:00',
+        endDate: '2019-12-31T00:00:00+00:00'
+      }
+    ],
     owner: {
       '@id': '/api/users/7',
       '@type': 'User',
@@ -288,7 +295,20 @@ const projectsAPI = [
     title: 'Trip à Stockholm',
     description: 'Visiter la ville, louer des vélos pour se balader et manger des spécialités locales',
     destination: 'Stockholm',
-    projectDates: [],
+    projectDates: [
+      {
+        '@id': '/api/project_dates/8',
+        '@type': 'ProjectDates',
+        starDate: '2019-08-07T00:00:00+00:00',
+        endDate: '2019-08-21T00:00:00+00:00'
+      },
+      {
+        '@id': '/api/project_dates/9',
+        '@type': 'ProjectDates',
+        starDate: '2019-07-15T00:00:00+00:00',
+        endDate: '2019-07-31T00:00:00+00:00'
+      }
+    ],
     owner: {
       '@id': '/api/users/6',
       '@type': 'User',
@@ -308,7 +328,14 @@ const projectsAPI = [
     title: 'Festival burning-man',
     description: 'Célèbre festival dans le désert Américain, bonnes musiques et ambiance incroyable !',
     destination: 'Nevada',
-    projectDates: [],
+    projectDates: [
+      {
+        '@id': '/api/project_dates/12',
+        '@type': 'ProjectDates',
+        starDate: '2019-09-01T00:00:00+00:00',
+        endDate: '2019-09-07T00:00:00+00:00'
+      }
+    ],
     owner: {
       '@id': '/api/users/5',
       '@type': 'User',

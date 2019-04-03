@@ -69,8 +69,6 @@ class SignupForm extends React.Component {
       && password === confirmedPassword
       && termsChecked
     ) {
-      // eslint-disable-next-line no-console
-      console.log('SignupForm :: handleSubmit');
       addNewUser();
     }
     else {

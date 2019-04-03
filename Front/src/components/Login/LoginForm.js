@@ -46,8 +46,6 @@ class LoginForm extends React.Component {
     const errors = getLoginFormErrors(email, password);
 
     if (email && password !== '') {
-      // eslint-disable-next-line no-console
-      console.log('LoginForm :: handleSubmit');
       connectUser();
     }
     else {

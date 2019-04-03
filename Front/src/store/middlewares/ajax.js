@@ -41,7 +41,7 @@ const ajaxMiddleware = store => next => (action) => {
         password: state.signup.password,
       };
 
-      console.log('Requête AJAX pour inscrire le nouvel utilisateur', newUser);
+      console.log('AJAX - addUser');
 
       axios.post('http://127.0.0.1:8000/api/users', newUser)
         .then(response => console.log(response))
@@ -57,18 +57,21 @@ const ajaxMiddleware = store => next => (action) => {
         password: state.login.password,
       };
 
-      console.log('Requête AJAX pour connecter l\'utilisateur', user);
+      console.log('AJAX - connectUser');
 
       axios.post('http://127.0.0.1:8000/api/login_check', user)
-        .then(response => (
-          store.dispatch(setToken(response.data.token))
-        ))
+        .then((response) => {
+          console.log(response.data);
+          return store.dispatch(setToken(response.data.token));
+        })
         .catch(() => console.error('Request has failed'));
 
       break;
     }
 
     case GET_USER_INFO: {
+      console.log('AJAX - getUserInfo');
+
       axiosToken.get('user/info')
         .then(response => (
           console.log(response.data)
@@ -85,12 +88,12 @@ const ajaxMiddleware = store => next => (action) => {
         description: state.ideas.description,
         url: state.ideas.url,
         price: parseInt(state.ideas.price, 10),
-        suggestionGender: '/api/suggestion_genders/1',
-        project: '/api/projects/1',
-        user: '/api/users/1',
+        suggestionGender: `/api/suggestion_genders/${state.ideas.type}`,
+        project: '/api/projects/7',
+        user: '/api/users/3',
       };
 
-      console.log('Requête AJAX inscrire la nouvelle suggestion', newSuggestion);
+      console.log('AJAX - addSuggestion');
 
       axiosToken.post('suggestions', newSuggestion)
         .then(response => console.log(response))
@@ -108,7 +111,7 @@ const ajaxMiddleware = store => next => (action) => {
         owner: '/api/users/3',
       };
 
-      console.log('Requête AJAX inscrire le nouveau projet', newProject);
+      console.log('AJAX - addNewProject', newProject);
 
       axiosToken.post('projects', newProject)
         .then(response => console.log(response))
@@ -125,7 +128,7 @@ const ajaxMiddleware = store => next => (action) => {
         project: '/api/projects/1',
       };
 
-      console.log('Requête AJAX inscrire les suggestions de dates', addDates);
+      console.log('AJAX - addDatesSuggestion', addDates);
 
       axiosToken.post('project_dates', addDates)
         .then(response => console.log(response))
@@ -135,12 +138,15 @@ const ajaxMiddleware = store => next => (action) => {
     }
 
     case GET_PROJECTS: {
-      console.log('Requête AJAX pour récupérer les projets');
+      console.log('AJAX - getProjects');
 
       axiosToken.get('projects')
-        .then(response => (
-          store.dispatch(stockProjects(response.data['hydra:member']))
-        ))
+        .then((response) => {
+          console.log(response.data);
+          return (
+            store.dispatch(stockProjects(response.data['hydra:member']))
+          );
+        })
         .catch(() => console.error('Request has failed'));
 
       break;
