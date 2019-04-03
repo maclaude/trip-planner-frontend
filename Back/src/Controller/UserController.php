@@ -6,12 +6,35 @@ use App\Entity\User;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/api")
  */
 class UserController extends Controller
 {
+    /**
+     * @Route(
+     *     name="api_users_info",
+     *     path="/user/info",
+     *     methods={"GET"},
+     *     defaults={
+     *         "_api_resource_class"=User::class,
+     *     }
+     * )
+     */
+    public function userInfo()
+    {
+        $user = $this->getUser();
+
+        $data = $this->get('serializer')->serialize($user, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
     /**
      * @Route(
      *     name="api_users_post",
