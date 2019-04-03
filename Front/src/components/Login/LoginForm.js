@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
       // eslint-disable-next-line no-console
       console.log('LoginForm :: handleSubmit');
       connectUser();
-      getProjects();
+      // getProjects();
     }
     else {
       showErrors(errors);

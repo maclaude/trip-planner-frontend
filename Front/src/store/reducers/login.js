@@ -40,16 +40,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
-        // @TODO
-        // Si le retour de la requête de connexion est 200 set true
-        // Action dédiée dans ajaxMiddleware ?
-        loggedIn: true,
       };
 
     case SET_TOKEN:
+
       return {
         ...state,
         token: action.token,
+        loggedIn: true,
       };
 
     default:
