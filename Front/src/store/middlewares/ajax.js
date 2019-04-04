@@ -111,7 +111,7 @@ const ajaxMiddleware = store => next => (action) => {
         owner: '/api/users/3',
       };
 
-      console.log('AJAX - addNewProject', newProject);
+      console.log('AJAX - addNewProject');
 
       axiosToken.post('projects', newProject)
         .then(response => console.log(response))
