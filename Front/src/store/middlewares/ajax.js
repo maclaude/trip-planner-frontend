@@ -8,7 +8,12 @@ import axios from 'axios';
  * Local import
  */
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
-import { CONNECT_USER, GET_USER_INFO, setToken } from 'src/store/reducers/login';
+import {
+  CONNECT_USER,
+  GET_USER_INFO,
+  setToken,
+  stockUserInfo,
+} from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
 import {
   SET_PROJECT,
@@ -73,9 +78,10 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('AJAX - getUserInfo');
 
       axiosToken.get('user/info')
-        .then(response => (
-          console.log(response.data)
-        ))
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(stockUserInfo(response.data));
+        })
         .catch(() => console.error('Request has failed'));
 
       break;
