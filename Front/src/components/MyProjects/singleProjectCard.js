@@ -44,7 +44,12 @@ const SingleProjectCard = ({
     </Card.Content>
     <Card.Content textAlign="center">
       <Card.Meta>
-        {`Dates ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`}
+        {projectDates.length === 0 && (
+          <p>Les dates ne sont pas encore remontées</p>
+        )}
+        {projectDates.length !== 0 && (
+          `Dates ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
+        )}
       </Card.Meta>
     </Card.Content>
   </Card>
@@ -55,7 +60,11 @@ SingleProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  projectDates: PropTypes.array.isRequired,
+  projectDates: PropTypes.array,
+};
+
+SingleProjectCard.defaultProps = {
+  projectDates: [],
 };
 
 /**

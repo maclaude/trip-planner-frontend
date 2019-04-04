@@ -31,6 +31,7 @@ const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
+export const SET_PROJECT = 'SET_PROJECT';
 export const GET_PROJECTS = 'GET_PROJECTS';
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
 
@@ -45,9 +46,20 @@ const reducer = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
 
-    case NEW_PROJECT:
+    case SET_PROJECT: {
+      const newProject = {
+        id: 90,
+        title: state.title,
+        description: state.description,
+        destination: state.destination,
+        owner: 'Marc-Antoine',
+      };
+
+      const newProjectsAPI = [...state.projectsAPI, newProject];
+
       return {
         ...state,
+        projectsAPI: newProjectsAPI,
         title: '',
         description: '',
         debutDates: '',
@@ -55,6 +67,7 @@ const reducer = (state = initialState, action = {}) => {
         destination: '',
         user: '',
       };
+    }
 
     case SHOW_NEWPROJECT_ERRORS:
       return {
@@ -101,6 +114,12 @@ export const changeProjectInputs = (name, value) => ({
 
 export const newProject = () => ({
   type: NEW_PROJECT,
+});
+
+export const setProject = (lat, lng) => ({
+  type: SET_PROJECT,
+  lat,
+  lng,
 });
 
 export const showNewprojectErrors = errors => ({

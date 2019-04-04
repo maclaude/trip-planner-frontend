@@ -11,7 +11,7 @@ import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import { CONNECT_USER, GET_USER_INFO, setToken } from 'src/store/reducers/login';
 import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
 import {
-  NEW_PROJECT,
+  SET_PROJECT,
   ADD_DATES,
   GET_PROJECTS,
   stockProjects,
@@ -102,13 +102,15 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
-    case NEW_PROJECT: {
+    case SET_PROJECT: {
       // Objet newProject à envoyer au back
       const newProject = {
         title: state.createProject.title,
         description: state.createProject.description,
         destination: state.createProject.destination,
         owner: '/api/users/3',
+        lat: action.lat,
+        lng: action.lng,
       };
 
       console.log('AJAX - addNewProject');

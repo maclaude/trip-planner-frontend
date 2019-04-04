@@ -74,7 +74,12 @@ const ProjectDetails = ({ project }) => (
         <div>
           <h2>Dates retenues</h2>
           <div id="projectDetails-header-right-dates">
-            {`Du ${getDateFormat(project.projectDates[0].starDate)} au ${getDateFormat(project.projectDates[0].endDate)}`}
+            {project.projectDates.length === 0 && (
+              <p>Les dates ne sont pas encore remontées</p>
+            )}
+            {project.projectDates.length !== 0 && (
+              `Dates ${getDateFormat(project.projectDates[0].starDate)} au ${getDateFormat(project.projectDates[0].endDate)}`
+            )}
           </div>
         </div>
       </div>
@@ -137,9 +142,15 @@ ProjectDetails.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    projectDates: PropTypes.array.isRequired,
+    projectDates: PropTypes.array,
     user: PropTypes.array.isRequired,
-  }).isRequired,
+  }),
+};
+
+ProjectDetails.defaultProps = {
+  project: PropTypes.shape({
+    projectDates: [],
+  }),
 };
 
 /**
