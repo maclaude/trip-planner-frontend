@@ -1,1 +1,1 @@
-Projet Trip-planner ! Welcome to the React readme
+Projet Trip-planner ! Welcome to the readme
