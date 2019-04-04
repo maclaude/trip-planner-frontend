@@ -2,21 +2,17 @@
  * NPM import
  */
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 /**
  * Local import
  */
-// Components
-import NavbarProject from 'src/components/NavbarProject';
-// Action Creators
+import Navbar from 'src/components/Navbar';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  projects: state.createProject.projectsAPI,
   user: state.login.user,
 });
 
@@ -26,12 +22,12 @@ const mapDispatchToProps = {};
 /**
  * Connect
  */
-const NavbarProjectContainer = connect(
+const NavbarContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavbarProject);
+)(Navbar);
 
 /**
  * Export
  */
-export default withRouter(NavbarProjectContainer);
+export default NavbarContainer;

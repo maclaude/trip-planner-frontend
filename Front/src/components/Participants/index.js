@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 // Style
 import './add_participants.scss';
 // Components
-import NavbarUser from 'src/components/NavbarUser';
+import NavbarUser from 'src/containers/NavbarUser';
 import AddParticipants from 'src/containers/Participants/addParticipants';
 
 /**

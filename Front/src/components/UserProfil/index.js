@@ -11,7 +11,7 @@ import store from 'src/store';
 import { getUserInfo } from 'src/store/reducers/login';
 import { getProjects } from 'src/store/reducers/createProject';
 // Components
-import Navbar from 'src/components/Navbar';
+import Navbar from 'src/containers/Navbar';
 import Profil from './Profil';
 
 
