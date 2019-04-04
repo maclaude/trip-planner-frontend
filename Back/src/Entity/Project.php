@@ -19,30 +19,35 @@ class Project
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $destination;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ProjectDates", mappedBy="project", orphanRemoval=true)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $projectDates;
 
@@ -50,12 +55,14 @@ class Project
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $owner;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projectsParticipation")
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $user;
 
@@ -67,18 +74,21 @@ class Project
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="project", orphanRemoval=true)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $suggestions;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $lat;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Groups({"project"})
+     * @Groups("user")
      */
     private $lng;
 

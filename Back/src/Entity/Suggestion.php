@@ -18,6 +18,7 @@ class Suggestion
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("project")
      */
     private $id;
 
@@ -61,7 +62,6 @@ class Suggestion
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\SuggestionGender", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("project")
      */
     private $suggestionGender;
 
@@ -72,6 +72,7 @@ class Suggestion
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("project")
      */
     private $vote = 0;
 

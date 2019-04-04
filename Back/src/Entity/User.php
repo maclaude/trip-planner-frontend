@@ -64,7 +64,6 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Groups("user")
      */
     private $password;
 
@@ -77,13 +76,11 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\VoteProjectDates", mappedBy="user", orphanRemoval=true)
-     * @Groups("user")
      */
     private $voteProjectDates;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="owner", orphanRemoval=true)
-     * @Groups("user")
      */
     private $projects;
 
@@ -95,19 +92,16 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\UserMessage", mappedBy="user", orphanRemoval=true)
-     * @Groups("user")
      */
     private $userMessages;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="user", orphanRemoval=true)
-     * @Groups("user")
      */
     private $suggestions;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\VoteSuggestion", mappedBy="user", orphanRemoval=true)
-     * @Groups("user")
      */
     private $voteSuggestions;
 
