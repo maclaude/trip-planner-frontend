@@ -13,6 +13,8 @@ import PropTypes from 'prop-types';
 import './availability.scss';
 // Components
 import UserFooter from 'src/components/UserFooter';
+// Utils
+import getDateFormat from 'src/utils/date_format';
 
 /**
  * Code
@@ -27,6 +29,7 @@ state = {
  */
 handleClick = (evt) => {
   const { name } = evt.target;
+  // eslint-disable-next-line no-console
   console.log(name);
 
   const { isApproved } = this.state;
@@ -47,7 +50,7 @@ render() {
     isApproved,
   } = this.state;
 
-  const { filteredDates } = this.props;
+  const { project } = this.props;
 
   return (
     <div id="availability">
@@ -59,7 +62,7 @@ render() {
           <h2>Sélectionner ses disponibilités parmi les dates suivantes</h2>
         </div>
         <div id="availability-buttons">
-          {filteredDates.map(date => (
+          {project.projectDates.map(date => (
             <button
               className={classNames(
                 'availability-button',
@@ -70,7 +73,7 @@ render() {
               key={date.id}
               name={date.id}
             >
-              Du {date.starDate} au {date.endDate}
+              {`Du ${getDateFormat(date.starDate)} au ${getDateFormat(date.endDate)}`}
             </button>
           ))}
         </div>
@@ -92,7 +95,15 @@ render() {
 
 // PropTypes validation
 Availability.propTypes = {
-  filteredDates: PropTypes.array.isRequired,
+  project: PropTypes.shape({
+    projectDates: PropTypes.array,
+  }),
+};
+
+Availability.defaultProps = {
+  project: PropTypes.shape({
+    projectDates: [],
+  }),
 };
 
 /**

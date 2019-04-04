@@ -59,6 +59,7 @@ const Navbar = ({ user }) => (
       <div id="deconnexion">
         <NavLink
           to="/"
+          exact
           className="item"
         >
           <Icon name="sign-out" />

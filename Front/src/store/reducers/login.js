@@ -17,9 +17,9 @@ const initialState = {
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
-export const GET_USER_INFO = 'GET_USER_INFO';
 export const SET_TOKEN = 'SET_TOKEN';
-export const STOCK_USER_INFO = 'STOCK_USER_INFO';
+export const GET_USER_INFO = 'GET_USER_INFO';
+const STOCK_USER_INFO = 'STOCK_USER_INFO';
 
 /**
  * Reducer
@@ -46,17 +46,17 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
       };
 
-    case STOCK_USER_INFO:
-      return {
-        ...state,
-        user: action.user,
-      };
-
     case SET_TOKEN:
       return {
         ...state,
         token: action.token,
         loggedIn: true,
+      };
+
+    case STOCK_USER_INFO:
+      return {
+        ...state,
+        user: action.user,
       };
 
     default:

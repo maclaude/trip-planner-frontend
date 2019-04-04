@@ -4,8 +4,7 @@
 // Utils
 import { getSlug } from 'src/utils/url';
 // Local data
-import projectsData from 'src/data/projectsAPI';
-import availabilityData from 'src/data/availability';
+import projectsDataSample from 'src/data/projectsAPI';
 
 /**
  * Initial State
@@ -19,9 +18,8 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
-  projects: projectsData,
+  projects: projectsDataSample,
   projectsAPI: [],
-  availability: availabilityData,
 };
 
 /**
@@ -29,6 +27,7 @@ const initialState = {
  */
 export const GET_PROJECTS = 'GET_PROJECTS';
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
+// const STOCK_USER_PROJECTS = 'STOCK_USER_PROJECTS';
 const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
@@ -98,6 +97,14 @@ const reducer = (state = initialState, action = {}) => {
         projectsAPI: action.data,
       };
 
+      /*
+    case STOCK_USER_PROJECTS:
+      return {
+        ...state,
+        projectsAPI: action.data,
+      };
+      */
+
     default:
       return state;
   }
@@ -140,6 +147,13 @@ export const stockProjects = data => ({
   data,
 });
 
+/*
+export const stockUserProjects = data => ({
+  type: STOCK_USER_PROJECTS,
+  data,
+});
+*/
+
 /**
  * Selector
  */
@@ -147,9 +161,9 @@ export const getCurrentProject = (projects, slug) => (
   projects.find(project => getSlug(project.title) === slug)
 );
 
-export const getFilteredDates = (projectId, availability) => ([
-  ...availability.filter(date => date.project_id === projectId),
-]);
+// export const getFilteredDates = (projectId, availability) => ([
+//   ...availability.filter(date => date.project_id === projectId),
+// ]);
 
 /**
  * Export

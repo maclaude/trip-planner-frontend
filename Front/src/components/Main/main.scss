@@ -60,6 +60,7 @@
     // Textes
     &-text-up,
     &-text-down {
+
       width: 60%;
       min-width: 50px;
       display: flex;
@@ -70,9 +71,10 @@
 
     &-text-up h2,
     &-text-down h2 {
+      font-family: 'Permanent Marker', sans-serif;
       width: 100%;
       padding: .4em;
-      font-size: 1.5em;
+      font-size: 1.8em;
       font-weight: 400;
     }
 

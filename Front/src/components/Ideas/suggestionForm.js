@@ -45,6 +45,7 @@ class SuggestionForm extends React.Component {
     evt.preventDefault();
 
     const {
+      project,
       type,
       name,
       sendSuggestion,
@@ -55,7 +56,7 @@ class SuggestionForm extends React.Component {
     const errors = getSuggestionFormErrors(type, name);
 
     if (type && name !== '') {
-      sendSuggestion();
+      sendSuggestion(project.id);
     }
     else {
       showErrors(errors);
@@ -178,6 +179,9 @@ class SuggestionForm extends React.Component {
 
 // PropTypes validation
 SuggestionForm.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
   type: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

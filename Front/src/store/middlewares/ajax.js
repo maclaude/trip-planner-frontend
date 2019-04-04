@@ -8,22 +8,26 @@ import axios from 'axios';
  * Local import
  */
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
+
 import {
   CONNECT_USER,
   GET_USER_INFO,
   setToken,
   stockUserInfo,
 } from 'src/store/reducers/login';
+
 import {
   GET_SUGGESTIONS,
   SEND_SUGGESTION,
   stockSuggestions,
 } from 'src/store/reducers/ideas';
+
 import {
   SET_PROJECT,
   ADD_DATES,
   GET_PROJECTS,
   stockProjects,
+  // stockUserProjects,
 } from 'src/store/reducers/createProject';
 
 /**
@@ -85,6 +89,7 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(stockUserInfo(response.data));
+          // store.dispatch(stockUserProjects(response.data.projectsParticipation));
         })
         .catch(() => console.error('Request has failed'));
 
@@ -112,8 +117,8 @@ const ajaxMiddleware = store => next => (action) => {
         url: state.ideas.url,
         price: parseInt(state.ideas.price, 10),
         suggestionGender: `/api/suggestion_genders/${state.ideas.type}`,
-        project: '/api/projects/7',
-        user: '/api/users/3',
+        project: `/api/projects/${action.projectId}`,
+        user: `/api/users/${state.login.user.id}`,
       };
 
       console.log('AJAX - addSuggestion');
@@ -131,7 +136,7 @@ const ajaxMiddleware = store => next => (action) => {
         title: state.createProject.title,
         description: state.createProject.description,
         destination: state.createProject.destination,
-        owner: '/api/users/3',
+        owner: `/api/users/${state.login.user.id}`,
         lat: action.lat,
         lng: action.lng,
       };

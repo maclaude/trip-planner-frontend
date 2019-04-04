@@ -91,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
 
     case APPROVED_SUGGESTION: {
       // Voter pour ou contre une suggestion
-      const newSuggestions = state.suggestions.map((suggestion) => {
+      const newSuggestions = state.suggestionsAPI.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote += 1, 10);
 
@@ -111,7 +111,7 @@ const reducer = (state = initialState, action = {}) => {
 
     case DISAPPROVED_SUGGESTION: {
       // Voter pour ou contre une suggestion
-      const newSuggestions = state.suggestions.map((suggestion) => {
+      const newSuggestions = state.suggestionsAPI.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote -= 1, 10);
 

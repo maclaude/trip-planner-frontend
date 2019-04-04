@@ -7,15 +7,12 @@ import { connect } from 'react-redux';
  * Local import
  */
 import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
-import { getFilteredDates } from 'src/store/reducers/createProject';
 
 /**
  * Code
  */
 // === State (données) ===
-const mapStateToProps = (state, ownProps) => ({
-  filteredDates: getFilteredDates(ownProps.project.id, state.createProject.availability),
-});
+const mapStateToProps = null;
 
 // === Actions ===
 const mapDispatchToProps = {};
