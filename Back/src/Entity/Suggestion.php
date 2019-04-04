@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(normalizationContext={"groups"={"suggestion"}})
  * @ORM\Entity(repositoryClass="App\Repository\SuggestionRepository")
  */
 class Suggestion
@@ -19,36 +19,42 @@ class Suggestion
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $url;
 
     /**
      * @ORM\Column(type="integer")
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("suggestion")
      */
     private $project;
 
@@ -56,12 +62,14 @@ class Suggestion
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\SuggestionGender", inversedBy="suggestions")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("suggestion")
      */
     private $suggestionGender;
 
@@ -73,6 +81,7 @@ class Suggestion
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $vote = 0;
 

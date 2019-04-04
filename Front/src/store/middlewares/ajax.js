@@ -14,7 +14,11 @@ import {
   setToken,
   stockUserInfo,
 } from 'src/store/reducers/login';
-import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
+import {
+  GET_SUGGESTIONS,
+  SEND_SUGGESTION,
+  stockSuggestions,
+} from 'src/store/reducers/ideas';
 import {
   SET_PROJECT,
   ADD_DATES,
@@ -81,6 +85,19 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(stockUserInfo(response.data));
+        })
+        .catch(() => console.error('Request has failed'));
+
+      break;
+    }
+
+    case GET_SUGGESTIONS: {
+      console.log('AJAX - getSuggestions');
+
+      axiosToken.get('suggestions')
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(stockSuggestions(response.data['hydra:member']));
         })
         .catch(() => console.error('Request has failed'));
 

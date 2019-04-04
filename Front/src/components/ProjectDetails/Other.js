@@ -35,7 +35,7 @@ const Other = ({ suggestions }) => (
 Other.propTypes = {
   suggestions: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };

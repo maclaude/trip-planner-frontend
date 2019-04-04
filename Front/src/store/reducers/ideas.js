@@ -4,7 +4,7 @@
 // NPM
 import uuidv4 from 'uuid-v4';
 // Local data
-import suggestionsData from 'src/data/suggestions';
+import suggestionsData from 'src/data/suggestionsAPI';
 
 /**
  * Initial State
@@ -17,11 +17,14 @@ const initialState = {
   price: '',
   errors: [],
   suggestions: suggestionsData,
+  suggestionsAPI: [],
 };
 
 /**
  * Types
  */
+export const GET_SUGGESTIONS = 'GET_SUGGESTIONS';
+const STOCK_SUGGESTIONS = 'STOCK_SUGGESTIONS';
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
 const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
 const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
@@ -34,6 +37,12 @@ export const SEND_SUGGESTION = 'SEND_SUGGESTION';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case STOCK_SUGGESTIONS:
+      return {
+        ...state,
+        suggestionsAPI: action.suggestions,
+      };
+
     case CHANGE_SUGGESTION_INPUTS:
       return {
         ...state,
@@ -144,6 +153,15 @@ export const showSuggestionErrors = errors => ({
   errors,
 });
 
+export const getSuggestions = () => ({
+  type: GET_SUGGESTIONS,
+});
+
+export const stockSuggestions = suggestions => ({
+  type: STOCK_SUGGESTIONS,
+  suggestions,
+});
+
 export const sendSuggestion = projectId => ({
   type: SEND_SUGGESTION,
   projectId,
@@ -165,12 +183,12 @@ export const disapprovedSuggestion = id => ({
 export const getFilteredSuggestions = (suggestions, typeId, projectId) => {
   const projectSuggestions = [
     ...suggestions.filter(
-      suggestion => suggestion.project_id === projectId,
+      suggestion => suggestion.project.id === projectId,
     )];
 
   return [
     ...projectSuggestions.filter(
-      suggestion => suggestion.suggestion_gender_id === typeId,
+      suggestion => suggestion.suggestionGender.id === typeId,
     )];
 };
 

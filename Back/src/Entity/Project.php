@@ -20,6 +20,7 @@ class Project
      * @ORM\Column(type="integer")
      * @Groups({"project"})
      * @Groups("user")
+     * @Groups("suggestion")
      */
     private $id;
 

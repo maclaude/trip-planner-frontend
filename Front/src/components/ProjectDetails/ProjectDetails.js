@@ -78,7 +78,8 @@ const ProjectDetails = ({ project }) => (
               <p>Les dates ne sont pas encore remontées</p>
             )}
             {project.projectDates.length !== 0 && (
-              `Dates ${getDateFormat(project.projectDates[0].starDate)} au ${getDateFormat(project.projectDates[0].endDate)}`
+              `Du ${getDateFormat(project.projectDates[0].starDate)} 
+               au ${getDateFormat(project.projectDates[0].endDate)}`
             )}
           </div>
         </div>

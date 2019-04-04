@@ -40,12 +40,14 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=30)
      * @Groups("user")
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $firstname;
     /**
      * @ORM\Column(type="string", length=30)
      * @Groups("user")
      * @Groups("project")
+     * @Groups("suggestion")
      */
     private $lastname;
 
