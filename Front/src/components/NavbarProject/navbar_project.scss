@@ -27,6 +27,9 @@
         display: flex;
         flex-direction: column;
       }
+    }
+  #burger {
+    display: none;
   }
   #my_projects {
     margin-left: 1em;
@@ -42,12 +45,49 @@
   #navbar-project > i {
     font-size: 2em;
   }
-}
-@media (max-width: 600px) {
-  #navbar-project {
+  #burger {
     display: none;
   }
 }
+@media (max-width: 600px) {
+  #navbar-project {
+    transform: translateX(-80%);
+    width: 50%;
+    transition: transform 0.5s ease-in;
+  }
+  #burger div{
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  #burger {
+    float: right;
+  }
+  #navbar-project .item{
+    opacity: 0;
+  }
+}
+.ui.visible.inverted.left.vertical.sidebar.menu.nav--active {
+  transform: translateX(0%)!important;
+}
+.item.nav--active{
+  animation-duration: 1s;
+  opacity: 1!important;
+  animation-delay: 1s;
+  animation-name: navLinkFades;
+}
+@keyframes navLinkFades{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
 .ui.inverted.menu {
   background-color: $navbar-bg-color;
 }
@@ -57,7 +97,6 @@
 .ui.attached.segment, .ui.segment {
   border: none;
 }
-
 
 #navbar-username-avatar {
   margin-left: .6em;
@@ -70,3 +109,4 @@
 #navbar-username-name {
   width: 200px;
 }
+
