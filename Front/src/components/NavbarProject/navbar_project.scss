@@ -58,6 +58,10 @@
     transform: translateX(-80%);
     width: 50%;
     transition: transform 0.5s ease-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
   }
   #burger div{
     width: 25px;
@@ -68,10 +72,18 @@
     cursor: pointer;
   }
   #burger {
-    float: right;
+    align-self: flex-end;
   }
   #navbar-project .item{
     opacity: 0;
+  }
+  .navbar-username-name{
+    opacity: 0;
+  }
+  #navbar-username {
+    display: flex;
+    flex-direction: column;
+    border: none;
   }
 }
 .ui.visible.inverted.left.vertical.sidebar.menu.nav--active {
@@ -80,7 +92,11 @@
 .item.nav--active{
   animation-duration: 1s;
   opacity: 1!important;
-  // animation-delay: 1s;
+  animation-name: navLinkFades;
+}
+.navbar-username-name.navbar-username-name--active{
+  animation-duration: 1s;
+  opacity: 1!important;
   animation-name: navLinkFades;
 }
 @keyframes navLinkFades{
