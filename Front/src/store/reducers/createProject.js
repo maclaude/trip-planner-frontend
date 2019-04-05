@@ -134,8 +134,9 @@ export const showNewprojectErrors = errors => ({
   errors,
 });
 
-export const addDates = () => ({
+export const addDates = projectId => ({
   type: ADD_DATES,
+  projectId,
 });
 
 export const getProjects = () => ({

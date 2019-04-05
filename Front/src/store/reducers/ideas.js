@@ -68,7 +68,7 @@ const reducer = (state = initialState, action = {}) => {
         name: state.name,
         description: state.description,
         url: state.url,
-        price: state.price,
+        price: parseInt(state.price, 10),
         project: {
           id: action.projectId,
         },

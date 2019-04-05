@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /**
- * Npm import
+ * NPM import
  */
 import Geocode from 'react-geocode';
 

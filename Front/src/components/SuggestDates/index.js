@@ -19,7 +19,7 @@ import './dates.scss';
 const Dates = ({ project }) => (
   <div>
     <NavbarUser project={project} />
-    <SuggestDates />
+    <SuggestDates project={project} />
   </div>
 );
 

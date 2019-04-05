@@ -1,5 +1,5 @@
 /**
- * Npm import
+ * NPM import
  */
 import {
   createStore,
