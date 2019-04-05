@@ -75,7 +75,7 @@ class NavbarProject extends React.Component {
               'navbar-username-name',
               { 'navbar-username-name--active': isApproved },
             )}
-            >
+          >
             Vous êtes connecté<br />
             Marc-Antoine
           </div>
