@@ -64,14 +64,20 @@ const reducer = (state = initialState, action = {}) => {
     case SEND_SUGGESTION: {
       // Création de la nouvelle suggestion
       const newSuggestion = {
-        id: uuidv4(),
+        id: 150,
         name: state.name,
         description: state.description,
         url: state.url,
         price: state.price,
-        project_id: action.projectId,
-        author: 'Marc-Antoine',
-        suggestion_gender_id: state.type,
+        project: {
+          id: action.projectId,
+        },
+        user: {
+          firstname: 'Marc-Antoine',
+        },
+        suggestionGender: {
+          id: state.type,
+        },
         vote: 0,
       };
 
@@ -85,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
         url: '',
         price: '',
         errors: [],
-        suggestions: newSuggestions,
+        suggestionsAPI: newSuggestions,
       };
     }
 
