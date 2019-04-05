@@ -2,12 +2,15 @@
  * NPM import
  */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Radio, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 /**
  * Local import
  */
+// Utils
+import { getURL } from 'src/utils/url';
 // Styles
 import './availability.scss';
 // Components
@@ -47,12 +50,18 @@ class Availability extends React.Component {
           <div id="availability-checkbox">
             <h3><Radio toggle />Je ne suis pas disponible aux dates proposées</h3>
           </div>
-          <Button animated floated="right" color="green" id="availability-next">
-            <Button.Content visible>Étape suivante</Button.Content>
-            <Button.Content hidden>
-              <Icon name="arrow right" />
-            </Button.Content>
-          </Button>
+          <NavLink
+            to={getURL('/idees', project.title)}
+            key={project.id}
+            exact
+          >
+            <Button animated floated="right" color="green" id="availability-next">
+              <Button.Content visible>Étape suivante</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+          </NavLink>
         </div>
         <UserFooter />
       </div>

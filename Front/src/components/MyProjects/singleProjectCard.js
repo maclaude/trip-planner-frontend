@@ -48,7 +48,7 @@ const SingleProjectCard = ({
           <p>Les dates ne sont pas encore remontées</p>
         )}
         {projectDates.length !== 0 && (
-          `Dates ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
+          `Dates: ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
         )}
       </Card.Meta>
     </Card.Content>
