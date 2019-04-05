@@ -90,7 +90,10 @@ class NavbarProject extends React.Component {
           <div id="projects">
             <NavLink
               to="/mes-projets"
-              className="item"
+              className={classNames(
+                'item',
+                { 'nav--active': isApproved },
+              )}
             >
               <Icon
                 name="chevron down"
@@ -104,7 +107,10 @@ class NavbarProject extends React.Component {
                   to={getURL('recapitulatif', project.title)}
                   key={project.id}
                   exact
-                  className="item"
+                  className={classNames(
+                    'item',
+                    { 'nav--active': isApproved },
+                  )}
                 >
                   {project.title}
                 </NavLink>
@@ -116,7 +122,10 @@ class NavbarProject extends React.Component {
           <div id="modification">
             <NavLink
               to="Profil"
-              className="item"
+              className={classNames(
+                'item',
+                { 'nav--active': isApproved },
+              )}
             >
               <Icon name="cog" />
                 Modifier mon profil
@@ -125,7 +134,10 @@ class NavbarProject extends React.Component {
           <div id="deconnexion">
             <NavLink
               to="/"
-              className="item"
+              className={classNames(
+                'item',
+                { 'nav--active': isApproved },
+              )}
               exact
             >
               <Icon name="sign-out" />

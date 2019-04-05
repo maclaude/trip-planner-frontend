@@ -45,6 +45,10 @@
   #navbar-project > i {
     font-size: 2em;
   }
+  #navbar-username {
+    display: flex;
+    flex-direction: column;
+  }
   #burger {
     display: none;
   }
@@ -76,7 +80,7 @@
 .item.nav--active{
   animation-duration: 1s;
   opacity: 1!important;
-  animation-delay: 1s;
+  // animation-delay: 1s;
   animation-name: navLinkFades;
 }
 @keyframes navLinkFades{
