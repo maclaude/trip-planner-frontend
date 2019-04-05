@@ -46,6 +46,7 @@ handleClick = () => {
 
 render() {
   const { isApproved } = this.state;
+  const { user } = this.props;
 
   return (
 
@@ -60,9 +61,9 @@ render() {
         id="burger"
         onClick={this.handleClick}
       >
-        <div id="line1"></div>
-        <div id="line2"></div>
-        <div id="line3"></div>
+        <div id="line1" />
+        <div id="line2" />
+        <div id="line3" />
       </div>
       <div id="navbar-username">
         <img id="navbar-username-avatar" src={avatar} alt="avatar" />
@@ -74,7 +75,7 @@ render() {
           )}
         >
           Vous êtes connecté<br />
-          Marc-Antoine
+          {user.firstname}
         </div>
       </div>
       <div id="navbar-main">
@@ -119,6 +120,7 @@ render() {
         <div id="deconnexion">
           <NavLink
             to="/"
+            exact
             className={classNames(
               'item',
               { 'nav--active': isApproved },

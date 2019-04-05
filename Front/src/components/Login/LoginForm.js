@@ -65,7 +65,7 @@ class LoginForm extends React.Component {
     } = this.props;
 
     if (loggedIn) {
-      return <Redirect to="/mon-profil" />;
+      return <Redirect to="/mes-projets" />;
     }
 
     return (

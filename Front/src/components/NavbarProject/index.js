@@ -47,7 +47,7 @@ class NavbarProject extends React.Component {
   }
 
   render() {
-    const { projects } = this.props;
+    const { projects, user } = this.props;
     const { isApproved } = this.state;
 
     return (
@@ -63,9 +63,9 @@ class NavbarProject extends React.Component {
           id="burger"
           onClick={this.handleClick}
         >
-          <div id="line1"></div>
-          <div id="line2"></div>
-          <div id="line3"></div>
+          <div id="line1" />
+          <div id="line2" />
+          <div id="line3" />
         </div>
         <div id="navbar-username">
           <img id="navbar-username-avatar" src={avatar} alt="avatar" />
@@ -77,7 +77,7 @@ class NavbarProject extends React.Component {
             )}
           >
             Vous êtes connecté<br />
-            Marc-Antoine
+            {user.firstname}
           </div>
         </div>
         <div id="navbar-project-main">
@@ -140,11 +140,11 @@ class NavbarProject extends React.Component {
           <div id="deconnexion">
             <NavLink
               to="/"
+              exact
               className={classNames(
                 'item',
                 { 'nav--active': isApproved },
               )}
-              exact
             >
               <Icon name="sign-out" />
                 Déconnexion
