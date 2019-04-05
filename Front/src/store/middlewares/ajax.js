@@ -56,7 +56,7 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - addUser');
 
-      axios.post('http://127.0.0.1:8000/api/users', newUser)
+      axios.post('92.243.8.162:8000/api/users', newUser)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
 
