@@ -37,6 +37,7 @@
     justify-content: center;
     align-items: center;
     width: 20vw;
+    max-height: 100vh;
   }
   #navbar > i {
     font-size: 2em;
@@ -51,6 +52,8 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-x: hidden;
+    max-height: 100vh;
+    max-width: 50vw;
   }
   #burger div{
     width: 25px;
@@ -64,7 +67,7 @@
     align-self: flex-end;
     margin-top: 1em;
   }
-  #navbar-username-name{
+  .navbar-username-name{
     opacity: 0;
   }
   #navbar-username {
