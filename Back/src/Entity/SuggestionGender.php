@@ -18,6 +18,7 @@ class SuggestionGender
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("suggestion")
      */
     private $id;
 

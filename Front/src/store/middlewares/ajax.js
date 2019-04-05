@@ -8,13 +8,26 @@ import axios from 'axios';
  * Local import
  */
 import { ADD_NEW_USER } from 'src/store/reducers/signup';
-import { CONNECT_USER, GET_USER_INFO, setToken } from 'src/store/reducers/login';
-import { SEND_SUGGESTION } from 'src/store/reducers/ideas';
+
 import {
-  NEW_PROJECT,
+  CONNECT_USER,
+  GET_USER_INFO,
+  setToken,
+  stockUserInfo,
+} from 'src/store/reducers/login';
+
+import {
+  GET_SUGGESTIONS,
+  SEND_SUGGESTION,
+  stockSuggestions,
+} from 'src/store/reducers/ideas';
+
+import {
+  SET_PROJECT,
   ADD_DATES,
   GET_PROJECTS,
   stockProjects,
+  // stockUserProjects,
 } from 'src/store/reducers/createProject';
 
 /**
@@ -73,9 +86,24 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('AJAX - getUserInfo');
 
       axiosToken.get('user/info')
-        .then(response => (
-          console.log(response.data)
-        ))
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(stockUserInfo(response.data));
+          // store.dispatch(stockUserProjects(response.data.projectsParticipation));
+        })
+        .catch(() => console.error('Request has failed'));
+
+      break;
+    }
+
+    case GET_SUGGESTIONS: {
+      console.log('AJAX - getSuggestions');
+
+      axiosToken.get('suggestions')
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(stockSuggestions(response.data['hydra:member']));
+        })
         .catch(() => console.error('Request has failed'));
 
       break;
@@ -89,8 +117,8 @@ const ajaxMiddleware = store => next => (action) => {
         url: state.ideas.url,
         price: parseInt(state.ideas.price, 10),
         suggestionGender: `/api/suggestion_genders/${state.ideas.type}`,
-        project: '/api/projects/7',
-        user: '/api/users/3',
+        project: `/api/projects/${action.projectId}`,
+        user: `/api/users/${state.login.user.id}`,
       };
 
       console.log('AJAX - addSuggestion');
@@ -102,13 +130,15 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
-    case NEW_PROJECT: {
+    case SET_PROJECT: {
       // Objet newProject à envoyer au back
       const newProject = {
         title: state.createProject.title,
         description: state.createProject.description,
         destination: state.createProject.destination,
-        owner: '/api/users/3',
+        owner: `/api/users/${state.login.user.id}`,
+        lat: action.lat,
+        lng: action.lng,
       };
 
       console.log('AJAX - addNewProject');

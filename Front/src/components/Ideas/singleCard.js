@@ -54,7 +54,7 @@ class SingleCard extends React.Component {
       description,
       url,
       price,
-      author,
+      user,
       vote,
     } = this.props;
 
@@ -74,7 +74,7 @@ class SingleCard extends React.Component {
         />
         <Card.Content textAlign="center" extra>
           <Icon name="user" />
-          <strong>{author}</strong>
+          <strong>{user.firstname}</strong>
         </Card.Content>
         <Card.Content textAlign="center" extra>
           <div className="card-votes">
@@ -102,11 +102,13 @@ SingleCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   vote: PropTypes.number.isRequired,
   approvedSuggestion: PropTypes.func.isRequired,
   disapprovedSuggestion: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    firstname: PropTypes.string,
+  }).isRequired,
 };
 
 /**

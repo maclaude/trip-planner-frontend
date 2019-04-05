@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavabarUser from 'src/components/NavbarUser';
+import NavabarUser from 'src/containers/NavbarUser';
 import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
 import SuggestionIdeas from 'src/containers/Ideas/SuggestionIdeas';
 import UserFooter from 'src/components/UserFooter';

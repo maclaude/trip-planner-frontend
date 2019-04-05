@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavbarUser from 'src/components/NavbarUser';
+import NavbarUser from 'src/containers/NavbarUser';
 import AvailabilityDates from 'src/containers/Availability/availabilityDates';
 
 

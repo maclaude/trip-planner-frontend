@@ -6,13 +6,15 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
+import NavbarUser from 'src/components/NavbarUser';
 
 /**
  * Code
  */
 // === State (données) ===
-const mapStateToProps = null;
+const mapStateToProps = state => ({
+  user: state.login.user,
+});
 
 // === Actions ===
 const mapDispatchToProps = {};
@@ -20,12 +22,12 @@ const mapDispatchToProps = {};
 /**
  * Connect
  */
-const AvailabilityDatesContainer = connect(
+const NavbarUserContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AvailabilityDates);
+)(NavbarUser);
 
 /**
  * Export
  */
-export default AvailabilityDatesContainer;
+export default NavbarUserContainer;

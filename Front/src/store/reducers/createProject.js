@@ -4,8 +4,7 @@
 // Utils
 import { getSlug } from 'src/utils/url';
 // Local data
-import projectsData from 'src/data/projectsAPI';
-import availabilityData from 'src/data/availability';
+import projectsDataSample from 'src/data/projectsAPI';
 
 /**
  * Initial State
@@ -19,20 +18,21 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
-  projects: projectsData,
+  projects: projectsDataSample,
   projectsAPI: [],
-  availability: availabilityData,
 };
 
 /**
  * Types
  */
+export const GET_PROJECTS = 'GET_PROJECTS';
+const STOCK_PROJECTS = 'STOCK_PROJECTS';
+// const STOCK_USER_PROJECTS = 'STOCK_USER_PROJECTS';
 const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
-export const GET_PROJECTS = 'GET_PROJECTS';
-const STOCK_PROJECTS = 'STOCK_PROJECTS';
+export const SET_PROJECT = 'SET_PROJECT';
 
 /**
  * Reducer
@@ -45,9 +45,20 @@ const reducer = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
 
-    case NEW_PROJECT:
+    case SET_PROJECT: {
+      const newProject = {
+        id: 90,
+        title: state.title,
+        description: state.description,
+        destination: state.destination,
+        owner: 'Marc-Antoine',
+      };
+
+      const newProjectsAPI = [...state.projectsAPI, newProject];
+
       return {
         ...state,
+        projectsAPI: newProjectsAPI,
         title: '',
         description: '',
         debutDates: '',
@@ -55,6 +66,7 @@ const reducer = (state = initialState, action = {}) => {
         destination: '',
         user: '',
       };
+    }
 
     case SHOW_NEWPROJECT_ERRORS:
       return {
@@ -85,6 +97,14 @@ const reducer = (state = initialState, action = {}) => {
         projectsAPI: action.data,
       };
 
+      /*
+    case STOCK_USER_PROJECTS:
+      return {
+        ...state,
+        projectsAPI: action.data,
+      };
+      */
+
     default:
       return state;
   }
@@ -101,6 +121,12 @@ export const changeProjectInputs = (name, value) => ({
 
 export const newProject = () => ({
   type: NEW_PROJECT,
+});
+
+export const setProject = (lat, lng) => ({
+  type: SET_PROJECT,
+  lat,
+  lng,
 });
 
 export const showNewprojectErrors = errors => ({
@@ -121,6 +147,13 @@ export const stockProjects = data => ({
   data,
 });
 
+/*
+export const stockUserProjects = data => ({
+  type: STOCK_USER_PROJECTS,
+  data,
+});
+*/
+
 /**
  * Selector
  */
@@ -128,9 +161,9 @@ export const getCurrentProject = (projects, slug) => (
   projects.find(project => getSlug(project.title) === slug)
 );
 
-export const getFilteredDates = (projectId, availability) => ([
-  ...availability.filter(date => date.project_id === projectId),
-]);
+// export const getFilteredDates = (projectId, availability) => ([
+//   ...availability.filter(date => date.project_id === projectId),
+// ]);
 
 /**
  * Export

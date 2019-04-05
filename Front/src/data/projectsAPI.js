@@ -1,4 +1,3 @@
-
 const projectsAPI = [
   {
     '@id': '/api/projects/7',

@@ -19,14 +19,14 @@ import avatar from 'src/assets/avatar/marc_antoine_avatar.jpg';
 /**
  * Code
  */
-const NavbarUser = ({ project }) => (
+const NavbarUser = ({ project, user }) => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-header">
       <div id="navbar-username">
         <img id="navbar-username-avatar" src={avatar} alt="avatar" />
         <div id="navbar-username-name">
-        Vous êtes connecté<br />
-        Marc-Antoine
+          Vous êtes connecté<br />
+          {user.firstname}
         </div>
       </div>
     </div>
@@ -128,6 +128,7 @@ const NavbarUser = ({ project }) => (
       <div id="deconnexion">
         <NavLink
           to="/"
+          exact
           className="item"
         >
           <Icon name="sign-out" />
@@ -143,6 +144,9 @@ NavbarUser.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
+  }).isRequired,
+  user: PropTypes.shape({
+    firstname: PropTypes.string,
   }).isRequired,
 };
 

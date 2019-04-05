@@ -7,7 +7,7 @@ import Geocode from 'react-geocode';
 /**
  * Local import
  */
-import { NEW_PROJECT } from 'src/store/reducers/createProject';
+import { NEW_PROJECT, setProject } from 'src/store/reducers/createProject';
 
 /**
  * Middleware
@@ -30,6 +30,7 @@ const geocodeMiddleware = store => next => (action) => {
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
           console.log(lat, lng);
+          store.dispatch(setProject(lat, lng));
         },
         (error) => {
           console.error(error);

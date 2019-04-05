@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
@@ -16,13 +17,13 @@ import avatar from 'src/assets/avatar/marc_antoine_avatar.jpg';
 /**
  * Code
  */
-const Navbar = () => (
+const Navbar = ({ user }) => (
   <div id="navbar" className="ui visible inverted left vertical sidebar menu">
     <div id="navbar-username">
       <img id="navbar-username-avatar" src={avatar} alt="avatar" />
       <div id="navbar-username-name">
         Vous êtes connecté<br />
-        Marc-Antoine
+        {user.firstname}
       </div>
     </div>
     <div id="navbar-main">
@@ -58,6 +59,7 @@ const Navbar = () => (
       <div id="deconnexion">
         <NavLink
           to="/"
+          exact
           className="item"
         >
           <Icon name="sign-out" />
@@ -66,8 +68,14 @@ const Navbar = () => (
       </div>
     </div>
   </div>
-
 );
+
+// PropTypes validation
+Navbar.propTypes = {
+  user: PropTypes.shape({
+    firstname: PropTypes.string,
+  }).isRequired,
+};
 
 /**
  * Export

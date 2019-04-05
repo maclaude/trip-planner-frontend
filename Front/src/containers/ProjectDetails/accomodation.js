@@ -17,7 +17,7 @@ import { getFullyApprovedSuggestions } from 'src/store/reducers/ideas';
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
   suggestions: getFullyApprovedSuggestions(
-    state.ideas.suggestions,
+    state.ideas.suggestionsAPI,
     ownProps.type,
     ownProps.projectId,
     ownProps.participants,
