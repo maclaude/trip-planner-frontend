@@ -141,6 +141,7 @@ class LoginForm extends React.Component {
             </Button.Content>
           </Button>
         </div>
+        <a id="login-form-forgottenPassword" href="#">Mot de passe oublié</a>
       </Form>
     );
   }

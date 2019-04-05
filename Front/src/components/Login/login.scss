@@ -18,6 +18,18 @@
       justify-content: center;
     }
 
+    &-forgottenPassword {
+      display: inherit;
+      width: fit-content;
+      margin: 1.2em auto;
+      color: #000;
+      font-weight: 600;
+      font-size: 1.1em;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     &-errors {
       margin-bottom: 15px;
     }
