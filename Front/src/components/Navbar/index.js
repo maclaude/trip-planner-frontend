@@ -65,7 +65,13 @@ render() {
       </div>
       <div id="navbar-username">
         <img id="navbar-username-avatar" src={avatar} alt="avatar" />
-        <div id="navbar-username-name">
+        <div
+          id="navbar-username-name"
+          className={classNames(
+            'navbar-username-name',
+            { 'navbar-username-name--active': isApproved },
+          )}
+        >
           Vous êtes connecté<br />
           Marc-Antoine
         </div>

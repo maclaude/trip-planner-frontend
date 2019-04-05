@@ -64,10 +64,7 @@
     align-self: flex-end;
     margin-top: 1em;
   }
-  #navbar-project .item{
-    opacity: 0;
-  }
-  .navbar-username-name{
+  #navbar-username-name{
     opacity: 0;
   }
   #navbar-username {
@@ -78,6 +75,7 @@
   }
 }
 
+// Animations
 .item.nav--active{
   animation-duration: 1s;
   opacity: 1!important;
@@ -97,6 +95,8 @@
   }
 }
 
+
+// All queries
 .ui.inverted.menu {
   background-color: $navbar-bg-color;
 }
