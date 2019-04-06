@@ -154,7 +154,7 @@ class AddParticipants extends React.Component {
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
                   >
-                    <Image avatar src={avatar} />
+                    <Image avatar src={user.avatar} />
                     <List.Content>
                       <List.Header>{user.firstname}</List.Header>
                     </List.Content>

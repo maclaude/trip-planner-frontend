@@ -14,8 +14,6 @@ import {
  */
 // Style
 import './project_details.scss';
-// Assets
-import avatar from 'src/assets/avatar/default.png';
 // Components
 import Activity from 'src/containers/ProjectDetails/activity';
 import Accomodation from 'src/containers/ProjectDetails/accomodation';
@@ -62,7 +60,7 @@ const ProjectDetails = ({ project }) => (
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
               >
-                <Image avatar src={avatar} />
+                <Image avatar src={user.avatar} />
                 <List.Content>
                   <List.Header>{user.firstname}</List.Header>
                 </List.Content>

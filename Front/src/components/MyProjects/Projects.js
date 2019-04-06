@@ -24,7 +24,7 @@ class Projects extends React.Component {
   componentDidMount() {
     toast.notify(
       <p id="toast-alert">
-        Une question ? Contactez-nous<a href="mailto:contact@tripplanner.com">ici</a>
+        Une question ? Contactez-nous <a href="mailto:contact@tripplanner.com">ici</a>
       </p>,
       {
         position: 'top-right',

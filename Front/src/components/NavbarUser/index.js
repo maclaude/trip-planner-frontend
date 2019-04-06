@@ -14,8 +14,6 @@ import classNames from 'classnames';
 import { getURL } from 'src/utils/url';
 // Style
 import './navbar_user.scss';
-// Assets
-import avatar from 'src/assets/avatar/marc_antoine_avatar.jpg';
 
 /**
  * Code
@@ -68,7 +66,7 @@ class NavbarUser extends React.Component {
         </div>
         <div id="navbar-header">
           <div id="navbar-username">
-            <img id="navbar-username-avatar" src={avatar} alt="avatar" />
+            <img id="navbar-username-avatar" src={user.avatar} alt="avatar" />
             <div
               id="navbar-username-name"
               className={classNames(
