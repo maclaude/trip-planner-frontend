@@ -8,35 +8,49 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: $background-main-color;
+  color: $font-color;
 
   &-form {
     width: 55%;
     text-align: center;
     margin: 1em auto;
     font-size: 1.2em;
+
+    &-title {
+      margin-bottom: 1em;
+    }
   }
+
   &-banner {
     padding-bottom: 5em;
     margin: 0 2em 2em 2em;
   }
+
   &-input {
     padding-bottom: 2em;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
   }
+
+  &-button {
+    background-color: $button-color;
+    color: $font-color;
+    width: 100%;
+  }
+
   &-suggested {
     text-align: center;
     width: 50%;
     font-size: 1.5em;
     margin: 0.5em auto;
-
   }
 }
 .input-date {
   width: 40%;
   margin-right: 2em;
-  min-width: 180px !important;
+  min-width: 210px !important;
 }
 .date {
   background: #1F618D;
@@ -52,26 +66,30 @@
     float: right;
     min-height: 100vh;
     padding: 2.5em;
-      &-form {
-      width: 80%;
+
+    &-form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    margin: 0.5em auto;
+    }
+
+    &-banner {
+      text-align: center;
+      padding-bottom: 1.5em;
+      margin: 0 2em 2em 2em;
+    }
+
+    &-input {
       display: flex;
       flex-direction: column;
-      font-size: 1.5em;
-      margin: 0.5em auto;
-      }
-      &-banner {
-        text-align: center;
-        padding-bottom: 1.5em;
-        margin: 0 2em 2em 2em;
-      }
-      &-input {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 2em;
-      }
+      padding-bottom: 2em;
+    }
   }
   .input-date {
-    padding-bottom: 2em;
+    width: 100%;
+    padding-bottom: 1.7em;
   }
 }
 
@@ -81,6 +99,7 @@
     min-height: 100vh;
     padding: 2em;
     text-align: center;
+
     &-form {
       display: flex;
       flex-direction: column;
@@ -88,21 +107,15 @@
       font-size: 1.2em;
     }
   }
+
   .input-date {
-    padding-bottom: 2em;
+    width: 100%;
+    padding-bottom: 1.7em;
   }
+
   .date-button {
     width: 30vw;
     font-size: 2em;
   }
-}
-#dates {
-  background: $background-main-color;
-  color: $font-color;
-}
-#dates-button {
-  background-color: $button-color;
-  color: $font-color;
-  width: 100%;
 }
 

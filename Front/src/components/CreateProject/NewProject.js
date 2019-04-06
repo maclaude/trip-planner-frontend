@@ -78,7 +78,7 @@ class NewProject extends React.Component {
             onSubmit={this.handleSubmit}
           >
             <div id="newproject-title">
-              <p>Titre du projet</p>
+              <p>Titre du projet <span className="asterisk">*</span></p>
               <div className="input">
                 <Input
                   name="title"
@@ -89,7 +89,7 @@ class NewProject extends React.Component {
               </div>
             </div>
             <div id="newproject-description">
-              <p>Description</p>
+              <p>Description <span className="asterisk">*</span></p>
               <div className="input">
                 <TextArea
                   name="description"
@@ -103,7 +103,7 @@ class NewProject extends React.Component {
               </div>
             </div>
             <div id="newproject-destination">
-              <p>Destination</p>
+              <p>Destination <span className="asterisk">*</span></p>
               <div className="input">
                 <Input
                   name="destination"

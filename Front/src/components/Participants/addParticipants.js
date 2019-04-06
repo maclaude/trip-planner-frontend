@@ -86,7 +86,7 @@ class AddParticipants extends React.Component {
         >
           <Form.Field>
             <label htmlFor="name">
-              Nom
+              Nom <span className="asterisk">*</span>
               <input
                 className="addParticipants-form-input"
                 name="name"
@@ -97,7 +97,7 @@ class AddParticipants extends React.Component {
               />
             </label>
             <label htmlFor="email">
-              Email
+              Email <span className="asterisk">*</span>
               <input
                 className="addParticipants-form-input"
                 name="email"

@@ -92,9 +92,13 @@ class SuggestDates extends React.Component {
             action=""
             onSubmit={this.handleSubmit}
           >
-            <h2>Definissez les dates du projet</h2>
+            <h2 id="dates-form-title">
+              Definissez des suggestions de dates
+            </h2>
             <div id="dates-input">
               <Input
+                label={{ icon: 'asterisk' }}
+                labelPosition="left corner"
                 name="debutDates"
                 className="input-date"
                 type="date"
@@ -102,6 +106,8 @@ class SuggestDates extends React.Component {
                 onChange={this.handleChange}
               />
               <Input
+                label={{ icon: 'asterisk' }}
+                labelPosition="left corner"
                 name="endDates"
                 className="input-date"
                 type="date"
