@@ -18,6 +18,8 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
+  isLoading: false,
+  loaded: false,
   projects: projectsDataSample,
   projectsAPI: [],
 };
@@ -91,10 +93,18 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
+    case GET_PROJECTS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case STOCK_PROJECTS:
       return {
         ...state,
         projectsAPI: action.data,
+        loaded: true,
+        isLoading: false,
       };
 
       /*
