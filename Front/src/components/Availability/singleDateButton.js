@@ -27,11 +27,13 @@ class SingleDateButton extends React.Component {
    */
   handleClick = () => {
     const { isApproved } = this.state;
+    const { userHasVoted } = this.props;
 
     if (!isApproved) {
       this.setState({
         isApproved: true,
       });
+      userHasVoted();
     }
     else if (isApproved) {
       this.setState({
@@ -66,6 +68,7 @@ class SingleDateButton extends React.Component {
 SingleDateButton.propTypes = {
   starDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
+  userHasVoted: PropTypes.func.isRequired,
 };
 
 /**

@@ -22,19 +22,25 @@ import SingleProjectCard from './singleProjectCard';
  */
 class Projects extends React.Component {
   componentDidMount() {
-    toast.notify(
-      <p id="toast-alert">
-        Une question ? Contactez-nous <a href="mailto:contact@tripplanner.com">ici</a>
-      </p>,
-      {
-        position: 'top-right',
-        duration: null,
-      },
-    );
+    const { isNotified, notified } = this.props;
+
+    if (!isNotified) {
+      toast.notify(
+        <p id="toast-alert">
+          Une question ? Contactez-nous <a href="mailto:contact@tripplanner.com">ici</a>
+        </p>,
+        {
+          position: 'top-right',
+          duration: null,
+        },
+      );
+
+      notified();
+    }
   }
 
   render() {
-    const { projects } = this.props;
+    const { projects, userHasVoted } = this.props;
 
     return (
       <div id="myprojects">
@@ -48,6 +54,7 @@ class Projects extends React.Component {
             <SingleProjectCard
               key={project.id}
               {...project}
+              userHasVoted={userHasVoted}
             />
           ))}
         </Card.Group>
@@ -72,6 +79,9 @@ Projects.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  isNotified: PropTypes.bool.isRequired,
+  notified: PropTypes.func.isRequired,
+  userHasVoted: PropTypes.bool.isRequired,
 };
 
 /**

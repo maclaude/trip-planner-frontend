@@ -1,10 +1,8 @@
 /**
  * Import
  */
-// NPM
-import uuidv4 from 'uuid-v4';
 // Local data
-import suggestionsData from 'src/data/suggestionsAPI';
+// import suggestionsData from 'src/data/suggestionsAPI';
 
 /**
  * Initial State
@@ -16,7 +14,7 @@ const initialState = {
   url: '',
   price: '',
   errors: [],
-  suggestions: suggestionsData,
+  // suggestions: suggestionsData,
   suggestionsAPI: [],
 };
 

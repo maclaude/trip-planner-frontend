@@ -31,7 +31,7 @@
 
     &-right {
       &-participants-list {
-        width: 50%;
+        width: 80%;
         margin-left: 50px;
         margin-bottom: 20px;
       }
@@ -66,6 +66,9 @@
 
   &-card {
     margin: 1em !important;
+    &-participants-approval {
+      max-height: fit-content;
+    }
   }
 }
 

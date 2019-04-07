@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  */
 // Components
 import NavbarUser from 'src/containers/NavbarUser';
-import ProjectDetails from './ProjectDetails';
+import ProjectDetails from 'src/containers/ProjectDetails/projectDetails';
 import './project_details.scss';
 
 

@@ -117,7 +117,7 @@ class SuggestionForm extends React.Component {
               </FormField>
               <Form.Field>
                 <label htmlFor="description">
-                  Description <span className="asterisk">*</span>
+                  Description
                   <textarea
                     name="description"
                     placeholder="Votre description"

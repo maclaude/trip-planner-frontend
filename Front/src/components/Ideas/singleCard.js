@@ -67,16 +67,18 @@ class SingleCard extends React.Component {
           description={description}
         />
         <Card.Content
+          className="card-fit-content"
           meta={<a target="new" href={url}>Lien</a>}
         />
         <Card.Content
+          className="card-fit-content"
           description={`Prix: ${price}€`}
         />
-        <Card.Content textAlign="center" extra>
+        <Card.Content className="card-fit-content" textAlign="center" extra>
           <Icon name="user" />
           <strong>{user.firstname}</strong>
         </Card.Content>
-        <Card.Content textAlign="center" extra>
+        <Card.Content className="card-fit-content" textAlign="center" extra>
           <div className="card-votes">
             {vote} participants ont votés pour
           </div>

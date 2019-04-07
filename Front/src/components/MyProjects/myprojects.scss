@@ -86,8 +86,21 @@
 
 .project-card {
   min-height: 200px !important;
+  position: relative;
 
   &-title {
     color: $card-title-color;
   }
 }
+
+#notification {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50% !important;
+  border: 2px solid #FFF;
+  position: absolute;
+  top: -7.5px;
+  right: -7.5px;
+}
+
