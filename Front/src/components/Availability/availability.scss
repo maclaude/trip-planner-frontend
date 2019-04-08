@@ -8,6 +8,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: $background-main-color;
+  color: $font-color;
 
   &-banner {
     margin: 0 2em 2em 2em;
@@ -17,6 +19,11 @@
     padding-bottom: 2.3em;
   }
 
+  &-main {
+    width: 80%;
+    margin: auto;
+  }
+
   &-content, &-checkbox {
     text-align: center;
   }
@@ -24,27 +31,35 @@
     font-size: 2em;
   }
   &-checkbox {
-    margin-bottom: 2em;
+    margin: 2em;
   }
   &-buttons {
     display: flex;
     flex-direction: column;
   }
-  &-next {
-    width: 15%;
-    font-size: 1.5em;
-    color: $navbar-font-color;
-    background: $button-color;
-    float: right;
-    border-radius: 1em;
-  }
 }
 
 .availability-button {
-  margin: 2em auto;
-  padding: 1em;
-  width: 35%;
+  margin: .8em auto;
+  padding: .5em .8em;
+  width: fit-content;
+  border: none;
+  border-radius: 15px;
+  background: $button-color;
+  color: #fff;
+  font-size: 1.5em;
+  box-shadow: 0 5px rgba(76, 81, 117, 0.432);
+
+  &--active {
+    background: #16AB3A;
+  }
+
+  &:active {
+    box-shadow: 0 5px rgba(76, 81, 117, 0.432);
+    transform: translateY(5px);
+  }
 }
+
 
 @media (min-width: 601px) and (max-width: 900px) {
   #availability {
@@ -74,18 +89,7 @@
       display: flex;
       flex-direction: column;
     }
-    &-next {
-      display: flex;
-      justify-content: flex-end;
-      color: $navbar-font-color;
-      background: $button-color;
-      float: right;
-    }
   } 
-  .availability-button {
-    margin-bottom: 2em;
-    padding: 1em;
-  }
 }
 
 @media (max-width: 600px) {
@@ -108,31 +112,5 @@
     &-checkbox {
       margin-bottom: 2em;
     }
-    &-next {
-      color: $navbar-font-color;
-      background: $button-color;
-    }
   } 
-  .availability-button {
-    margin-bottom: 2em;
-    padding: 0.5em;
-  }
-}
-
-#availability {
-  background: $background-main-color;
-  color: $font-color;
-}
-
-.availability-button {
-  border: none;
-  border-radius: 1.2em;
-  background: $button-color;
-  color: $navbar-font-color;
-  font-size: 1.5em;
-  box-shadow: 0 9px rgba(76, 81, 117, 0.432);
-}
-.availability-button:active {
-  box-shadow: 0 5px rgba(76, 81, 117, 0.432);
-  transform: translateY(7px);
 }

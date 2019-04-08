@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 });
 
 // === Actions ===
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
     dispatch(changeProjectInputs(name, value));
   },
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(showNewprojectErrors(errors));
   },
   addDates: () => {
-    dispatch(addDates());
+    dispatch(addDates(ownProps.project.id));
   },
 });
 

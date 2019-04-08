@@ -21,11 +21,12 @@ const SingleProjectCard = ({
   title,
   description,
   projectDates,
+  userHasVoted,
 }) => (
   <Card
     className="project-card"
   >
-    <Card.Content>
+    <Card.Content className="card-fit-content">
       <Card.Header textAlign="center">
         <NavLink
           to={getURL('recapitulatif', title)}
@@ -42,16 +43,22 @@ const SingleProjectCard = ({
         {description}
       </Card.Description>
     </Card.Content>
-    <Card.Content textAlign="center">
+    <Card.Content
+      className="card-fit-content"
+      textAlign="center"
+    >
       <Card.Meta>
-        {projectDates.length === 0 && (
+        {userHasVoted === false && id === 7 && (
           <p>Les dates ne sont pas encore remontées</p>
         )}
-        {projectDates.length !== 0 && (
-          `Dates ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
+        {((userHasVoted === false && id !== 7) || userHasVoted === true) && (
+          `Dates: ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
         )}
       </Card.Meta>
     </Card.Content>
+    {userHasVoted === false && id === 7 && (
+      <div id="notification">1</div>
+    )}
   </Card>
 );
 
@@ -61,6 +68,7 @@ SingleProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   projectDates: PropTypes.array,
+  userHasVoted: PropTypes.bool.isRequired,
 };
 
 SingleProjectCard.defaultProps = {

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  */
 // Components
 import NavbarUser from 'src/containers/NavbarUser';
-import AvailabilityDates from 'src/containers/Availability/availabilityDates';
+import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
 
 
 /**

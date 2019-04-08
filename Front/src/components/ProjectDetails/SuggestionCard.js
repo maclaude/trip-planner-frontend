@@ -26,7 +26,7 @@ const SuggestionCard = ({
         {description}
       </Card.Description>
     </Card.Content>
-    <Card.Content textAlign="center">
+    <Card.Content className="suggestion-card-participants-approval" textAlign="center">
       <Card.Meta>Appouvé par {vote} participants</Card.Meta>
     </Card.Content>
   </Card>

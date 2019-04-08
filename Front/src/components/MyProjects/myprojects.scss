@@ -38,6 +38,10 @@
   }
 }
 
+#toast-alert {
+  margin: 0;
+}
+
 @media (min-width: 601px) and (max-width: 900px) {
   #myprojects {
     width: 80%;
@@ -82,8 +86,23 @@
 
 .project-card {
   min-height: 200px !important;
+  position: relative;
 
   &-title {
     color: $card-title-color;
   }
 }
+
+#notification {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-weight: 600;
+  background-color: red;
+  border-radius: 50% !important;
+  color: #fff;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+

@@ -2,7 +2,8 @@
 
 #login {
   &-form {
-    width: 40%;
+    width: 25%;
+    min-width: 400px;
     margin: 20px auto;
     padding: 2em;
 
@@ -16,6 +17,18 @@
     &-buttons {
       display: flex;
       justify-content: center;
+    }
+
+    &-forgottenPassword {
+      display: inherit;
+      width: fit-content;
+      margin: 1.2em auto;
+      color: #000;
+      font-weight: 600;
+      font-size: 1.1em;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     &-errors {

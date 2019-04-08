@@ -4,7 +4,7 @@
 // Utils
 import { getSlug } from 'src/utils/url';
 // Local data
-import projectsDataSample from 'src/data/projectsAPI';
+// import projectsDataSample from 'src/data/projectsAPI';
 
 /**
  * Initial State
@@ -18,7 +18,11 @@ const initialState = {
   destination: '',
   user: '',
   errors: [],
-  projects: projectsDataSample,
+  isLoading: false,
+  loaded: false,
+  isNotified: false,
+  userHasVoted: false,
+  // projects: projectsDataSample,
   projectsAPI: [],
 };
 
@@ -33,6 +37,8 @@ const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
 export const NEW_PROJECT = 'NEW_PROJECT';
 export const SET_PROJECT = 'SET_PROJECT';
+const NOTIFY = 'NOTIFY';
+const USER_HAS_VOTED = 'USER_HAS_VOTED';
 
 /**
  * Reducer
@@ -52,6 +58,10 @@ const reducer = (state = initialState, action = {}) => {
         description: state.description,
         destination: state.destination,
         owner: 'Marc-Antoine',
+        user: [],
+        projectDates: [],
+        lat: action.lat,
+        lng: action.lng,
       };
 
       const newProjectsAPI = [...state.projectsAPI, newProject];
@@ -91,10 +101,30 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
+    case GET_PROJECTS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case STOCK_PROJECTS:
       return {
         ...state,
         projectsAPI: action.data,
+        loaded: true,
+        isLoading: false,
+      };
+
+    case NOTIFY:
+      return {
+        ...state,
+        isNotified: true,
+      };
+
+    case USER_HAS_VOTED:
+      return {
+        ...state,
+        userHasVoted: true,
       };
 
       /*
@@ -134,8 +164,9 @@ export const showNewprojectErrors = errors => ({
   errors,
 });
 
-export const addDates = () => ({
+export const addDates = projectId => ({
   type: ADD_DATES,
+  projectId,
 });
 
 export const getProjects = () => ({
@@ -145,6 +176,14 @@ export const getProjects = () => ({
 export const stockProjects = data => ({
   type: STOCK_PROJECTS,
   data,
+});
+
+export const notified = () => ({
+  type: NOTIFY,
+});
+
+export const userHasVoted = () => ({
+  type: USER_HAS_VOTED,
 });
 
 /*

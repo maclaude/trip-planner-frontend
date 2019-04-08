@@ -105,7 +105,7 @@ class SuggestionForm extends React.Component {
             <div id="suggestion-form-details">
               <FormField>
                 <label htmlFor="name">
-                  Titre
+                  Titre <span className="asterisk">*</span>
                   <input
                     type="text"
                     name="name"
@@ -115,13 +115,17 @@ class SuggestionForm extends React.Component {
                   />
                 </label>
               </FormField>
-              <Form.TextArea
-                label="Description"
-                name="description"
-                placeholder="Votre description"
-                value={description}
-                onChange={this.handleInputChange}
-              />
+              <Form.Field>
+                <label htmlFor="description">
+                  Description
+                  <textarea
+                    name="description"
+                    placeholder="Votre description"
+                    value={description}
+                    onChange={this.handleInputChange}
+                  />
+                </label>
+              </Form.Field>
               <FormField>
                 <label htmlFor="idea-url">
                   Lien

@@ -1,10 +1,8 @@
 /**
  * Import
  */
-// NPM
-import uuidv4 from 'uuid-v4';
 // Local data
-import suggestionsData from 'src/data/suggestionsAPI';
+// import suggestionsData from 'src/data/suggestionsAPI';
 
 /**
  * Initial State
@@ -16,7 +14,7 @@ const initialState = {
   url: '',
   price: '',
   errors: [],
-  suggestions: suggestionsData,
+  // suggestions: suggestionsData,
   suggestionsAPI: [],
 };
 
@@ -68,7 +66,7 @@ const reducer = (state = initialState, action = {}) => {
         name: state.name,
         description: state.description,
         url: state.url,
-        price: state.price,
+        price: parseInt(state.price, 10),
         project: {
           id: action.projectId,
         },

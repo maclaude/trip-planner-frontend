@@ -19,10 +19,11 @@ import MyProjectDetails from 'src/containers/ProjectDetails';
 import Ideas from 'src/containers/Ideas';
 import Participants from 'src/containers/Participants';
 import Dates from 'src/containers/SuggestDates';
-import Profil from 'src/components/UserProfil';
 
 // Style
 import './app.scss';
+
+import requiresAuth from 'src/components/RequiresAuth';
 
 /**
  * Code
@@ -33,15 +34,14 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/inscription" component={Signup} />
       <Route exact path="/connexion" component={Login} />
-      <Route exact path="/mon-profil" component={Profil} />
-      <Route exact path="/mes-projets" component={MyProjects} />
-      <Route exact path="/nouveau-projet" component={CreateProject} />
+      <Route exact path="/mes-projets" component={requiresAuth(MyProjects)} />
+      <Route exact path="/nouveau-projet" component={requiresAuth(CreateProject)} />
 
-      <Route exact path="/disponibilites/:slug" component={Availabilities} />
-      <Route exact path="/idees/:slug" component={Ideas} />
-      <Route exact path="/recapitulatif/:slug" component={MyProjectDetails} />
-      <Route exact path="/dates/:slug" component={Dates} />
-      <Route exact path="/participants/:slug" component={Participants} />
+      <Route exact path="/disponibilites/:slug" component={requiresAuth(Availabilities)} />
+      <Route exact path="/idees/:slug" component={requiresAuth(Ideas)} />
+      <Route exact path="/recapitulatif/:slug" component={requiresAuth(MyProjectDetails)} />
+      <Route exact path="/dates/:slug" component={requiresAuth(Dates)} />
+      <Route exact path="/participants/:slug" component={requiresAuth(Participants)} />
 
       {/* Fallback - gestion de 404 */}
       <Route component={NotFound} />

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /**
- * Npm import
+ * NPM import
  */
 import axios from 'axios';
 
@@ -155,10 +155,10 @@ const ajaxMiddleware = store => next => (action) => {
       const addDates = {
         starDate: state.createProject.debutDates,
         endDate: state.createProject.endDates,
-        project: '/api/projects/1',
+        project: `/api/projects/${action.projectId}`,
       };
 
-      console.log('AJAX - addDatesSuggestion', addDates);
+      console.log('AJAX - addDatesSuggestion');
 
       axiosToken.post('project_dates', addDates)
         .then(response => console.log(response))

@@ -29,19 +29,71 @@
 @media (min-width: 601px) and (max-width: 900px) {
   #navbar {
     display: flex;
-    justify-content: center;
+    overflow-x: hidden;
     align-items: center;
-    width: 20vw;
+    justify-content: space-around;
   }
   #navbar > i {
     font-size: 2em;
   }
+  #navbar-username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 @media (max-width: 600px) {
   #navbar {
-    display: none;
+    transform: translateX(-80%);
+    width: 50%;
+  }
+  #burger div{
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  #burger {
+    align-self: flex-end;
+    margin-top: 1em;
+  }
+  #navbar-main .item{
+    opacity: 0;
+  }
+  #navbar-footer .item{
+    opacity: 0;
+  }
+  .navbar-username-name{
+    opacity: 0;
   }
 }
+
+// Animations
+.ui.visible.inverted.left.vertical.sidebar.menu.nav--active {
+  transform: translateX(0%)!important;
+}
+.item.nav--active{
+  animation-duration: 1s;
+  opacity: 1!important;
+  animation-name: navLinkFades;
+}
+.navbar-username-name.navbar-username-name--active{
+  animation-duration: 1s;
+  opacity: 1!important;
+  animation-name: navLinkFades;
+}
+@keyframes navLinkFades{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+// All queries
 .ui.inverted.menu {
   background-color: $navbar-bg-color;
 }
