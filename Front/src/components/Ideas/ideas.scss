@@ -89,8 +89,9 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 600px) {
   #suggestions {
+    padding: 2em 2em 2em 0em;
     &-form {
       &-header {
         display: flex;

@@ -32,12 +32,12 @@ import getDateFormat from 'src/utils/date_format';
  */
 class ProjectDetails extends React.Component {
   componentDidMount() {
-    const { userHasVoted } = this.props;
+    const { userHasVoted, project } = this.props;
 
-    if (!userHasVoted) {
+    if (!userHasVoted && project.id === 7) {
       toast.notify(
         <p id="toast-alert">
-          <Icon name="bell" size="large" /> Merci de renseigner vos disponibiltées
+          <Icon name="bell" color="red" size="large" /> Merci de renseigner vos disponibilités
         </p>,
         {
           position: 'top-right',
@@ -99,10 +99,14 @@ class ProjectDetails extends React.Component {
             <div>
               <h2>Dates retenues</h2>
               <div id="projectDetails-header-right-dates">
+                {project.projectDates.length === 0 && (
+                  <p>Vous devez définir des dates</p>
+                )}
                 {userHasVoted === false && project.id === 7 && (
                   <p>Les dates ne sont pas encore remontées</p>
                 )}
-                {((userHasVoted === false && project.id !== 7) || userHasVoted === true) && (
+                {((userHasVoted === false && project.id !== 7 && project.projectDates.length !== 0)
+                || (userHasVoted === true && project.projectDates.length !== 0)) && (
                   `Du ${getDateFormat(project.projectDates[0].starDate)} 
                   au ${getDateFormat(project.projectDates[0].endDate)}`
                 )}
@@ -126,7 +130,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="projectDetails-suggestions-accomodation">
-            <h2 className="suggestion-title">Hébergement</h2>
+            <h2 className="suggestion-title">Hébergements</h2>
             <Accomodation
               type={2}
               projectId={project.id}
@@ -134,7 +138,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="projectDetails-suggestions-transport">
-            <h2 className="suggestion-title">Transport</h2>
+            <h2 className="suggestion-title">Transports</h2>
             <Transport
               type={3}
               projectId={project.id}
@@ -142,7 +146,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="projectDetails-suggestions-restaurant">
-            <h2 className="suggestion-title">Restaurant</h2>
+            <h2 className="suggestion-title">Restaurants</h2>
             <Restaurant
               type={4}
               projectId={project.id}

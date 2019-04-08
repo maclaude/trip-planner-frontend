@@ -80,7 +80,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
       // Création du nouveau tableau de suggestions
-      const newSuggestions = [...state.suggestions, newSuggestion];
+      const newSuggestions = [...state.suggestionsAPI, newSuggestion];
 
       return {
         ...state,

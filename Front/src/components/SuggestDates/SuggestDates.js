@@ -17,6 +17,7 @@ import uuidV4 from 'uuid-v4';
  */
 // Utils
 import SuggestDatesErrors from 'src/utils/dateSuggest_form';
+import getDateFormat from 'src/utils/date_format';
 // Components
 import UserFooter from 'src/components/UserFooter';
 
@@ -143,7 +144,7 @@ class SuggestDates extends React.Component {
           {dateSuggest.map(date => (
             <div className="date focus-in-contract-bck" key={uuidV4()}>
               <p>
-                Du {date.date_de_debut} au {date.date_de_fin}
+                {`Du ${getDateFormat(date.date_de_debut)} au ${getDateFormat(date.date_de_fin)}`}
               </p>
             </div>
           ))}

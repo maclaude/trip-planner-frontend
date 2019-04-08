@@ -48,10 +48,14 @@ const SingleProjectCard = ({
       textAlign="center"
     >
       <Card.Meta>
+        {(projectDates.length === 0) && (
+          <p>Vous devez définir des dates</p>
+        )}
         {userHasVoted === false && id === 7 && (
           <p>Les dates ne sont pas encore remontées</p>
         )}
-        {((userHasVoted === false && id !== 7) || userHasVoted === true) && (
+        {((userHasVoted === false && id !== 7 && projectDates.length !== 0)
+        || (userHasVoted === true && projectDates.length !== 0)) && (
           `Dates: ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
         )}
       </Card.Meta>
