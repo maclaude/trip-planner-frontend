@@ -19,7 +19,6 @@ import MyProjectDetails from 'src/containers/ProjectDetails';
 import Ideas from 'src/containers/Ideas';
 import Participants from 'src/containers/Participants';
 import Dates from 'src/containers/SuggestDates';
-import Profil from 'src/components/UserProfil';
 
 // Style
 import './app.scss';
@@ -36,7 +35,6 @@ const App = () => (
       <Route exact path="/inscription" component={Signup} />
       <Route exact path="/connexion" component={Login} />
       <Route exact path="/mes-projets" component={requiresAuth(MyProjects)} />
-      <Route exact path="/mon-profil" component={requiresAuth(Profil)} />
       <Route exact path="/nouveau-projet" component={requiresAuth(CreateProject)} />
 
       <Route exact path="/disponibilites/:slug" component={requiresAuth(Availabilities)} />

@@ -57,7 +57,7 @@ const SingleProjectCard = ({
       </Card.Meta>
     </Card.Content>
     {userHasVoted === false && id === 7 && (
-      <div id="notification" />
+      <div id="notification">1</div>
     )}
   </Card>
 );
