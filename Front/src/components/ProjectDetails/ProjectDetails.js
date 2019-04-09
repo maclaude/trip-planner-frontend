@@ -7,7 +7,7 @@ import {
   Image,
   List,
   Divider,
-  Icon
+  Icon,
 } from 'semantic-ui-react';
 import toast from 'toasted-notes';
 
@@ -54,7 +54,7 @@ class ProjectDetails extends React.Component {
       <div id="projectDetails">
 
         <div id="projectDetails-banner">
-          <h1>Recapitulatif du projet - {project.title}</h1>
+          <h1>Récapitulatif du projet - {project.title}</h1>
         </div>
 
         <div id="projectDetails-header">
