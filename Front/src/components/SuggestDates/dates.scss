@@ -97,11 +97,12 @@
   #dates {
     width: 100%;
     min-height: 100vh;
-    padding: 2em;
+    padding: 2em 2em 2em 0em;
     text-align: center;
 
     &-form {
       display: flex;
+      flex-wrap: wrap;
       flex-direction: column;
       margin: 1em auto;
       font-size: 1.2em;

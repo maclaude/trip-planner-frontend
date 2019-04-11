@@ -28,13 +28,13 @@ const Header = () => (
         to="/inscription"
         className="nav-link"
       >
-        Sign-up
+        Inscription
       </NavLink>
       <NavLink
         to="/connexion"
         className="nav-link"
       >
-      Login
+        Connexion
       </NavLink>
     </nav>
   </div>
