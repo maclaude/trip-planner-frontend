@@ -1,4 +1,4 @@
-const suggestionsAPI = [
+const suggestionsData = [
   {
     '@id': '/api/suggestions/28',
     '@type': 'Suggestion',
@@ -599,4 +599,4 @@ const suggestionsAPI = [
   }
 ]
 
-export default suggestionsAPI;
+export default suggestionsData;

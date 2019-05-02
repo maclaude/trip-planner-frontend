@@ -14,19 +14,19 @@ import {
   changeSuggestionType,
   showSuggestionErrors,
   sendSuggestion,
-} from 'src/store/reducers/ideas';
+} from 'src/store/reducers/suggestions';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  type: state.ideas.type,
-  name: state.ideas.name,
-  description: state.ideas.description,
-  url: state.ideas.url,
-  price: state.ideas.price,
-  errors: state.ideas.errors,
+  type: state.suggestions.type,
+  name: state.suggestions.name,
+  description: state.suggestions.description,
+  url: state.suggestions.url,
+  price: state.suggestions.price,
+  errors: state.suggestions.errors,
 });
 
 // === Actions ===

@@ -19,7 +19,7 @@ import {
 import store from 'src/store';
 import { getUserInfo } from 'src/store/reducers/login';
 import { getProjects } from 'src/store/reducers/project';
-import { getSuggestions } from 'src/store/reducers/ideas';
+import { getSuggestions } from 'src/store/reducers/suggestions';
 // Utils
 import getLoginFormErrors from 'src/utils/login_form_errors';
 

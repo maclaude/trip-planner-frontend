@@ -14,7 +14,7 @@ import {
 // Reducers
 import signup from 'src/store/reducers/signup';
 import login from 'src/store/reducers/login';
-import ideas from 'src/store/reducers/ideas';
+import suggestions from 'src/store/reducers/suggestions';
 import project from 'src/store/reducers/project';
 import participants from 'src/store/reducers/participants';
 
@@ -35,7 +35,7 @@ const enhancers = composeEnhancers(
 const rootReducer = combineReducers({
   signup,
   login,
-  ideas,
+  suggestions,
   project,
   participants,
 });

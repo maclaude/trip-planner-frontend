@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 // Component
 import suggestionIdeas from 'src/components/Ideas/suggestionIdeas';
 // Selector
-import { getFilteredSuggestions } from 'src/store/reducers/ideas';
+import { getFilteredSuggestions } from 'src/store/reducers/suggestions';
 
 /**
  * Code
@@ -17,8 +17,8 @@ import { getFilteredSuggestions } from 'src/store/reducers/ideas';
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
   suggestions: getFilteredSuggestions(
-    state.ideas.suggestionsAPI,
-    state.ideas.type,
+    state.suggestions.suggestionsData,
+    state.suggestions.type,
     ownProps.project.id,
   ),
 });

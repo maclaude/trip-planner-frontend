@@ -1,8 +1,8 @@
 /**
- * Import
+ * Local import
  */
-// Local data
-// import suggestionsData from 'src/data/suggestionsAPI';
+// Suggestions data
+import suggestionsDataSample from 'src/data/suggestionsData';
 
 /**
  * Initial State
@@ -14,8 +14,7 @@ const initialState = {
   url: '',
   price: '',
   errors: [],
-  // suggestions: suggestionsData,
-  suggestionsAPI: [],
+  suggestionsData: suggestionsDataSample,
 };
 
 /**
@@ -38,7 +37,7 @@ const reducer = (state = initialState, action = {}) => {
     case STOCK_SUGGESTIONS:
       return {
         ...state,
-        suggestionsAPI: action.suggestions,
+        suggestionsData: action.suggestions,
       };
 
     case CHANGE_SUGGESTION_INPUTS:
@@ -60,9 +59,7 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case SEND_SUGGESTION: {
-      // Création de la nouvelle suggestion
       const newSuggestion = {
-        id: 150,
         name: state.name,
         description: state.description,
         url: state.url,
@@ -79,8 +76,7 @@ const reducer = (state = initialState, action = {}) => {
         vote: 0,
       };
 
-      // Création du nouveau tableau de suggestions
-      const newSuggestions = [...state.suggestionsAPI, newSuggestion];
+      const newSuggestions = [...state.suggestionsData, newSuggestion];
 
       return {
         ...state,
@@ -89,13 +85,13 @@ const reducer = (state = initialState, action = {}) => {
         url: '',
         price: '',
         errors: [],
-        suggestionsAPI: newSuggestions,
+        suggestionsData: newSuggestions,
       };
     }
 
     case APPROVED_SUGGESTION: {
-      // Voter pour ou contre une suggestion
-      const newSuggestions = state.suggestionsAPI.map((suggestion) => {
+      // Vote for a suggestion
+      const newSuggestions = state.suggestionsData.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote += 1, 10);
 
@@ -114,8 +110,8 @@ const reducer = (state = initialState, action = {}) => {
     }
 
     case DISAPPROVED_SUGGESTION: {
-      // Voter pour ou contre une suggestion
-      const newSuggestions = state.suggestionsAPI.map((suggestion) => {
+      // Vote against a suggestion
+      const newSuggestions = state.suggestionsData.map((suggestion) => {
         if (suggestion.id === action.id) {
           const newVote = parseInt(suggestion.vote -= 1, 10);
 

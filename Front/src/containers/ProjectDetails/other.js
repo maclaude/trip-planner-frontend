@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Other from 'src/components/ProjectDetails/Other';
 
 // Action Creators
-import { getMajorityApprovedSuggestions } from 'src/store/reducers/ideas';
+import { getMajorityApprovedSuggestions } from 'src/store/reducers/suggestions';
 
 /**
  * Code
@@ -17,7 +17,7 @@ import { getMajorityApprovedSuggestions } from 'src/store/reducers/ideas';
 // === State (données) ===
 const mapStateToProps = (state, ownProps) => ({
   suggestions: getMajorityApprovedSuggestions(
-    state.ideas.suggestionsAPI,
+    state.suggestions.suggestionsData,
     ownProps.type,
     ownProps.projectId,
     ownProps.participants,

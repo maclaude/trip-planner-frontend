@@ -20,7 +20,7 @@ import {
   GET_SUGGESTIONS,
   SEND_SUGGESTION,
   stockSuggestions,
-} from 'src/store/reducers/ideas';
+} from 'src/store/reducers/suggestions';
 
 import {
   SET_PROJECT,
@@ -110,11 +110,11 @@ const ajaxMiddleware = store => next => (action) => {
     case SEND_SUGGESTION: {
       // Objet newSuggestion à envoyer au back
       const newSuggestion = {
-        name: state.ideas.name,
-        description: state.ideas.description,
-        url: state.ideas.url,
-        price: parseInt(state.ideas.price, 10),
-        suggestionGender: `/api/suggestion_genders/${state.ideas.type}`,
+        name: state.suggestions.name,
+        description: state.suggestions.description,
+        url: state.suggestions.url,
+        price: parseInt(state.suggestions.price, 10),
+        suggestionGender: `/api/suggestion_genders/${state.suggestions.type}`,
         project: `/api/projects/${action.projectId}`,
         user: `/api/users/${state.login.user.id}`,
       };

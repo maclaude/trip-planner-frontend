@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import singleCard from 'src/components/Ideas/singleCard';
 
 // Action Creators
-import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/ideas';
+import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/suggestions';
 
 /**
  * Code
