@@ -27,8 +27,7 @@ import {
   ADD_DATES,
   GET_PROJECTS,
   stockProjects,
-  // stockUserProjects,
-} from 'src/store/reducers/createProject';
+} from 'src/store/reducers/project';
 
 /**
  * Middleware
@@ -89,7 +88,6 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(stockUserInfo(response.data));
-          // store.dispatch(stockUserProjects(response.data.projectsParticipation));
         })
         .catch(() => console.error('Request has failed'));
 
@@ -133,9 +131,9 @@ const ajaxMiddleware = store => next => (action) => {
     case SET_PROJECT: {
       // Objet newProject à envoyer au back
       const newProject = {
-        title: state.createProject.title,
-        description: state.createProject.description,
-        destination: state.createProject.destination,
+        title: state.project.title,
+        description: state.project.description,
+        destination: state.project.destination,
         owner: `/api/users/${state.login.user.id}`,
         lat: action.lat,
         lng: action.lng,
@@ -153,8 +151,8 @@ const ajaxMiddleware = store => next => (action) => {
     case ADD_DATES: {
       // Objet addDates à envoyer au back
       const addDates = {
-        starDate: state.createProject.debutDates,
-        endDate: state.createProject.endDates,
+        startDate: state.project.startDate,
+        endDate: state.project.endDate,
         project: `/api/projects/${action.projectId}`,
       };
 

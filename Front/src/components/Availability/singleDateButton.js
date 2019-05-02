@@ -46,7 +46,7 @@ class SingleDateButton extends React.Component {
    * Render
    */
   render() {
-    const { starDate, endDate } = this.props;
+    const { startDate, endDate } = this.props;
     const { isApproved } = this.state;
 
     return (
@@ -58,7 +58,7 @@ class SingleDateButton extends React.Component {
         type="button"
         onClick={this.handleClick}
       >
-        {`${getDateFormat(starDate)} - ${getDateFormat(endDate)}`}
+        {`${getDateFormat(startDate)} - ${getDateFormat(endDate)}`}
       </button>
     );
   }
@@ -66,7 +66,7 @@ class SingleDateButton extends React.Component {
 
 // PropTypes validation
 SingleDateButton.propTypes = {
-  starDate: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   userHasVoted: PropTypes.func.isRequired,
 };

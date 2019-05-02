@@ -56,7 +56,7 @@ const SingleProjectCard = ({
         )}
         {((userHasVoted === false && id !== 7 && projectDates.length !== 0)
         || (userHasVoted === true && projectDates.length !== 0)) && (
-          `Dates: ${getDateFormat(projectDates[0].starDate)} au ${getDateFormat(projectDates[0].endDate)}`
+          `Dates: ${getDateFormat(projectDates[0].startDate)} au ${getDateFormat(projectDates[0].endDate)}`
         )}
       </Card.Meta>
     </Card.Content>

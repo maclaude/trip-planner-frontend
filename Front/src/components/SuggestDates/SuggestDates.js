@@ -10,13 +10,12 @@ import {
   Form,
   Message,
 } from 'semantic-ui-react';
-import uuidV4 from 'uuid-v4';
 
 /**
  * Local import
  */
 // Utils
-import SuggestDatesErrors from 'src/utils/dateSuggest_form';
+import SuggestDatesErrors from 'src/utils/suggestDates_form_errors';
 import getDateFormat from 'src/utils/date_format';
 // Components
 import UserFooter from 'src/components/UserFooter';
@@ -37,16 +36,16 @@ class SuggestDates extends React.Component {
 
     const {
       addDates,
-      debutDates,
-      endDates,
+      startDate,
+      endDate,
       showErrors,
     } = this.props;
 
     const dateErrors = SuggestDatesErrors(
-      debutDates,
-      endDates,
+      startDate,
+      endDate,
     );
-    if (debutDates && endDates !== '') {
+    if (startDate && endDate !== '') {
       addDates();
     }
     else {
@@ -57,16 +56,16 @@ class SuggestDates extends React.Component {
   handleClick = () => {
     const {
       addDates,
-      debutDates,
-      endDates,
+      startDate,
+      endDate,
       showErrors,
     } = this.props;
 
     const dateErrors = SuggestDatesErrors(
-      debutDates,
-      endDates,
+      startDate,
+      endDate,
     );
-    if (debutDates && endDates !== '') {
+    if (startDate && endDate !== '') {
       addDates();
     }
     else {
@@ -76,10 +75,10 @@ class SuggestDates extends React.Component {
 
   render() {
     const {
-      debutDates,
-      endDates,
+      startDate,
+      endDate,
       errors,
-      dateSuggest,
+      suggestedDates,
     } = this.props;
 
     return (
@@ -100,19 +99,19 @@ class SuggestDates extends React.Component {
               <Input
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
-                name="debutDates"
+                name="startDate"
                 className="input-date"
                 type="date"
-                value={debutDates}
+                value={startDate}
                 onChange={this.handleChange}
               />
               <Input
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
-                name="endDates"
+                name="endDate"
                 className="input-date"
                 type="date"
-                value={endDates}
+                value={endDate}
                 onChange={this.handleChange}
               />
               <Button
@@ -141,10 +140,11 @@ class SuggestDates extends React.Component {
           </Form>
         </div>
         <div id="dates-suggested">
-          {dateSuggest.map(date => (
-            <div className="date focus-in-contract-bck" key={uuidV4()}>
+          {suggestedDates.map((date, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div className="date focus-in-contract-bck" key={index}>
               <p>
-                {`Du ${getDateFormat(date.date_de_debut)} au ${getDateFormat(date.date_de_fin)}`}
+                {`Du ${getDateFormat(date.startDate)} au ${getDateFormat(date.endDate)}`}
               </p>
             </div>
           ))}
@@ -157,18 +157,18 @@ class SuggestDates extends React.Component {
 
 // PropTypes validation
 SuggestDates.propTypes = {
-  debutDates: PropTypes.string,
-  endDates: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
   changeInput: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
   showErrors: PropTypes.func.isRequired,
   addDates: PropTypes.func.isRequired,
-  dateSuggest: PropTypes.array.isRequired,
+  suggestedDates: PropTypes.array.isRequired,
 };
 
 SuggestDates.defaultProps = {
-  debutDates: '',
-  endDates: '',
+  startDate: '',
+  endDate: '',
 };
 
 /**

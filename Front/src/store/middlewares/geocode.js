@@ -7,7 +7,7 @@ import Geocode from 'react-geocode';
 /**
  * Local import
  */
-import { NEW_PROJECT, setProject } from 'src/store/reducers/createProject';
+import { NEW_PROJECT, setProject } from 'src/store/reducers/project';
 
 /**
  * Middleware
@@ -22,7 +22,7 @@ const geocodeMiddleware = store => next => (action) => {
     case NEW_PROJECT: {
       // Récupération de la destination
       const destination = {
-        name: state.createProject.destination,
+        name: state.project.destination,
       };
 
       // Get latidude & longitude from address.

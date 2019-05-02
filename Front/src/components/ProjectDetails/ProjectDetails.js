@@ -107,7 +107,7 @@ class ProjectDetails extends React.Component {
                 )}
                 {((userHasVoted === false && project.id !== 7 && project.projectDates.length !== 0)
                 || (userHasVoted === true && project.projectDates.length !== 0)) && (
-                  `Du ${getDateFormat(project.projectDates[0].starDate)} 
+                  `Du ${getDateFormat(project.projectDates[0].startDate)} 
                   au ${getDateFormat(project.projectDates[0].endDate)}`
                 )}
               </div>

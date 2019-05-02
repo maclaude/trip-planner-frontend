@@ -15,10 +15,10 @@ import {
 import signup from 'src/store/reducers/signup';
 import login from 'src/store/reducers/login';
 import ideas from 'src/store/reducers/ideas';
-import createProject from 'src/store/reducers/createProject';
+import project from 'src/store/reducers/project';
 import participants from 'src/store/reducers/participants';
 
-// Middleware
+// Middlewares
 import ajaxMiddleware from './middlewares/ajax';
 import gecodeMiddleware from './middlewares/geocode';
 
@@ -36,7 +36,7 @@ const rootReducer = combineReducers({
   signup,
   login,
   ideas,
-  createProject,
+  project,
   participants,
 });
 

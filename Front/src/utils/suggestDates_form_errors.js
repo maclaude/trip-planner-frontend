@@ -3,15 +3,15 @@
  */
 
 const SuggestDatesErrors = (
-  debutDates,
-  endDates,
+  startDate,
+  endDate,
 ) => {
   const dateErrors = [];
-  if (debutDates === '') {
+  if (startDate === '') {
     const error = 'Vous devez ajouter une date de debut à votre projet';
     dateErrors.push(error);
   }
-  if (endDates === '') {
+  if (endDate === '') {
     const error = 'Vous devez ajouter une date de fin à votre projet';
     dateErrors.push(error);
   }

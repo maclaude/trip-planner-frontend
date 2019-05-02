@@ -13,7 +13,7 @@ import ProjectDetails from 'src/components/ProjectDetails/ProjectDetails';
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  userHasVoted: state.createProject.userHasVoted,
+  userHasVoted: state.project.userHasVoted,
 });
 
 // === Actions ===

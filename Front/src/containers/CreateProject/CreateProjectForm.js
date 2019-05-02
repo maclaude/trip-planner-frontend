@@ -11,23 +11,23 @@ import NewProjectForm from 'src/components/CreateProject/NewProject';
 // Action Creators
 import {
   changeProjectInputs,
-  showNewprojectErrors,
+  showNewProjectErrors,
   newProject,
   addDates,
-} from 'src/store/reducers/createProject';
+} from 'src/store/reducers/project';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  title: state.createProject.title,
-  description: state.createProject.description,
-  debutDates: state.createProject.debutDates,
-  endDates: state.createProject.endDates,
-  dateSuggest: state.createProject.dateSuggest,
-  destination: state.createProject.destination,
-  errors: state.createProject.errors,
+  title: state.project.title,
+  description: state.project.description,
+  startDate: state.project.startDate,
+  endDate: state.project.endDate,
+  suggestedDates: state.project.suggestedDates,
+  destination: state.project.destination,
+  errors: state.project.errors,
 });
 
 // === Actions ===
@@ -36,7 +36,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeProjectInputs(name, value));
   },
   showErrors: (errors) => {
-    dispatch(showNewprojectErrors(errors));
+    dispatch(showNewProjectErrors(errors));
   },
   newProject: () => {
     dispatch(newProject());

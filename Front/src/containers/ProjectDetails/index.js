@@ -7,14 +7,14 @@ import { connect } from 'react-redux';
  * Local import
  */
 import ProjectDetails from 'src/components/ProjectDetails';
-import { getCurrentProject } from 'src/store/reducers/createProject';
+import { getCurrentProject } from 'src/store/reducers/project';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = (state, { match: { params } }) => ({
-  project: getCurrentProject(state.createProject.projectsAPI, params.slug),
+  project: getCurrentProject(state.project.projectsData, params.slug),
 });
 
 // === Actions ===

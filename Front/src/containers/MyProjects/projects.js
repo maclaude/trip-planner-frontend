@@ -8,16 +8,16 @@ import { connect } from 'react-redux';
  */
 import Projects from 'src/components/MyProjects/Projects';
 // Action Creators
-import { notified } from 'src/store/reducers/createProject';
+import { notified } from 'src/store/reducers/project';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  projects: state.createProject.projectsAPI,
-  isNotified: state.createProject.isNotified,
-  userHasVoted: state.createProject.userHasVoted,
+  projects: state.project.projectsData,
+  isNotified: state.project.isNotified,
+  userHasVoted: state.project.userHasVoted,
 });
 
 // === Actions ===

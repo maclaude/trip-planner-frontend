@@ -1,10 +1,10 @@
 /**
- * Import
+ * Local import
  */
 // Utils
 import { getSlug } from 'src/utils/url';
-// Local data
-// import projectsDataSample from 'src/data/projectsAPI';
+// Projects data
+import projectsDataSample from 'src/data/projectsData';
 
 /**
  * Initial State
@@ -12,18 +12,16 @@ import { getSlug } from 'src/utils/url';
 const initialState = {
   title: '',
   description: '',
-  debutDates: '',
-  endDates: '',
-  dateSuggest: [],
   destination: '',
-  user: '',
+  startDate: '',
+  endDate: '',
+  suggestedDates: [],
   errors: [],
   isLoading: false,
   loaded: false,
   isNotified: false,
   userHasVoted: false,
-  // projects: projectsDataSample,
-  projectsAPI: [],
+  projectsData: projectsDataSample,
 };
 
 /**
@@ -31,7 +29,6 @@ const initialState = {
  */
 export const GET_PROJECTS = 'GET_PROJECTS';
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
-// const STOCK_USER_PROJECTS = 'STOCK_USER_PROJECTS';
 const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
@@ -53,28 +50,21 @@ const reducer = (state = initialState, action = {}) => {
 
     case SET_PROJECT: {
       const newProject = {
-        id: 90,
         title: state.title,
         description: state.description,
         destination: state.destination,
-        owner: 'Marc-Antoine',
-        user: [],
-        projectDates: [],
         lat: action.lat,
         lng: action.lng,
       };
 
-      const newProjectsAPI = [...state.projectsAPI, newProject];
+      const newProjectsData = [...state.projectsData, newProject];
 
       return {
         ...state,
-        projectsAPI: newProjectsAPI,
+        projectsData: newProjectsData,
         title: '',
         description: '',
-        debutDates: '',
-        endDates: '',
         destination: '',
-        user: '',
       };
     }
 
@@ -85,19 +75,18 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     case ADD_DATES: {
-      // Creation de l'objet date suggéré
-      const date = {
-        date_de_debut: state.debutDates,
-        date_de_fin: state.endDates,
+      const newDates = {
+        startDate: state.startDate,
+        endDate: state.endDate,
       };
 
-      // Creation du nouveau tableau de date
-      const dateSuggest = [...state.dateSuggest, date];
+      const suggestedDates = [...state.suggestedDates, newDates];
+
       return {
         ...state,
-        debutDates: '',
-        endDates: '',
-        dateSuggest,
+        startDate: '',
+        endDate: '',
+        suggestedDates,
       };
     }
 
@@ -110,9 +99,9 @@ const reducer = (state = initialState, action = {}) => {
     case STOCK_PROJECTS:
       return {
         ...state,
-        projectsAPI: action.data,
-        loaded: true,
+        projectsData: action.data,
         isLoading: false,
+        loaded: true,
       };
 
     case NOTIFY:
@@ -126,14 +115,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userHasVoted: true,
       };
-
-      /*
-    case STOCK_USER_PROJECTS:
-      return {
-        ...state,
-        projectsAPI: action.data,
-      };
-      */
 
     default:
       return state;
@@ -159,7 +140,7 @@ export const setProject = (lat, lng) => ({
   lng,
 });
 
-export const showNewprojectErrors = errors => ({
+export const showNewProjectErrors = errors => ({
   type: SHOW_NEWPROJECT_ERRORS,
   errors,
 });
@@ -186,23 +167,12 @@ export const userHasVoted = () => ({
   type: USER_HAS_VOTED,
 });
 
-/*
-export const stockUserProjects = data => ({
-  type: STOCK_USER_PROJECTS,
-  data,
-});
-*/
-
 /**
  * Selector
  */
 export const getCurrentProject = (projects, slug) => (
   projects.find(project => getSlug(project.title) === slug)
 );
-
-// export const getFilteredDates = (projectId, availability) => ([
-//   ...availability.filter(date => date.project_id === projectId),
-// ]);
 
 /**
  * Export

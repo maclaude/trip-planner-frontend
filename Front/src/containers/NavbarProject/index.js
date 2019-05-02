@@ -16,7 +16,7 @@ import NavbarProject from 'src/components/NavbarProject';
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  projects: state.createProject.projectsAPI,
+  projects: state.project.projectsData,
   user: state.login.user,
 });
 

@@ -12,18 +12,18 @@ import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 import {
   changeProjectInputs,
   addDates,
-  showNewprojectErrors,
-} from 'src/store/reducers/createProject';
+  showNewProjectErrors,
+} from 'src/store/reducers/project';
 
 /**
  * Code
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  debutDates: state.createProject.debutDates,
-  endDates: state.createProject.endDates,
-  dateSuggest: state.createProject.dateSuggest,
-  errors: state.createProject.errors,
+  startDate: state.project.startDate,
+  endDate: state.project.endDate,
+  suggestedDates: state.project.suggestedDates,
+  errors: state.project.errors,
 });
 
 // === Actions ===
@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(changeProjectInputs(name, value));
   },
   showErrors: (errors) => {
-    dispatch(showNewprojectErrors(errors));
+    dispatch(showNewProjectErrors(errors));
   },
   addDates: () => {
     dispatch(addDates(ownProps.project.id));

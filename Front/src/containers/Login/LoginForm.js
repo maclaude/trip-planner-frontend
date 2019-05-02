@@ -15,7 +15,7 @@ import {
   connectUser,
 } from 'src/store/reducers/login';
 
-import { getProjects } from 'src/store/reducers/createProject';
+import { getProjects } from 'src/store/reducers/project';
 
 /**
  * Code
@@ -26,8 +26,8 @@ const mapStateToProps = state => ({
   password: state.login.password,
   errors: state.login.errors,
   loggedIn: state.login.loggedIn,
-  isLoading: state.createProject.isLoading,
-  loaded: state.createProject.loaded,
+  isLoading: state.project.isLoading,
+  loaded: state.project.loaded,
 });
 
 // === Actions ===

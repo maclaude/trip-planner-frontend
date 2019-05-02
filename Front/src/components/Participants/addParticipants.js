@@ -19,7 +19,7 @@ import {
 // Style
 import './add_participants.scss';
 // Assets
-import avatar from 'src/assets/avatar/default.png';
+import avatar from 'src/assets/avatar/default-user.png';
 // Utils
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components

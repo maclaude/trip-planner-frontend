@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import singleDateButton from 'src/components/Availability/singleDateButton';
 
 // Action Creators
-import { userHasVoted } from 'src/store/reducers/createProject';
+import { userHasVoted } from 'src/store/reducers/project';
 
 /**
  * Code
