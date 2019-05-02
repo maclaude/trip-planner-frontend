@@ -12,40 +12,41 @@ import { ADD_NEW_USER } from 'src/store/reducers/signup';
 import {
   CONNECT_USER,
   GET_USER_INFO,
-  setToken,
-  stockUserInfo,
+  // setToken,
+  // stockUserInfo,
 } from 'src/store/reducers/login';
 
 import {
   GET_SUGGESTIONS,
   SEND_SUGGESTION,
-  stockSuggestions,
+  // stockSuggestions,
 } from 'src/store/reducers/suggestions';
 
 import {
   SET_PROJECT,
   ADD_DATES,
   GET_PROJECTS,
-  stockProjects,
+  // stockProjects,
 } from 'src/store/reducers/project';
 
 /**
  * Middleware
  */
 const ajaxMiddleware = store => next => (action) => {
-  // Récuperation du state
+  // Get the state
   const state = store.getState();
 
-  // Configuration de l'instance axiosToken
+  // axiosToken configuration
   const axiosToken = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/',
+    baseURL: 'baseURL',
     headers: { Authorization: `Bearer ${state.login.token}` },
   });
 
 
   switch (action.type) {
     case ADD_NEW_USER: {
-      // Création de l'objet newUser
+      /*
+      // newUser object creation
       const newUser = {
         firstname: state.signup.firstname,
         lastname: state.signup.lastname,
@@ -55,15 +56,16 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - addUser');
 
-      axios.post('http://127.0.0.1:8000/api/users', newUser)
+      axios.post('URL', newUser)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case CONNECT_USER: {
-      // Objet user à envoyer au back
+      /*
       const user = {
         email: state.login.email,
         password: state.login.password,
@@ -71,44 +73,50 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - connectUser');
 
-      axios.post('http://127.0.0.1:8000/api/login_check', user)
+      axios.post('URL', user)
         .then((response) => {
           console.log(response.data);
           return store.dispatch(setToken(response.data.token));
         })
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case GET_USER_INFO: {
+      /*
       console.log('AJAX - getUserInfo');
 
-      axiosToken.get('user/info')
+      axiosToken.get('URL')
         .then((response) => {
           console.log(response.data);
           store.dispatch(stockUserInfo(response.data));
         })
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case GET_SUGGESTIONS: {
+      /*
       console.log('AJAX - getSuggestions');
 
-      axiosToken.get('suggestions')
+      axiosToken.get('URL')
         .then((response) => {
           console.log(response.data);
           store.dispatch(stockSuggestions(response.data['hydra:member']));
         })
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case SEND_SUGGESTION: {
-      // Objet newSuggestion à envoyer au back
+      /*
+      // newSuggestion object creation
       const newSuggestion = {
         name: state.suggestions.name,
         description: state.suggestions.description,
@@ -121,15 +129,17 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - addSuggestion');
 
-      axiosToken.post('suggestions', newSuggestion)
+      axiosToken.post('URL', newSuggestion)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case SET_PROJECT: {
-      // Objet newProject à envoyer au back
+      /*
+      // newProject object creation
       const newProject = {
         title: state.project.title,
         description: state.project.description,
@@ -141,15 +151,16 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - addNewProject');
 
-      axiosToken.post('projects', newProject)
+      axiosToken.post('URL', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case ADD_DATES: {
-      // Objet addDates à envoyer au back
+      /*
       const addDates = {
         startDate: state.project.startDate,
         endDate: state.project.endDate,
@@ -158,17 +169,19 @@ const ajaxMiddleware = store => next => (action) => {
 
       console.log('AJAX - addDatesSuggestion');
 
-      axiosToken.post('project_dates', addDates)
+      axiosToken.post('URL', addDates)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
 
     case GET_PROJECTS: {
+      /*
       console.log('AJAX - getProjects');
 
-      axiosToken.get('projects')
+      axiosToken.get('URL')
         .then((response) => {
           console.log(response.data);
           return (
@@ -176,6 +189,7 @@ const ajaxMiddleware = store => next => (action) => {
           );
         })
         .catch(() => console.error('Request has failed'));
+      */
 
       break;
     }
@@ -184,7 +198,7 @@ const ajaxMiddleware = store => next => (action) => {
       break;
   }
 
-  // Passer au voisin
+  // Action goes to the next step
   next(action);
 };
 

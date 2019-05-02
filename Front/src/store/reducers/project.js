@@ -94,6 +94,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLoading: true,
+        loaded: true, // Temporary without database
       };
 
     case STOCK_PROJECTS:

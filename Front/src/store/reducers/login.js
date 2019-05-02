@@ -2,7 +2,6 @@
  * Initial State
  */
 const initialState = {
-
   email: '',
   password: '',
   errors: [],
@@ -42,6 +41,7 @@ const reducer = (state = initialState, action = {}) => {
     case CONNECT_USER:
       return {
         ...state,
+        loggedIn: true, // Temporary without database
         email: '',
         password: '',
       };
