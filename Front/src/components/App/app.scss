@@ -10,6 +10,8 @@
   background-color: $background-main-color;
 }
 
+/* Titles */
+
 h1 {
   font-weight: 600;
 }
@@ -18,12 +20,7 @@ h2 {
   font-weight: 400;
 }
 
-.item {
-  color: #000;
-  &:hover {
-    color: #000;
-  }
-}
+/* Common style */
 
 .asterisk {
   color: red;

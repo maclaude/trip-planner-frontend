@@ -45,15 +45,12 @@ class LoginForm extends React.Component {
    */
   handleChange = (evt) => {
     const { name, value } = evt.target;
-
     const { changeInput } = this.props;
-
     changeInput(name, value);
   }
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-
     const {
       email,
       password,
@@ -61,7 +58,7 @@ class LoginForm extends React.Component {
       connectUser,
     } = this.props;
 
-    // Gestion des erreurs
+    // Handling errors
     const errors = getLoginFormErrors(email, password);
 
     if (email && password !== '') {

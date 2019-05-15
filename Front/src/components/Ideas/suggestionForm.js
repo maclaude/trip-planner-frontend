@@ -63,6 +63,9 @@ class SuggestionForm extends React.Component {
     }
   }
 
+  /**
+   * Render
+   */
   render() {
     const options = [
       { key: 'activity', text: 'Activité', value: 1 },

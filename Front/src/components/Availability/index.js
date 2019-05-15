@@ -11,15 +11,14 @@ import PropTypes from 'prop-types';
 import NavbarUser from 'src/containers/NavbarUser';
 import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
 
-
 /**
  * Code
  */
 const Availabilities = ({ project }) => (
-  <div>
+  <>
     <NavbarUser project={project} />
     <AvailabilityDates project={project} />
-  </div>
+  </>
 );
 
 // PropTypes validation

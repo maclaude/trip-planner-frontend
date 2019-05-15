@@ -12,6 +12,8 @@ import classNames from 'classnames';
  */
 // Style
 import './navbar.scss';
+// Assets
+import avatar from 'src/assets/avatar/maclaude.jpg';
 
 /**
  * Code
@@ -64,7 +66,7 @@ render() {
         <div id="line3" />
       </div>
       <div id="navbar-username">
-        <img id="navbar-username-avatar" src={user.avatar} alt="avatar" />
+        <img id="navbar-username-avatar" src={avatar} alt="avatar" />
         <div
           id="navbar-username-name"
           className={classNames(

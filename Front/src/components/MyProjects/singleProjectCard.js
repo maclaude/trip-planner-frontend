@@ -48,21 +48,9 @@ const SingleProjectCard = ({
       textAlign="center"
     >
       <Card.Meta>
-        {(projectDates.length === 0) && (
-          <p>Vous devez définir des dates</p>
-        )}
-        {userHasVoted === false && id === 7 && (
-          <p>Les dates ne sont pas encore remontées</p>
-        )}
-        {((userHasVoted === false && id !== 7 && projectDates.length !== 0)
-        || (userHasVoted === true && projectDates.length !== 0)) && (
-          `Dates: ${getDateFormat(projectDates[0].startDate)} au ${getDateFormat(projectDates[0].endDate)}`
-        )}
+        <p>Dates - Notifications </p>
       </Card.Meta>
     </Card.Content>
-    {userHasVoted === false && id === 7 && (
-      <div id="notification">1</div>
-    )}
   </Card>
 );
 

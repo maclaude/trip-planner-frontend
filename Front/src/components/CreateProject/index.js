@@ -15,10 +15,10 @@ import NewProject from 'src/containers/CreateProject/CreateProjectForm';
  * Code
  */
 const CreateProject = () => (
-  <div>
+  <>
     <Navbar />
     <NewProject />
-  </div>
+  </>
 );
 
 /**

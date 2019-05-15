@@ -14,7 +14,7 @@
   &-banner {
     margin: 0 2em 2em 2em;
   }
-
+  
   &-banner, &-content, &-button {
     padding-bottom: 2.3em;
   }
@@ -27,12 +27,15 @@
   &-content, &-checkbox {
     text-align: center;
   }
-  &-content > h2 {
+
+  &-content h2 {
     font-size: 2em;
   }
+
   &-checkbox {
     margin: 2em;
   }
+  
   &-buttons {
     display: flex;
     flex-direction: column;
@@ -45,72 +48,17 @@
   width: fit-content;
   border: none;
   border-radius: 15px;
-  background: $button-color;
-  color: #fff;
+  background: $button-bg-color;
+  color: $button-text-color;
   font-size: 1.5em;
-  box-shadow: 0 5px rgba(76, 81, 117, 0.432);
+  box-shadow: 0 5px $button-shadow-color;
 
-  &--active {
-    background: #16AB3A;
+  &--selected {
+    background: $button-active-color;
   }
 
   &:active {
-    box-shadow: 0 5px rgba(76, 81, 117, 0.432);
-    transform: translateY(5px);
+    box-shadow: 0 5px $button-shadow-color;
+    transform: translateY(1px);
   }
-}
-
-
-@media (min-width: 601px) and (max-width: 900px) {
-  #availability {
-    width: 80%;
-    float: right;
-    height: 100vh;
-    padding: 2.5em;
-
-    &-banner {
-      margin: 0 2em 2em 2em;
-    }
-
-    &-banner, &-content, &-button {
-      padding-bottom: 2.3em;
-    }
-    &-content, &-checkbox {
-      text-align: center;
-    }
-    &-content > h2 {
-      font-size: 1em;
-    }
-    &-checkbox {
-      margin-bottom: 2em;
-    }
-    &-buttons {
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-    }
-  } 
-}
-
-@media (max-width: 600px) {
-  #availability {
-    height: 100vh;
-    width: 100%;
-    padding: 2.5em 2em 2em 2em;
-    text-align: center;
-
-    &-banner {
-      margin: 0 2em 2em 2em;
-    }
-
-    &-banner, &-content, &-button {
-      padding-bottom: 2.3em;
-    }
-    &-content > h2 {
-      font-size: 1em;
-    }
-    &-checkbox {
-      margin-bottom: 2em;
-    }
-  } 
 }

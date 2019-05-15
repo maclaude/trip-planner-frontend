@@ -17,10 +17,10 @@ import './dates.scss';
  * Code
  */
 const Dates = ({ project }) => (
-  <div>
+  <>
     <NavbarUser project={project} />
     <SuggestDates project={project} />
-  </div>
+  </>
 );
 
 // PropTypes validation

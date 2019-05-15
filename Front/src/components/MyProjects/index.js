@@ -15,10 +15,10 @@ import Projects from 'src/containers/MyProjects/projects';
  * Code
  */
 const MyProjects = () => (
-  <div>
+  <>
     <NavbarProject />
     <Projects />
-  </div>
+  </>
 );
 
 /**

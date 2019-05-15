@@ -53,7 +53,7 @@ class SingleDateButton extends React.Component {
       <button
         className={classNames(
           'availability-button',
-          { 'availability-button--active': isApproved },
+          { 'availability-button--selected': isApproved },
         )}
         type="button"
         onClick={this.handleClick}

@@ -19,10 +19,9 @@ import MyProjectDetails from 'src/containers/ProjectDetails';
 import Ideas from 'src/containers/Ideas';
 import Participants from 'src/containers/Participants';
 import Dates from 'src/containers/SuggestDates';
-
 // Style
 import './app.scss';
-
+// Authentification
 import requiresAuth from 'src/components/RequiresAuth';
 
 /**
@@ -36,17 +35,15 @@ const App = () => (
       <Route exact path="/connexion" component={Login} />
       <Route exact path="/mes-projets" component={requiresAuth(MyProjects)} />
       <Route exact path="/nouveau-projet" component={requiresAuth(CreateProject)} />
-
       <Route exact path="/disponibilites/:slug" component={requiresAuth(Availabilities)} />
       <Route exact path="/idees/:slug" component={requiresAuth(Ideas)} />
       <Route exact path="/recapitulatif/:slug" component={requiresAuth(MyProjectDetails)} />
       <Route exact path="/dates/:slug" component={requiresAuth(Dates)} />
       <Route exact path="/participants/:slug" component={requiresAuth(Participants)} />
 
-      {/* Fallback - gestion de 404 */}
+      {/* Fallback - Page not found */}
       <Route component={NotFound} />
     </Switch>
-
   </div>
 );
 

@@ -99,17 +99,7 @@ class ProjectDetails extends React.Component {
             <div>
               <h2>Dates retenues</h2>
               <div id="projectDetails-header-right-dates">
-                {project.projectDates.length === 0 && (
-                  <p>Vous devez définir des dates</p>
-                )}
-                {userHasVoted === false && project.id === 7 && (
-                  <p>Les dates ne sont pas encore remontées</p>
-                )}
-                {((userHasVoted === false && project.id !== 7 && project.projectDates.length !== 0)
-                || (userHasVoted === true && project.projectDates.length !== 0)) && (
-                  `Du ${getDateFormat(project.projectDates[0].startDate)} 
-                  au ${getDateFormat(project.projectDates[0].endDate)}`
-                )}
+                <p>Dates - Notifications</p>
               </div>
             </div>
           </div>

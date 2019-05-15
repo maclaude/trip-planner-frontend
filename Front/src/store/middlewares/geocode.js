@@ -15,12 +15,12 @@ import { NEW_PROJECT, setProject } from 'src/store/reducers/project';
 const geocodeMiddleware = store => next => (action) => {
   // set Google Maps Geocoding API key
   Geocode.setApiKey('/* API Key */');
-  // Récuperation du state
+
   const state = store.getState();
 
   switch (action.type) {
     case NEW_PROJECT: {
-      // Récupération de la destination
+      // Set destination
       const destination = {
         name: state.project.destination,
       };

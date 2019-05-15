@@ -5,98 +5,32 @@
   float: right;
   min-height: 100vh;
   padding: 2.5em;
+  background: $background-main-color;
+  color: $font-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: $background-main-color;
-  color: $font-color;
+
+  &-banner {
+    margin: 0 2em 2em 2em;
+  }
 
   &-form {
     width: 70%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 1em auto;
-    font-size: 1.2em;
+    min-width:300px;
+    max-width: 600px;
+    margin: 0 auto 50px;
   }
-  &-title, &-description, &-date, &-destination, &-participants {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 2em;
-  }
-  &-banner {
-    padding-bottom: 5em;
-    margin: 0 2em 2em 2em;
-  }
+
   #date {
     padding-bottom: 2em;
   }
 }
+
 .input, #description-input {
-  width: 70%;
+  width: 100%;
 }
+
 .input-date {
   width: 35%;
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-  #newproject {
-    width: 80%;
-    float: right;
-    min-height: 100vh;
-    padding: 2.5em;
-      &-form {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      font-size: 1.5em;
-      margin: 0.5em auto;
-      }
-      &-title, &-description, &-dates, &-destination, &-participants {
-      padding-bottom: 2em;
-      }
-      &-banner {
-        text-align: center;
-        padding-bottom: 1.5em;
-        margin: 0 2em 2em 2em;
-      }
-      &-destination {
-        padding-top: 2em;
-      }
-  }
-  .input {
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  #newproject {
-    width: 100%;
-    min-height: 100vh;
-    padding: 2em;
-    text-align: center;
-    &-form {
-      display: flex;
-      flex-direction: column;
-      margin: 1em auto;
-      font-size: 1.2em;
-    }
-    &-title, &-description, &-dates, &-destination, &-participants {
-      padding-bottom: 2em;
-    }
-    &-date {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  .input {
-    width: 95%;
-  }
-  
-}
-
-.newproject-button {
-  width: 30%;
-  float: right;
-  margin: 2em auto !important;
 }

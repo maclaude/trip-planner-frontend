@@ -4,11 +4,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Form,
   Button,
   Icon,
-  Input,
-  TextArea,
-  Form,
+  FormField,
   Message,
 } from 'semantic-ui-react';
 
@@ -26,6 +25,9 @@ import NewProjectErrors from 'src/utils/newProject_form_errors';
  * Code
  */
 class NewProject extends React.Component {
+  /**
+   * Handlers
+   */
   handleChange = (evt) => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
@@ -58,6 +60,9 @@ class NewProject extends React.Component {
     }
   };
 
+  /**
+   * Render
+   */
   render() {
     const {
       title,
@@ -77,50 +82,47 @@ class NewProject extends React.Component {
             action=""
             onSubmit={this.handleSubmit}
           >
-            <div id="newproject-title">
-              <p>Titre du projet <span className="asterisk">*</span></p>
-              <div className="input">
-                <Input
+            <FormField>
+              <label htmlFor="title">
+                Nom du projet <span className="asterisk">*</span>
+                <input
                   name="title"
                   placeholder="Donnez un nom a votre projet"
                   value={title}
                   onChange={this.handleChange}
                 />
-              </div>
-            </div>
-            <div id="newproject-description">
-              <p>Description <span className="asterisk">*</span></p>
-              <div className="input">
-                <TextArea
+              </label>
+            </FormField>
+            <FormField>
+              <label htmlFor="description">
+                Description <span className="asterisk">*</span>
+                <textarea
                   name="description"
                   id="description-input"
-                  placeholder="Description du projet"
+                  placeholder="Description de votre projet"
                   rows="5"
                   cols="50"
                   value={description}
                   onChange={this.handleChange}
                 />
-              </div>
-            </div>
-            <div id="newproject-destination">
-              <p>Destination <span className="asterisk">*</span></p>
-              <div className="input">
-                <Input
+              </label>
+            </FormField>
+            <FormField>
+              <label htmlFor="destination">
+                Destination<span className="asterisk">*</span>
+                <input
                   name="destination"
-                  icon="world"
                   placeholder="Définissez une destination"
                   value={destination}
                   onChange={this.handleChange}
                 />
-              </div>
-            </div>
+              </label>
+            </FormField>
             {(errors.length > 0) && (
               <div id="signup-form-errors">
                 {errors.map(error => (
                   <Message negative key={error}>
-                    <p>
-                      {error}
-                    </p>
+                    <p>{error}</p>
                   </Message>
                 ))}
               </div>
@@ -129,6 +131,7 @@ class NewProject extends React.Component {
               animated
               color="green"
               type="submit"
+              floated="right"
               className="newproject-button"
             >
               <Button.Content visible>Créer le projet</Button.Content>
