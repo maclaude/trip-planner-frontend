@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavbarUser from 'src/containers/NavbarUser';
+import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
 import ProjectDetails from 'src/containers/ProjectDetails/projectDetails';
 import './project_details.scss';
 
@@ -18,7 +18,7 @@ import './project_details.scss';
  */
 const MyProjectDetails = ({ project }) => (
   <div>
-    <NavbarUser project={project} />
+    <NavigationSingleProject project={project} />
     <ProjectDetails project={project} />
   </div>
 );

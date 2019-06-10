@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavabarUser from 'src/containers/NavbarUser';
+import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
 import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
 import SuggestionIdeas from 'src/containers/Ideas/SuggestionIdeas';
 import UserFooter from 'src/components/UserFooter';
@@ -20,7 +20,7 @@ import './ideas.scss';
  */
 const Ideas = ({ project }) => (
   <div id="ideas">
-    <NavabarUser project={project} />
+    <NavigationSingleProject project={project} />
     <div id="suggestions">
       <SuggestionForm project={project} />
       <SuggestionIdeas project={project} />

@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import NavbarProject from 'src/containers/NavbarProject';
+import NavigationProjects from 'src/containers/Navigation/navigationProjects';
 import Projects from 'src/containers/MyProjects/projects';
 
 
@@ -16,7 +16,7 @@ import Projects from 'src/containers/MyProjects/projects';
  */
 const MyProjects = () => (
   <>
-    <NavbarProject />
+    <NavigationProjects />
     <Projects />
   </>
 );

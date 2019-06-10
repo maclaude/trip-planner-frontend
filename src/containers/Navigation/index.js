@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import NavbarUser from 'src/components/NavbarUser';
+import Navigation from 'src/components/Navigation';
 
 /**
  * Code
@@ -22,12 +22,12 @@ const mapDispatchToProps = {};
 /**
  * Connect
  */
-const NavbarUserContainer = connect(
+const NavigationContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavbarUser);
+)(Navigation);
 
 /**
  * Export
  */
-export default NavbarUserContainer;
+export default NavigationContainer;

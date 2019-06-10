@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavbarUser from 'src/containers/NavbarUser';
+import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
 import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
 
 /**
@@ -16,7 +16,7 @@ import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
  */
 const Availabilities = ({ project }) => (
   <>
-    <NavbarUser project={project} />
+    <NavigationSingleProject project={project} />
     <AvailabilityDates project={project} />
   </>
 );

@@ -1,0 +1,84 @@
+@import 'src/styles/vars';
+
+#navigation {
+  width: 20vw;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  color: $navigation-font-color;
+  background-color: $navigation-bg-color;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: 500;
+  box-shadow: 0 0 10px 2px $navigation-border-right-color;
+
+  &-main,
+  &-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+    padding: 1rem .5rem;
+    border-bottom: 2px solid $navigation-border-inside-color;
+
+    &-avatar {
+      display: block;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 1px solid $navigation-avatar-border-color;
+    }
+
+    &-username {
+      padding: 0 1em;
+    }
+  }
+
+  &-main {
+    &-project {
+      padding-left: 1.5em;
+      &-title {
+        padding: 1em 0 1em 0;
+        font-weight: 600;
+      }
+    }
+
+    &-projects {
+      padding-left: 1.5em;
+    }
+  }
+
+  &-footer {
+    border-top: 2px solid $navigation-border-inside-color;
+    padding: 1.5rem 0;
+  }
+}
+
+.navigation {
+  &-link {
+    color: $navigation-font-color;
+    padding: 1rem .5rem 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      color: $navigation-font-color-hover;
+      background-color: $navigation-bg-color-hover;
+    }
+
+    &-project {
+      &:hover {
+        border-left: 4px solid $navigation-link-project-border-left;
+        margin-left: -4px; 
+      }
+    }
+  }
+}

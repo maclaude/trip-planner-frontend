@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import Navbar from 'src/containers/Navbar';
+import Navigation from 'src/containers/Navigation';
 import NewProject from 'src/containers/CreateProject/CreateProjectForm';
 
 
@@ -16,7 +16,7 @@ import NewProject from 'src/containers/CreateProject/CreateProjectForm';
  */
 const CreateProject = () => (
   <>
-    <Navbar />
+    <Navigation />
     <NewProject />
   </>
 );

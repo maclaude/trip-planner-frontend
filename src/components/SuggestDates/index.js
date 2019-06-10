@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavbarUser from 'src/containers/NavbarUser';
+import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
 import SuggestDates from 'src/containers/SuggestDates/suggestDates';
 // Style
 import './dates.scss';
@@ -18,7 +18,7 @@ import './dates.scss';
  */
 const Dates = ({ project }) => (
   <>
-    <NavbarUser project={project} />
+    <NavigationSingleProject project={project} />
     <SuggestDates project={project} />
   </>
 );

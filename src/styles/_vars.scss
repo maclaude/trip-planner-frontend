@@ -1,7 +1,7 @@
 // Variables CSS
 
 // Header
-$header-bg-color: #E1E8EC;
+$header-bg-color: #E4E9ED;
 $nav-link-border-bottom-color: #566573;
 $nav-text-color: #000;
 
@@ -9,26 +9,31 @@ $nav-text-color: #000;
 $main-bg-color: #F7F9F9;
 
 // Main
-$background-main-color: #F8F9F9;
+$background-main-color: #FFF;
 
 // Authentification forms
 $form-box-shadow-color: #E5E7E9;
 
 // Footer
-$footer-bg-color: #E1E8EC;
+$footer-bg-color: #E4E9ED;
 $footer-text-color: #4C5175;
 
-// Navbar
-$navbar-bg-color: #1F618D;
-$navbar-font-color: #fff;
-$navbar-separator-color: #ABB2B9;
+// Navigation
+$navigation-border-right-color: #ABB2B9;
+$navigation-border-inside-color:#FFF;
+$navigation-bg-color: #E4E9ED;
+$navigation-font-color: #000;
+$navigation-font-color-hover: #34495E;
+$navigation-avatar-border-color: #FFF;
+$navigation-bg-color-hover: #FFF;
+$navigation-link-project-border-left: #34495E;
 
 // Fonts
 $font-color: #000;
 
 // Availability buttons
 $button-bg-color: #1F618D80;
-$button-text-color: #fff;
+$button-text-color: #FFF;
 $button-active-color: #16AB3A;
 $button-shadow-color: #4C5175;
 
