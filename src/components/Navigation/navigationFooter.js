@@ -13,6 +13,7 @@ const NavigationFooter = () => (
     <NavLink
       className="navigation-link"
       to="profil"
+      activeClassName="navigation-link--active"
     >
       <div className="navigation-link-title">
       Mon profil
@@ -21,7 +22,8 @@ const NavigationFooter = () => (
     </NavLink>
     <NavLink
       className="navigation-link"
-      to="/"
+      to="/signout"
+      activeClassName="navigation-link--active"
     >
       <div className="navigation-link-title">
         Déconnexion

@@ -23,6 +23,10 @@ class Navigation extends React.Component {
    */
   componentDidMount() {}
 
+  toogleActive = (match, location) => {
+    console.log(match, location);
+  }
+
   /**
    * Render
    */
@@ -35,6 +39,7 @@ class Navigation extends React.Component {
           <NavLink
             className="navigation-link"
             to="/nouveau-projet"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Nouveau projet
@@ -44,6 +49,7 @@ class Navigation extends React.Component {
           <NavLink
             className="navigation-link"
             to="/mes-projets"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Mes projets

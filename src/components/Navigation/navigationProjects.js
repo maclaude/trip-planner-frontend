@@ -39,6 +39,7 @@ class NavigationProjects extends React.Component {
           <NavLink
             className="navigation-link"
             to="/nouveau-projet"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Nouveau projet
@@ -48,6 +49,7 @@ class NavigationProjects extends React.Component {
           <NavLink
             to="/mes-projets"
             className="navigation-link"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Mes projets
@@ -60,9 +62,13 @@ class NavigationProjects extends React.Component {
                 className="navigation-link navigation-link-project"
                 to={getURL('recapitulatif', project.title)}
                 key={project.id}
+                activeClassName="navigation-link--active"
                 exact
               >
-                {project.title}
+                <div className="navigation-link-title">
+                  {project.title}
+                </div>
+                <Icon name="chevron right" />
               </NavLink>
             ))}
           </div>

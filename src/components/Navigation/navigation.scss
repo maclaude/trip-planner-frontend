@@ -69,15 +69,17 @@
     display: flex;
     justify-content: space-between;
 
-    &:hover {
+    &:hover, &--active {
       color: $navigation-font-color-hover;
       background-color: $navigation-bg-color-hover;
     }
 
     &-project {
-      &:hover {
+      &:hover, &--active {
         border-left: 4px solid $navigation-link-project-border-left;
-        margin-left: -4px; 
+        margin-left: -4px;
+        color: $navigation-font-color-hover;
+        background-color: $navigation-bg-color-hover; 
       }
     }
   }

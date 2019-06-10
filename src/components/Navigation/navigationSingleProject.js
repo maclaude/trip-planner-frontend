@@ -38,6 +38,7 @@ class NavigationSingleProject extends React.Component {
         <div id="navigation-main">
           <NavLink
             className="navigation-link"
+            activeClassName="navigation-link--active"
             to="/nouveau-projet"
           >
             <div className="navigation-link-title">
@@ -48,6 +49,7 @@ class NavigationSingleProject extends React.Component {
           <NavLink
             to="/mes-projets"
             className="navigation-link"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Mes projets
@@ -60,10 +62,20 @@ class NavigationSingleProject extends React.Component {
             </div>
             <div id="navigation-main-project-details">
               <NavLink
+                to={getURL('/recapitulatif', project.title)}
+                key={project.id}
+                exact
+                className="navigation-link navigation-link-project"
+                activeClassName="navigation-link-project--active"
+              >
+                Récapitulatif
+              </NavLink>
+              <NavLink
                 to={getURL('/disponibilites', project.title)}
                 key={project.id}
                 exact
                 className="navigation-link navigation-link-project"
+                activeClassName="navigation-link-project--active"
               >
                 Définir mes disponibilités
               </NavLink>
@@ -72,20 +84,14 @@ class NavigationSingleProject extends React.Component {
                 key={project.id}
                 exact
                 className="navigation-link navigation-link-project"
+                activeClassName="navigation-link-project--active"
               >
                 Idées du groupe
               </NavLink>
               <NavLink
-                to={getURL('/recapitulatif', project.title)}
-                key={project.id}
-                exact
-                className="navigation-link navigation-link-project"
-              >
-                Récapitulatif
-              </NavLink>
-              <NavLink
                 to="/chat"
                 className="navigation-link navigation-link-project"
+                activeClassName="navigation-link-project--active"
               >
                 Espace de discussion
               </NavLink>
@@ -96,6 +102,7 @@ class NavigationSingleProject extends React.Component {
             key={project.id}
             exact
             className="navigation-link"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Ajouter des dates
@@ -107,6 +114,7 @@ class NavigationSingleProject extends React.Component {
             key={project.id}
             exact
             className="navigation-link"
+            activeClassName="navigation-link--active"
           >
             <div className="navigation-link-title">
               Ajouter des participants

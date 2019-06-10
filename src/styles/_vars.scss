@@ -26,7 +26,7 @@ $navigation-font-color: #000;
 $navigation-font-color-hover: #34495E;
 $navigation-avatar-border-color: #FFF;
 $navigation-bg-color-hover: #FFF;
-$navigation-link-project-border-left: #34495E;
+$navigation-link-project-border-left: hsla(132, 100%, 50%, 0.5);
 
 // Fonts
 $font-color: #000;
@@ -34,7 +34,7 @@ $font-color: #000;
 // Availability buttons
 $button-bg-color: #1F618D80;
 $button-text-color: #FFF;
-$button-active-color: #16AB3A;
+$button-active-color: hsla(132, 100%, 50%, 0.5);
 $button-shadow-color: #4C5175;
 
 // Card
@@ -42,4 +42,6 @@ $card-title-color: #000;
 
 // ProjectDetails
 $project-dates-bg-color: #EBEDEF;
+
+$create-project-button-bg-color: hsla(132, 100%, 50%, 0.5);
 

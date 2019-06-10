@@ -4,16 +4,12 @@
   width: 80vw;
   float: right;
   min-height: 100vh;
-  padding: 2.5em;
+  padding: 2em 5em;
   background: $background-main-color;
   color: $font-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  &-banner {
-    margin: 0 2em 2em 2em;
-  }
 
   &-form {
     width: 70%;
