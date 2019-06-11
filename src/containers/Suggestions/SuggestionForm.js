@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import suggestionForm from 'src/components/Ideas/suggestionForm';
+import SuggestionForm from 'src/components/Suggestions/SuggestionForm';
 
 // Action Creators
 import {
@@ -48,12 +48,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 /**
  * Connect
  */
-const suggestionFormContainer = connect(
+const SuggestionFormContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(suggestionForm);
+)(SuggestionForm);
 
 /**
  * Export
  */
-export default suggestionFormContainer;
+export default SuggestionFormContainer;

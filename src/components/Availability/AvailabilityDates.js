@@ -15,7 +15,7 @@ import { getURL } from 'src/utils/url';
 import './availability.scss';
 // Components
 import UserFooter from 'src/components/UserFooter';
-import SingleDateButton from 'src/containers/Availability/singleDateButton';
+import SingleDateButton from 'src/containers/Availability/SingleDateButton';
 
 /**
  * Code

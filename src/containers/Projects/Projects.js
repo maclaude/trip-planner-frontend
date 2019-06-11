@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import Projects from 'src/components/MyProjects/Projects';
+import Projects from 'src/components/Projects/Projects';
 // Action Creators
 import { notified } from 'src/store/reducers/project';
 

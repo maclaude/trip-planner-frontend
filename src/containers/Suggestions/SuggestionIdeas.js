@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
  * Local import
  */
 // Component
-import suggestionIdeas from 'src/components/Ideas/suggestionIdeas';
+import SuggestionIdeas from 'src/components/Suggestions/SuggestionIdeas';
 // Selector
 import { getFilteredSuggestions } from 'src/store/reducers/suggestions';
 
@@ -32,7 +32,7 @@ const mapDispatchToProps = {};
 const SuggestionIdeasContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(suggestionIdeas);
+)(SuggestionIdeas);
 
 /**
  * Export

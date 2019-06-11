@@ -11,11 +11,11 @@ import toast from 'toasted-notes';
  * Local import
  */
 // Styles
-import './myprojects.scss';
+import './projects.scss';
 import 'toasted-notes/src/styles.css';
 // Components
 import UserFooter from 'src/components/UserFooter';
-import SingleProjectCard from './singleProjectCard';
+import SingleProjectCard from './SingleProjectCard';
 
 /**
  * Code
@@ -43,12 +43,12 @@ class Projects extends React.Component {
     const { projects, userHasVoted } = this.props;
 
     return (
-      <div id="myprojects">
-        <div id="myprojects-banner">
+      <div id="projects">
+        <div id="projects-banner">
           <h1>Mes projets</h1>
         </div>
         <Card.Group
-          id="myprojects-cards"
+          id="projects-cards"
         >
           {projects.map(project => (
             <SingleProjectCard
@@ -58,7 +58,7 @@ class Projects extends React.Component {
             />
           ))}
         </Card.Group>
-        <div id="myprojects-create">
+        <div id="projects-create">
           <NavLink
             to="/nouveau-projet"
             className="item"

@@ -18,18 +18,18 @@ import './notfound.scss';
  */
 
 
-const NotFound = () => (
-  <>
+const NotFoundView = () => (
+  <div id="notFoundView">
     <div id="container">
       <Header />
       <div id="notFound" />
       <Footer />
     </div>
-  </>
+  </div>
 
 );
 
 /**
  * Export
  */
-export default NotFound;
+export default NotFoundView;

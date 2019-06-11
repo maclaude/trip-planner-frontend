@@ -8,7 +8,7 @@ import { Card, Divider } from 'semantic-ui-react';
 /**
  * Local import
  */
-import SingleCard from 'src/containers/Ideas/SingleCard';
+import SingleCard from 'src/containers/Suggestions/SingleCard';
 
 /**
  * Code

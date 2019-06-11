@@ -8,27 +8,27 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
-import ProjectDetails from 'src/containers/ProjectDetails/projectDetails';
+import NavigationSingleProject from 'src/containers/Navigation/NavigationSingleProject';
+import ProjectDetails from 'src/containers/ProjectDetails/ProjectDetails';
 import './project_details.scss';
 
 
 /**
  * Code
  */
-const MyProjectDetails = ({ project }) => (
-  <div>
+const ProjectDetailsView = ({ project }) => (
+  <div id="projectDetailsView">
     <NavigationSingleProject project={project} />
     <ProjectDetails project={project} />
   </div>
 );
 
 // PropTypes validation
-MyProjectDetails.propTypes = {
+ProjectDetailsView.propTypes = {
   project: PropTypes.object.isRequired,
 };
 
 /**
  * Export
  */
-export default MyProjectDetails;
+export default ProjectDetailsView;

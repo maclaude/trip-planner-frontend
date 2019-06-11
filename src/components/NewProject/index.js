@@ -8,20 +8,19 @@ import React from 'react';
  */
 // Components
 import Navigation from 'src/containers/Navigation';
-import NewProject from 'src/containers/CreateProject/CreateProjectForm';
-
+import NewProject from 'src/containers/NewProject/NewProject';
 
 /**
  * Code
  */
-const CreateProject = () => (
-  <>
+const NewProjectView = () => (
+  <div id="newProjectView">
     <Navigation />
     <NewProject />
-  </>
+  </div>
 );
 
 /**
  * Export
  */
-export default CreateProject;
+export default NewProjectView;

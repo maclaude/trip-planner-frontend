@@ -17,15 +17,15 @@ import './signup.scss';
 /**
  * Code
  */
-const Signup = () => (
-  <>
+const SignupView = () => (
+  <div id="signupView">
     <Header />
     <SignupForm />
     <Footer />
-  </>
+  </div>
 );
 
 /**
  * Export
  */
-export default Signup;
+export default SignupView;

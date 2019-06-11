@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import NavigationSingleProject from 'src/components/Navigation/navigationSingleProject';
+import NavigationSingleProject from 'src/components/Navigation/NavigationSingleProject';
 
 /**
  * Code

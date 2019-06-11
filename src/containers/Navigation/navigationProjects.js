@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
  * Local import
  */
 // Components
-import NavigationProjects from 'src/components/Navigation/navigationProjects';
+import NavigationProjects from 'src/components/Navigation/NavigationProjects';
 // Action Creators
 
 /**

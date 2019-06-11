@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
  * Local import
  */
 // Component
-import AddParticipants from 'src/components/Participants/addParticipants';
+import AddParticipants from 'src/components/AddParticipants/AddParticipants';
 
 // Action Creators & Selectors
 import {

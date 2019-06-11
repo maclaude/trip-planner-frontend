@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import singleCard from 'src/components/Ideas/singleCard';
+import SingleCard from 'src/components/Suggestions/SingleCard';
 
 // Action Creators
 import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/suggestions';
@@ -30,12 +30,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 /**
  * Connect
  */
-const singleCardContainer = connect(
+const SingleCardContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(singleCard);
+)(SingleCard);
 
 /**
  * Export
  */
-export default singleCardContainer;
+export default SingleCardContainer;

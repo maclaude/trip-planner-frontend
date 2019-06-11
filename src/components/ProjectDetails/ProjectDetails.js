@@ -17,13 +17,13 @@ import toast from 'toasted-notes';
 // Style
 import './project_details.scss';
 // Components
-import Activity from 'src/containers/ProjectDetails/activity';
-import Accomodation from 'src/containers/ProjectDetails/accomodation';
-import Transport from 'src/containers/ProjectDetails/transport';
-import Restaurant from 'src/containers/ProjectDetails/restaurant';
-import Other from 'src/containers/ProjectDetails/other';
+import Activity from 'src/containers/ProjectDetails/Activity';
+import Accomodation from 'src/containers/ProjectDetails/Accomodation';
+import Transport from 'src/containers/ProjectDetails/Transport';
+import Restaurant from 'src/containers/ProjectDetails/Restaurant';
+import Other from 'src/containers/ProjectDetails/Other';
 import UserFooter from 'src/components/UserFooter';
-import GoogleMap from 'src/components/Map';
+import GoogleMap from 'src/components/GoogleMap';
 // Utils
 import getDateFormat from 'src/utils/date_format';
 

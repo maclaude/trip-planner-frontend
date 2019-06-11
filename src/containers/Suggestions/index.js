@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import Ideas from 'src/components/Ideas';
+import Suggestions from 'src/components/Suggestions';
 import { getCurrentProject } from 'src/store/reducers/project';
 
 /**
@@ -23,12 +23,12 @@ const mapDispatchToProps = {};
 /**
  * Connect
  */
-const IdeasContainer = connect(
+const SuggestionsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Ideas);
+)(Suggestions);
 
 /**
  * Export
  */
-export default IdeasContainer;
+export default SuggestionsContainer;

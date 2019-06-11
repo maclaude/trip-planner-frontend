@@ -16,16 +16,16 @@ import './login.scss';
 /**
  * Code
  */
-const Login = () => (
-  <>
+const LoginView = () => (
+  <div id="loginView">
     <Header />
     <LoginForm />
     <Footer />
-  </>
+  </div>
 );
 
 
 /**
  * Export
  */
-export default Login;
+export default LoginView;

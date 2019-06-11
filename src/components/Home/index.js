@@ -17,8 +17,8 @@ import './home.scss';
 /**
  * Code
  */
-const Home = () => (
-  <div id="home">
+const HomeView = () => (
+  <div id="homeView">
     <Header />
     <Main />
     <Footer />
@@ -28,4 +28,4 @@ const Home = () => (
 /**
  * Export
  */
-export default Home;
+export default HomeView;

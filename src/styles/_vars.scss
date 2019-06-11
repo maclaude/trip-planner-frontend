@@ -1,22 +1,25 @@
 // Variables CSS
 
+// Fonts
+$font-color: #000;
+
 // Header
 $header-bg-color: #E4E9ED;
 $nav-link-border-bottom-color: #566573;
 $nav-text-color: #000;
 
-// Homepage 
-$main-bg-color: #F7F9F9;
+// Footer
+$footer-bg-color: #E4E9ED;
+$footer-text-color: #4C5175;
 
 // Main
 $background-main-color: #FFF;
 
+// Homepage 
+$main-bg-color: #F7F9F9;
+
 // Authentification forms
 $form-box-shadow-color: #E5E7E9;
-
-// Footer
-$footer-bg-color: #E4E9ED;
-$footer-text-color: #4C5175;
 
 // Navigation
 $navigation-border-right-color: #ABB2B9;
@@ -28,13 +31,10 @@ $navigation-avatar-border-color: #FFF;
 $navigation-bg-color-hover: #FFF;
 $navigation-link-project-border-left: hsla(132, 100%, 50%, 0.5);
 
-// Fonts
-$font-color: #000;
-
 // Availability buttons
 $button-bg-color: #1F618D80;
 $button-text-color: #FFF;
-$button-active-color: hsla(132, 100%, 50%, 0.5);
+$button-active-color: #16AB3A;
 $button-shadow-color: #4C5175;
 
 // Card
@@ -42,6 +42,4 @@ $card-title-color: #000;
 
 // ProjectDetails
 $project-dates-bg-color: #EBEDEF;
-
 $create-project-button-bg-color: hsla(132, 100%, 50%, 0.5);
-

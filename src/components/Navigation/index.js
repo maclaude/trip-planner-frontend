@@ -11,8 +11,8 @@ import { NavLink } from 'react-router-dom';
 // Style
 import './navigation.scss';
 // Components
-import NavigationHeader from './navigationHeader';
-import NavigationFooter from './navigationFooter';
+import NavigationHeader from './NavigationHeader';
+import NavigationFooter from './NavigationFooter';
 
 /**
  * Code

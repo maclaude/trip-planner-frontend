@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import singleDateButton from 'src/components/Availability/singleDateButton';
+import singleDateButton from 'src/components/Availability/SingleDateButton';
 
 // Action Creators
 import { userHasVoted } from 'src/store/reducers/project';

@@ -14,8 +14,8 @@ import './navigation.scss';
 // Utils
 import { getURL } from 'src/utils/url';
 // Components
-import NavigationHeader from './navigationHeader';
-import NavigationFooter from './navigationFooter';
+import NavigationHeader from './NavigationHeader';
+import NavigationFooter from './NavigationFooter';
 
 /**
  * Code

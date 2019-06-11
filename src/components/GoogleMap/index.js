@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Style
-import './map.scss';
+import './google_map.scss';
 // Component
-import Marker from './marker';
+import Marker from './Marker';
 
 /**
  * Code

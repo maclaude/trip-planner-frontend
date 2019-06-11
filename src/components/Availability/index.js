@@ -8,25 +8,25 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
+import NavigationSingleProject from 'src/containers/Navigation/NavigationSingleProject';
 import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
 
 /**
  * Code
  */
-const Availabilities = ({ project }) => (
-  <>
+const AvailabilityView = ({ project }) => (
+  <div id="availabilityView">
     <NavigationSingleProject project={project} />
     <AvailabilityDates project={project} />
-  </>
+  </div>
 );
 
 // PropTypes validation
-Availabilities.propTypes = {
+AvailabilityView.propTypes = {
   project: PropTypes.object.isRequired,
 };
 
 /**
  * Export
  */
-export default Availabilities;
+export default AvailabilityView;

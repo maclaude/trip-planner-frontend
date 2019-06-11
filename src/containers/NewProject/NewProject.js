@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import NewProjectForm from 'src/components/CreateProject/NewProject';
+import NewProject from 'src/components/NewProject/NewProject';
 
 // Action Creators
 import {
@@ -49,12 +49,12 @@ const mapDispatchToProps = dispatch => ({
 /**
  * Connect
  */
-const NewProjectFormContainer = connect(
+const NewProjectContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NewProjectForm);
+)(NewProject);
 
 /**
  * Export
  */
-export default NewProjectFormContainer;
+export default NewProjectContainer;

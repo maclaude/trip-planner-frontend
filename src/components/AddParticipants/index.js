@@ -10,21 +10,21 @@ import PropTypes from 'prop-types';
 // Style
 import './add_participants.scss';
 // Components
-import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
-import AddParticipants from 'src/containers/Participants/addParticipants';
+import NavigationSingleProject from 'src/containers/Navigation/NavigationSingleProject';
+import AddParticipants from 'src/containers/AddParticipants/AddParticipants';
 
 /**
  * Code
  */
-const Participants = ({ project }) => (
-  <div id="participants">
+const AddParticipantsView = ({ project }) => (
+  <div id="addParticipantsView">
     <NavigationSingleProject project={project} />
     <AddParticipants project={project} />
   </div>
 );
 
 // PropTypes validation
-Participants.propTypes = {
+AddParticipantsView.propTypes = {
   project: PropTypes.object.isRequired,
 };
 
@@ -32,4 +32,4 @@ Participants.propTypes = {
 /**
  * Export
  */
-export default Participants;
+export default AddParticipantsView;

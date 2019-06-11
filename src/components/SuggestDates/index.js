@@ -8,23 +8,23 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
-import SuggestDates from 'src/containers/SuggestDates/suggestDates';
+import NavigationSingleProject from 'src/containers/Navigation/NavigationSingleProject';
+import SuggestDates from 'src/containers/SuggestDates/SuggestDates';
 // Style
-import './dates.scss';
+import './suggest_dates.scss';
 
 /**
  * Code
  */
-const Dates = ({ project }) => (
-  <>
+const SuggestDatesView = ({ project }) => (
+  <div id="suggestDatesView">
     <NavigationSingleProject project={project} />
     <SuggestDates project={project} />
-  </>
+  </div>
 );
 
 // PropTypes validation
-Dates.propTypes = {
+SuggestDatesView.propTypes = {
   project: PropTypes.object.isRequired,
 };
 
@@ -32,4 +32,4 @@ Dates.propTypes = {
 /**
  * Export
  */
-export default Dates;
+export default SuggestDatesView;

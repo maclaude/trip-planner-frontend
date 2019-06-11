@@ -8,18 +8,18 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Components
-import NavigationSingleProject from 'src/containers/Navigation/navigationSingleProject';
-import SuggestionForm from 'src/containers/Ideas/SuggestionForm';
-import SuggestionIdeas from 'src/containers/Ideas/SuggestionIdeas';
+import NavigationSingleProject from 'src/containers/Navigation/NavigationSingleProject';
+import SuggestionForm from 'src/containers/Suggestions/SuggestionForm';
+import SuggestionIdeas from 'src/containers/Suggestions/SuggestionIdeas';
 import UserFooter from 'src/components/UserFooter';
 // Styles
-import './ideas.scss';
+import './suggestions.scss';
 
 /**
  * Code
  */
-const Ideas = ({ project }) => (
-  <div id="ideas">
+const SuggestionsView = ({ project }) => (
+  <div id="suggestionsView">
     <NavigationSingleProject project={project} />
     <div id="suggestions">
       <SuggestionForm project={project} />
@@ -30,11 +30,11 @@ const Ideas = ({ project }) => (
 );
 
 // PropTypes validation
-Ideas.propTypes = {
+SuggestionsView.propTypes = {
   project: PropTypes.object.isRequired,
 };
 
 /**
  * Export
  */
-export default Ideas;
+export default SuggestionsView;
