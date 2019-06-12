@@ -7,14 +7,13 @@ import axios from 'axios';
 /**
  * Local import
  */
-import { ADD_NEW_USER } from 'src/store/reducers/signup';
-
 import {
+  ADD_NEW_USER,
   CONNECT_USER,
   GET_USER_INFO,
-  // setToken,
+  setToken,
   // stockUserInfo,
-} from 'src/store/reducers/login';
+} from 'src/store/reducers/authentication';
 
 import {
   GET_SUGGESTIONS,
@@ -33,53 +32,45 @@ import {
  * Middleware
  */
 const ajaxMiddleware = store => next => (action) => {
-  // Get the state
+  // Get state
   const state = store.getState();
 
-  // axiosToken configuration
+  // Request header Authorization Bearer token configuration
   const axiosToken = axios.create({
-    baseURL: 'baseURL',
-    headers: { Authorization: `Bearer ${state.login.token}` },
+    headers: { Authorization: `Bearer ${state.authentication.token}` },
   });
 
+  // Request body init
+  let body;
 
   switch (action.type) {
     case ADD_NEW_USER: {
-      /*
-      // newUser object creation
-      const newUser = {
-        firstname: state.signup.firstname,
-        lastname: state.signup.lastname,
-        email: state.signup.email,
-        password: state.signup.password,
+      body = {
+        firstname: state.authentication.firstname,
+        lastname: state.authentication.lastname,
+        email: state.authentication.email,
+        password: state.authentication.password,
       };
 
-      console.log('AJAX - addUser');
-
-      axios.post('URL', newUser)
+      axios.post('http://localhost:8000/auth/signup', body)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
-      */
 
       break;
     }
 
     case CONNECT_USER: {
-      /*
-      const user = {
-        email: state.login.email,
-        password: state.login.password,
+      body = {
+        email: state.authentication.email,
+        password: state.authentication.password,
       };
 
-      console.log('AJAX - connectUser');
-
-      axios.post('URL', user)
+      axios.post('http://localhost:8000/auth/login', body)
         .then((response) => {
-          console.log(response.data);
-          return store.dispatch(setToken(response.data.token));
+          console.log(response);
+          store.dispatch(setToken(response.data.token));
         })
         .catch(() => console.error('Request has failed'));
-      */
 
       break;
     }
@@ -124,7 +115,7 @@ const ajaxMiddleware = store => next => (action) => {
         price: parseInt(state.suggestions.price, 10),
         suggestionGender: `/api/suggestion_genders/${state.suggestions.type}`,
         project: `/api/projects/${action.projectId}`,
-        user: `/api/users/${state.login.user.id}`,
+        user: `/api/users/${state.authentication.user.id}`,
       };
 
       console.log('AJAX - addSuggestion');
@@ -144,7 +135,7 @@ const ajaxMiddleware = store => next => (action) => {
         title: state.project.title,
         description: state.project.description,
         destination: state.project.destination,
-        owner: `/api/users/${state.login.user.id}`,
+        owner: `/api/users/${state.authentication.user.id}`,
         lat: action.lat,
         lng: action.lng,
       };
