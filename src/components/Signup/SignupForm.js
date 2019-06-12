@@ -23,6 +23,14 @@ import getSignupFormErrors from 'src/utils/signup_form_errors';
  */
 class SignupForm extends React.Component {
   /**
+   * Lifecycle
+   */
+  componentWillMount() {
+    const { clearPasswordsInputs } = this.props;
+    clearPasswordsInputs();
+  }
+
+  /**
    * Handlers
    */
   handleChange = (evt) => {
@@ -225,6 +233,7 @@ SignupForm.propTypes = {
   termsChecked: PropTypes.bool.isRequired,
   errors: PropTypes.array.isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   toogleTermsCheckbox: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

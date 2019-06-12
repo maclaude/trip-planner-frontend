@@ -15,11 +15,6 @@ import {
 /**
  * Local import
  */
-// Store
-import store from 'src/store';
-import { getUserInfo } from 'src/store/reducers/login';
-import { getProjects } from 'src/store/reducers/project';
-import { getSuggestions } from 'src/store/reducers/suggestions';
 // Utils
 import getLoginFormErrors from 'src/utils/login_form_errors';
 
@@ -30,14 +25,9 @@ class LoginForm extends React.Component {
   /**
    * Lifecycle
    */
-  componentDidUpdate() {
-    const { loggedIn } = this.props;
-
-    if (loggedIn) {
-      store.dispatch(getProjects());
-      store.dispatch(getUserInfo());
-      store.dispatch(getSuggestions());
-    }
+  componentWillMount() {
+    const { clearPasswordsInputs } = this.props;
+    clearPasswordsInputs();
   }
 
   /**
@@ -180,9 +170,9 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   loaded: PropTypes.bool.isRequired,
+  clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   connectUser: PropTypes.func.isRequired,

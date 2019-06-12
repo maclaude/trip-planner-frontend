@@ -13,7 +13,7 @@ import Navigation from 'src/components/Navigation';
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  user: state.login.user,
+  user: state.authentication.user,
 });
 
 // === Actions ===

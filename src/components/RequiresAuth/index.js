@@ -37,7 +37,7 @@ export default function (ComposedComponent) {
   };
 
   const mapStateToProps = state => ({
-    isAuthenticated: state.login.loggedIn,
+    isAuthenticated: state.authentication.loggedIn,
   });
 
   const mapDispatchToProps = {};

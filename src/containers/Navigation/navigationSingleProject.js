@@ -13,7 +13,7 @@ import NavigationSingleProject from 'src/components/Navigation/NavigationSingleP
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  user: state.login.user,
+  user: state.authentication.user,
 });
 
 // === Actions ===
