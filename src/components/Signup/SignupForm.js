@@ -96,6 +96,7 @@ class SignupForm extends React.Component {
       termsChecked,
       errors,
       status,
+      responseError,
     } = this.props;
 
     if (status === 'created') {
@@ -191,6 +192,16 @@ class SignupForm extends React.Component {
             </div>
           )}
 
+          {(responseError !== '') && (
+            <div id="signup-form-errors">
+              <Message negative>
+                <p>
+                  {responseError}
+                </p>
+              </Message>
+            </div>
+          )}
+
           <div id="signup-form-buttons">
             <NavLink to="/connexion">
               <Button
@@ -232,6 +243,7 @@ SignupForm.propTypes = {
   termsChecked: PropTypes.bool.isRequired,
   errors: PropTypes.array.isRequired,
   status: PropTypes.string.isRequired,
+  responseError: PropTypes.string.isRequired,
   clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   toogleTermsCheckbox: PropTypes.func.isRequired,

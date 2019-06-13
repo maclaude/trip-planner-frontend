@@ -26,8 +26,8 @@ const mapStateToProps = state => ({
   email: state.authentication.email,
   password: state.authentication.password,
   errors: state.authentication.errors,
-  loggedIn: state.authentication.loggedIn,
   status: state.authentication.status,
+  responseError: state.authentication.responseError,
 });
 
 // === Actions ===

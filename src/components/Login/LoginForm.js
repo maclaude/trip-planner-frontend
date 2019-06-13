@@ -68,6 +68,7 @@ class LoginForm extends React.Component {
       password,
       errors,
       status,
+      responseError,
     } = this.props;
 
     if (status === 'loaded') {
@@ -128,6 +129,16 @@ class LoginForm extends React.Component {
               </div>
             )}
 
+            {(responseError !== '') && (
+              <div id="signup-form-errors">
+                <Message negative>
+                  <p>
+                    {responseError}
+                  </p>
+                </Message>
+              </div>
+            )}
+
             <div id="login-form-buttons">
               <NavLink to="/inscription">
                 <Button
@@ -170,6 +181,7 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
   status: PropTypes.string.isRequired,
+  responseError: PropTypes.string.isRequired,
   clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

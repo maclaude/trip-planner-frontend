@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
   termsChecked: state.authentication.termsChecked,
   errors: state.authentication.errors,
   status: state.authentication.status,
+  responseError: state.authentication.responseError,
 });
 
 // === Actions ===

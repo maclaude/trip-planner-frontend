@@ -9,6 +9,7 @@ const initialState = {
   confirmedPassword: '',
   termsChecked: false,
   errors: [],
+  responseError: '',
   token: '',
   status: '',
 };
@@ -16,6 +17,9 @@ const initialState = {
 /**
  * Types
  */
+const CLEAR_PASSWORDS_INPUTS = 'CLEAR_PASSWORDS_INPUTS';
+const STORE_RESPONSE_ERROR_MESSAGE = 'STORE_RESPONSE_ERROR_MESSAGE';
+
 // Signup
 const CHANGE_SIGNUP_INPUTS = 'CHANGE_SIGNUP_INPUTS';
 const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
@@ -23,24 +27,37 @@ const SHOW_SIGNUP_ERRORS = 'SHOW_SIGNUP_ERRORS';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const SET_STATUS_CREATED = 'SET_STATUS_CREATED';
 // Login
-const CLEAR_PASSWORDS_INPUTS = 'CLEAR_PASSWORDS_INPUTS';
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
 export const STORE_TOKEN = 'STORE_TOKEN';
-
 
 /**
  * Reducer
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CLEAR_PASSWORDS_INPUTS:
+      return {
+        ...state,
+        password: '',
+        confirmedPassword: '',
+      };
+
+    case STORE_RESPONSE_ERROR_MESSAGE:
+      return {
+        ...state,
+        status: '',
+        responseError: action.error,
+      };
+
     /**
      * Signup
      */
     case CHANGE_SIGNUP_INPUTS:
       return {
         ...state,
+        responseError: '',
         [action.name]: action.value,
       };
 
@@ -81,16 +98,10 @@ const reducer = (state = initialState, action = {}) => {
     /**
      * Login
      */
-    case CLEAR_PASSWORDS_INPUTS:
-      return {
-        ...state,
-        password: '',
-        confirmedPassword: '',
-      };
-
     case CHANGE_LOGIN_INPUTS:
       return {
         ...state,
+        responseError: '',
         [action.name]: action.value,
       };
 
@@ -125,6 +136,15 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
+export const clearPasswordsInputs = () => ({
+  type: CLEAR_PASSWORDS_INPUTS,
+});
+
+export const storeResponseErrorMessage = error => ({
+  type: STORE_RESPONSE_ERROR_MESSAGE,
+  error,
+});
+
 // Signup
 export const changeSignupInputs = (name, value) => ({
   type: CHANGE_SIGNUP_INPUTS,
@@ -150,10 +170,6 @@ export const showSignupErrors = errors => ({
 });
 
 // Login
-export const clearPasswordsInputs = () => ({
-  type: CLEAR_PASSWORDS_INPUTS,
-});
-
 export const changeLoginInputs = (name, value) => ({
   type: CHANGE_LOGIN_INPUTS,
   name,
