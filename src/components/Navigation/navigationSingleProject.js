@@ -30,11 +30,11 @@ class NavigationSingleProject extends React.Component {
    * Render
    */
   render() {
-    const { project } = this.props;
+    const { username, project } = this.props;
 
     return (
       <div id="navigation">
-        <NavigationHeader />
+        <NavigationHeader username={username} />
         <div id="navigation-main">
           <NavLink
             className="navigation-link"
@@ -130,12 +130,10 @@ class NavigationSingleProject extends React.Component {
 
 // PropTypes validation
 NavigationSingleProject.propTypes = {
+  username: PropTypes.string.isRequired,
   project: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-  }).isRequired,
-  user: PropTypes.shape({
-    firstname: PropTypes.string,
   }).isRequired,
 };
 

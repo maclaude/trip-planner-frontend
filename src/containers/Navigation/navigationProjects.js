@@ -17,7 +17,7 @@ import NavigationProjects from 'src/components/Navigation/NavigationProjects';
 // === State (données) ===
 const mapStateToProps = state => ({
   projects: state.project.projectsData,
-  user: state.authentication.user,
+  username: state.user.firstname,
 });
 
 // === Actions ===

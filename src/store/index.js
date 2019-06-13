@@ -13,9 +13,11 @@ import {
  */
 // Reducers
 import authentication from 'src/store/reducers/authentication';
-import suggestions from 'src/store/reducers/suggestions';
-import project from 'src/store/reducers/project';
 import participants from 'src/store/reducers/participants';
+import project from 'src/store/reducers/project';
+import suggestions from 'src/store/reducers/suggestions';
+import user from 'src/store/reducers/user';
+
 
 // Middlewares
 import ajaxMiddleware from './middlewares/ajax';
@@ -33,9 +35,10 @@ const enhancers = composeEnhancers(
 
 const rootReducer = combineReducers({
   authentication,
-  suggestions,
-  project,
   participants,
+  project,
+  suggestions,
+  user,
 });
 
 /**

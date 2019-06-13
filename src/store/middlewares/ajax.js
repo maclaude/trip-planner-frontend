@@ -10,10 +10,11 @@ import axios from 'axios';
 import {
   ADD_NEW_USER,
   CONNECT_USER,
-  GET_USER_INFO,
-  setToken,
-  // stockUserInfo,
+  setStatusCreated,
+  storeToken,
 } from 'src/store/reducers/authentication';
+
+import { storeUserData, storeUserProjects } from 'src/store/reducers/user';
 
 import {
   GET_SUGGESTIONS,
@@ -36,9 +37,9 @@ const ajaxMiddleware = store => next => (action) => {
   const state = store.getState();
 
   // Request header Authorization Bearer token configuration
-  const axiosToken = axios.create({
-    headers: { Authorization: `Bearer ${state.authentication.token}` },
-  });
+  // const axiosToken = axios.create({
+  //   headers: { Authorization: `Bearer ${state.authentication.token}` },
+  // });
 
   // Request body init
   let body;
@@ -53,7 +54,10 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axios.post('http://localhost:8000/auth/signup', body)
-        .then(response => console.log(response))
+        .then((response) => {
+          console.log(response);
+          store.dispatch(setStatusCreated());
+        })
         .catch(() => console.error('Request has failed'));
 
       break;
@@ -68,24 +72,11 @@ const ajaxMiddleware = store => next => (action) => {
       axios.post('http://localhost:8000/auth/login', body)
         .then((response) => {
           console.log(response);
-          store.dispatch(setToken(response.data.token));
+          store.dispatch(storeToken(response.data.token));
+          store.dispatch(storeUserData(response.data.user));
+          store.dispatch(storeUserProjects(response.data.user.projects));
         })
         .catch(() => console.error('Request has failed'));
-
-      break;
-    }
-
-    case GET_USER_INFO: {
-      /*
-      console.log('AJAX - getUserInfo');
-
-      axiosToken.get('URL')
-        .then((response) => {
-          console.log(response.data);
-          store.dispatch(stockUserInfo(response.data));
-        })
-        .catch(() => console.error('Request has failed'));
-      */
 
       break;
     }

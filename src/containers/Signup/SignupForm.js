@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
   confirmedPassword: state.authentication.confirmedPassword,
   termsChecked: state.authentication.termsChecked,
   errors: state.authentication.errors,
-  loggedIn: state.authentication.loggedIn,
+  status: state.authentication.status,
 });
 
 // === Actions ===

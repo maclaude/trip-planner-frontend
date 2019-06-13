@@ -30,11 +30,11 @@ class NavigationProjects extends React.Component {
    * Render
    */
   render() {
-    const { projects } = this.props;
+    const { username, projects } = this.props;
 
     return (
       <div id="navigation">
-        <NavigationHeader />
+        <NavigationHeader username={username} />
         <div id="navigation-main">
           <NavLink
             className="navigation-link"
@@ -81,6 +81,7 @@ class NavigationProjects extends React.Component {
 
 // PropTypes validation
 NavigationProjects.propTypes = {
+  username: PropTypes.string.isRequired,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

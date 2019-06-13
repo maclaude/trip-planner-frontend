@@ -1,5 +1,12 @@
 @import 'src/styles/vars';
 
+#loginView {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #login {
   &-form {
     width: 25%;

@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
@@ -23,17 +24,15 @@ class Navigation extends React.Component {
    */
   componentDidMount() {}
 
-  toogleActive = (match, location) => {
-    console.log(match, location);
-  }
-
   /**
    * Render
    */
   render() {
+    const { username } = this.props;
+
     return (
       <div id="navigation">
-        <NavigationHeader />
+        <NavigationHeader username={username} />
 
         <div id="navigation-main">
           <NavLink
@@ -63,6 +62,11 @@ class Navigation extends React.Component {
     );
   }
 }
+
+// PropTypes validation
+Navigation.propTypes = {
+  username: PropTypes.string.isRequired,
+};
 
 /**
  * Export

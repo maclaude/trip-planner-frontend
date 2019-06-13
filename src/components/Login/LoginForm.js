@@ -67,24 +67,23 @@ class LoginForm extends React.Component {
       email,
       password,
       errors,
-      isLoading,
-      loaded,
+      status,
     } = this.props;
 
-    if (loaded) {
+    if (status === 'loaded') {
       return <Redirect to="/mes-projets" />;
     }
 
     return (
       <div>
-        { isLoading && (
+        { (status === 'loading') && (
           <Loader
             active
             size="large"
             inline="centered"
           />
         )}
-        { !isLoading && (
+        { (status !== 'loading') && (
           <Form
             id="login-form"
             onSubmit={this.handleSubmit}
@@ -170,8 +169,7 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  loaded: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
   clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

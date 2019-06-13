@@ -35,7 +35,6 @@ class SignupForm extends React.Component {
    */
   handleChange = (evt) => {
     const { name, value } = evt.target;
-
     const { changeInput } = this.props;
 
     changeInput(name, value);
@@ -44,7 +43,7 @@ class SignupForm extends React.Component {
   handleClick = () => {
     const { toogleTermsCheckbox } = this.props;
 
-    // Gestion de termsCheked
+    // Handle terms checkbox
     toogleTermsCheckbox();
   }
 
@@ -96,10 +95,10 @@ class SignupForm extends React.Component {
       confirmedPassword,
       termsChecked,
       errors,
-      loggedIn,
+      status,
     } = this.props;
 
-    if (loggedIn) {
+    if (status === 'created') {
       return <Redirect to="/connexion" />;
     }
 
@@ -232,7 +231,7 @@ SignupForm.propTypes = {
   confirmedPassword: PropTypes.string.isRequired,
   termsChecked: PropTypes.bool.isRequired,
   errors: PropTypes.array.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
   clearPasswordsInputs: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   toogleTermsCheckbox: PropTypes.func.isRequired,

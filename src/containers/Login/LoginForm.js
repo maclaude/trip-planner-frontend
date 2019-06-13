@@ -27,8 +27,7 @@ const mapStateToProps = state => ({
   password: state.authentication.password,
   errors: state.authentication.errors,
   loggedIn: state.authentication.loggedIn,
-  isLoading: state.project.isLoading,
-  loaded: state.project.loaded,
+  status: state.authentication.status,
 });
 
 // === Actions ===

@@ -9,8 +9,8 @@ const initialState = {
   confirmedPassword: '',
   termsChecked: false,
   errors: [],
-  loggedIn: false,
   token: '',
+  status: '',
 };
 
 /**
@@ -21,14 +21,14 @@ const CHANGE_SIGNUP_INPUTS = 'CHANGE_SIGNUP_INPUTS';
 const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
 const SHOW_SIGNUP_ERRORS = 'SHOW_SIGNUP_ERRORS';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
+export const SET_STATUS_CREATED = 'SET_STATUS_CREATED';
 // Login
 const CLEAR_PASSWORDS_INPUTS = 'CLEAR_PASSWORDS_INPUTS';
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
-export const SET_TOKEN = 'SET_TOKEN';
-export const GET_USER_INFO = 'GET_USER_INFO';
-const STOCK_USER_INFO = 'STOCK_USER_INFO';
+export const STORE_TOKEN = 'STORE_TOKEN';
+
 
 /**
  * Reducer
@@ -68,7 +68,13 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         confirmedPassword: '',
         termsChecked: false,
-        loggedIn: true,
+      };
+    }
+
+    case SET_STATUS_CREATED: {
+      return {
+        ...state,
+        status: 'created',
       };
     }
 
@@ -100,19 +106,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
+        status: 'loading',
       };
 
-    case SET_TOKEN:
+    case STORE_TOKEN:
       return {
         ...state,
         token: action.token,
         loggedIn: true,
-      };
-
-    case STOCK_USER_INFO:
-      return {
-        ...state,
-        user: action.user,
+        status: 'loaded',
       };
 
     default:
@@ -123,7 +125,7 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-// Signuo
+// Signup
 export const changeSignupInputs = (name, value) => ({
   type: CHANGE_SIGNUP_INPUTS,
   name,
@@ -136,6 +138,10 @@ export const toogleTermsCheckbox = () => ({
 
 export const addNewUser = () => ({
   type: ADD_NEW_USER,
+});
+
+export const setStatusCreated = () => ({
+  type: SET_STATUS_CREATED,
 });
 
 export const showSignupErrors = errors => ({
@@ -163,20 +169,10 @@ export const connectUser = () => ({
   type: CONNECT_USER,
 });
 
-export const setToken = token => ({
-  type: SET_TOKEN,
+export const storeToken = token => ({
+  type: STORE_TOKEN,
   token,
 });
-
-export const getUserInfo = () => ({
-  type: GET_USER_INFO,
-});
-
-export const stockUserInfo = user => ({
-  type: STOCK_USER_INFO,
-  user,
-});
-
 
 /**
  * Export
