@@ -12,6 +12,7 @@ const initialState = {
   responseError: '',
   token: '',
   status: '',
+  loggedIn: '',
 };
 
 /**
@@ -26,6 +27,7 @@ const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
 const SHOW_SIGNUP_ERRORS = 'SHOW_SIGNUP_ERRORS';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const SET_STATUS_CREATED = 'SET_STATUS_CREATED';
+
 // Login
 const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';

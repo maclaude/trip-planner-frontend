@@ -18,17 +18,17 @@ import {
 import { storeUserData, storeUserProjects } from 'src/store/reducers/user';
 
 import {
+  CREATE_NEWPROJECT,
+  ADD_DATES,
+  GET_PROJECTS,
+  storeResponseMessage,
+} from 'src/store/reducers/project';
+
+import {
   GET_SUGGESTIONS,
   SEND_SUGGESTION,
   // stockSuggestions,
 } from 'src/store/reducers/suggestions';
-
-import {
-  SET_PROJECT,
-  ADD_DATES,
-  GET_PROJECTS,
-  // stockProjects,
-} from 'src/store/reducers/project';
 
 /**
  * Middleware
@@ -88,6 +88,26 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
+    case CREATE_NEWPROJECT: {
+      body = {
+        title: state.project.title,
+        description: state.project.description,
+        destination: state.project.destination,
+        lat: state.project.destinationLat,
+        lng: state.project.destinationLng,
+        userId: state.user.id,
+      };
+
+      axiosToken.post('http://localhost:8000/project/new-project', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeResponseMessage(response.data.message));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
     case GET_SUGGESTIONS: {
       /*
       console.log('AJAX - getSuggestions');
@@ -119,28 +139,6 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('AJAX - addSuggestion');
 
       axiosToken.post('URL', newSuggestion)
-        .then(response => console.log(response))
-        .catch(() => console.error('Request has failed'));
-      */
-
-      break;
-    }
-
-    case SET_PROJECT: {
-      /*
-      // newProject object creation
-      const newProject = {
-        title: state.project.title,
-        description: state.project.description,
-        destination: state.project.destination,
-        owner: `/api/users/${state.authentication.user.id}`,
-        lat: action.lat,
-        lng: action.lng,
-      };
-
-      console.log('AJAX - addNewProject');
-
-      axiosToken.post('URL', newProject)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
       */

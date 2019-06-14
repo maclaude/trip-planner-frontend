@@ -42,7 +42,7 @@ class NewProject extends React.Component {
       description,
       destination,
       showErrors,
-      newProject,
+      getDestinationCoordinates,
     } = this.props;
 
     const errors = NewProjectErrors(
@@ -53,7 +53,7 @@ class NewProject extends React.Component {
     if (
       (title && description && destination !== '')
     ) {
-      newProject();
+      getDestinationCoordinates();
     }
     else {
       showErrors(errors);
@@ -69,6 +69,7 @@ class NewProject extends React.Component {
       description,
       destination,
       errors,
+      responseMessage,
     } = this.props;
 
     return (
@@ -77,69 +78,79 @@ class NewProject extends React.Component {
           <h1>Créer un projet</h1>
         </div>
         <div id="newproject-container">
-          <Form
-            id="newproject-form"
-            action=""
-            onSubmit={this.handleSubmit}
-          >
-            <FormField>
-              <label htmlFor="title">
-                Nom du projet <span className="asterisk">*</span>
-                <input
-                  name="title"
-                  placeholder="Donnez un nom a votre projet"
-                  value={title}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </FormField>
-            <FormField>
-              <label htmlFor="description">
-                Description <span className="asterisk">*</span>
-                <textarea
-                  name="description"
-                  id="description-input"
-                  placeholder="Description de votre projet"
-                  rows="5"
-                  cols="50"
-                  value={description}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </FormField>
-            <FormField>
-              <label htmlFor="destination">
-                Destination<span className="asterisk">*</span>
-                <input
-                  name="destination"
-                  placeholder="Définissez une destination"
-                  value={destination}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </FormField>
-            {(errors.length > 0) && (
-              <div id="signup-form-errors">
-                {errors.map(error => (
-                  <Message negative key={error}>
-                    <p>{error}</p>
-                  </Message>
-                ))}
-              </div>
-            )}
-            <Button
-              animated
-              color="green"
-              type="submit"
-              floated="right"
-              className="newproject-button"
+          <div id="newproject-form">
+            <Form
+              onSubmit={this.handleSubmit}
             >
-              <Button.Content visible>Créer le projet</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          </Form>
+              <FormField>
+                <label htmlFor="title">
+                  Nom du projet <span className="asterisk">*</span>
+                  <input
+                    name="title"
+                    placeholder="Donnez un nom a votre projet"
+                    value={title}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </FormField>
+              <FormField>
+                <label htmlFor="description">
+                  Description <span className="asterisk">*</span>
+                  <textarea
+                    name="description"
+                    id="description-input"
+                    placeholder="Description de votre projet"
+                    rows="5"
+                    cols="50"
+                    value={description}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </FormField>
+              <FormField>
+                <label htmlFor="destination">
+                  Destination<span className="asterisk">*</span>
+                  <input
+                    name="destination"
+                    placeholder="Définissez une destination"
+                    value={destination}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </FormField>
+              {(errors.length > 0) && (
+                <div>
+                  {errors.map(error => (
+                    <Message negative key={error}>
+                      <p>{error}</p>
+                    </Message>
+                  ))}
+                </div>
+              )}
+              <Button
+                animated
+                color="green"
+                type="submit"
+                floated="right"
+                className="newproject-button"
+              >
+                <Button.Content visible>Créer le projet</Button.Content>
+                <Button.Content hidden>
+                  <Icon name="arrow right" />
+                </Button.Content>
+              </Button>
+            </Form>
+          </div>
+          {(responseMessage !== '') && (
+            <div id="newproject-message">
+              <Message icon color="green" compact>
+                <Icon name="check" />
+                <Message.Content>
+                  <p>{responseMessage}</p>
+                </Message.Content>
+              </Message>
+            </div>
+          )}
         </div>
         <UserFooter />
       </div>
@@ -152,9 +163,10 @@ NewProject.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
-  changeInput: PropTypes.func.isRequired,
-  newProject: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
+  responseMessage: PropTypes.string.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  getDestinationCoordinates: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
 };
 

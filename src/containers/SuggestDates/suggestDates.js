@@ -10,7 +10,7 @@ import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 
 // Action creators
 import {
-  changeProjectInputs,
+  changeNewProjectInputs,
   addDates,
   showNewProjectErrors,
 } from 'src/store/reducers/project';
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
 // === Actions ===
 const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
-    dispatch(changeProjectInputs(name, value));
+    dispatch(changeNewProjectInputs(name, value));
   },
   showErrors: (errors) => {
     dispatch(showNewProjectErrors(errors));

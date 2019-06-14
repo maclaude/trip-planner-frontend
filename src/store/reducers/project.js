@@ -13,10 +13,13 @@ const initialState = {
   title: '',
   description: '',
   destination: '',
+  destinationLat: '',
+  destinationLng: '',
   startDate: '',
   endDate: '',
   suggestedDates: [],
   errors: [],
+  responseMessage: '',
   isLoading: false,
   loaded: false,
   isNotified: false,
@@ -27,13 +30,16 @@ const initialState = {
 /**
  * Types
  */
+const CHANGE_NEWPROJECT_INPUTS = 'CHANGE_NEWPROJECT_INPUTS';
+const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
+export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
+export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
+export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
+const STORE_RESPONSE_MESSAGE = 'STORE_RESPONSE_MESSAGE';
+
 export const GET_PROJECTS = 'GET_PROJECTS';
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
-const CHANGE_PROJECT_INPUTS = 'CHANGE_PROJECT_INPUTS';
-const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const ADD_DATES = 'ADD_DATES';
-export const NEW_PROJECT = 'NEW_PROJECT';
-export const SET_PROJECT = 'SET_PROJECT';
 const NOTIFY = 'NOTIFY';
 const USER_HAS_VOTED = 'USER_HAS_VOTED';
 
@@ -42,37 +48,41 @@ const USER_HAS_VOTED = 'USER_HAS_VOTED';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_PROJECT_INPUTS:
+    case CHANGE_NEWPROJECT_INPUTS:
       return {
         ...state,
         [action.name]: action.value,
       };
-
-    case SET_PROJECT: {
-      const newProject = {
-        title: state.title,
-        description: state.description,
-        destination: state.destination,
-        lat: action.lat,
-        lng: action.lng,
-      };
-
-      const newProjectsData = [...state.projectsData, newProject];
-
-      return {
-        ...state,
-        projectsData: newProjectsData,
-        title: '',
-        description: '',
-        destination: '',
-      };
-    }
 
     case SHOW_NEWPROJECT_ERRORS:
       return {
         ...state,
         errors: action.errors,
       };
+
+    case STORE_DESTINATION_COORDINATES:
+      return {
+        ...state,
+        destinationLat: action.lat,
+        destinationLng: action.lng,
+      };
+
+    case CREATE_NEWPROJECT:
+      return {
+        ...state,
+        title: '',
+        description: '',
+        destination: '',
+        destinationLat: '',
+        destinationLng: '',
+      };
+
+    case STORE_RESPONSE_MESSAGE:
+      return {
+        ...state,
+        responseMessage: action.message,
+      };
+
 
     case ADD_DATES: {
       const newDates = {
@@ -125,25 +135,34 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const changeProjectInputs = (name, value) => ({
-  type: CHANGE_PROJECT_INPUTS,
+export const changeNewProjectInputs = (name, value) => ({
+  type: CHANGE_NEWPROJECT_INPUTS,
   name,
   value,
-});
-
-export const newProject = () => ({
-  type: NEW_PROJECT,
-});
-
-export const setProject = (lat, lng) => ({
-  type: SET_PROJECT,
-  lat,
-  lng,
 });
 
 export const showNewProjectErrors = errors => ({
   type: SHOW_NEWPROJECT_ERRORS,
   errors,
+});
+
+export const getDestinationCoordinates = () => ({
+  type: GET_DESTINATION_COORDINATES,
+});
+
+export const storeDestinationCoordinates = (lat, lng) => ({
+  type: STORE_DESTINATION_COORDINATES,
+  lat,
+  lng,
+});
+
+export const createNewProject = () => ({
+  type: CREATE_NEWPROJECT,
+});
+
+export const storeResponseMessage = message => ({
+  type: STORE_RESPONSE_MESSAGE,
+  message,
 });
 
 export const addDates = projectId => ({
