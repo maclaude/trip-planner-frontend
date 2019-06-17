@@ -6,6 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 // Config pour le devServer
 const host = 'localhost';
@@ -15,7 +16,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 // Config de Webpack
 module.exports = {
-  // Passe le build par dèfaut en déeveloppement
+  // Passe le build par dèfaut en développement
   mode: 'development',
   // Expose le dossier src/ pour les imports
   resolve: {
@@ -143,5 +144,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new Dotenv()
   ],
 };

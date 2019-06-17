@@ -19,7 +19,7 @@ import Marker from './Marker';
 const GoogleMap = ({ lat, lng }) => (
   <div id="map">
     <GoogleMapReact
-      bootstrapURLKeys={{ key: '/* API key */' }}
+      bootstrapURLKeys={{ key: process.env.GOOGLE_API }}
       defaultCenter={{ lat, lng }}
       defaultZoom={11}
     >

@@ -18,7 +18,7 @@ import {
  */
 const geocodeMiddleware = store => next => (action) => {
   // set Google Maps Geocoding API key
-  Geocode.setApiKey('/* API Key */');
+  Geocode.setApiKey(process.env.GOOGLE_API);
 
   const state = store.getState();
 
