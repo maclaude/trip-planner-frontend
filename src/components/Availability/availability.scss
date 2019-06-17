@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 #availability {
-  width: 80vw;
+  width: calc(100vw - 300px);
   min-height: 100vh;
   float: right;
   padding: 2em 5em;

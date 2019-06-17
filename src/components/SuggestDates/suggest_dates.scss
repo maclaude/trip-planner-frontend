@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 #dates {
-  width: 80vw;
+  width: calc(100vw - 300px);
   float: right;
   min-height: 100vh;
   padding: 2em 5em;

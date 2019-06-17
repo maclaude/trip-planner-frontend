@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 #navigation {
-  width: 20vw;
+  min-width: 300px;
   height: 100vh;
   overflow-y: auto;
   position: fixed;
