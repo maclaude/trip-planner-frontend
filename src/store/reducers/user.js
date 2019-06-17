@@ -15,6 +15,7 @@ const initialState = {
  */
 const STORE_USER_DATA = 'STORE_USER_INFO';
 const STORE_USER_PROJECTS = 'STORE_USER_PROJECTS';
+export const GET_USER_PROJECTS = 'GET_USER_PROJECTS';
 
 /**
  * Reducer
@@ -53,6 +54,10 @@ export const storeUserData = user => ({
 export const storeUserProjects = projects => ({
   type: STORE_USER_PROJECTS,
   projects,
+});
+
+export const getUserProjects = () => ({
+  type: GET_USER_PROJECTS,
 });
 
 /**

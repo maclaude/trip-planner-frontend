@@ -16,8 +16,6 @@ import {
   connectUser,
 } from 'src/store/reducers/authentication';
 
-import { getProjects } from 'src/store/reducers/project';
-
 /**
  * Code
  */
@@ -43,9 +41,6 @@ const mapDispatchToProps = dispatch => ({
   },
   connectUser: () => {
     dispatch(connectUser());
-  },
-  getProjects: () => {
-    dispatch(getProjects());
   },
 });
 

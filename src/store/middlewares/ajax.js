@@ -15,12 +15,16 @@ import {
   storeToken,
 } from 'src/store/reducers/authentication';
 
-import { storeUserData, storeUserProjects } from 'src/store/reducers/user';
+import {
+  GET_USER_PROJECTS,
+  storeUserData,
+  getUserProjects,
+  storeUserProjects,
+} from 'src/store/reducers/user';
 
 import {
   CREATE_NEWPROJECT,
   ADD_DATES,
-  GET_PROJECTS,
   storeResponseMessage,
 } from 'src/store/reducers/project';
 
@@ -102,6 +106,18 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(storeResponseMessage(response.data.message));
+          store.dispatch(getUserProjects());
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case GET_USER_PROJECTS: {
+      axiosToken.get('http://localhost:8000/user/projects')
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeUserProjects(response.data.userProjects));
         })
         .catch(error => console.log(error));
 
@@ -158,23 +174,6 @@ const ajaxMiddleware = store => next => (action) => {
 
       axiosToken.post('URL', addDates)
         .then(response => console.log(response))
-        .catch(() => console.error('Request has failed'));
-      */
-
-      break;
-    }
-
-    case GET_PROJECTS: {
-      /*
-      console.log('AJAX - getProjects');
-
-      axiosToken.get('URL')
-        .then((response) => {
-          console.log(response.data);
-          return (
-            store.dispatch(stockProjects(response.data['hydra:member']))
-          );
-        })
         .catch(() => console.error('Request has failed'));
       */
 

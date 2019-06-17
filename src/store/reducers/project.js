@@ -37,7 +37,6 @@ export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_RESPONSE_MESSAGE = 'STORE_RESPONSE_MESSAGE';
 
-export const GET_PROJECTS = 'GET_PROJECTS';
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
 export const ADD_DATES = 'ADD_DATES';
 const NOTIFY = 'NOTIFY';
@@ -100,13 +99,6 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
-    case GET_PROJECTS:
-      return {
-        ...state,
-        isLoading: true,
-        loaded: true, // Temporary without database
-      };
-
     case STOCK_PROJECTS:
       return {
         ...state,
@@ -168,10 +160,6 @@ export const storeResponseMessage = message => ({
 export const addDates = projectId => ({
   type: ADD_DATES,
   projectId,
-});
-
-export const getProjects = () => ({
-  type: GET_PROJECTS,
 });
 
 export const stockProjects = data => ({
