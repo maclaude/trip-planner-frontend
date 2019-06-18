@@ -10,6 +10,7 @@ import {
   FormField,
   Message,
 } from 'semantic-ui-react';
+import toast from 'toasted-notes';
 
 /**
  * Local import
@@ -25,6 +26,25 @@ import NewProjectErrors from 'src/utils/newProject_form_errors';
  * Code
  */
 class NewProject extends React.Component {
+  /**
+   * Lifecycles
+   */
+  componentDidUpdate() {
+    const { responseMessage } = this.props;
+
+    if (responseMessage !== '') {
+      toast.notify(
+        <p id="toast-alert">
+          <Icon name="check" color="green" size="large" /> Votre projet à bien été crée !
+        </p>,
+        {
+          position: 'top-right',
+          duration: 3000,
+        },
+      );
+    }
+  }
+
   /**
    * Handlers
    */
@@ -69,7 +89,6 @@ class NewProject extends React.Component {
       description,
       destination,
       errors,
-      responseMessage,
     } = this.props;
 
     return (
@@ -141,16 +160,6 @@ class NewProject extends React.Component {
               </Button>
             </Form>
           </div>
-          {(responseMessage !== '') && (
-            <div id="newproject-message">
-              <Message icon color="green" compact>
-                <Icon name="check" />
-                <Message.Content>
-                  <p>{responseMessage}</p>
-                </Message.Content>
-              </Message>
-            </div>
-          )}
         </div>
         <UserFooter />
       </div>

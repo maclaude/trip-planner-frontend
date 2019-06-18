@@ -31,7 +31,7 @@ class Projects extends React.Component {
         </p>,
         {
           position: 'top-right',
-          duration: null,
+          duration: 4000,
         },
       );
 

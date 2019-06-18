@@ -51,6 +51,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+        responseMessage: '',
       };
 
     case SHOW_NEWPROJECT_ERRORS:
