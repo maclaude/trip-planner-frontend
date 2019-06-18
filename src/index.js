@@ -6,6 +6,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import 'semantic-ui-css/semantic.min.css';
 
 /**
@@ -13,8 +14,8 @@ import 'semantic-ui-css/semantic.min.css';
  */
 // Component
 import App from 'src/components/App';
-// Store
-import store from 'src/store';
+// Store - Persistor
+import { store, persistor } from 'src/store';
 
 /**
  * Render
@@ -22,9 +23,11 @@ import store from 'src/store';
 // 1. Le composant racine à rendre (le tronc de l'arbre)
 const rootComponent = (
   <Provider store={store}>
-    <Router>
-      <Route component={App} />
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <Router>
+        <Route component={App} />
+      </Router>
+    </PersistGate>
   </Provider>
 );
 // 2. La cible dans le DOM

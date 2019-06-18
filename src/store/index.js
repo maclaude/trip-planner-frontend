@@ -7,6 +7,8 @@ import {
   compose,
   combineReducers,
 } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 /**
  * Local import
@@ -18,11 +20,13 @@ import project from 'src/store/reducers/project';
 import suggestions from 'src/store/reducers/suggestions';
 import user from 'src/store/reducers/user';
 
-
 // Middlewares
 import ajaxMiddleware from './middlewares/ajax';
 import gecodeMiddleware from './middlewares/geocode';
 
+/**
+ * Configuration
+ */
 // Compose : les extensions/outils + les middlewares custom
 // On utilise la fonction `compose` des redux devtools si elle existe sinon celle de redux
 // eslint-disable-next-line no-underscore-dangle
@@ -41,16 +45,15 @@ const rootReducer = combineReducers({
   user,
 });
 
-/**
- * Store
- */
-// Store, configuré avec le reducer et les "enhancers"
-const store = createStore(
-  rootReducer,
-  enhancers,
-);
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 /**
  * Export
  */
-export default store;
+export const store = createStore(persistedReducer, enhancers);
+export const persistor = persistStore(store);
