@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
+import { FaPaperPlane } from 'react-icons/fa';
 import toast from 'toasted-notes';
 
 /**
@@ -40,32 +41,37 @@ class Projects extends React.Component {
   }
 
   render() {
-    const { projects, userHasVoted } = this.props;
+    const { projects } = this.props;
 
     return (
       <div id="projects">
         <div id="projects-banner">
           <h1>Mes projets</h1>
         </div>
+        {(projects.length === 0) && (
+          <h3>Vous n'avez aucun projet en cours</h3>
+        )}
+
+        {(projects.length !== 0) && (
         <Card.Group
           id="projects-cards"
         >
-          {projects.map(project => (
+          {(projects.map(project => (
             <SingleProjectCard
-              key={project.id}
+              key={project._id}
               {...project}
-              userHasVoted={userHasVoted}
             />
-          ))}
+          )))}
         </Card.Group>
-        <div id="projects-create">
-          <NavLink
-            to="/nouveau-projet"
-            className="item"
-          >
-            Créer un nouveau projet
-          </NavLink>
-        </div>
+        )}
+        <NavLink
+          to="/nouveau-projet"
+        >
+          <div className="functionality-button functionality-button-create-project">
+            <p>Créer un nouveau projet</p>
+            <FaPaperPlane />
+          </div>
+        </NavLink>
         <UserFooter />
       </div>
     );
@@ -76,12 +82,15 @@ class Projects extends React.Component {
 Projects.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      _id: PropTypes.string.isRequired,
     }).isRequired,
-  ).isRequired,
+  ),
   isNotified: PropTypes.bool.isRequired,
   notified: PropTypes.func.isRequired,
-  userHasVoted: PropTypes.bool.isRequired,
+};
+
+Projects.defaultProps = {
+  projects: [],
 };
 
 /**

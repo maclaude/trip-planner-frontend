@@ -25,7 +25,7 @@ import {
 import {
   CREATE_NEWPROJECT,
   ADD_DATES,
-  storeResponseMessage,
+  storeNewprojectResponse,
 } from 'src/store/reducers/project';
 
 import {
@@ -105,7 +105,7 @@ const ajaxMiddleware = store => next => (action) => {
       axiosToken.post('http://localhost:8000/project/new-project', body)
         .then((response) => {
           console.log(response);
-          store.dispatch(storeResponseMessage(response.data.message));
+          store.dispatch(storeNewprojectResponse(response.data.message, response.data.data));
           store.dispatch(getUserProjects());
         })
         .catch(error => console.log(error));

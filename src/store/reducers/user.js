@@ -7,7 +7,7 @@ const initialState = {
   lastname: '',
   email: '',
   avatar: '',
-  projects: '',
+  projects: [],
 };
 
 /**

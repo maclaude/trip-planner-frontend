@@ -15,9 +15,8 @@ import { notified } from 'src/store/reducers/project';
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  projects: state.project.projectsData,
+  projects: state.user.projects,
   isNotified: state.project.isNotified,
-  userHasVoted: state.project.userHasVoted,
 });
 
 // === Actions ===

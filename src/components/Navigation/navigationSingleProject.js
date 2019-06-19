@@ -63,7 +63,6 @@ class NavigationSingleProject extends React.Component {
             <div id="navigation-main-project-details">
               <NavLink
                 to={getURL('/recapitulatif', project.title)}
-                key={project.id}
                 exact
                 className="navigation-link navigation-link-project"
                 activeClassName="navigation-link-project--active"
@@ -72,7 +71,6 @@ class NavigationSingleProject extends React.Component {
               </NavLink>
               <NavLink
                 to={getURL('/disponibilites', project.title)}
-                key={project.id}
                 exact
                 className="navigation-link navigation-link-project"
                 activeClassName="navigation-link-project--active"
@@ -81,7 +79,6 @@ class NavigationSingleProject extends React.Component {
               </NavLink>
               <NavLink
                 to={getURL('/idees', project.title)}
-                key={project.id}
                 exact
                 className="navigation-link navigation-link-project"
                 activeClassName="navigation-link-project--active"
@@ -99,7 +96,6 @@ class NavigationSingleProject extends React.Component {
           </div>
           <NavLink
             to={getURL('/dates', project.title)}
-            key={project.id}
             exact
             className="navigation-link"
             activeClassName="navigation-link--active"
@@ -111,7 +107,6 @@ class NavigationSingleProject extends React.Component {
           </NavLink>
           <NavLink
             to={getURL('/participants', project.title)}
-            key={project.id}
             exact
             className="navigation-link"
             activeClassName="navigation-link--active"
@@ -132,7 +127,7 @@ class NavigationSingleProject extends React.Component {
 NavigationSingleProject.propTypes = {
   username: PropTypes.string.isRequired,
   project: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
 };

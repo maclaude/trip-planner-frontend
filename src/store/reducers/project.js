@@ -10,6 +10,7 @@ import projectsDataSample from 'src/data/projectsData';
  * Initial State
  */
 const initialState = {
+  id: '',
   title: '',
   description: '',
   destination: '',
@@ -35,7 +36,8 @@ const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
 export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
-const STORE_RESPONSE_MESSAGE = 'STORE_RESPONSE_MESSAGE';
+const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
+const CLEAR_STATE = 'CLEAR_STATE';
 
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
 export const ADD_DATES = 'ADD_DATES';
@@ -47,6 +49,16 @@ const USER_HAS_VOTED = 'USER_HAS_VOTED';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CLEAR_STATE:
+      return {
+        ...state,
+        id: '',
+        title: '',
+        description: '',
+        errors: [],
+        responseMessage: '',
+      };
+
     case CHANGE_NEWPROJECT_INPUTS:
       return {
         ...state,
@@ -77,12 +89,13 @@ const reducer = (state = initialState, action = {}) => {
         destinationLng: '',
       };
 
-    case STORE_RESPONSE_MESSAGE:
+    case STORE_NEWPROJECT_RESPONSE:
       return {
         ...state,
         responseMessage: action.message,
+        id: action.data.id,
+        title: action.data.title,
       };
-
 
     case ADD_DATES: {
       const newDates = {
@@ -128,6 +141,10 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
+export const clearState = () => ({
+  type: CLEAR_STATE,
+});
+
 export const changeNewProjectInputs = (name, value) => ({
   type: CHANGE_NEWPROJECT_INPUTS,
   name,
@@ -153,9 +170,10 @@ export const createNewProject = () => ({
   type: CREATE_NEWPROJECT,
 });
 
-export const storeResponseMessage = message => ({
-  type: STORE_RESPONSE_MESSAGE,
+export const storeNewprojectResponse = (message, data) => ({
+  type: STORE_NEWPROJECT_RESPONSE,
   message,
+  data,
 });
 
 export const addDates = projectId => ({

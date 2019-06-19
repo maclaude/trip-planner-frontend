@@ -14,7 +14,7 @@ import { getCurrentProject } from 'src/store/reducers/project';
  */
 // === State (données) ===
 const mapStateToProps = (state, { match: { params } }) => ({
-  project: getCurrentProject(state.project.projectsData, params.slug),
+  project: getCurrentProject(state.user.projects, params.slug),
 });
 
 // === Actions ===

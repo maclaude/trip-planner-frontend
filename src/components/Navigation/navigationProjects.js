@@ -56,22 +56,24 @@ class NavigationProjects extends React.Component {
             </div>
             <Icon name="chevron down" />
           </NavLink>
-          <div id="navigation-main-projects">
-            {projects.map(project => (
-              <NavLink
-                className="navigation-link navigation-link-project"
-                to={getURL('recapitulatif', project.title)}
-                key={project.id}
-                activeClassName="navigation-link--active"
-                exact
-              >
-                <div className="navigation-link-title">
-                  {project.title}
-                </div>
-                <Icon name="chevron right" />
-              </NavLink>
-            ))}
-          </div>
+          {(projects.length !== 0) && (
+            <div id="navigation-main-projects">
+              {projects.map(project => (
+                <NavLink
+                  className="navigation-link navigation-link-project"
+                  to={getURL('recapitulatif', project.title)}
+                  key={project._id}
+                  activeClassName="navigation-link--active"
+                  exact
+                >
+                  <div className="navigation-link-title">
+                    {project.title}
+                  </div>
+                  <Icon name="chevron right" />
+                </NavLink>
+              ))}
+            </div>
+          )}
         </div>
         <NavigationFooter />
       </div>
@@ -84,11 +86,15 @@ NavigationProjects.propTypes = {
   username: PropTypes.string.isRequired,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired,
-  ).isRequired,
+  ),
 };
 
+NavigationProjects.defaultProps = {
+  projects: [],
+};
 /**
  * Export
  */

@@ -11,17 +11,14 @@ import { Card } from 'semantic-ui-react';
  */
 // Utils
 import { getURL } from 'src/utils/url';
-import getDateFormat from 'src/utils/date_format';
 
 /**
  * Code
  */
 const SingleProjectCard = ({
-  id,
+  _id,
   title,
   description,
-  projectDates,
-  userHasVoted,
 }) => (
   <Card
     className="project-card"
@@ -30,7 +27,7 @@ const SingleProjectCard = ({
       <Card.Header textAlign="center">
         <NavLink
           to={getURL('recapitulatif', title)}
-          key={id}
+          key={_id}
           exact
           className="project-card-title"
         >
@@ -56,15 +53,9 @@ const SingleProjectCard = ({
 
 // PropTypes validation
 SingleProjectCard.propTypes = {
-  id: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  projectDates: PropTypes.array,
-  userHasVoted: PropTypes.bool.isRequired,
-};
-
-SingleProjectCard.defaultProps = {
-  projectDates: [],
 };
 
 /**

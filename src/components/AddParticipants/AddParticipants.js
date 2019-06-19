@@ -8,7 +8,7 @@ import {
   Icon,
   Button,
   List,
-  Image,
+  // Image,
   Divider,
   Message,
 } from 'semantic-ui-react';
@@ -19,7 +19,7 @@ import {
 // Style
 import './add_participants.scss';
 // Assets
-import avatar from 'src/assets/avatar/default-user.png';
+// import avatar from 'src/assets/avatar/default-user.png';
 // Utils
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components
@@ -68,11 +68,11 @@ class AddParticipants extends React.Component {
    */
   render() {
     const {
-      project,
+      // project,
       name,
       email,
       errors,
-      invitedParticipants,
+      // invitedParticipants,
     } = this.props;
 
     return (
@@ -149,7 +149,7 @@ class AddParticipants extends React.Component {
                 verticalAlign="middle"
                 size="big"
               >
-                {project.user.map((user, index) => (
+                {/* {project.user.map((user, index) => (
                   <List.Item
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
@@ -159,7 +159,7 @@ class AddParticipants extends React.Component {
                       <List.Header>{user.firstname}</List.Header>
                     </List.Content>
                   </List.Item>
-                ))}
+                ))} */}
               </List>
             </div>
             <div id="addParticipants-participants-container-pending">
@@ -170,7 +170,7 @@ class AddParticipants extends React.Component {
                 verticalAlign="middle"
                 size="big"
               >
-                {invitedParticipants.map(participant => (
+                {/* {invitedParticipants.map(participant => (
                   <List.Item
                     key={email}
                   >
@@ -179,7 +179,7 @@ class AddParticipants extends React.Component {
                       <List.Header>{participant.name}</List.Header>
                     </List.Content>
                   </List.Item>
-                ))}
+                ))} */}
               </List>
             </div>
           </div>
@@ -193,8 +193,7 @@ class AddParticipants extends React.Component {
 // PropTypes validation
 AddParticipants.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    user: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
@@ -202,7 +201,7 @@ AddParticipants.propTypes = {
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   sendInvitation: PropTypes.func.isRequired,
-  invitedParticipants: PropTypes.array.isRequired,
+  // invitedParticipants: PropTypes.array.isRequired,
 };
 
 /**
