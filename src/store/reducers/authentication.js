@@ -12,7 +12,7 @@ const initialState = {
   responseError: '',
   token: '',
   status: '',
-  loggedIn: false,
+  isAuth: false,
 };
 
 /**
@@ -34,6 +34,8 @@ const CHANGE_LOGIN_INPUTS = 'CHANGE_LOGIN_INPUTS';
 const SHOW_LOGIN_ERRORS = 'SHOW_LOGIN_ERRORS';
 export const CONNECT_USER = 'CONNECT_USER';
 export const STORE_TOKEN = 'STORE_TOKEN';
+
+const DISCONNECT_USER = 'DISCONNECT_USER';
 
 /**
  * Reducer
@@ -138,8 +140,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         token: action.token,
-        loggedIn: true,
+        isAuth: true,
         status: 'loaded',
+      };
+
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        token: '',
+        status: '',
+        isAuth: false,
       };
 
     default:
@@ -206,6 +216,10 @@ export const connectUser = () => ({
 export const storeToken = token => ({
   type: STORE_TOKEN,
   token,
+});
+
+export const disconnectUser = () => ({
+  type: DISCONNECT_USER,
 });
 
 /**

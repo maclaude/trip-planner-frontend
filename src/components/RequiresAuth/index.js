@@ -24,7 +24,7 @@ export default function (ComposedComponent) {
           {
           isAuthenticated
             ? <ComposedComponent {...this.props} />
-            : <Redirect to="/connexion" />
+            : <Redirect to="/" />
           }
         </div>
       );
@@ -37,7 +37,7 @@ export default function (ComposedComponent) {
   };
 
   const mapStateToProps = state => ({
-    isAuthenticated: state.authentication.loggedIn,
+    isAuthenticated: state.authentication.isAuth,
   });
 
   const mapDispatchToProps = {};

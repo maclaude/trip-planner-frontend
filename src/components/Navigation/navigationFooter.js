@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 import { NavLink, Redirect } from 'react-router-dom';
 
@@ -9,14 +10,21 @@ import { NavLink, Redirect } from 'react-router-dom';
  * Code
  */
 class NavigationFooter extends React.Component {
-  disconnect = () => {
-    console.log('disconnect');
+  disconnectUser = () => {
+    const { disconnectUser } = this.props;
+    disconnectUser();
   }
 
   /**
    * Render
    */
   render() {
+    const { isAuthenticated } = this.props;
+
+    if (!isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div id="navigation-footer">
         <NavLink
@@ -30,7 +38,7 @@ class NavigationFooter extends React.Component {
           <Icon name="cog" />
         </NavLink>
 
-        <div className="navigation-link" onClick={this.disconnect}>
+        <div className="navigation-link" onClick={this.disconnectUser}>
           <div className="navigation-link-title">
             Déconnexion
           </div>
@@ -41,6 +49,12 @@ class NavigationFooter extends React.Component {
     );
   }
 }
+
+// PropTypes validation
+NavigationFooter.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  disconnectUser: PropTypes.func.isRequired,
+};
 
 /**
  * Export
