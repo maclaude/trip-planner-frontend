@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Utils
-import getDateFormat from 'src/utils/date_format';
+import { getDateFormat } from 'src/utils/date_format';
 
 /**
  * Code

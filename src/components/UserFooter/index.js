@@ -9,7 +9,7 @@ import React from 'react';
 // Style
 import './user-footer.scss';
 // Assets
-import logo from 'src/assets/logo/logo_1.png';
+import logo from 'src/assets/logo/logo_2.png';
 
 /**
  * Code

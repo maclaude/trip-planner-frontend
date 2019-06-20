@@ -66,7 +66,11 @@ class Projects extends React.Component {
         )}
         <NavLink
           to="/nouveau-projet"
-          className="functionality-button functionality-button-create-project"
+          className="
+            functionality-button
+            functionality-button--large
+            functionality-button-create-project
+          "
         >
           <p>Créer un nouveau projet</p>
           <FaPaperPlane />

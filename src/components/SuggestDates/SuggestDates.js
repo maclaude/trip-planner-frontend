@@ -4,19 +4,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button,
-  Icon,
   Input,
   Form,
   Message,
 } from 'semantic-ui-react';
+import { FaPlus, FaTrash } from 'react-icons/fa';
 
 /**
  * Local import
  */
 // Utils
 import SuggestDatesErrors from 'src/utils/suggestDates_form_errors';
-import getDateFormat from 'src/utils/date_format';
+import { getDateFormat } from 'src/utils/date_format';
 // Components
 import UserFooter from 'src/components/UserFooter';
 
@@ -25,6 +24,9 @@ import UserFooter from 'src/components/UserFooter';
  */
 
 class SuggestDates extends React.Component {
+  /**
+   * Handlers
+   */
   handleChange = (evt) => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
@@ -38,6 +40,7 @@ class SuggestDates extends React.Component {
       addDates,
       startDate,
       endDate,
+      errors,
       showErrors,
     } = this.props;
 
@@ -45,7 +48,8 @@ class SuggestDates extends React.Component {
       startDate,
       endDate,
     );
-    if (startDate && endDate !== '') {
+
+    if (errors.length !== 0) {
       addDates();
     }
     else {
@@ -53,26 +57,9 @@ class SuggestDates extends React.Component {
     }
   };
 
-  handleClick = () => {
-    const {
-      addDates,
-      startDate,
-      endDate,
-      showErrors,
-    } = this.props;
-
-    const dateErrors = SuggestDatesErrors(
-      startDate,
-      endDate,
-    );
-    if (startDate && endDate !== '') {
-      addDates();
-    }
-    else {
-      showErrors(dateErrors);
-    }
-  };
-
+  /**
+   * Render
+   */
   render() {
     const {
       startDate,
@@ -93,14 +80,14 @@ class SuggestDates extends React.Component {
             onSubmit={this.handleSubmit}
           >
             <h2 id="dates-form-title">
-              Definissez des suggestions de dates
+              Sélectionner des dates:
             </h2>
-            <div id="dates-input">
+            <div id="dates-inputs">
               <Input
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
                 name="startDate"
-                className="input-date"
+                className="date-input"
                 type="date"
                 value={startDate}
                 onChange={this.handleChange}
@@ -109,22 +96,21 @@ class SuggestDates extends React.Component {
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
                 name="endDate"
-                className="input-date"
+                className="date-input"
                 type="date"
                 value={endDate}
                 onChange={this.handleChange}
               />
-              <Button
-                type="button"
-                color="green"
-                icon
-                className="date-button"
+              <div
+                className="
+                  functionality-button
+                  functionality-button--circular
+                  functionality-button-add
+                "
+                onClick={this.handleSubmit}
               >
-                <Icon
-                  name="plus"
-                  onClick={this.handleClick}
-                />
-              </Button>
+                <FaPlus className="functionality-button__icon" />
+              </div>
             </div>
             {(errors.length > 0) && (
             <div id="dates-form-errors">
@@ -142,10 +128,13 @@ class SuggestDates extends React.Component {
         <div id="dates-suggested">
           {suggestedDates.map((date, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <div className="date focus-in-contract-bck" key={index}>
-              <p>
-                {`Du ${getDateFormat(date.startDate)} au ${getDateFormat(date.endDate)}`}
-              </p>
+            <div className="dates-suggested--item" key={index}>
+              <div>
+                {getDateFormat(date.startDate)} - {getDateFormat(date.endDate)}
+              </div>
+              <div className="dates-suggested--item-icon">
+                <FaTrash />
+              </div>
             </div>
           ))}
         </div>

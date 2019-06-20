@@ -31,13 +31,14 @@ const initialState = {
 /**
  * Types
  */
+const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
+
 const CHANGE_NEWPROJECT_INPUTS = 'CHANGE_NEWPROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
 export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
-const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
 
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
 export const ADD_DATES = 'ADD_DATES';
@@ -109,6 +110,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         startDate: '',
         endDate: '',
+        errors: [],
         suggestedDates,
       };
     }

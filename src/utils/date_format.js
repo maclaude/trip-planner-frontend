@@ -6,9 +6,6 @@ import dateFormat from 'dateformat';
 /**
  * Utils: GetDateFormat
  */
-const getDateFormat = date => dateFormat(date, 'dd/mm/yyyy');
+export const getDateFormat = date => dateFormat(date, 'dd/mm/yyyy');
 
-/**
- * Export
- */
-export default getDateFormat;
+export const getISODateFormat = date => dateFormat(date, 'isoDateTime');

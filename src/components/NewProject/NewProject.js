@@ -179,22 +179,30 @@ class NewProject extends React.Component {
             <h2 id="project-created-title">Vous venez de créer le projet <span>{title}</span></h2>
             <div id="project-created-functionalities">
               <NavLink
-                to={getURL('/participants', title)}
-                key={uuidV4()}
-                exact
-                className="functionality-button functionality-button-add-participants"
-              >
-                <p>Ajouter des participants</p>
-                <FaUserPlus />
-              </NavLink>
-              <NavLink
                 to={getURL('/dates', title)}
                 key={uuidV4()}
                 exact
-                className="functionality-button functionality-button-suggest-dates"
+                className="
+                  functionality-button
+                  functionality-button--large
+                  functionality-button-suggest-dates
+                "
               >
                 <p>Suggérer des dates</p>
                 <FaCalendarPlus />
+              </NavLink>
+              <NavLink
+                to={getURL('/participants', title)}
+                key={uuidV4()}
+                exact
+                className="
+                  functionality-button
+                  functionality-button--large
+                  functionality-button-add-participants
+                "
+              >
+                <p>Ajouter des participants</p>
+                <FaUserPlus />
               </NavLink>
             </div>
           </div>
