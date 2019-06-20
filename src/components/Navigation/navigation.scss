@@ -70,6 +70,7 @@
     justify-content: space-between;
 
     &:hover, &--active {
+      cursor: pointer;
       color: $navigation-font-color-hover;
       background-color: $navigation-bg-color-hover;
     }

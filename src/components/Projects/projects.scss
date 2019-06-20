@@ -10,6 +10,15 @@
   justify-content: space-between;
   background: $background-main-color;
   color: $font-color;
+  
+  &-banner {
+    margin-bottom: 2em;
+  }
+  
+  &-information {
+    text-align: center;
+    font-size: 2rem;
+  }
 
   &-cards {
     padding: 2em;

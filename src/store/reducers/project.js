@@ -37,7 +37,7 @@ export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
 export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
-const CLEAR_STATE = 'CLEAR_STATE';
+const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
 
 const STOCK_PROJECTS = 'STOCK_PROJECTS';
 export const ADD_DATES = 'ADD_DATES';
@@ -49,7 +49,7 @@ const USER_HAS_VOTED = 'USER_HAS_VOTED';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CLEAR_STATE:
+    case CLEAR_PROJECT_STATE:
       return {
         ...state,
         id: '',
@@ -141,8 +141,8 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const clearState = () => ({
-  type: CLEAR_STATE,
+export const clearProjectState = () => ({
+  type: CLEAR_PROJECT_STATE,
 });
 
 export const changeNewProjectInputs = (name, value) => ({

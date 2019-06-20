@@ -10,7 +10,8 @@ import LoginForm from 'src/components/Login/LoginForm';
 
 // Action Creators
 import {
-  clearPasswordsInputs,
+  clearAuthState,
+  clearStatus,
   changeLoginInputs,
   showLoginErrors,
   connectUser,
@@ -30,8 +31,11 @@ const mapStateToProps = state => ({
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  clearPasswordsInputs: () => {
-    dispatch(clearPasswordsInputs());
+  clearAuthState: () => {
+    dispatch(clearAuthState());
+  },
+  clearStatus: () => {
+    dispatch(clearStatus());
   },
   changeInput: (name, value) => {
     dispatch(changeLoginInputs(name, value));

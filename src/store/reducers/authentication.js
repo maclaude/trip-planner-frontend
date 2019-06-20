@@ -12,13 +12,14 @@ const initialState = {
   responseError: '',
   token: '',
   status: '',
-  loggedIn: '',
+  loggedIn: false,
 };
 
 /**
  * Types
  */
-const CLEAR_PASSWORDS_INPUTS = 'CLEAR_PASSWORDS_INPUTS';
+const CLEAR_AUTH_STATE = 'CLEAR_AUTH_STATE';
+const CLEAR_STATUS = 'CLEAR_STATUS';
 const STORE_RESPONSE_ERROR_MESSAGE = 'STORE_RESPONSE_ERROR_MESSAGE';
 
 // Signup
@@ -39,11 +40,22 @@ export const STORE_TOKEN = 'STORE_TOKEN';
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CLEAR_PASSWORDS_INPUTS:
+    case CLEAR_AUTH_STATE:
       return {
         ...state,
+        firstname: '',
+        lastname: '',
+        email: '',
         password: '',
         confirmedPassword: '',
+        errors: [],
+        responseError: '',
+      };
+
+    case CLEAR_STATUS:
+      return {
+        ...state,
+        status: '',
       };
 
     case STORE_RESPONSE_ERROR_MESSAGE:
@@ -138,8 +150,12 @@ const reducer = (state = initialState, action = {}) => {
 /**
  * Action Creators
  */
-export const clearPasswordsInputs = () => ({
-  type: CLEAR_PASSWORDS_INPUTS,
+export const clearAuthState = () => ({
+  type: CLEAR_AUTH_STATE,
+});
+
+export const clearStatus = () => ({
+  type: CLEAR_STATUS,
 });
 
 export const storeResponseErrorMessage = error => ({

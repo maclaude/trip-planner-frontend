@@ -10,7 +10,7 @@ import NewProject from 'src/components/NewProject/NewProject';
 
 // Action Creators
 import {
-  clearState,
+  clearProjectState,
   changeNewProjectInputs,
   showNewProjectErrors,
   getDestinationCoordinates,
@@ -22,7 +22,6 @@ import {
  */
 // === State (données) ===
 const mapStateToProps = state => ({
-  id: state.project.id,
   title: state.project.title,
   description: state.project.description,
   destination: state.project.destination,
@@ -32,8 +31,8 @@ const mapStateToProps = state => ({
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  clearState: () => {
-    dispatch(clearState());
+  clearProjectState: () => {
+    dispatch(clearProjectState());
   },
   changeInput: (name, value) => {
     dispatch(changeNewProjectInputs(name, value));

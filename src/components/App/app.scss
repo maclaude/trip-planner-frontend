@@ -29,3 +29,41 @@ h2 {
 span {
   font-weight: 700;
 }
+
+/* Functionality buttons */
+
+.functionality-button {
+  width: 300px;
+  margin: 1em auto;
+  padding: 1em 2em;
+  border-radius: 50px;
+  color: $button-text-color;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-add-participants {
+    background: linear-gradient(to right, #f12711, #f5af19);
+  }
+
+  &-suggest-dates {
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+  }
+
+  &-create-project {
+    background: linear-gradient(to right, #009fff, #ec2f4b);
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $button-text-color;
+  }
+}
+
+.functionality-button p {
+  margin: 0;
+}
+

@@ -34,8 +34,8 @@ class NewProject extends React.Component {
    * Lifecycles
    */
   componentWillMount() {
-    const { clearState } = this.props;
-    clearState();
+    const { clearProjectState } = this.props;
+    clearProjectState();
   }
 
   componentDidUpdate() {
@@ -94,7 +94,6 @@ class NewProject extends React.Component {
    */
   render() {
     const {
-      id,
       title,
       description,
       destination,
@@ -150,7 +149,7 @@ class NewProject extends React.Component {
                   </label>
                 </FormField>
                 {(errors.length > 0) && (
-                  <div>
+                  <div id="newproject-form-errors">
                     {errors.map(error => (
                       <Message negative key={error}>
                         <p>{error}</p>
@@ -183,21 +182,19 @@ class NewProject extends React.Component {
                 to={getURL('/participants', title)}
                 key={uuidV4()}
                 exact
+                className="functionality-button functionality-button-add-participants"
               >
-                <div className="functionality-button functionality-button-add-participants">
-                  <p>Ajouter des participants</p>
-                  <FaUserPlus />
-                </div>
+                <p>Ajouter des participants</p>
+                <FaUserPlus />
               </NavLink>
               <NavLink
                 to={getURL('/dates', title)}
                 key={uuidV4()}
                 exact
+                className="functionality-button functionality-button-suggest-dates"
               >
-                <div className="functionality-button functionality-button-suggest-dates">
-                  <p>Suggérer des dates</p>
-                  <FaCalendarPlus />
-                </div>
+                <p>Suggérer des dates</p>
+                <FaCalendarPlus />
               </NavLink>
             </div>
           </div>
@@ -210,13 +207,12 @@ class NewProject extends React.Component {
 
 // PropTypes validation
 NewProject.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
   responseMessage: PropTypes.string.isRequired,
-  clearState: PropTypes.func.isRequired,
+  clearProjectState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   getDestinationCoordinates: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

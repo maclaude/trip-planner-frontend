@@ -26,8 +26,8 @@ class SignupForm extends React.Component {
    * Lifecycle
    */
   componentWillMount() {
-    const { clearPasswordsInputs } = this.props;
-    clearPasswordsInputs();
+    const { clearAuthState } = this.props;
+    clearAuthState();
   }
 
   /**
@@ -244,7 +244,7 @@ SignupForm.propTypes = {
   errors: PropTypes.array.isRequired,
   status: PropTypes.string.isRequired,
   responseError: PropTypes.string.isRequired,
-  clearPasswordsInputs: PropTypes.func.isRequired,
+  clearAuthState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   toogleTermsCheckbox: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,

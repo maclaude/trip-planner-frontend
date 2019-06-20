@@ -10,7 +10,7 @@ import SignupForm from 'src/components/Signup/SignupForm';
 
 // Action Creators
 import {
-  clearPasswordsInputs,
+  clearAuthState,
   changeSignupInputs,
   toogleTermsCheckbox,
   showSignupErrors,
@@ -35,8 +35,8 @@ const mapStateToProps = state => ({
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  clearPasswordsInputs: () => {
-    dispatch(clearPasswordsInputs());
+  clearAuthState: () => {
+    dispatch(clearAuthState());
   },
   changeInput: (name, value) => {
     dispatch(changeSignupInputs(name, value));

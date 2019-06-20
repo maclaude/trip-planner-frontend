@@ -26,8 +26,9 @@ class LoginForm extends React.Component {
    * Lifecycle
    */
   componentWillMount() {
-    const { clearPasswordsInputs } = this.props;
-    clearPasswordsInputs();
+    const { clearAuthState, clearStatus } = this.props;
+    clearAuthState();
+    clearStatus();
   }
 
   /**
@@ -182,7 +183,8 @@ LoginForm.propTypes = {
   errors: PropTypes.array.isRequired,
   status: PropTypes.string.isRequired,
   responseError: PropTypes.string.isRequired,
-  clearPasswordsInputs: PropTypes.func.isRequired,
+  clearAuthState: PropTypes.func.isRequired,
+  clearStatus: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   connectUser: PropTypes.func.isRequired,

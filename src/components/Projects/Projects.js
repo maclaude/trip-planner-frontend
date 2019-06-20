@@ -49,7 +49,7 @@ class Projects extends React.Component {
           <h1>Mes projets</h1>
         </div>
         {(projects.length === 0) && (
-          <h3>Vous n'avez aucun projet en cours</h3>
+          <p id="projects-information">Vous n'avez aucun projet en cours</p>
         )}
 
         {(projects.length !== 0) && (
@@ -66,11 +66,10 @@ class Projects extends React.Component {
         )}
         <NavLink
           to="/nouveau-projet"
+          className="functionality-button functionality-button-create-project"
         >
-          <div className="functionality-button functionality-button-create-project">
-            <p>Créer un nouveau projet</p>
-            <FaPaperPlane />
-          </div>
+          <p>Créer un nouveau projet</p>
+          <FaPaperPlane />
         </NavLink>
         <UserFooter />
       </div>
