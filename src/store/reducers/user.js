@@ -1,4 +1,10 @@
 /**
+ * Local import
+ */
+// Utils
+import { getSlug } from 'src/utils/url';
+
+/**
  * Initial State
  */
 const initialState = {
@@ -59,6 +65,19 @@ export const storeUserProjects = projects => ({
 export const getUserProjects = () => ({
   type: GET_USER_PROJECTS,
 });
+
+/**
+ * Selector
+ */
+export const getCurrentProject = (projects, slug) => (
+  projects.find(project => getSlug(project.title) === slug)
+);
+
+export const getCurrentProjectDates = (projects, projectId) => {
+  console.log(projectId);
+  const currentProject = projects.find(project => project._id === projectId);
+  return currentProject.dates;
+};
 
 /**
  * Export

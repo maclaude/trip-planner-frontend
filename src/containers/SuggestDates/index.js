@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
  * Local import
  */
 import SuggestDates from 'src/components/SuggestDates';
-import { getCurrentProject } from 'src/store/reducers/project';
+import { getCurrentProject } from 'src/store/reducers/user';
 
 /**
  * Code

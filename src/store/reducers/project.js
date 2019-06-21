@@ -1,12 +1,4 @@
 /**
- * Local import
- */
-// Utils
-import { getSlug } from 'src/utils/url';
-// Projects data
-import projectsDataSample from 'src/data/projectsData';
-
-/**
  * Initial State
  */
 const initialState = {
@@ -25,7 +17,6 @@ const initialState = {
   loaded: false,
   isNotified: false,
   userHasVoted: false,
-  projectsData: projectsDataSample,
 };
 
 /**
@@ -40,8 +31,9 @@ export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
 
-const STOCK_PROJECTS = 'STOCK_PROJECTS';
-export const ADD_DATES = 'ADD_DATES';
+export const ADD_PROJECT_DATES = 'ADD_PROJECT_DATES';
+export const SHOW_ADD_PROJECT_DATES_ERRORS = 'SHOW_ADD_PROJECT_DATES_ERRORS';
+
 const NOTIFY = 'NOTIFY';
 const USER_HAS_VOTED = 'USER_HAS_VOTED';
 
@@ -98,29 +90,18 @@ const reducer = (state = initialState, action = {}) => {
         title: action.data.title,
       };
 
-    case ADD_DATES: {
-      const newDates = {
-        startDate: state.startDate,
-        endDate: state.endDate,
-      };
-
-      const suggestedDates = [...state.suggestedDates, newDates];
-
+    case ADD_PROJECT_DATES:
       return {
         ...state,
         startDate: '',
         endDate: '',
         errors: [],
-        suggestedDates,
       };
-    }
 
-    case STOCK_PROJECTS:
+    case SHOW_ADD_PROJECT_DATES_ERRORS:
       return {
         ...state,
-        projectsData: action.data,
-        isLoading: false,
-        loaded: true,
+        errors: action.errors,
       };
 
     case NOTIFY:
@@ -178,14 +159,14 @@ export const storeNewprojectResponse = (message, data) => ({
   data,
 });
 
-export const addDates = projectId => ({
-  type: ADD_DATES,
+export const addProjectDates = projectId => ({
+  type: ADD_PROJECT_DATES,
   projectId,
 });
 
-export const stockProjects = data => ({
-  type: STOCK_PROJECTS,
-  data,
+export const showAddProjectDatesErrors = errors => ({
+  type: SHOW_ADD_PROJECT_DATES_ERRORS,
+  errors,
 });
 
 export const notified = () => ({
@@ -195,13 +176,6 @@ export const notified = () => ({
 export const userHasVoted = () => ({
   type: USER_HAS_VOTED,
 });
-
-/**
- * Selector
- */
-export const getCurrentProject = (projects, slug) => (
-  projects.find(project => getSlug(project.title) === slug)
-);
 
 /**
  * Export

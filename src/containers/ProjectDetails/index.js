@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
  * Local import
  */
 import ProjectDetails from 'src/components/ProjectDetails';
-import { getCurrentProject } from 'src/store/reducers/project';
+import { getCurrentProject } from 'src/store/reducers/user';
 
 /**
  * Code

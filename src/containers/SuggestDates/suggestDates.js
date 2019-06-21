@@ -11,19 +11,21 @@ import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 // Action creators
 import {
   changeNewProjectInputs,
-  addDates,
-  showNewProjectErrors,
+  addProjectDates,
+  showAddProjectDatesErrors,
 } from 'src/store/reducers/project';
+// Selector
+import { getCurrentProjectDates } from 'src/store/reducers/user';
 
 /**
  * Code
  */
 // === State (données) ===
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   startDate: state.project.startDate,
   endDate: state.project.endDate,
-  suggestedDates: state.project.suggestedDates,
   errors: state.project.errors,
+  suggestedDates: getCurrentProjectDates(state.user.projects, ownProps.project._id),
 });
 
 // === Actions ===
@@ -32,10 +34,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(changeNewProjectInputs(name, value));
   },
   showErrors: (errors) => {
-    dispatch(showNewProjectErrors(errors));
+    dispatch(showAddProjectDatesErrors(errors));
   },
-  addDates: () => {
-    dispatch(addDates(ownProps.project.id));
+  addProjectDates: () => {
+    dispatch(addProjectDates(ownProps.project._id));
   },
 });
 

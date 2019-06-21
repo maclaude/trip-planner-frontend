@@ -24,7 +24,7 @@ import {
 
 import {
   CREATE_NEWPROJECT,
-  ADD_DATES,
+  ADD_PROJECT_DATES,
   storeNewprojectResponse,
 } from 'src/store/reducers/project';
 
@@ -113,6 +113,23 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
+    case ADD_PROJECT_DATES: {
+      body = {
+        startDate: state.project.startDate,
+        endDate: state.project.endDate,
+        projectId: action.projectId,
+      };
+
+      axiosToken.post('http://localhost:8000/project/new-dates', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(getUserProjects());
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
     case GET_USER_PROJECTS: {
       axiosToken.get('http://localhost:8000/user/projects')
         .then((response) => {
@@ -155,24 +172,6 @@ const ajaxMiddleware = store => next => (action) => {
       console.log('AJAX - addSuggestion');
 
       axiosToken.post('URL', newSuggestion)
-        .then(response => console.log(response))
-        .catch(() => console.error('Request has failed'));
-      */
-
-      break;
-    }
-
-    case ADD_DATES: {
-      /*
-      const addDates = {
-        startDate: state.project.startDate,
-        endDate: state.project.endDate,
-        project: `/api/projects/${action.projectId}`,
-      };
-
-      console.log('AJAX - addDatesSuggestion');
-
-      axiosToken.post('URL', addDates)
         .then(response => console.log(response))
         .catch(() => console.error('Request has failed'));
       */

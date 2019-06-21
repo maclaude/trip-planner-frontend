@@ -14,7 +14,7 @@ import { FaPlus, FaTrash } from 'react-icons/fa';
  * Local import
  */
 // Utils
-import SuggestDatesErrors from 'src/utils/suggestDates_form_errors';
+import SuggestDatesErrors from 'src/utils/suggestdates_form_errors';
 import { getDateFormat } from 'src/utils/date_format';
 // Components
 import UserFooter from 'src/components/UserFooter';
@@ -22,7 +22,6 @@ import UserFooter from 'src/components/UserFooter';
 /**
  * Code
  */
-
 class SuggestDates extends React.Component {
   /**
    * Handlers
@@ -37,23 +36,22 @@ class SuggestDates extends React.Component {
     evt.preventDefault();
 
     const {
-      addDates,
+      addProjectDates,
       startDate,
       endDate,
-      errors,
       showErrors,
     } = this.props;
 
-    const dateErrors = SuggestDatesErrors(
+    const errors = SuggestDatesErrors(
       startDate,
       endDate,
     );
 
-    if (errors.length !== 0) {
-      addDates();
+    if (errors.length === 0) {
+      addProjectDates();
     }
     else {
-      showErrors(dateErrors);
+      showErrors(errors);
     }
   };
 
@@ -126,11 +124,10 @@ class SuggestDates extends React.Component {
           </Form>
         </div>
         <div id="dates-suggested">
-          {suggestedDates.map((date, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <div className="dates-suggested--item" key={index}>
+          {suggestedDates.map(date => (
+            <div className="dates-suggested--item" key={date._id}>
               <div>
-                {getDateFormat(date.startDate)} - {getDateFormat(date.endDate)}
+                Du {getDateFormat(date.start_date)} au {getDateFormat(date.end_date)}
               </div>
               <div className="dates-suggested--item-icon">
                 <FaTrash />
@@ -148,11 +145,11 @@ class SuggestDates extends React.Component {
 SuggestDates.propTypes = {
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  changeInput: PropTypes.func.isRequired,
   errors: PropTypes.array.isRequired,
-  showErrors: PropTypes.func.isRequired,
-  addDates: PropTypes.func.isRequired,
   suggestedDates: PropTypes.array.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  showErrors: PropTypes.func.isRequired,
+  addProjectDates: PropTypes.func.isRequired,
 };
 
 SuggestDates.defaultProps = {

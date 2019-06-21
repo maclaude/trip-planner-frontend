@@ -14,7 +14,6 @@ import {
   changeNewProjectInputs,
   showNewProjectErrors,
   getDestinationCoordinates,
-  addDates,
 } from 'src/store/reducers/project';
 
 /**
@@ -42,9 +41,6 @@ const mapDispatchToProps = dispatch => ({
   },
   getDestinationCoordinates: () => {
     dispatch(getDestinationCoordinates());
-  },
-  addDates: () => {
-    dispatch(addDates());
   },
 });
 
