@@ -11,7 +11,7 @@ import Navigation from 'src/components/Navigation';
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = state => ({
   username: state.user.firstname,
 });

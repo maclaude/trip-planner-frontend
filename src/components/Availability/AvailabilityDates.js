@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Radio, Button, Icon } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 /**
@@ -26,24 +26,20 @@ const Availability = ({ project }) => (
       <h1>Définir mes disponibilités</h1>
     </div>
     <div id="availability-main">
-      <div id="availability-content">
-        <h2>Sélectionner vos disponibilités parmi les dates suivantes:</h2>
-      </div>
-      <div id="availability-buttons">
-        {project.projectDates.map((date, index) => (
+      <h2 id="availability-main-title">
+        Sélectionner vos disponibilités:
+      </h2>
+      <div id="availability-main-dates-suggested">
+        {project.dates.map(date => (
           <SingleDateButton
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
+            key={date._id}
             {...date}
           />
         ))}
       </div>
-      <div id="availability-checkbox">
-        <h3><Radio toggle />Je ne suis pas disponible aux dates proposées</h3>
-      </div>
       <NavLink
         to={getURL('/idees', project.title)}
-        key={project.id}
+        key={project._id}
         exact
       >
         <Button animated floated="right" color="green" id="availability-next">
@@ -61,13 +57,13 @@ const Availability = ({ project }) => (
 // PropTypes validation
 Availability.propTypes = {
   project: PropTypes.shape({
-    projectDates: PropTypes.array,
+    dates: PropTypes.array,
   }),
 };
 
 Availability.defaultProps = {
   project: PropTypes.shape({
-    projectDates: [],
+    dates: [],
   }),
 };
 

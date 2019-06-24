@@ -7,9 +7,7 @@ import {
   Image,
   List,
   Divider,
-  Icon,
 } from 'semantic-ui-react';
-import toast from 'toasted-notes';
 
 /**
  * Local import
@@ -24,31 +22,17 @@ import Restaurant from 'src/containers/ProjectDetails/Restaurant';
 import Other from 'src/containers/ProjectDetails/Other';
 import UserFooter from 'src/components/UserFooter';
 import GoogleMap from 'src/components/GoogleMap';
-// Utils
-import getDateFormat from 'src/utils/date_format';
+// Assets
+import avatar from 'src/assets/avatar/maclaude.jpg';
 
 /**
  * Code
  */
 class ProjectDetails extends React.Component {
-  componentDidMount() {
-    const { userHasVoted, project } = this.props;
-
-    if (!userHasVoted && project.id === 7) {
-      toast.notify(
-        <p id="toast-alert">
-          <Icon name="bell" color="red" size="large" /> Merci de renseigner vos disponibilités
-        </p>,
-        {
-          position: 'top-right',
-          duration: null,
-        },
-      );
-    }
-  }
+  componentDidMount() {}
 
   render() {
-    const { project, userHasVoted } = this.props;
+    const { project } = this.props;
 
     return (
       <div id="projectDetails">
@@ -62,8 +46,8 @@ class ProjectDetails extends React.Component {
             <h2>Destination</h2>
             <div id="projectDetails-header-left-map">
               <GoogleMap
-                lat={project.lat}
-                lng={project.lng}
+                lat={project.destination.lat}
+                lng={project.destination.lng}
               />
             </div>
           </div>
@@ -77,18 +61,17 @@ class ProjectDetails extends React.Component {
                 verticalAlign="middle"
                 size="big"
               >
-                {project.user.length === 0 && (
+                {project.participants.length === 0 && (
                   <p>Aucun participant au projet</p>
                 )}
-                {project.user.length !== 0 && (
-                  project.user.map((user, index) => (
+                {project.participants.length !== 0 && (
+                  project.participants.map(participant => (
                     <List.Item
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={index}
+                      key={participant._id}
                     >
-                      <Image avatar src={user.avatar} />
+                      <Image avatar src={avatar} />
                       <List.Content>
-                        <List.Header>{user.firstname}</List.Header>
+                        <List.Header>{participant.firstname}</List.Header>
                       </List.Content>
                     </List.Item>
                   ))
@@ -115,40 +98,40 @@ class ProjectDetails extends React.Component {
             <h2 className="suggestion-title">Activités</h2>
             <Activity
               type={1}
-              projectId={project.id}
-              participants={project.user}
+              projectId={project._id}
+              participants={project.participants}
             />
           </div>
           <div id="projectDetails-suggestions-accomodation">
             <h2 className="suggestion-title">Hébergements</h2>
             <Accomodation
               type={2}
-              projectId={project.id}
-              participants={project.user}
+              projectId={project._id}
+              participants={project.participants}
             />
           </div>
           <div id="projectDetails-suggestions-transport">
             <h2 className="suggestion-title">Transports</h2>
             <Transport
               type={3}
-              projectId={project.id}
-              participants={project.user}
+              projectId={project._id}
+              participants={project.participants}
             />
           </div>
           <div id="projectDetails-suggestions-restaurant">
             <h2 className="suggestion-title">Restaurants</h2>
             <Restaurant
               type={4}
-              projectId={project.id}
-              participants={project.user}
+              projectId={project._id}
+              participants={project.participants}
             />
           </div>
           <div id="projectDetails-suggestions-others">
             <h2 className="suggestion-title">Autres</h2>
             <Other
               type={5}
-              projectId={project.id}
-              participants={project.user}
+              projectId={project._id}
+              participants={project.participants}
             />
           </div>
         </div>
@@ -161,19 +144,18 @@ class ProjectDetails extends React.Component {
 // PropTypes validation
 ProjectDetails.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    projectDates: PropTypes.array,
-    user: PropTypes.array,
+    dates: PropTypes.array,
+    participants: PropTypes.array,
   }),
-  userHasVoted: PropTypes.bool.isRequired,
 };
 
 ProjectDetails.defaultProps = {
   project: PropTypes.shape({
-    projectDates: [],
-    user: [],
+    dates: [],
+    participants: [],
   }),
 };
 

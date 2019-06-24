@@ -21,7 +21,7 @@ import { getCurrentProjectDates } from 'src/store/reducers/user';
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = (state, ownProps) => ({
   startDate: state.project.startDate,
   endDate: state.project.endDate,

@@ -11,7 +11,7 @@ import NavigationSingleProject from 'src/components/Navigation/NavigationSingleP
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = state => ({
   username: state.user.firstname,
 });

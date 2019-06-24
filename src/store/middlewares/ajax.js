@@ -26,6 +26,7 @@ import {
   CREATE_NEWPROJECT,
   ADD_PROJECT_DATES,
   DELETE_PROJECT_DATES,
+  VOTE_PROJECT_DATES,
   storeNewprojectResponse,
 } from 'src/store/reducers/project';
 
@@ -149,6 +150,19 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.delete('http://localhost:8000/project/delete-dates', { data: body })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(getUserProjects());
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case VOTE_PROJECT_DATES: {
+      body = { datesId: action.datesId };
+
+      axiosToken.put('http://localhost:8000/project/vote-dates', body)
         .then((response) => {
           console.log(response);
           store.dispatch(getUserProjects());

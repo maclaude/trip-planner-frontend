@@ -22,23 +22,7 @@ import SingleProjectCard from './SingleProjectCard';
  * Code
  */
 class Projects extends React.Component {
-  componentDidMount() {
-    const { isNotified, notified } = this.props;
-
-    if (!isNotified) {
-      toast.notify(
-        <p id="toast-alert">
-          Une question ? Contactez-nous <a href="mailto:contact@tripplanner.com">ici</a>
-        </p>,
-        {
-          position: 'top-right',
-          duration: 4000,
-        },
-      );
-
-      notified();
-    }
-  }
+  componentDidMount() {}
 
   render() {
     const { projects } = this.props;
@@ -88,8 +72,6 @@ Projects.propTypes = {
       _id: PropTypes.string.isRequired,
     }).isRequired,
   ),
-  isNotified: PropTypes.bool.isRequired,
-  notified: PropTypes.func.isRequired,
 };
 
 Projects.defaultProps = {

@@ -7,24 +7,17 @@ import { connect } from 'react-redux';
  * Local import
  */
 import Projects from 'src/components/Projects/Projects';
-// Action Creators
-import { notified } from 'src/store/reducers/project';
 
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = state => ({
   projects: state.user.projects,
-  isNotified: state.project.isNotified,
 });
 
 // === Actions ===
-const mapDispatchToProps = dispatch => ({
-  notified: () => {
-    dispatch(notified());
-  },
-});
+const mapDispatchToProps = {};
 
 /**
  * Connect

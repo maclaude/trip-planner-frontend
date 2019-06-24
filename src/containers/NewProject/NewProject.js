@@ -19,7 +19,7 @@ import {
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = state => ({
   title: state.project.title,
   description: state.project.description,

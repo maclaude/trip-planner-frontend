@@ -9,18 +9,20 @@ import { connect } from 'react-redux';
 import singleDateButton from 'src/components/Availability/SingleDateButton';
 
 // Action Creators
-import { userHasVoted } from 'src/store/reducers/project';
+import { voteProjectDates } from 'src/store/reducers/project';
 
 /**
  * Code
  */
-// === State (données) ===
-const mapStateToProps = null;
+// === State (data) ===
+const mapStateToProps = state => ({
+  userId: state.user.id,
+});
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  userHasVoted: () => {
-    dispatch(userHasVoted());
+  voteProjectDates: (datesId) => {
+    dispatch(voteProjectDates(datesId));
   },
 });
 

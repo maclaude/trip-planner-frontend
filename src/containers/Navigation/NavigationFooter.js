@@ -14,7 +14,7 @@ import { disconnectUser } from 'src/store/reducers/authentication';
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = state => ({
   isAuthenticated: state.authentication.isAuth,
 });

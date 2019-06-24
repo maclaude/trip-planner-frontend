@@ -11,50 +11,43 @@
   background: $background-main-color;
   color: $font-color;
   
-  &-banner, &-content, &-button {
-    padding-bottom: 2.3em;
+  &-banner {
+    margin-bottom: 2em;
   }
 
   &-main {
-    width: 80%;
-    margin: auto;
-  }
+    width: 600px;
+    margin: 1em auto;
+    font-size: 1.2em;
 
-  &-content, &-checkbox {
-    text-align: center;
-  }
+    &-title {
+      margin: 1em auto 2em;
+      text-align: left;
+    }
 
-  &-content h2 {
-    font-size: 2em;
-  }
-
-  &-checkbox {
-    margin: 2em;
-  }
-  
-  &-buttons {
-    display: flex;
-    flex-direction: column;
+    &-dates-suggested {
+      text-align: center;
+      width: 80%;
+      margin: 0.5em auto 2em;
+      font-size: 1.3em;
+    }
   }
 }
 
 .availability-button {
-  margin: .8em auto;
-  padding: .5em .8em;
+  background: linear-gradient(to right, #2980b9, #6dd5fa);
+  font-weight: 600;
+  margin: 1em auto;
+  padding: .5em;
   width: fit-content;
-  border: none;
-  border-radius: 15px;
-  background: $button-bg-color;
+  border-radius: 5px;
   color: $button-text-color;
-  font-size: 1.5em;
-  box-shadow: 0 5px $button-shadow-color;
 
-  &--selected {
-    background: $button-active-color;
+  &:hover {
+    cursor: pointer;
   }
 
-  &:active {
-    box-shadow: 0 5px $button-shadow-color;
-    transform: translateY(1px);
+  &--selected {
+    background: linear-gradient(to right, #11998e, #38ef7d);
   }
 }

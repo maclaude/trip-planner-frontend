@@ -11,10 +11,8 @@ import ProjectDetails from 'src/components/ProjectDetails/ProjectDetails';
 /**
  * Code
  */
-// === State (données) ===
-const mapStateToProps = state => ({
-  userHasVoted: state.project.userHasVoted,
-});
+// === State (data) ===
+const mapStateToProps = null;
 
 // === Actions ===
 const mapDispatchToProps = {};

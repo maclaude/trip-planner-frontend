@@ -8,7 +8,7 @@ import { Card } from 'semantic-ui-react';
 /**
  * Local import
  */
-import SuggestionCard from './SuggestionCard';
+// import SuggestionCard from './SuggestionCard';
 
 /**
  * Code
@@ -21,12 +21,12 @@ const Other = ({ suggestions }) => (
       </p>
     )}
     <Card.Group>
-      {suggestions.map(suggestion => (
+      {/* {suggestions.map(suggestion => (
         <SuggestionCard
           key={suggestion.id}
           {...suggestion}
         />
-      ))}
+      ))} */}
     </Card.Group>
   </div>
 );

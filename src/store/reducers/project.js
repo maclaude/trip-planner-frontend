@@ -13,8 +13,6 @@ const initialState = {
   suggestedDates: [],
   errors: [],
   serverResponseMessage: '',
-  isNotified: false,
-  userHasVoted: false,
 };
 
 /**
@@ -33,9 +31,7 @@ const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
 export const ADD_PROJECT_DATES = 'ADD_PROJECT_DATES';
 export const SHOW_ADD_PROJECT_DATES_ERRORS = 'SHOW_ADD_PROJECT_DATES_ERRORS';
 export const DELETE_PROJECT_DATES = 'DELETE_PROJECT_DATES';
-
-const NOTIFY = 'NOTIFY';
-const USER_HAS_VOTED = 'USER_HAS_VOTED';
+export const VOTE_PROJECT_DATES = 'VOTE_PROJECT_DATES';
 
 /**
  * Reducer
@@ -110,18 +106,6 @@ const reducer = (state = initialState, action = {}) => {
         errors: action.errors,
       };
 
-    case NOTIFY:
-      return {
-        ...state,
-        isNotified: true,
-      };
-
-    case USER_HAS_VOTED:
-      return {
-        ...state,
-        userHasVoted: true,
-      };
-
     default:
       return state;
   }
@@ -186,12 +170,9 @@ export const deleteProjectDates = (projectId, datesId) => ({
   datesId,
 });
 
-export const notified = () => ({
-  type: NOTIFY,
-});
-
-export const userHasVoted = () => ({
-  type: USER_HAS_VOTED,
+export const voteProjectDates = datesId => ({
+  type: VOTE_PROJECT_DATES,
+  datesId,
 });
 
 /**

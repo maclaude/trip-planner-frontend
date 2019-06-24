@@ -14,7 +14,7 @@ import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/su
 /**
  * Code
  */
-// === State (données) ===
+// === State (data) ===
 const mapStateToProps = null;
 
 // === Actions ===

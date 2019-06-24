@@ -16,59 +16,49 @@ import { getDateFormat } from 'src/utils/date_format';
  */
 class SingleDateButton extends React.Component {
   /**
-   * Local state
-   */
-  state = {
-    isApproved: false,
-  }
-
-  /**
    * Handlers
    */
-  handleClick = () => {
-    const { isApproved } = this.state;
-    const { userHasVoted } = this.props;
-
-    if (!isApproved) {
-      this.setState({
-        isApproved: true,
-      });
-      userHasVoted();
-    }
-    else if (isApproved) {
-      this.setState({
-        isApproved: false,
-      });
-    }
+  voteProjectDates = datesId => () => {
+    const { voteProjectDates } = this.props;
+    voteProjectDates(datesId);
   }
 
   /**
    * Render
    */
   render() {
-    const { startDate, endDate } = this.props;
-    const { isApproved } = this.state;
+    const {
+      userId,
+      _id: datesId,
+      start_date: startDate,
+      end_date: endDate,
+      user_vote: userVote,
+    } = this.props;
+
+    const currentUserHasVoted = userVote.find(vote => vote === userId);
 
     return (
-      <button
+      <div
         className={classNames(
           'availability-button',
-          { 'availability-button--selected': isApproved },
+          { 'availability-button--selected': currentUserHasVoted },
         )}
-        type="button"
-        onClick={this.handleClick}
+        onClick={this.voteProjectDates(datesId)}
       >
-        {`${getDateFormat(startDate)} - ${getDateFormat(endDate)}`}
-      </button>
+        {`Du ${getDateFormat(startDate)} au ${getDateFormat(endDate)}`}
+      </div>
     );
   }
 }
 
 // PropTypes validation
 SingleDateButton.propTypes = {
-  startDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  userHasVoted: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  start_date: PropTypes.string.isRequired,
+  end_date: PropTypes.string.isRequired,
+  user_vote: PropTypes.array.isRequired,
+  voteProjectDates: PropTypes.func.isRequired,
 };
 
 /**
