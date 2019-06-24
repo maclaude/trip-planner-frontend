@@ -39,9 +39,9 @@ class NewProject extends React.Component {
   }
 
   componentDidUpdate() {
-    const { responseMessage } = this.props;
+    const { serverResponseMessage } = this.props;
 
-    if (responseMessage !== '') {
+    if (serverResponseMessage === 'Project created') {
       toast.notify(
         <p id="toast-alert">
           <Icon name="check" color="green" size="large" /> Votre projet à bien été crée !
@@ -98,7 +98,7 @@ class NewProject extends React.Component {
       description,
       destination,
       errors,
-      responseMessage,
+      serverResponseMessage,
     } = this.props;
 
     return (
@@ -106,7 +106,7 @@ class NewProject extends React.Component {
         <div id="newproject-banner">
           <h1>Créer un projet</h1>
         </div>
-        {(responseMessage === '') && (
+        {(serverResponseMessage === '') && (
           <div id="newproject-container">
             <div id="newproject-form">
               <Form
@@ -174,7 +174,7 @@ class NewProject extends React.Component {
           </div>
         )}
 
-        {(responseMessage !== '') && (
+        {(serverResponseMessage !== '') && (
           <div id="project-created">
             <h2 id="project-created-title">Vous venez de créer le projet <span>{title}</span></h2>
             <div id="project-created-functionalities">
@@ -219,7 +219,7 @@ NewProject.propTypes = {
   description: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
-  responseMessage: PropTypes.string.isRequired,
+  serverResponseMessage: PropTypes.string.isRequired,
   clearProjectState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   getDestinationCoordinates: PropTypes.func.isRequired,

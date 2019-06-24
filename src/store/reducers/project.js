@@ -12,9 +12,7 @@ const initialState = {
   endDate: '',
   suggestedDates: [],
   errors: [],
-  responseMessage: '',
-  isLoading: false,
-  loaded: false,
+  serverResponseMessage: '',
   isNotified: false,
   userHasVoted: false,
 };
@@ -23,6 +21,7 @@ const initialState = {
  * Types
  */
 const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
+const STORE_SERVER_RESPONSE_MESSAGE = 'STORE_SERVER_RESPONSE_MESSAGE';
 
 const CHANGE_NEWPROJECT_INPUTS = 'CHANGE_NEWPROJECT_INPUTS';
 const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
@@ -33,6 +32,7 @@ const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
 
 export const ADD_PROJECT_DATES = 'ADD_PROJECT_DATES';
 export const SHOW_ADD_PROJECT_DATES_ERRORS = 'SHOW_ADD_PROJECT_DATES_ERRORS';
+export const DELETE_PROJECT_DATES = 'DELETE_PROJECT_DATES';
 
 const NOTIFY = 'NOTIFY';
 const USER_HAS_VOTED = 'USER_HAS_VOTED';
@@ -49,14 +49,20 @@ const reducer = (state = initialState, action = {}) => {
         title: '',
         description: '',
         errors: [],
-        responseMessage: '',
+        serverResponseMessage: '',
+      };
+
+    case STORE_SERVER_RESPONSE_MESSAGE:
+      return {
+        ...state,
+        serverResponseMessage: action.message,
       };
 
     case CHANGE_NEWPROJECT_INPUTS:
       return {
         ...state,
         [action.name]: action.value,
-        responseMessage: '',
+        serverResponseMessage: '',
       };
 
     case SHOW_NEWPROJECT_ERRORS:
@@ -85,7 +91,7 @@ const reducer = (state = initialState, action = {}) => {
     case STORE_NEWPROJECT_RESPONSE:
       return {
         ...state,
-        responseMessage: action.message,
+        serverResponseMessage: action.message,
         id: action.data.id,
         title: action.data.title,
       };
@@ -128,6 +134,11 @@ export const clearProjectState = () => ({
   type: CLEAR_PROJECT_STATE,
 });
 
+export const storeServerResponseMessage = message => ({
+  type: STORE_SERVER_RESPONSE_MESSAGE,
+  message,
+});
+
 export const changeNewProjectInputs = (name, value) => ({
   type: CHANGE_NEWPROJECT_INPUTS,
   name,
@@ -167,6 +178,12 @@ export const addProjectDates = projectId => ({
 export const showAddProjectDatesErrors = errors => ({
   type: SHOW_ADD_PROJECT_DATES_ERRORS,
   errors,
+});
+
+export const deleteProjectDates = (projectId, datesId) => ({
+  type: DELETE_PROJECT_DATES,
+  projectId,
+  datesId,
 });
 
 export const notified = () => ({

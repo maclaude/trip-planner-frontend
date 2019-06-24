@@ -13,6 +13,7 @@ import {
   changeNewProjectInputs,
   addProjectDates,
   showAddProjectDatesErrors,
+  deleteProjectDates,
 } from 'src/store/reducers/project';
 // Selector
 import { getCurrentProjectDates } from 'src/store/reducers/user';
@@ -38,6 +39,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   addProjectDates: () => {
     dispatch(addProjectDates(ownProps.project._id));
+  },
+  deleteDates: (datesId) => {
+    dispatch(deleteProjectDates(ownProps.project._id, datesId));
   },
 });
 

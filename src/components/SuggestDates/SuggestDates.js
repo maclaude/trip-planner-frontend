@@ -55,6 +55,11 @@ class SuggestDates extends React.Component {
     }
   };
 
+  deleteProjectDates = datesId => () => {
+    const { deleteDates } = this.props;
+    deleteDates(datesId);
+  }
+
   /**
    * Render
    */
@@ -124,13 +129,13 @@ class SuggestDates extends React.Component {
           </Form>
         </div>
         <div id="dates-suggested">
-          {suggestedDates.map(date => (
-            <div className="dates-suggested--item" key={date._id}>
+          {suggestedDates.map(dates => (
+            <div className="dates-suggested--item" key={dates._id}>
               <div>
-                Du {getDateFormat(date.start_date)} au {getDateFormat(date.end_date)}
+                Du {getDateFormat(dates.start_date)} au {getDateFormat(dates.end_date)}
               </div>
               <div className="dates-suggested--item-icon">
-                <FaTrash />
+                <FaTrash onClick={this.deleteProjectDates(dates._id)} />
               </div>
             </div>
           ))}
@@ -150,6 +155,7 @@ SuggestDates.propTypes = {
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   addProjectDates: PropTypes.func.isRequired,
+  deleteDates: PropTypes.func.isRequired,
 };
 
 SuggestDates.defaultProps = {

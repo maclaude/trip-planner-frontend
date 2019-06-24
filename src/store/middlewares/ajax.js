@@ -25,6 +25,7 @@ import {
 import {
   CREATE_NEWPROJECT,
   ADD_PROJECT_DATES,
+  DELETE_PROJECT_DATES,
   storeNewprojectResponse,
 } from 'src/store/reducers/project';
 
@@ -92,6 +93,17 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
+    case GET_USER_PROJECTS: {
+      axiosToken.get('http://localhost:8000/user/projects')
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeUserProjects(response.data.userProjects));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
     case CREATE_NEWPROJECT: {
       body = {
         title: state.project.title,
@@ -130,11 +142,16 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
-    case GET_USER_PROJECTS: {
-      axiosToken.get('http://localhost:8000/user/projects')
+    case DELETE_PROJECT_DATES: {
+      body = {
+        projectId: action.projectId,
+        datesId: action.datesId,
+      };
+
+      axiosToken.delete('http://localhost:8000/project/delete-dates', { data: body })
         .then((response) => {
           console.log(response);
-          store.dispatch(storeUserProjects(response.data.userProjects));
+          store.dispatch(getUserProjects());
         })
         .catch(error => console.log(error));
 

@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
   description: state.project.description,
   destination: state.project.destination,
   errors: state.project.errors,
-  responseMessage: state.project.responseMessage,
+  serverResponseMessage: state.project.serverResponseMessage,
 });
 
 // === Actions ===

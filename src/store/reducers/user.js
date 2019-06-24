@@ -74,7 +74,6 @@ export const getCurrentProject = (projects, slug) => (
 );
 
 export const getCurrentProjectDates = (projects, projectId) => {
-  console.log(projectId);
   const currentProject = projects.find(project => project._id === projectId);
   return currentProject.dates;
 };
