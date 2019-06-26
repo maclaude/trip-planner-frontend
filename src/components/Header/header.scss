@@ -21,15 +21,15 @@
   min-width: 200px;
 
   &-link {
-    color: $nav-text-color;
+    color: $font-color;
     font-size: 1.2em;
     font-weight: 700;
     margin-left: 2em;
     padding: .5em .8em;
 
     &:hover {
-      color: $nav-text-color;
-      border-bottom: 3px solid $nav-link-border-bottom-color;
+      color: $font-color;
+      border-bottom: 3px solid $navigation-border-bottom-color;
       cursor: pointer;
     }
   }

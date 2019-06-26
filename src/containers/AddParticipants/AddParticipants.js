@@ -14,21 +14,16 @@ import {
   changeParticipantsInputs,
   showParticipantsErrors,
   sendInvitation,
-  getInvitedParticipants,
 } from 'src/store/reducers/participants';
 
 /**
  * Code
  */
 // === State (data) ===
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   name: state.participants.name,
   email: state.participants.email,
   errors: state.participants.errors,
-  invitedParticipants: getInvitedParticipants(
-    state.participants.invitationList,
-    ownProps.project.id,
-  ),
 });
 
 // === Actions ===
@@ -40,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(showParticipantsErrors(errors));
   },
   sendInvitation: () => {
-    dispatch(sendInvitation(ownProps.project.id));
+    dispatch(sendInvitation(ownProps.project._id, ownProps.project.title));
   },
 });
 

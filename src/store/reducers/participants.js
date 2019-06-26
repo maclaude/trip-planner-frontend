@@ -5,7 +5,6 @@ const initialState = {
   name: '',
   email: '',
   errors: [],
-  invitationList: [],
 };
 
 /**
@@ -13,7 +12,7 @@ const initialState = {
  */
 const CHANGE_PARTICIPANTS_INPUTS = 'CHANGE_PARTICIPANTS_INPUTS';
 const SHOW_PARTICIPANTS_ERRORS = 'SHOW_PARTICIPANTS_ERRORS';
-const SEND_INVITATION = 'SEND_INVITATION';
+export const SEND_INVITATION = 'SEND_INVITATION';
 
 /**
  * Reducer
@@ -31,24 +30,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         errors: action.errors,
       };
-
-    case SEND_INVITATION: {
-      const newInvitation = {
-        project_id: action.projectId,
-        name: state.name,
-        email: state.email,
-      };
-
-      const newInvitationList = [...state.invitationList, newInvitation];
-
-      return {
-        ...state,
-        name: '',
-        email: '',
-        errors: [],
-        invitationList: newInvitationList,
-      };
-    }
 
     default:
       return state;
@@ -69,17 +50,11 @@ export const showParticipantsErrors = errors => ({
   errors,
 });
 
-export const sendInvitation = projectId => ({
+export const sendInvitation = (projectId, projectTitle) => ({
   type: SEND_INVITATION,
   projectId,
+  projectTitle,
 });
-
-/**
- * Selectors
- */
-export const getInvitedParticipants = (invitationList, projectId) => ([
-  ...invitationList.filter(invitation => invitation.project_id === projectId),
-]);
 
 /**
  * Export

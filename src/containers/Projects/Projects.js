@@ -8,16 +8,27 @@ import { connect } from 'react-redux';
  */
 import Projects from 'src/components/Projects/Projects';
 
+// Action Creators
+import { getUserInvitations, postUserInvitationResponse } from 'src/store/reducers/user';
+
 /**
  * Code
  */
 // === State (data) ===
 const mapStateToProps = state => ({
   projects: state.user.projects,
+  invitations: state.user.invitations,
 });
 
 // === Actions ===
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  getUserInvitations: () => {
+    dispatch(getUserInvitations());
+  },
+  postUserInvitationResponse: (response, projectId) => {
+    dispatch(postUserInvitationResponse(response, projectId));
+  },
+});
 
 /**
  * Connect

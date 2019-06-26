@@ -11,6 +11,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomeView from 'src/components/Home';
 import SignupView from 'src/components/Signup';
 import LoginView from 'src/components/Login';
+import InvitationView from 'src/containers/Invitation';
 import ProjectsView from 'src/components/Projects';
 import NewProjectView from 'src/components/NewProject';
 import AvailabilityView from 'src/containers/Availability';
@@ -33,6 +34,7 @@ const App = () => (
       <Route exact path="/" component={HomeView} />
       <Route exact path="/inscription" component={SignupView} />
       <Route exact path="/connexion" component={LoginView} />
+      <Route exact path="/invitation/:projectId" component={InvitationView} />
       <Route exact path="/mes-projets" component={requiresAuth(ProjectsView)} />
       <Route exact path="/nouveau-projet" component={requiresAuth(NewProjectView)} />
       <Route exact path="/disponibilites/:slug" component={requiresAuth(AvailabilityView)} />

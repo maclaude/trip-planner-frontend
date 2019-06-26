@@ -14,6 +14,8 @@ const initialState = {
   email: '',
   avatar: '',
   projects: [],
+  invitationProjectId: '',
+  invitations: [],
 };
 
 /**
@@ -22,6 +24,12 @@ const initialState = {
 const STORE_USER_DATA = 'STORE_USER_INFO';
 const STORE_USER_PROJECTS = 'STORE_USER_PROJECTS';
 export const GET_USER_PROJECTS = 'GET_USER_PROJECTS';
+
+const STORE_INVITATION_PROJECTID = 'STORE_INVITATION_PROJECTID';
+export const ADD_USER_INVITATION = 'ADD_USER_INVITATION';
+export const GET_USER_INVITATIONS = 'GET_USER_INVITATIONS';
+const STORE_USER_INVITATIONS = 'STORE_USER_INVITATIONS';
+export const POST_USER_INVITATION_RESPONSE = 'POST_USER_INVITATION_RESPONSE';
 
 /**
  * Reducer
@@ -44,6 +52,31 @@ const reducer = (state = initialState, action = {}) => {
         projects: action.projects,
       };
 
+    case STORE_INVITATION_PROJECTID: {
+      return {
+        ...state,
+        invitationProjectId: action.projectId,
+      };
+    }
+
+    case ADD_USER_INVITATION:
+      return {
+        ...state,
+        invitationProjectId: '',
+      };
+
+    case STORE_USER_INVITATIONS:
+      return {
+        ...state,
+        invitations: action.invitations,
+      };
+
+    case POST_USER_INVITATION_RESPONSE:
+      return {
+        ...state,
+        invitations: [],
+      };
+
     default:
       return state;
   }
@@ -64,6 +97,30 @@ export const storeUserProjects = projects => ({
 
 export const getUserProjects = () => ({
   type: GET_USER_PROJECTS,
+});
+
+export const storeInvitationProjectId = projectId => ({
+  type: STORE_INVITATION_PROJECTID,
+  projectId,
+});
+
+export const addUserInvitation = () => ({
+  type: ADD_USER_INVITATION,
+});
+
+export const getUserInvitations = () => ({
+  type: GET_USER_INVITATIONS,
+});
+
+export const storeUserInvitations = invitations => ({
+  type: STORE_USER_INVITATIONS,
+  invitations,
+});
+
+export const postUserInvitationResponse = (response, projectId) => ({
+  type: POST_USER_INVITATION_RESPONSE,
+  response,
+  projectId,
 });
 
 /**

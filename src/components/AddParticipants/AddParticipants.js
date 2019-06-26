@@ -8,7 +8,6 @@ import {
   Icon,
   Button,
   List,
-  // Image,
   Divider,
   Message,
 } from 'semantic-ui-react';
@@ -18,8 +17,6 @@ import {
  */
 // Style
 import './add_participants.scss';
-// Assets
-// import avatar from 'src/assets/avatar/default-user.png';
 // Utils
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components
@@ -50,12 +47,10 @@ class AddParticipants extends React.Component {
       sendInvitation,
     } = this.props;
 
-    // Gestion des erreurs
+    // Handling errors
     const errors = getParticipantsFormErrors(name, email);
 
     if (name && email !== '') {
-      // eslint-disable-next-line no-console
-      console.log('AddParticipants :: handleSubmit');
       sendInvitation();
     }
     else {
@@ -72,7 +67,6 @@ class AddParticipants extends React.Component {
       name,
       email,
       errors,
-      // invitedParticipants,
     } = this.props;
 
     return (
@@ -201,7 +195,6 @@ AddParticipants.propTypes = {
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   sendInvitation: PropTypes.func.isRequired,
-  // invitedParticipants: PropTypes.array.isRequired,
 };
 
 /**

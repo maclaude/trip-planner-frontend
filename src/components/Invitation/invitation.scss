@@ -1,0 +1,21 @@
+@import 'src/styles/vars';
+
+#invitation {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  &_main {
+    width: 70vw;
+    text-align: center;
+
+    &-authentication {
+      margin: 4rem auto;
+      display: flex;
+      justify-content: space-around;
+      width: 800px;
+    }
+  }
+}

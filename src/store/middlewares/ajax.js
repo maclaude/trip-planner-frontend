@@ -17,9 +17,15 @@ import {
 
 import {
   GET_USER_PROJECTS,
+  ADD_USER_INVITATION,
+  GET_USER_INVITATIONS,
+  POST_USER_INVITATION_RESPONSE,
   storeUserData,
   getUserProjects,
   storeUserProjects,
+  addUserInvitation,
+  getUserInvitations,
+  storeUserInvitations,
 } from 'src/store/reducers/user';
 
 import {
@@ -30,20 +36,15 @@ import {
   storeNewprojectResponse,
 } from 'src/store/reducers/project';
 
-import {
-  GET_SUGGESTIONS,
-  SEND_SUGGESTION,
-  // stockSuggestions,
-} from 'src/store/reducers/suggestions';
+import { SEND_INVITATION } from '../reducers/participants';
 
 /**
  * Middleware
  */
 const ajaxMiddleware = store => next => (action) => {
-  // Get state
   const state = store.getState();
 
-  // Request header Authorization Bearer token configuration
+  // Request header auth token configuration
   const axiosToken = axios.create({
     headers: { Authorization: `Bearer ${state.authentication.token}` },
   });
@@ -85,6 +86,10 @@ const ajaxMiddleware = store => next => (action) => {
           store.dispatch(storeToken(response.data.token));
           store.dispatch(storeUserData(response.data.user));
           store.dispatch(storeUserProjects(response.data.user.projects));
+
+          if (state.user.invitationProjectId) {
+            store.dispatch(addUserInvitation());
+          }
         })
         .catch((error) => {
           console.log(error.response);
@@ -172,40 +177,60 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
-    case GET_SUGGESTIONS: {
-      /*
-      console.log('AJAX - getSuggestions');
+    case SEND_INVITATION: {
+      body = {
+        currentUsername: state.user.firstname,
+        projectId: action.projectId,
+        projectTitle: action.projectTitle,
+        invitedUsername: state.participants.name,
+        invitedUserEmail: state.participants.email,
+      };
 
-      axiosToken.get('URL')
+      axiosToken.post('http://localhost:8000/project/add-participants', body)
         .then((response) => {
-          console.log(response.data);
-          store.dispatch(stockSuggestions(response.data['hydra:member']));
+          console.log(response);
         })
-        .catch(() => console.error('Request has failed'));
-      */
+        .catch(error => console.log(error));
 
       break;
     }
 
-    case SEND_SUGGESTION: {
-      /*
-      // newSuggestion object creation
-      const newSuggestion = {
-        name: state.suggestions.name,
-        description: state.suggestions.description,
-        url: state.suggestions.url,
-        price: parseInt(state.suggestions.price, 10),
-        suggestionGender: `/api/suggestion_genders/${state.suggestions.type}`,
-        project: `/api/projects/${action.projectId}`,
-        user: `/api/users/${state.authentication.user.id}`,
+    case ADD_USER_INVITATION: {
+      body = { projectId: state.user.invitationProjectId };
+
+      axiosToken.post('http://localhost:8000/user/invitation', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(getUserInvitations());
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case GET_USER_INVITATIONS: {
+      axiosToken.get('http://localhost:8000/user/invitations')
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeUserInvitations(response.data.userInvitations));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case POST_USER_INVITATION_RESPONSE: {
+      body = {
+        response: action.response,
+        projectId: action.projectId,
       };
 
-      console.log('AJAX - addSuggestion');
-
-      axiosToken.post('URL', newSuggestion)
-        .then(response => console.log(response))
-        .catch(() => console.error('Request has failed'));
-      */
+      axiosToken.post('http://localhost:8000/user/invitation-response', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(getUserProjects());
+        })
+        .catch(error => console.log(error));
 
       break;
     }

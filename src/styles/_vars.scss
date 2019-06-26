@@ -1,45 +1,28 @@
-// Variables CSS
+// CSS vars
+
+// Title;
+$h1-color: #2E4053;
 
 // Fonts
 $font-color: #000;
 
-// Header
 $header-bg-color: #E4E9ED;
-$nav-link-border-bottom-color: #566573;
-$nav-text-color: #000;
-
-// Footer
 $footer-bg-color: #E4E9ED;
-$footer-text-color: #4C5175;
-
-// Main
-$background-main-color: #FFF;
-
-// Homepage 
-$main-bg-color: #F7F9F9;
-
-// Authentification forms
-$form-box-shadow-color: #E5E7E9;
+$main-bg-color: #FFF;
+$section-bg-color: #F7F9F9;
 
 // Navigation
+$navigation-border-bottom-color: #34495E;
 $navigation-border-right-color: #ABB2B9;
-$navigation-border-inside-color:#FFF;
 $navigation-bg-color: #E4E9ED;
 $navigation-font-color: #000;
 $navigation-font-color-hover: #34495E;
-$navigation-avatar-border-color: #FFF;
-$navigation-bg-color-hover: #FFF;
-$navigation-link-project-border-left: hsla(132, 100%, 50%, 0.5);
+$navigation-separator-color:#FFF;
+$navigation-avatar-circle-border-color: #FFF;
+$navigation-link-bg-color-hover: #FFF;
+$navigation-project-link-border-left-hover: hsla(132, 100%, 50%, 0.5);
 
-// Availability buttons
-$button-bg-color: #1F618D80;
+// Buttons
 $button-text-color: #FFF;
-$button-active-color: #16AB3A;
-$button-shadow-color: #4C5175;
-
-// Card
-$card-title-color: #000;
-
-// ProjectDetails
-$project-dates-bg-color: #EBEDEF;
-$create-project-button-bg-color: hsla(132, 100%, 50%, 0.5);
+$button-accept-bg-color: #58D68D;
+$button-decline-bg-color: #E74C3C;

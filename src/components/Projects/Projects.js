@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
 import { FaPaperPlane } from 'react-icons/fa';
-import toast from 'toasted-notes';
 
 /**
  * Local import
@@ -22,16 +21,64 @@ import SingleProjectCard from './SingleProjectCard';
  * Code
  */
 class Projects extends React.Component {
-  componentDidMount() {}
+  /**
+   * Lifecycles
+   */
+  componentWillMount() {
+    const { getUserInvitations } = this.props;
+    getUserInvitations();
+  }
 
+  /**
+   * Handlers
+   */
+  sendInvitationResponse = (projectId, response) => () => {
+    const { postUserInvitationResponse } = this.props;
+    postUserInvitationResponse(response, projectId);
+  }
+
+  /**
+   * Render
+   */
   render() {
-    const { projects } = this.props;
+    const { projects, invitations } = this.props;
 
     return (
       <div id="projects">
         <div id="projects-banner">
           <h1>Mes projets</h1>
         </div>
+        {(invitations.length !== 0) && (
+        <div id="projects-invitations">
+          <h2 id="projects-invitations-title">Invitations reçues</h2>
+          <div>
+            {(invitations.map(invitation => (
+              <div className="projects-invitation" key={invitation._id}>
+                <div className="projects-invitation-title">{invitation.title}</div>
+                <div
+                  className="
+                    projects-invitation_button
+                    projects-invitation_button--decline
+                  "
+                  onClick={this.sendInvitationResponse(invitation._id, 'declined')}
+                >
+                  Refuser
+                </div>
+                <div
+                  className="
+                    projects-invitation_button
+                    projects-invitation_button--accept
+                  "
+                  onClick={this.sendInvitationResponse(invitation._id, 'accepted')}
+                >
+                  Accepter
+                </div>
+              </div>
+            )))}
+          </div>
+        </div>
+        )}
+
         {(projects.length === 0) && (
           <p id="projects-information">Vous n'avez aucun projet en cours</p>
         )}
@@ -72,10 +119,19 @@ Projects.propTypes = {
       _id: PropTypes.string.isRequired,
     }).isRequired,
   ),
+  invitations: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  ),
+  getUserInvitations: PropTypes.func.isRequired,
+  postUserInvitationResponse: PropTypes.func.isRequired,
 };
 
 Projects.defaultProps = {
   projects: [],
+  invitations: [],
 };
 
 /**

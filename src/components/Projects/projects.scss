@@ -8,11 +8,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: $background-main-color;
+  background: $main-bg-color;
   color: $font-color;
   
   &-banner {
     margin-bottom: 2em;
+  }
+
+  &-invitations {
+    border-radius: 5px;
+    padding: 2em 3em;
+    margin: 2em auto;
+    width: fit-content;
+    background-color: $section-bg-color;
+    box-shadow: 0 5px 1em rgba(68, 74, 81, 0.3);
+
+    &-title {
+      font-weight: 600;
+      color: #34495E;
+    }
   }
   
   &-information {
@@ -38,21 +52,48 @@
   position: relative;
 
   &-title {
-    color: $card-title-color;
+    color: #000;
   }
 }
 
-// Notification red icon
+.projects-invitation {
+  margin: 1em 0;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-#notification {
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  font-weight: 600;
-  background-color: red;
-  border-radius: 50% !important;
-  color: #fff;
-  position: absolute;
-  top: -10px;
-  right: -10px;
+  &-title {
+    padding: 1em;
+    min-width: 400px;
+    width: fit-content;
+    border-radius: 4px;
+    background-color: #FFF;
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+
+  &_button {
+    width: fit-content;
+    margin-left: 1em;
+    padding: .6em;
+    border-radius: 4px;
+    box-shadow: 0 10px 1em rgba(68, 74, 81, 0.3);
+    background-color: $button-accept-bg-color;
+    color: $button-text-color;
+    font-weight: 600;
+    font-size: 1.2em;
+
+    &--accept {
+      background-color: $button-accept-bg-color;
+    }
+
+    &--decline {
+      background-color: $button-decline-bg-color;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

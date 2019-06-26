@@ -95,8 +95,6 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_PROJECT_DATES:
       return {
         ...state,
-        startDate: '',
-        endDate: '',
         errors: [],
       };
 
