@@ -20,16 +20,15 @@ const initialState = {
  */
 const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
 const STORE_SERVER_RESPONSE_MESSAGE = 'STORE_SERVER_RESPONSE_MESSAGE';
+const SHOW_FORM_ERRORS = 'SHOW_FORM_ERRORS';
 
 const CHANGE_NEWPROJECT_INPUTS = 'CHANGE_NEWPROJECT_INPUTS';
-const SHOW_NEWPROJECT_ERRORS = 'SHOW_NEWPROJECT_ERRORS';
 export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
 export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
 
 export const ADD_PROJECT_DATES = 'ADD_PROJECT_DATES';
-export const SHOW_ADD_PROJECT_DATES_ERRORS = 'SHOW_ADD_PROJECT_DATES_ERRORS';
 export const DELETE_PROJECT_DATES = 'DELETE_PROJECT_DATES';
 export const VOTE_PROJECT_DATES = 'VOTE_PROJECT_DATES';
 
@@ -54,17 +53,17 @@ const reducer = (state = initialState, action = {}) => {
         serverResponseMessage: action.message,
       };
 
+    case SHOW_FORM_ERRORS:
+      return {
+        ...state,
+        errors: action.errors,
+      };
+
     case CHANGE_NEWPROJECT_INPUTS:
       return {
         ...state,
         [action.name]: action.value,
         serverResponseMessage: '',
-      };
-
-    case SHOW_NEWPROJECT_ERRORS:
-      return {
-        ...state,
-        errors: action.errors,
       };
 
     case STORE_DESTINATION_COORDINATES:
@@ -98,12 +97,6 @@ const reducer = (state = initialState, action = {}) => {
         errors: [],
       };
 
-    case SHOW_ADD_PROJECT_DATES_ERRORS:
-      return {
-        ...state,
-        errors: action.errors,
-      };
-
     default:
       return state;
   }
@@ -121,15 +114,15 @@ export const storeServerResponseMessage = message => ({
   message,
 });
 
+export const showFormErrors = errors => ({
+  type: SHOW_FORM_ERRORS,
+  errors,
+});
+
 export const changeNewProjectInputs = (name, value) => ({
   type: CHANGE_NEWPROJECT_INPUTS,
   name,
   value,
-});
-
-export const showNewProjectErrors = errors => ({
-  type: SHOW_NEWPROJECT_ERRORS,
-  errors,
 });
 
 export const getDestinationCoordinates = () => ({
@@ -155,11 +148,6 @@ export const storeNewprojectResponse = (message, data) => ({
 export const addProjectDates = projectId => ({
   type: ADD_PROJECT_DATES,
   projectId,
-});
-
-export const showAddProjectDatesErrors = errors => ({
-  type: SHOW_ADD_PROJECT_DATES_ERRORS,
-  errors,
 });
 
 export const deleteProjectDates = (projectId, datesId) => ({

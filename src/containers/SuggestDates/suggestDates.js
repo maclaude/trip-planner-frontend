@@ -12,7 +12,7 @@ import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 import {
   changeNewProjectInputs,
   addProjectDates,
-  showAddProjectDatesErrors,
+  showFormErrors,
   deleteProjectDates,
 } from 'src/store/reducers/project';
 // Selector
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(changeNewProjectInputs(name, value));
   },
   showErrors: (errors) => {
-    dispatch(showAddProjectDatesErrors(errors));
+    dispatch(showFormErrors(errors));
   },
   addProjectDates: () => {
     dispatch(addProjectDates(ownProps.project._id));

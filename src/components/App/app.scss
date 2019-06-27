@@ -10,8 +10,6 @@
   background-color: $main-bg-color;
 }
 
-/* Titles */
-
 h1 {
   font-weight: 600;
   color: $h1-color;
@@ -21,10 +19,8 @@ h2 {
   font-weight: 400;
 }
 
-/* Common style */
-
 .asterisk {
-  color: red;
+  color: $asterisk-color;
 }
 
 span {
@@ -91,12 +87,12 @@ span {
   }
 
   &-invitation {
-    color: #000;
+    color: $font-color;
     width: 250px;
     text-align: center;
 
     &:hover {
-      color: #000;
+      color: $font-color;
     }
   }
 }

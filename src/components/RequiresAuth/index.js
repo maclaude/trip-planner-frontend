@@ -11,10 +11,7 @@ import PropTypes from 'prop-types';
  */
 export default function (ComposedComponent) {
   class Authenticate extends React.Component {
-    componentDidMount() {
-      // eslint-disable-next-line no-console
-      console.log('Check-Authentification');
-    }
+    componentDidMount() {}
 
     render() {
       const { isAuthenticated } = this.props;
