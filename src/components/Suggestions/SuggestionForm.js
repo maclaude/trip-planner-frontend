@@ -52,7 +52,7 @@ class SuggestionForm extends React.Component {
       showErrors,
     } = this.props;
 
-    // Gestion des erreurs
+    // Handling errors
     const errors = getSuggestionFormErrors(type, name);
 
     if (type && name !== '') {
@@ -84,102 +84,97 @@ class SuggestionForm extends React.Component {
     } = this.props;
 
     return (
-      <>
-        <div id="suggestions-banner">
-          <h1>Idées</h1>
-        </div>
-        <div id="suggestions-form">
-          <Form
-            onSubmit={this.handleSubmit}
-          >
-            <div id="suggestions-form-header">
-              <h2 id="suggestions-form-header-title">
-                Soumettre une idée concernant
-              </h2>
-              <Form.Field id="suggestion-form-header-options">
-                <Form.Select
-                  name="type"
-                  placeholder="Type"
-                  options={options}
-                  onChange={this.handleOptionChange}
-                />
-              </Form.Field>
-            </div>
-            <div id="suggestion-form-details">
-              <FormField>
-                <label htmlFor="name">
-                  Titre <span className="asterisk">*</span>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Votre idée"
-                    value={name}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </FormField>
-              <Form.Field>
-                <label htmlFor="description">
-                  Description
-                  <textarea
-                    name="description"
-                    placeholder="Votre description"
-                    value={description}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </Form.Field>
-              <FormField>
-                <label htmlFor="idea-url">
-                  Lien
-                  <input
-                    type="text"
-                    name="url"
-                    placeholder="Lien"
-                    value={url}
-                    onChange={this.handleInputChange}
-                  />
-                </label>
-              </FormField>
-              <FormField width={8}>
-                <Input
-                  label="Prix"
-                  type="number"
-                  name="price"
-                  icon="euro sign"
-                  value={price}
+      <section id="suggestions-form">
+        <Form
+          onSubmit={this.handleSubmit}
+        >
+          <div id="suggestions-form-header">
+            <h2 id="suggestions-form-header__title">
+              Soumettre une idée concernant
+            </h2>
+            <Form.Field id="suggestion-form-header__options">
+              <Form.Select
+                name="type"
+                placeholder="Type"
+                options={options}
+                onChange={this.handleOptionChange}
+              />
+            </Form.Field>
+          </div>
+          <div id="suggestion-form-inputs">
+            <FormField>
+              <label htmlFor="name">
+                Titre <strong className="asterisk">*</strong>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Votre idée"
+                  value={name}
                   onChange={this.handleInputChange}
                 />
-              </FormField>
+              </label>
+            </FormField>
+            <Form.Field>
+              <label htmlFor="description">
+                Description
+                <textarea
+                  name="description"
+                  placeholder="Votre description"
+                  value={description}
+                  onChange={this.handleInputChange}
+                />
+              </label>
+            </Form.Field>
+            <FormField>
+              <label htmlFor="idea-url">
+                Lien
+                <input
+                  type="text"
+                  name="url"
+                  placeholder="Lien"
+                  value={url}
+                  onChange={this.handleInputChange}
+                />
+              </label>
+            </FormField>
+            <FormField width={8}>
+              <Input
+                label="Prix"
+                type="number"
+                name="price"
+                icon="euro sign"
+                value={price}
+                onChange={this.handleInputChange}
+              />
+            </FormField>
+          </div>
+
+          {(errors.length > 0) && (
+            <div id="suggestions-form-errors">
+              {errors.map(error => (
+                <Message negative key={error}>
+                  <p>
+                    {error}
+                  </p>
+                </Message>
+              ))}
             </div>
+          )}
 
-            {(errors.length > 0) && (
-              <div id="suggestions-form-errors">
-                {errors.map(error => (
-                  <Message negative key={error}>
-                    <p>
-                      {error}
-                    </p>
-                  </Message>
-                ))}
-              </div>
-            )}
-
-            <Button
-              animated
-              color="green"
-              type="submit"
-              floated="right"
-              onClick={this.handleSubmit}
-            >
-              <Button.Content visible>Envoyer</Button.Content>
-              <Button.Content hidden>
-                <Icon name="paper plane" />
-              </Button.Content>
-            </Button>
-          </Form>
-        </div>
-      </>
+          <Button
+            animated
+            color="green"
+            type="submit"
+            floated="right"
+            onClick={this.handleSubmit}
+          >
+            <Button.Content visible>Envoyer</Button.Content>
+            <Button.Content hidden>
+              <Icon name="paper plane" />
+            </Button.Content>
+          </Button>
+        </Form>
+      </section>
     );
   }
 }
@@ -187,7 +182,7 @@ class SuggestionForm extends React.Component {
 // PropTypes validation
 SuggestionForm.propTypes = {
   project: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
   type: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,

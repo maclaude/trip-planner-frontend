@@ -8,6 +8,7 @@ import {
   Icon,
   Button,
   List,
+  Image,
   Divider,
   Message,
 } from 'semantic-ui-react';
@@ -63,26 +64,26 @@ class AddParticipants extends React.Component {
    */
   render() {
     const {
-      // project,
+      project,
       name,
       email,
       errors,
     } = this.props;
 
     return (
-      <div id="addParticipants">
-        <div id="addParticipants-banner">
-          <h1>Ajouter des participants</h1>
-        </div>
+      <main className="user--main" id="addParticipants">
+
+        <h1 className="user--main__title">Ajouter des participants</h1>
+
         <Form
           id="addParticipants-form"
           onSubmit={this.handleSubmit}
         >
           <Form.Field>
             <label htmlFor="name">
-              Nom <span className="asterisk">*</span>
+              Nom <strong className="asterisk">*</strong>
               <input
-                className="addParticipants-form-input"
+                className="addParticipants-form__input"
                 name="name"
                 type="text"
                 placeholder="Nom du participant"
@@ -91,9 +92,9 @@ class AddParticipants extends React.Component {
               />
             </label>
             <label htmlFor="email">
-              Email <span className="asterisk">*</span>
+              Email <strong className="asterisk">*</strong>
               <input
-                className="addParticipants-form-input"
+                className="addParticipants__input"
                 name="email"
                 type="email"
                 placeholder="Email du participant"
@@ -104,7 +105,7 @@ class AddParticipants extends React.Component {
           </Form.Field>
 
           {(errors.length > 0) && (
-            <div id="addParticipants-form-errors">
+            <div id="addParticipants-form__errors">
               {errors.map(error => (
                 <Message negative key={error}>
                   <p>
@@ -132,34 +133,33 @@ class AddParticipants extends React.Component {
 
         <Divider />
 
-        <div id="addParticipants-participants">
-          <h2 id="addParticipants-participants-title">Participants</h2>
-          <div id="addParticipants-participants-container">
-            <div id="addParticipants-participants-container-confirmed">
+        <section id="addParticipants-section">
+          <h2 id="addParticipants-section__title">Participants</h2>
+          <div id="addParticipants-section__container">
+            <div id="addParticipants-section__container--confirmed">
               <h3>Confirmé</h3>
               <List
-                id="addParticipants-participants-container-list"
+                id="addParticipants-section__container-list"
                 animated
                 verticalAlign="middle"
                 size="big"
               >
-                {/* {project.user.map((user, index) => (
+                {project.participants.map(participant => (
                   <List.Item
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
+                    key={participant._id}
                   >
-                    <Image avatar src={user.avatar} />
+                    <Image avatar src={participant.avatar} />
                     <List.Content>
-                      <List.Header>{user.firstname}</List.Header>
+                      <List.Header>{participant.firstname}</List.Header>
                     </List.Content>
                   </List.Item>
-                ))} */}
+                ))}
               </List>
             </div>
-            <div id="addParticipants-participants-container-pending">
+            <div id="addParticipants-section__container--pending">
               <h3>En attente</h3>
               <List
-                id="addParticipants-participants-container-list"
+                id="addParticipants-section__container-list"
                 animated
                 verticalAlign="middle"
                 size="big"
@@ -177,9 +177,10 @@ class AddParticipants extends React.Component {
               </List>
             </div>
           </div>
-        </div>
+        </section>
+
         <UserFooter />
-      </div>
+      </main>
     );
   }
 }

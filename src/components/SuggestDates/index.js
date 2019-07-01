@@ -17,7 +17,7 @@ import './suggest_dates.scss';
  * Code
  */
 const SuggestDatesView = ({ project }) => (
-  <div id="suggestDatesView">
+  <div className="user-view">
     <NavigationSingleProject project={project} />
     <SuggestDates project={project} />
   </div>

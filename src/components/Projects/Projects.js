@@ -44,21 +44,21 @@ class Projects extends React.Component {
     const { projects, invitations } = this.props;
 
     return (
-      <div id="projects">
-        <div id="projects-banner">
-          <h1>Mes projets</h1>
-        </div>
+      <main className="user--main" id="projects">
+
+        <h1 className="user--main__title">Mes projets</h1>
+
         {(invitations.length !== 0) && (
-        <div id="projects-invitations">
-          <h2 id="projects-invitations-title">Invitations reçues</h2>
+        <section id="projects-invitations">
+          <h2 id="projects-invitations__title">Invitations reçues</h2>
           <div>
             {(invitations.map(invitation => (
               <div className="projects-invitation" key={invitation._id}>
-                <div className="projects-invitation-title">{invitation.title}</div>
+                <div className="projects-invitation__title">{invitation.title}</div>
                 <div
                   className="
-                    projects-invitation_button
-                    projects-invitation_button--decline
+                    projects-invitation__button
+                    projects-invitation__button--decline
                   "
                   onClick={this.sendInvitationResponse(invitation._id, 'declined')}
                 >
@@ -66,8 +66,8 @@ class Projects extends React.Component {
                 </div>
                 <div
                   className="
-                    projects-invitation_button
-                    projects-invitation_button--accept
+                    projects-invitation__button
+                    projects-invitation__button--accept
                   "
                   onClick={this.sendInvitationResponse(invitation._id, 'accepted')}
                 >
@@ -76,7 +76,7 @@ class Projects extends React.Component {
               </div>
             )))}
           </div>
-        </div>
+        </section>
         )}
 
         {(projects.length === 0) && (
@@ -84,30 +84,32 @@ class Projects extends React.Component {
         )}
 
         {(projects.length !== 0) && (
-        <Card.Group
-          id="projects-cards"
-        >
-          {(projects.map(project => (
-            <SingleProjectCard
-              key={project._id}
-              {...project}
-            />
-          )))}
-        </Card.Group>
+          <Card.Group
+            id="projects-cards"
+          >
+            {(projects.map(project => (
+              <SingleProjectCard
+                key={project._id}
+                {...project}
+              />
+            )))}
+          </Card.Group>
         )}
+
         <NavLink
           to="/nouveau-projet"
           className="
-            functionality-button
-            functionality-button--large
-            functionality-button-create-project
+            button
+            button--large
+            button-create-project
           "
         >
           <p>Créer un nouveau projet</p>
           <FaPaperPlane />
         </NavLink>
+
         <UserFooter />
-      </div>
+      </main>
     );
   }
 }

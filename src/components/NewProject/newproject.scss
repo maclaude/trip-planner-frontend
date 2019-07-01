@@ -1,27 +1,13 @@
 @import 'src/styles/vars';
 
 #newproject {
-  width: calc(100vw - 300px);
-  float: right;
-  min-height: 100vh;
-  padding: 2em 5em;
-  background: $main-bg-color;
-  color: $font-color;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &-banner {
-    margin-bottom: 2em;
-  }
-
   &-form {
     width: 550px;
     min-width:300px;
     max-width: 600px;
-    margin: 0 auto 50px;
+    margin: 2em auto;
 
-    &-errors {
+    &__errors {
       margin-bottom: 15px;
     }
   }
@@ -31,20 +17,17 @@
   width: 70%;
   margin: auto;
 
-  &-title {
+  &__title {
     text-align: center;
   }
+}
 
-  &-functionalities {
+.project-created {
+  &__options {
     margin: 3em auto;
     height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-}
-
-.project-created-functionality {
-  width: 300px;
-  margin: 1em auto;
 }

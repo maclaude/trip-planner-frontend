@@ -40,8 +40,8 @@ class SingleDateButton extends React.Component {
     return (
       <div
         className={classNames(
-          'availability-button',
-          { 'availability-button--selected': currentUserHasVoted },
+          'availability__button',
+          { 'availability__button--selected': currentUserHasVoted },
         )}
         onClick={this.voteProjectDates(datesId)}
       >

@@ -29,7 +29,7 @@ const SingleProjectCard = ({
           to={getURL('recapitulatif', title)}
           key={_id}
           exact
-          className="project-card-title"
+          className="project-card__title"
         >
           {title}
         </NavLink>

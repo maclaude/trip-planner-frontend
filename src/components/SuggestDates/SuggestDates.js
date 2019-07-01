@@ -72,25 +72,25 @@ class SuggestDates extends React.Component {
     } = this.props;
 
     return (
-      <div id="dates">
-        <div id="dates-banner">
-          <h1>Suggérer des dates</h1>
-        </div>
-        <div id="dates-container">
+      <main className="user--main" id="dates">
+
+        <h1 className="user--main__title">Suggérer des dates</h1>
+
+        <section>
           <Form
             id="dates-form"
             action=""
             onSubmit={this.handleSubmit}
           >
-            <h2 id="dates-form-title">
+            <h2 id="dates-form__title">
               Sélectionner des dates:
             </h2>
-            <div id="dates-inputs">
+            <div id="dates-form__inputs">
               <Input
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
                 name="startDate"
-                className="date-input"
+                className="date__input"
                 type="date"
                 value={startDate}
                 onChange={this.handleChange}
@@ -99,22 +99,23 @@ class SuggestDates extends React.Component {
                 label={{ icon: 'asterisk' }}
                 labelPosition="left corner"
                 name="endDate"
-                className="date-input"
+                className="date__input"
                 type="date"
                 value={endDate}
                 onChange={this.handleChange}
               />
               <div
                 className="
-                  functionality-button
-                  functionality-button--circular
-                  functionality-button-add
+                  button
+                  button--circular
+                  button-add
                 "
                 onClick={this.handleSubmit}
               >
-                <FaPlus className="functionality-button__icon" />
+                <FaPlus className="button__icon" />
               </div>
             </div>
+
             {(errors.length > 0) && (
             <div id="dates-form-errors">
               {errors.map(error => (
@@ -126,22 +127,26 @@ class SuggestDates extends React.Component {
               ))}
             </div>
             )}
+
           </Form>
-        </div>
-        <div id="dates-suggested">
+        </section>
+
+        <section id="dates-suggested">
           {suggestedDates.map(dates => (
-            <div className="dates-suggested--item" key={dates._id}>
+            <div className="dates-suggested-item" key={dates._id}>
               <div>
                 Du {getDateFormat(dates.start_date)} au {getDateFormat(dates.end_date)}
               </div>
-              <div className="dates-suggested--item-icon">
+              <div className="dates-suggested-item__icon">
                 <FaTrash onClick={this.deleteProjectDates(dates._id)} />
               </div>
             </div>
           ))}
-        </div>
+        </section>
+
         <UserFooter />
-      </div>
+
+      </main>
     );
   }
 }

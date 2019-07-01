@@ -23,13 +23,12 @@ h2 {
   color: $asterisk-color;
 }
 
-span {
-  font-weight: 700;
-}
 
-/* Functionality buttons */
+/* Buttons
+============================= */
 
-.functionality-button {
+
+.button {
   border-radius: 50px;
   color: $button-text-color;
   font-weight: 700;
@@ -48,12 +47,12 @@ span {
     justify-content: space-between;
     align-items: center;
   }
-
+  
   &--circular {
     width: 50px;
     height: 50px;
   }
-
+  
   &__icon {
     position: absolute;
     width: 20px;
@@ -62,13 +61,13 @@ span {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
+  
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
     color: $button-text-color;
   }
-
+  
   &-add-participants {
     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
   }
@@ -76,28 +75,50 @@ span {
   &-suggest-dates {
     background: linear-gradient(to right, #f12711, #f5af19);
   }
-
+  
   &-create-project {
     background: linear-gradient(to right, #009fff, #ec2f4b);
   }
-
+  
   &-add {
     position: relative;
     background: linear-gradient(to top, #ff416c, #ff4b2b);
   }
-
+  
   &-invitation {
     color: $font-color;
     width: 250px;
     text-align: center;
-
+    
     &:hover {
       color: $font-color;
     }
   }
 }
 
-.functionality-button p {
+.button p {
   margin: auto;
 }
 
+/* User views
+========================== */
+
+.user {
+
+  &--main {
+  width: calc(100vw - 300px);
+  min-height: 100vh;
+  float: right;
+  padding: 2em 5em;
+  background: $main-bg-color;
+  color: $font-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+    &__title {
+      margin-bottom: 2em;
+    }
+  }
+
+}

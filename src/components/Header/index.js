@@ -21,18 +21,18 @@ const Header = () => (
       to="/"
       exact
     >
-      <img id="header-logo" src={logo} alt="logo trip-planner" />
+      <img id="header__logo" src={logo} alt="logo trip-planner" />
     </NavLink>
     <nav className="nav">
       <NavLink
         to="/inscription"
-        className="nav-link"
+        className="nav__link"
       >
         Inscription
       </NavLink>
       <NavLink
         to="/connexion"
-        className="nav-link"
+        className="nav__link"
       >
         Connexion
       </NavLink>

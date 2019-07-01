@@ -15,7 +15,7 @@ import AvailabilityDates from 'src/components/Availability/AvailabilityDates';
  * Code
  */
 const AvailabilityView = ({ project }) => (
-  <div id="availabilityView">
+  <div className="user-view">
     <NavigationSingleProject project={project} />
     <AvailabilityDates project={project} />
   </div>

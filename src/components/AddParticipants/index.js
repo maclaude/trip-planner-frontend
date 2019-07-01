@@ -17,7 +17,7 @@ import AddParticipants from 'src/containers/AddParticipants/AddParticipants';
  * Code
  */
 const AddParticipantsView = ({ project }) => (
-  <div id="addParticipantsView">
+  <div className="user-view">
     <NavigationSingleProject project={project} />
     <AddParticipants project={project} />
   </div>

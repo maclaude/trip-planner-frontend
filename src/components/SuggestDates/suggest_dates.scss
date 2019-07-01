@@ -1,44 +1,30 @@
 @import 'src/styles/vars';
 
 #dates {
-  width: calc(100vw - 300px);
-  float: right;
-  min-height: 100vh;
-  padding: 2em 5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: $main-bg-color;
-  color: $font-color;
-
-  &-banner {
-    margin-bottom: 2em;
-  }
-
   &-form {
     text-align: center;
     margin: 1em auto;
     font-size: 1.2em;
     width: 600px;
 
-    &-title {
+    &__title {
       margin: 1em auto;
       text-align: left;
     }
 
-    &-errors {
+    &__errors {
       width: fit-content;
       margin: 1.5em auto;
     }
-  }
 
-  &-inputs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 600px;
-    height: 50px;
-    margin: auto;
+    &__inputs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 600px;
+      height: 50px;
+      margin: auto;
+    }
   }
 
   &-suggested {
@@ -49,13 +35,13 @@
   }
 }
 
-.date-input {
+.date__input {
   width: 40%;
   margin-right: 2em;
   min-width: 210px !important;
 }
 
-.dates-suggested--item {
+.dates-suggested-item {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
   color: $button-text-color;
   font-weight: 600;
@@ -67,7 +53,7 @@
   justify-content: space-between;
   align-items: center;
 
-  &-icon {
+  &__icon {
     &:hover {
       cursor: pointer;
     }

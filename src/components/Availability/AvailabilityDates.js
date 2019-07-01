@@ -21,15 +21,15 @@ import SingleDateButton from 'src/containers/Availability/SingleDateButton';
  * Code
  */
 const Availability = ({ project }) => (
-  <div id="availability">
-    <div id="availability-banner">
-      <h1>Définir mes disponibilités</h1>
-    </div>
-    <div id="availability-main">
-      <h2 id="availability-main-title">
+  <main className="user--main" id="availability">
+
+    <h1 className="user--main__title">Définir mes disponibilités</h1>
+
+    <section id="availability-section">
+      <h2 id="availability-section__title">
         Sélectionner vos disponibilités:
       </h2>
-      <div id="availability-main-dates-suggested">
+      <div id="availability-section__content">
         {project.dates.map(date => (
           <SingleDateButton
             key={date._id}
@@ -42,16 +42,18 @@ const Availability = ({ project }) => (
         key={project._id}
         exact
       >
-        <Button animated floated="right" color="green" id="availability-next">
+        <Button animated floated="right" color="green">
           <Button.Content visible>Étape suivante</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow right" />
           </Button.Content>
         </Button>
       </NavLink>
-    </div>
+    </section>
+
     <UserFooter />
-  </div>
+
+  </main>
 );
 
 // PropTypes validation

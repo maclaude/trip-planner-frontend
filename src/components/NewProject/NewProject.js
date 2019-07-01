@@ -102,19 +102,19 @@ class NewProject extends React.Component {
     } = this.props;
 
     return (
-      <div id="newproject">
-        <div id="newproject-banner">
-          <h1>Créer un projet</h1>
-        </div>
+      <main className="user--main" id="newproject">
+
+        <h1 className="user--main__title">Créer un projet</h1>
+
         {(serverResponseMessage === '') && (
-          <div id="newproject-container">
+          <section>
             <div id="newproject-form">
               <Form
                 onSubmit={this.handleSubmit}
               >
                 <FormField>
                   <label htmlFor="title">
-                    Nom du projet <span className="asterisk">*</span>
+                    Nom du projet <strong className="asterisk">*</strong>
                     <input
                       name="title"
                       placeholder="Donnez un nom a votre projet"
@@ -125,10 +125,9 @@ class NewProject extends React.Component {
                 </FormField>
                 <FormField>
                   <label htmlFor="description">
-                    Description <span className="asterisk">*</span>
+                    Description <strong className="asterisk">*</strong>
                     <textarea
                       name="description"
-                      id="description-input"
                       placeholder="Description de votre projet"
                       rows="5"
                       cols="50"
@@ -139,7 +138,7 @@ class NewProject extends React.Component {
                 </FormField>
                 <FormField>
                   <label htmlFor="destination">
-                    Destination<span className="asterisk">*</span>
+                    Destination<strong className="asterisk">*</strong>
                     <input
                       name="destination"
                       placeholder="Définissez une destination"
@@ -148,8 +147,9 @@ class NewProject extends React.Component {
                     />
                   </label>
                 </FormField>
+
                 {(errors.length > 0) && (
-                  <div id="newproject-form-errors">
+                  <div id="newproject-form__errors">
                     {errors.map(error => (
                       <Message negative key={error}>
                         <p>{error}</p>
@@ -157,12 +157,12 @@ class NewProject extends React.Component {
                     ))}
                   </div>
                 )}
+
                 <Button
                   animated
                   color="green"
                   type="submit"
                   floated="right"
-                  className="newproject-button"
                 >
                   <Button.Content visible>Créer le projet</Button.Content>
                   <Button.Content hidden>
@@ -171,21 +171,21 @@ class NewProject extends React.Component {
                 </Button>
               </Form>
             </div>
-          </div>
+          </section>
         )}
 
         {(serverResponseMessage !== '') && (
-          <div id="project-created">
-            <h2 id="project-created-title">Vous venez de créer le projet <span>{title}</span></h2>
-            <div id="project-created-functionalities">
+          <section id="project-created">
+            <h2 id="project-created__title">Vous venez de créer le projet <strong>{title}</strong></h2>
+            <div className="project-created__options">
               <NavLink
                 to={getURL('/dates', title)}
                 key={uuidV4()}
                 exact
                 className="
-                  functionality-button
-                  functionality-button--large
-                  functionality-button-suggest-dates
+                  button
+                  button--large
+                  button-suggest-dates
                 "
               >
                 <p>Suggérer des dates</p>
@@ -196,19 +196,21 @@ class NewProject extends React.Component {
                 key={uuidV4()}
                 exact
                 className="
-                  functionality-button
-                  functionality-button--large
-                  functionality-button-add-participants
+                  button
+                  button--large
+                  button-add-participants
                 "
               >
                 <p>Ajouter des participants</p>
                 <FaUserPlus />
               </NavLink>
             </div>
-          </div>
+          </section>
         )}
+
         <UserFooter />
-      </div>
+
+      </main>
     );
   }
 }

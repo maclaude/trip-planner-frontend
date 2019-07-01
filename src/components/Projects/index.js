@@ -15,7 +15,7 @@ import Projects from 'src/containers/Projects/Projects';
  * Code
  */
 const ProjectsView = () => (
-  <div id="projectsView">
+  <div className="user-view">
     <NavigationProjects />
     <Projects />
   </div>

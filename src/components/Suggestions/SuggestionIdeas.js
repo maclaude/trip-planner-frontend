@@ -14,12 +14,12 @@ import SingleCard from 'src/containers/Suggestions/SingleCard';
  * Code
  */
 const SuggestionIdeas = ({ suggestions }) => (
-  <div id="suggestions-ideas">
+  <section id="suggestions-ideas">
     <Divider />
-    <div id="suggestions-ideas-title">
+    <h2 id="suggestions-ideas__title">
       Suggestions du groupe
-    </div>
-    <div id="suggestion-ideas-cards">
+    </h2>
+    <div id="suggestion-ideas__cards">
       <Card.Group>
         {suggestions.map(suggestion => (
           <SingleCard
@@ -29,7 +29,7 @@ const SuggestionIdeas = ({ suggestions }) => (
         ))}
       </Card.Group>
     </div>
-  </div>
+  </section>
 );
 
 // PropTypes validation

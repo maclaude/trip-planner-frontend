@@ -1,50 +1,40 @@
 @import 'src/styles/vars';
 
 #addParticipants {
-  width: calc(100vw - 300px);
-  float: right;
-  min-height: 100vh;
-  padding: 2em 5em;
-  background: $main-bg-color;
-  color: $font-color;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   &-form {
     width: 40%;
     margin: 3em auto 5em; 
 
-    &-errors {
+    &__errors {
       margin-bottom: 15px;
     }
   }
 
-  &-participants {
-    &-title {
+  &-section {
+    &__title {
       margin: 1em 0 1.5em;
       font-weight: 600;
       text-align: center;
     }
 
-    &-container {
+    &__container {
       display: flex;
       justify-content: space-around;
       flex-wrap: nowrap;
 
-      &-confirmed, &-pending {
+      &--confirmed, &--pending {
         width: 50%;
         height: auto;
         text-align: center;
         margin-bottom: 4em;
       }
 
-      &-confirmed h3, &-pending h3 {
+      &--confirmed h3, &--pending h3 {
         text-decoration: underline;
         margin-bottom: 1.8em;
       }
 
-      &-confirmed {
+      &--confirmed {
         border-right: 1px solid lightgrey;
       }
       
@@ -58,59 +48,6 @@
   }
 }
 
-.addParticipants-form-input {
+.addParticipants-form__input {
   min-width: 200px;
-}
-
-@media (max-width: 600px) {
-  #addParticipants {
-    padding: 2em 2em 2em 0em;
-    
-    &-banner {
-      margin: 0 2em 2em 2em;
-      text-align: center;
-    }
-  
-    &-form {
-      width: 80%;
-      margin: 3em auto 5em; 
-    }
-  
-    &-participants {
-      &-title {
-        margin: 1em 0 1.5em;
-        font-weight: 600;
-        text-align: center;
-      }
-  
-      &-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-  
-        &-confirmed, &-pending {
-          width: 90%;
-          height: auto;
-          padding: 1em;
-          text-align: center;
-          margin-bottom: 2em;
-        }
-  
-        &-confirmed h3, &-pending h3 {
-          text-decoration: underline;
-          margin-bottom: 1.8em;
-        }
-  
-        &-confirmed {
-          border-right: none;
-        }
-        
-        &-list {
-          text-align: left;
-          width: fit-content;
-          margin: auto;
-        }
-      }
-    }
-  }
 }

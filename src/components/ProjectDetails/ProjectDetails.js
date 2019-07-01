@@ -29,22 +29,26 @@ import avatar from 'src/assets/avatar/maclaude.jpg';
  * Code
  */
 class ProjectDetails extends React.Component {
+  /**
+   * Lifecycles
+   */
   componentDidMount() {}
 
+  /**
+   * Render
+   */
   render() {
     const { project } = this.props;
 
     return (
-      <div id="projectDetails">
+      <main className="user--main" id="project-details">
 
-        <div id="projectDetails-banner">
-          <h1>Récapitulatif du projet - {project.title}</h1>
-        </div>
+        <h1 className="user--main__title">Récapitulatif du projet - {project.title}</h1>
 
-        <div id="projectDetails-header">
-          <div id="projectDetails-header-left">
+        <section id="project-details-header">
+          <div id="project-details-header-left">
             <h2>Destination</h2>
-            <div id="projectDetails-header-left-map">
+            <div id="project-details-header-left-map">
               <GoogleMap
                 lat={project.destination.lat}
                 lng={project.destination.lng}
@@ -52,11 +56,11 @@ class ProjectDetails extends React.Component {
             </div>
           </div>
 
-          <div id="projectDetails-header-right">
+          <div id="project-details-header-right">
             <div>
               <h2>Participants</h2>
               <List
-                id="projectDetails-header-right-participants-list"
+                id="project-details-header-right-participants-list"
                 animated
                 verticalAlign="middle"
                 size="big"
@@ -81,16 +85,16 @@ class ProjectDetails extends React.Component {
 
             <div>
               <h2>Dates retenues</h2>
-              <div id="projectDetails-header-right-dates">
+              <div id="project-details-header-right-dates">
                 <p>Dates - Notifications</p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <Divider />
 
-        <div
+        <section
           id="projectDetails-suggestions"
           className="suggestion"
         >
@@ -134,9 +138,11 @@ class ProjectDetails extends React.Component {
               participants={project.participants}
             />
           </div>
-        </div>
+        </section>
+
         <UserFooter />
-      </div>
+
+      </main>
     );
   }
 }

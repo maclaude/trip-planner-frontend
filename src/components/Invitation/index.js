@@ -40,9 +40,9 @@ class InvitationView extends React.Component {
               to="/inscription"
               exact
               className="
-                functionality-button
-                functionality-button--large
-                functionality-button-invitation
+                button
+                button--large
+                button-invitation
               "
             >
               <p>Je n'ai pas de compte</p>
@@ -51,9 +51,9 @@ class InvitationView extends React.Component {
               to="/connexion"
               exact
               className="
-                functionality-button
-                functionality-button--large
-                functionality-button-invitation
+                button
+                button--large
+                button-invitation
               "
             >
               <p>Connexion</p>

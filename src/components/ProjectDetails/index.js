@@ -17,7 +17,7 @@ import './project_details.scss';
  * Code
  */
 const ProjectDetailsView = ({ project }) => (
-  <div id="projectDetailsView">
+  <div className="user-view">
     <NavigationSingleProject project={project} />
     <ProjectDetails project={project} />
   </div>
