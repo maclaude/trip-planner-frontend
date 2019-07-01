@@ -15,13 +15,13 @@ import logo from 'src/assets/logo/logo_2.png';
  * Code
  */
 const UserFooter = () => (
-  <div id="user-footer">
+  <footer id="user-footer">
     <img
-      id="user-footer-logo"
+      id="user-footer__logo"
       src={logo}
       alt="Logo trip-planner"
     />
-  </div>
+  </footer>
 );
 
 /**

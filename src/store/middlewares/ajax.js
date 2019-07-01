@@ -33,7 +33,9 @@ import {
   ADD_PROJECT_DATES,
   DELETE_PROJECT_DATES,
   VOTE_PROJECT_DATES,
+  GET_PROJECT_USER_ROLE,
   storeNewprojectResponse,
+  storeProjectUserRole,
 } from 'src/store/reducers/project';
 
 import { SEND_INVITATION } from '../reducers/participants';
@@ -104,6 +106,21 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(storeUserProjects(response.data.userProjects));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case GET_PROJECT_USER_ROLE: {
+      body = {
+        projectId: action.projectId,
+      };
+
+      axiosToken.post('http://localhost:8000/project/user-role', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeProjectUserRole(response.data.role));
         })
         .catch(error => console.log(error));
 

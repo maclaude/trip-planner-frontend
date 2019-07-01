@@ -13,6 +13,7 @@ const initialState = {
   suggestedDates: [],
   errors: [],
   serverResponseMessage: '',
+  userRole: '',
 };
 
 /**
@@ -27,6 +28,9 @@ export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
 export const STORE_DESTINATION_COORDINATES = 'STORE_DESTINATION_COORDINATES';
 export const CREATE_NEWPROJECT = 'CREATE_NEWPROJECT';
 const STORE_NEWPROJECT_RESPONSE = 'STORE_NEWPROJECT_RESPONSE';
+
+export const GET_PROJECT_USER_ROLE = 'GET_PROJECT_USER_ROLE';
+const STORE_PROJECT_USER_ROLE = 'STORE_PROJECT_USER_ROLE';
 
 export const ADD_PROJECT_DATES = 'ADD_PROJECT_DATES';
 export const DELETE_PROJECT_DATES = 'DELETE_PROJECT_DATES';
@@ -91,6 +95,12 @@ const reducer = (state = initialState, action = {}) => {
         title: action.data.title,
       };
 
+    case STORE_PROJECT_USER_ROLE:
+      return {
+        ...state,
+        userRole: action.role,
+      };
+
     case ADD_PROJECT_DATES:
       return {
         ...state,
@@ -143,6 +153,16 @@ export const storeNewprojectResponse = (message, data) => ({
   type: STORE_NEWPROJECT_RESPONSE,
   message,
   data,
+});
+
+export const getProjectUserRole = projectId => ({
+  type: GET_PROJECT_USER_ROLE,
+  projectId,
+});
+
+export const storeProjectUserRole = role => ({
+  type: STORE_PROJECT_USER_ROLE,
+  role,
 });
 
 export const addProjectDates = projectId => ({

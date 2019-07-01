@@ -25,13 +25,16 @@ class NavigationSingleProject extends React.Component {
   /**
    * Lifecycle
    */
-  componentDidMount() {}
+  componentWillMount() {
+    const { getProjectUserRole } = this.props;
+    getProjectUserRole();
+  }
 
   /**
    * Render
    */
   render() {
-    const { username, project } = this.props;
+    const { username, userRole, project } = this.props;
 
     return (
       <div id="navigation">
@@ -95,28 +98,32 @@ class NavigationSingleProject extends React.Component {
               </NavLink>
             </div>
           </div>
-          <NavLink
-            to={getURL('/dates', project.title)}
-            exact
-            className="navigation-link"
-            activeClassName="navigation-link--active"
-          >
-            <div className="navigation-link-title">
-              Ajouter des dates
-            </div>
-            <Icon name="plus" />
-          </NavLink>
-          <NavLink
-            to={getURL('/participants', project.title)}
-            exact
-            className="navigation-link"
-            activeClassName="navigation-link--active"
-          >
-            <div className="navigation-link-title">
-              Ajouter des participants
-            </div>
-            <Icon name="add user" />
-          </NavLink>
+          {(userRole === 'creator') && (
+          <div>
+            <NavLink
+              to={getURL('/dates', project.title)}
+              exact
+              className="navigation-link"
+              activeClassName="navigation-link--active"
+            >
+              <div className="navigation-link-title">
+                Ajouter des dates
+              </div>
+              <Icon name="plus" />
+            </NavLink>
+            <NavLink
+              to={getURL('/participants', project.title)}
+              exact
+              className="navigation-link"
+              activeClassName="navigation-link--active"
+            >
+              <div className="navigation-link-title">
+                Ajouter des participants
+              </div>
+              <Icon name="add user" />
+            </NavLink>
+          </div>
+          )}
         </div>
         <NavigationFooter />
       </div>
@@ -127,10 +134,12 @@ class NavigationSingleProject extends React.Component {
 // PropTypes validation
 NavigationSingleProject.propTypes = {
   username: PropTypes.string.isRequired,
+  userRole: PropTypes.string.isRequired,
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+  getProjectUserRole: PropTypes.func.isRequired,
 };
 
 /**
