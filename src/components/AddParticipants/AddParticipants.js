@@ -71,9 +71,9 @@ class AddParticipants extends React.Component {
     } = this.props;
 
     return (
-      <main className="user--main" id="addParticipants">
+      <main className="user-main" id="addParticipants">
 
-        <h1 className="user--main__title">Ajouter des participants</h1>
+        <h1 className="user-main__title">Ajouter des participants</h1>
 
         <Form
           id="addParticipants-form"

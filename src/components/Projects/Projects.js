@@ -44,9 +44,9 @@ class Projects extends React.Component {
     const { projects, invitations } = this.props;
 
     return (
-      <main className="user--main" id="projects">
+      <main className="user-main" id="projects">
 
-        <h1 className="user--main__title">Mes projets</h1>
+        <h1 className="user-main__title">Mes projets</h1>
 
         {(invitations.length !== 0) && (
         <section id="projects-invitations">

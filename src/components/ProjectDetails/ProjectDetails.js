@@ -41,9 +41,9 @@ class ProjectDetails extends React.Component {
     const { project } = this.props;
 
     return (
-      <main className="user--main" id="project-details">
+      <main className="user-main" id="project-details">
 
-        <h1 className="user--main__title">Récapitulatif du projet - {project.title}</h1>
+        <h1 className="user-main__title">Récapitulatif du projet - {project.title}</h1>
 
         <section id="project-details-header">
           <div id="project-details-header-left">

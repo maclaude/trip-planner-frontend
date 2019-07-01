@@ -72,9 +72,9 @@ class SuggestDates extends React.Component {
     } = this.props;
 
     return (
-      <main className="user--main" id="dates">
+      <main className="user-main" id="dates">
 
-        <h1 className="user--main__title">Suggérer des dates</h1>
+        <h1 className="user-main__title">Suggérer des dates</h1>
 
         <section>
           <Form

@@ -21,9 +21,9 @@ import SingleDateButton from 'src/containers/Availability/SingleDateButton';
  * Code
  */
 const Availability = ({ project }) => (
-  <main className="user--main" id="availability">
+  <main className="user-main" id="availability">
 
-    <h1 className="user--main__title">Définir mes disponibilités</h1>
+    <h1 className="user-main__title">Définir mes disponibilités</h1>
 
     <section id="availability-section">
       <h2 id="availability-section__title">

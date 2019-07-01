@@ -102,9 +102,9 @@ class NewProject extends React.Component {
     } = this.props;
 
     return (
-      <main className="user--main" id="newproject">
+      <main className="user-main" id="newproject">
 
-        <h1 className="user--main__title">Créer un projet</h1>
+        <h1 className="user-main__title">Créer un projet</h1>
 
         {(serverResponseMessage === '') && (
           <section>

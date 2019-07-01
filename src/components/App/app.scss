@@ -17,6 +17,7 @@ h1 {
 
 h2 {
   font-weight: 400;
+  color: $h2-color;
 }
 
 .asterisk {
@@ -105,7 +106,7 @@ h2 {
 
 .user {
 
-  &--main {
+  &-main {
   width: calc(100vw - 300px);
   min-height: 100vh;
   float: right;
