@@ -29,7 +29,7 @@
     padding: 1rem .5rem;
     border-bottom: 2px solid $navigation-separator-color;
 
-    &-avatar {
+    &__avatar {
       display: block;
       width: 65px;
       height: 65px;
@@ -37,7 +37,7 @@
       border: 1px solid $navigation-avatar-circle-border-color;
     }
 
-    &-username {
+    &__username {
       padding: 0 1em;
     }
   }
@@ -45,7 +45,7 @@
   &-main {
     &-project {
       padding-left: 1.5em;
-      &-title {
+      &__title {
         padding: 1em 0 1em 0;
         font-weight: 600;
       }
@@ -63,7 +63,7 @@
 }
 
 .navigation {
-  &-link {
+  &__link {
     color: $navigation-font-color;
     padding: 1rem .5rem 1rem 1rem;
     display: flex;

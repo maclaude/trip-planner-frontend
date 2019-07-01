@@ -28,18 +28,18 @@ class NavigationFooter extends React.Component {
     return (
       <div id="navigation-footer">
         <NavLink
-          className="navigation-link"
+          className="navigation__link"
           to="profil"
-          activeClassName="navigation-link--active"
+          activeClassName="navigation__link--active"
         >
-          <div className="navigation-link-title">
+          <div className="navigation__link-title">
           Mon profil
           </div>
           <Icon name="cog" />
         </NavLink>
 
-        <div className="navigation-link" onClick={this.disconnectUser}>
-          <div className="navigation-link-title">
+        <div className="navigation__link" onClick={this.disconnectUser}>
+          <div className="navigation__link-title">
             Déconnexion
           </div>
           <Icon name="sign-out" />

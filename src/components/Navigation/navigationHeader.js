@@ -15,8 +15,8 @@ import avatar from 'src/assets/avatar/maclaude.jpg';
  */
 const NavigationHeader = ({ username }) => (
   <div id="navigation-header">
-    <img id="navigation-header-avatar" src={avatar} alt="avatar" />
-    <div id="navigation-header-username">{username}</div>
+    <img id="navigation-header__avatar" src={avatar} alt="avatar" />
+    <div id="navigation-header__username">{username}</div>
   </div>
 );
 

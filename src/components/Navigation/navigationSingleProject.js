@@ -41,42 +41,42 @@ class NavigationSingleProject extends React.Component {
         <NavigationHeader username={username} />
         <div id="navigation-main">
           <NavLink
-            className="navigation-link"
-            activeClassName="navigation-link--active"
+            className="navigation__link"
+            activeClassName="navigation__link--active"
             to="/nouveau-projet"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Nouveau projet
             </div>
             <Icon name="plus" />
           </NavLink>
           <NavLink
             to="/mes-projets"
-            className="navigation-link"
-            activeClassName="navigation-link--active"
+            className="navigation__link"
+            activeClassName="navigation__link--active"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Mes projets
             </div>
             <Icon name="chevron down" />
           </NavLink>
           <div id="navigation-main-project">
-            <div id="navigation-main-project-title">
+            <div id="navigation-main-project__title">
               {project.title}
             </div>
-            <div id="navigation-main-project-details">
+            <div id="navigation-main-project__details">
               <NavLink
                 to={getURL('/recapitulatif', project.title)}
                 exact
-                className="navigation-link navigation-link-project"
-                activeClassName="navigation-link-project--active"
+                className="navigation__link navigation__link-project"
+                activeClassName="navigation__link-project--active"
               >
                 Récapitulatif
               </NavLink>
               <NavLink
                 to={getURL('/disponibilites', project.title)}
                 exact
-                className="navigation-link navigation-link-project"
+                className="navigation__link navigation__link-project"
                 activeClassName="navigation-link-project--active"
               >
                 Définir mes disponibilités
@@ -84,15 +84,15 @@ class NavigationSingleProject extends React.Component {
               <NavLink
                 to={getURL('/idees', project.title)}
                 exact
-                className="navigation-link navigation-link-project"
-                activeClassName="navigation-link-project--active"
+                className="navigation__link navigation__link-project"
+                activeClassName="navigation__link-project--active"
               >
                 Idées du groupe
               </NavLink>
               <NavLink
                 to="/chat"
-                className="navigation-link navigation-link-project"
-                activeClassName="navigation-link-project--active"
+                className="navigation__link navigation__link-project"
+                activeClassName="navigation__link-project--active"
               >
                 Espace de discussion
               </NavLink>
@@ -103,10 +103,10 @@ class NavigationSingleProject extends React.Component {
             <NavLink
               to={getURL('/dates', project.title)}
               exact
-              className="navigation-link"
-              activeClassName="navigation-link--active"
+              className="navigation__link"
+              activeClassName="navigation__link--active"
             >
-              <div className="navigation-link-title">
+              <div className="navigation__link-title">
                 Ajouter des dates
               </div>
               <Icon name="plus" />
@@ -114,10 +114,10 @@ class NavigationSingleProject extends React.Component {
             <NavLink
               to={getURL('/participants', project.title)}
               exact
-              className="navigation-link"
-              activeClassName="navigation-link--active"
+              className="navigation__link"
+              activeClassName="navigation__link--active"
             >
-              <div className="navigation-link-title">
+              <div className="navigation__link-title">
                 Ajouter des participants
               </div>
               <Icon name="add user" />

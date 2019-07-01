@@ -36,21 +36,21 @@ class Navigation extends React.Component {
 
         <div id="navigation-main">
           <NavLink
-            className="navigation-link"
+            className="navigation__link"
             to="/nouveau-projet"
-            activeClassName="navigation-link--active"
+            activeClassName="navigation__link--active"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Nouveau projet
             </div>
             <Icon name="plus" />
           </NavLink>
           <NavLink
-            className="navigation-link"
+            className="navigation__link"
             to="/mes-projets"
-            activeClassName="navigation-link--active"
+            activeClassName="navigation__link--active"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Mes projets
             </div>
             <Icon name="chevron right" />

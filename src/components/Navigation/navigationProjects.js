@@ -37,21 +37,21 @@ class NavigationProjects extends React.Component {
         <NavigationHeader username={username} />
         <div id="navigation-main">
           <NavLink
-            className="navigation-link"
+            className="navigation__link"
             to="/nouveau-projet"
-            activeClassName="navigation-link--active"
+            activeClassName="navigation__link--active"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Nouveau projet
             </div>
             <Icon name="plus" />
           </NavLink>
           <NavLink
             to="/mes-projets"
-            className="navigation-link"
-            activeClassName="navigation-link--active"
+            className="navigation__link"
+            activeClassName="navigation__link--active"
           >
-            <div className="navigation-link-title">
+            <div className="navigation__link-title">
               Mes projets
             </div>
             <Icon name="chevron down" />
@@ -60,13 +60,13 @@ class NavigationProjects extends React.Component {
             <div id="navigation-main-projects">
               {projects.map(project => (
                 <NavLink
-                  className="navigation-link navigation-link-project"
+                  className="navigation__link navigation__link-project"
                   to={getURL('recapitulatif', project.title)}
                   key={project._id}
-                  activeClassName="navigation-link--active"
+                  activeClassName="navigation__link--active"
                   exact
                 >
-                  <div className="navigation-link-title">
+                  <div className="navigation__link-title">
                     {project.title}
                   </div>
                   <Icon name="chevron right" />
