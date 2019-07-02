@@ -118,7 +118,9 @@ h2 {
   justify-content: space-between;
 
     &__title {
-      margin-bottom: 2em;
+      padding-left: .5em;
+      border-left: 5px solid $user-title-border-left;
+      margin-bottom: .5em;
     }
   }
 

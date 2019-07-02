@@ -1,8 +1,8 @@
 // CSS vars
 
 // Title;
-$h1-color: #2E4053;
-$h2-color: #34495E;
+$h1-color: rgb(12, 32, 59);
+$h2-color: #1D2940;
 
 // Fonts
 $font-color: #000;
@@ -21,11 +21,14 @@ $navigation-font-color-hover: #34495E;
 $navigation-separator-color:#FFF;
 $navigation-avatar-circle-border-color: #FFF;
 $navigation-link-bg-color-hover: #FFF;
-$navigation-project-link-border-left-hover: hsla(132, 100%, 50%, 0.5);
+$navigation-project-link-border-left-hover: #ff3366;
 
 // Buttons
 $button-text-color: #FFF;
-$button-accept-bg-color: #58D68D;
+$button-accept-bg-color: rgb(63, 240, 137);
 $button-decline-bg-color: #FF0000;
 
-$asterisk-color: #FF0000
+$asterisk-color: #FF0000;
+
+// User-view
+$user-title-border-left: #ff3366;

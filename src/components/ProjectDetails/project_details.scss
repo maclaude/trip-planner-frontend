@@ -14,13 +14,16 @@
     }
 
     &-left {
-      min-height: 250px;
+      min-height: 400px;
+      min-width: 500px;
       &-map {
         height: 90%;
       }
     }
 
     &-right {
+      margin-left: 2em;
+
       &-participants-list {
         width: 80%;
         margin-left: 50px;

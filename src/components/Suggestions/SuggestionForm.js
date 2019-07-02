@@ -45,18 +45,17 @@ class SuggestionForm extends React.Component {
     evt.preventDefault();
 
     const {
-      project,
       type,
-      name,
-      sendSuggestion,
+      title,
+      addSuggestion,
       showErrors,
     } = this.props;
 
     // Handling errors
-    const errors = getSuggestionFormErrors(type, name);
+    const errors = getSuggestionFormErrors(type, title);
 
-    if (type && name !== '') {
-      sendSuggestion(project.id);
+    if (type && title !== '') {
+      addSuggestion();
     }
     else {
       showErrors(errors);
@@ -76,7 +75,7 @@ class SuggestionForm extends React.Component {
     ];
 
     const {
-      name,
+      title,
       description,
       url,
       price,
@@ -103,13 +102,13 @@ class SuggestionForm extends React.Component {
           </div>
           <div id="suggestion-form-inputs">
             <FormField>
-              <label htmlFor="name">
+              <label htmlFor="title">
                 Titre <strong className="asterisk">*</strong>
                 <input
                   type="text"
-                  name="name"
+                  name="title"
                   placeholder="Votre idée"
-                  value={name}
+                  value={title}
                   onChange={this.handleInputChange}
                 />
               </label>
@@ -185,7 +184,7 @@ SuggestionForm.propTypes = {
     _id: PropTypes.string.isRequired,
   }).isRequired,
   type: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
@@ -193,7 +192,7 @@ SuggestionForm.propTypes = {
   changeInput: PropTypes.func.isRequired,
   changeType: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
-  sendSuggestion: PropTypes.func.isRequired,
+  addSuggestion: PropTypes.func.isRequired,
 };
 
 /**

@@ -5,7 +5,7 @@
     width: 60%;
     min-width: 500px;
     max-width: 600px;
-    margin: 2em auto;
+    margin: 0 auto;
     padding: 2em;
 
     &-header {
@@ -14,9 +14,11 @@
       padding: .8em 0;
       margin-bottom: 1em;
       border-bottom: 1px solid lightgray;
+      align-items: center;
 
       &__title {
-        font-size: 1.2em;
+        margin: auto;
+        font-size: 1.3rem;
         width: 70%;
       }
 

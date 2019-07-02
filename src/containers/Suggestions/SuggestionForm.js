@@ -13,7 +13,7 @@ import {
   changeSuggestionInputs,
   changeSuggestionType,
   showSuggestionErrors,
-  sendSuggestion,
+  addSuggestion,
 } from 'src/store/reducers/suggestions';
 
 /**
@@ -22,7 +22,7 @@ import {
 // === State (data) ===
 const mapStateToProps = state => ({
   type: state.suggestions.type,
-  name: state.suggestions.name,
+  title: state.suggestions.title,
   description: state.suggestions.description,
   url: state.suggestions.url,
   price: state.suggestions.price,
@@ -40,8 +40,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   showErrors: (errors) => {
     dispatch(showSuggestionErrors(errors));
   },
-  sendSuggestion: () => {
-    dispatch(sendSuggestion(ownProps.project.id));
+  addSuggestion: () => {
+    dispatch(addSuggestion(ownProps.project._id));
   },
 });
 

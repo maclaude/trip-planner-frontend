@@ -40,6 +40,8 @@ import {
 
 import { SEND_INVITATION } from '../reducers/participants';
 
+import { ADD_SUGGESTION } from '../reducers/suggestions';
+
 /**
  * Middleware
  */
@@ -246,6 +248,26 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(getUserProjects());
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case ADD_SUGGESTION: {
+      body = {
+        title: state.suggestions.title,
+        description: state.suggestions.description,
+        url: state.suggestions.url,
+        price: parseInt(state.suggestions.price, 10),
+        suggestionType: state.suggestions.type,
+        userId: state.user.id,
+        projectId: action.projectId,
+      };
+
+      axiosToken.post('http://localhost:8000/project/new-suggestion', body)
+        .then((response) => {
+          console.log(response);
         })
         .catch(error => console.log(error));
 

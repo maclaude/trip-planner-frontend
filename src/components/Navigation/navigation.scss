@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 400;
   box-shadow: 0 0 10px 2px $navigation-border-right-color;
 
   &-main,
@@ -39,6 +39,9 @@
 
     &__username {
       padding: 0 1em;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 30px;
     }
   }
 

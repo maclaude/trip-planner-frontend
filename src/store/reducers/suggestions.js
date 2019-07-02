@@ -1,20 +1,13 @@
 /**
- * Local import
- */
-// Suggestions data
-import suggestionsDataSample from 'src/data/suggestionsData';
-
-/**
  * Initial State
  */
 const initialState = {
   type: 0,
-  name: '',
+  title: '',
   description: '',
   url: '',
   price: '',
   errors: [],
-  suggestionsData: suggestionsDataSample,
 };
 
 /**
@@ -27,7 +20,7 @@ const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
 const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
 const APPROVED_SUGGESTION = 'APPROVED_SUGGESTION';
 const DISAPPROVED_SUGGESTION = 'DISAPPROVED_SUGGESTION';
-export const SEND_SUGGESTION = 'SEND_SUGGESTION';
+export const ADD_SUGGESTION = 'ADD_SUGGESTION';
 
 /**
  * Reducer
@@ -58,34 +51,14 @@ const reducer = (state = initialState, action = {}) => {
         errors: action.errors,
       };
 
-    case SEND_SUGGESTION: {
-      const newSuggestion = {
-        name: state.name,
-        description: state.description,
-        url: state.url,
-        price: parseInt(state.price, 10),
-        project: {
-          id: action.projectId,
-        },
-        user: {
-          firstname: 'Marc-Antoine',
-        },
-        suggestionGender: {
-          id: state.type,
-        },
-        vote: 0,
-      };
-
-      const newSuggestions = [...state.suggestionsData, newSuggestion];
-
+    case ADD_SUGGESTION: {
       return {
         ...state,
-        name: '',
+        title: '',
         description: '',
         url: '',
         price: '',
         errors: [],
-        suggestionsData: newSuggestions,
       };
     }
 
@@ -162,8 +135,8 @@ export const stockSuggestions = suggestions => ({
   suggestions,
 });
 
-export const sendSuggestion = projectId => ({
-  type: SEND_SUGGESTION,
+export const addSuggestion = projectId => ({
+  type: ADD_SUGGESTION,
   projectId,
 });
 
