@@ -120,11 +120,7 @@ const ajaxMiddleware = store => next => (action) => {
     }
 
     case GET_PROJECT_USER_ROLE: {
-      body = {
-        projectId: action.projectId,
-      };
-
-      axiosToken.post('http://localhost:8000/project/user-role', body)
+      axiosToken.get(`http://localhost:8000/project/user-role/${action.projectId}`)
         .then((response) => {
           console.log(response);
           store.dispatch(storeProjectUserRole(response.data.role));
