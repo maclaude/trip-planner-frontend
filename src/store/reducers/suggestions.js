@@ -123,6 +123,23 @@ export const getFilteredSuggestions = (suggestions, typeId) => {
     )];
 };
 
+export const getMajorityApprovedSuggestions = (suggestions, typeId, participants) => {
+  const filteredSuggestions = getFilteredSuggestions(suggestions, typeId);
+
+  return [
+    ...filteredSuggestions.filter(
+      suggestion => (suggestion.user_vote.length >= (participants.length * 0.75)),
+    )];
+};
+
+export const getFullyApprovedSuggestions = (suggestions, typeId, participants) => {
+  const filteredSuggestions = getFilteredSuggestions(suggestions, typeId);
+
+  return [
+    ...filteredSuggestions.filter(
+      suggestion => (suggestion.user_vote.length >= (participants.length)),
+    )];
+};
 /**
  * Export
  */

@@ -8,15 +8,19 @@ import { connect } from 'react-redux';
  */
 import Other from 'src/components/ProjectDetails/Other';
 
-// // Action Creators
-// import { getMajorityApprovedSuggestions } from 'src/store/reducers/suggestions';
+// Action Creators
+import { getMajorityApprovedSuggestions } from 'src/store/reducers/suggestions';
 
 /**
  * Code
  */
 // === State (data) ===
-const mapStateToProps = state => ({
-  suggestions: state.suggestions.suggestions,
+const mapStateToProps = (state, ownProps) => ({
+  suggestions: getMajorityApprovedSuggestions(
+    state.suggestions.suggestions,
+    ownProps.type,
+    ownProps.participants,
+  ),
 });
 
 // === Actions ===

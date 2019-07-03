@@ -13,31 +13,31 @@ import { Card } from 'semantic-ui-react';
  * Code
  */
 const SuggestionCard = ({
-  name,
-  user,
+  title,
+  author,
   description,
-  vote,
+  user_vote: userVote,
 }) => (
   <Card className="suggestion-card">
     <Card.Content>
-      <Card.Header>{name}</Card.Header>
-      <Card.Meta>{user.firstname}</Card.Meta>
+      <Card.Header>{title}</Card.Header>
+      <Card.Meta>{author.firstname}</Card.Meta>
       <Card.Description>
         {description}
       </Card.Description>
     </Card.Content>
     <Card.Content className="suggestion-card-participants-approval" textAlign="center">
-      <Card.Meta>Appouvé par {vote} participants</Card.Meta>
+      <Card.Meta>Appouvé par {userVote.length} participants</Card.Meta>
     </Card.Content>
   </Card>
 );
 
 // PropTypes validation
 SuggestionCard.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  vote: PropTypes.number.isRequired,
-  user: PropTypes.shape({
+  user_vote: PropTypes.array.isRequired,
+  author: PropTypes.shape({
     firstname: PropTypes.string,
   }).isRequired,
 };
