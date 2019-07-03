@@ -8,9 +8,6 @@ import { connect } from 'react-redux';
  */
 import NavigationSingleProject from 'src/components/Navigation/NavigationSingleProject';
 
-// Action Creators
-import { getProjectUserRole } from 'src/store/reducers/project';
-
 /**
  * Code
  */
@@ -21,11 +18,7 @@ const mapStateToProps = state => ({
 });
 
 // === Actions ===
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  getProjectUserRole: () => {
-    dispatch(getProjectUserRole(ownProps.project._id));
-  },
-});
+const mapDispatchToProps = null;
 
 /**
  * Connect

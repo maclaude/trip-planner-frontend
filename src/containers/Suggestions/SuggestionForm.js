@@ -12,8 +12,8 @@ import SuggestionForm from 'src/components/Suggestions/SuggestionForm';
 import {
   changeSuggestionInputs,
   changeSuggestionType,
-  showSuggestionErrors,
-  addSuggestion,
+  showSuggestionFormErrors,
+  addProjectSuggestion,
 } from 'src/store/reducers/suggestions';
 
 /**
@@ -38,10 +38,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(changeSuggestionType(value));
   },
   showErrors: (errors) => {
-    dispatch(showSuggestionErrors(errors));
+    dispatch(showSuggestionFormErrors(errors));
   },
-  addSuggestion: () => {
-    dispatch(addSuggestion(ownProps.project._id));
+  addProjectSuggestion: () => {
+    dispatch(addProjectSuggestion(ownProps.project._id));
   },
 });
 

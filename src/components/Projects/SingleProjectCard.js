@@ -15,47 +15,65 @@ import { getURL } from 'src/utils/url';
 /**
  * Code
  */
-const SingleProjectCard = ({
-  _id,
-  title,
-  description,
-}) => (
-  <Card
-    className="project-card"
-  >
-    <Card.Content className="card-fit-content">
-      <Card.Header textAlign="center">
-        <NavLink
-          to={getURL('recapitulatif', title)}
-          key={_id}
-          exact
-          className="project-card__title"
+class SingleProjectCard extends React.Component {
+  handleClick = () => {
+    const { _id: projectId, getProjectUserRole, getProjectSuggestions } = this.props;
+    getProjectUserRole(projectId);
+    getProjectSuggestions(projectId);
+  }
+
+  /**
+   * Render
+   */
+  render() {
+    const {
+      _id,
+      title,
+      description,
+    } = this.props;
+
+    return (
+      <Card
+        className="project-card"
+      >
+        <Card.Content className="card-fit-content">
+          <Card.Header textAlign="center">
+            <NavLink
+              to={getURL('recapitulatif', title)}
+              key={_id}
+              exact
+              className="project-card__title"
+              onClick={this.handleClick}
+            >
+              {title}
+            </NavLink>
+          </Card.Header>
+        </Card.Content>
+        <Card.Content>
+          <Card.Description>
+            {description}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content
+          className="card-fit-content"
+          textAlign="center"
         >
-          {title}
-        </NavLink>
-      </Card.Header>
-    </Card.Content>
-    <Card.Content>
-      <Card.Description>
-        {description}
-      </Card.Description>
-    </Card.Content>
-    <Card.Content
-      className="card-fit-content"
-      textAlign="center"
-    >
-      <Card.Meta>
-        <p>Dates - Notifications </p>
-      </Card.Meta>
-    </Card.Content>
-  </Card>
-);
+          <Card.Meta>
+            <p>Dates - Notifications </p>
+          </Card.Meta>
+        </Card.Content>
+      </Card>
+    );
+  }
+}
 
 // PropTypes validation
 SingleProjectCard.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  getProjectUserRole: PropTypes.func.isRequired,
+  getProjectSuggestions: PropTypes.func.isRequired,
 };
 
 /**

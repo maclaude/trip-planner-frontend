@@ -15,12 +15,8 @@ import { getFilteredSuggestions } from 'src/store/reducers/suggestions';
  * Code
  */
 // === State (data) ===
-const mapStateToProps = (state, ownProps) => ({
-  suggestions: getFilteredSuggestions(
-    state.suggestions.suggestionsData,
-    state.suggestions.type,
-    ownProps.project.id,
-  ),
+const mapStateToProps = state => ({
+  suggestions: getFilteredSuggestions(state.suggestions.suggestions, state.suggestions.type),
 });
 
 // === Actions ===

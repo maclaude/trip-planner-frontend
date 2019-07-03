@@ -33,12 +33,13 @@ const Activity = ({ suggestions }) => (
 
 // PropTypes validation
 Activity.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
 };
+
+Activity.defaultProps = {
+  suggestions: [],
+};
+
 /**
  * Export
  */

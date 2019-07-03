@@ -8,31 +8,28 @@ const initialState = {
   url: '',
   price: '',
   errors: [],
+  suggestions: [],
 };
 
 /**
  * Types
  */
-export const GET_SUGGESTIONS = 'GET_SUGGESTIONS';
-const STOCK_SUGGESTIONS = 'STOCK_SUGGESTIONS';
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
 const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
-const SHOW_SUGGESTION_ERRORS = 'SHOW_SUGGESTION_ERRORS';
+const SHOW_SUGGESTION_FORM_ERRORS = 'SHOW_SUGGESTION_FORM_ERRORS';
+
+export const ADD_PROJECT_SUGGESTION = 'ADD_PROJECT_SUGGESTION';
+export const GET_PROJECT_SUGGESTIONS = 'GET_PROJECT_SUGGESTIONS';
+const STOCK_PROJECT_SUGGESTIONS = 'STOCK_PROJECT_SUGGESTIONS';
+
 const APPROVED_SUGGESTION = 'APPROVED_SUGGESTION';
 const DISAPPROVED_SUGGESTION = 'DISAPPROVED_SUGGESTION';
-export const ADD_SUGGESTION = 'ADD_SUGGESTION';
 
 /**
  * Reducer
  */
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case STOCK_SUGGESTIONS:
-      return {
-        ...state,
-        suggestionsData: action.suggestions,
-      };
-
     case CHANGE_SUGGESTION_INPUTS:
       return {
         ...state,
@@ -45,13 +42,13 @@ const reducer = (state = initialState, action = {}) => {
         type: action.value,
       };
 
-    case SHOW_SUGGESTION_ERRORS:
+    case SHOW_SUGGESTION_FORM_ERRORS:
       return {
         ...state,
         errors: action.errors,
       };
 
-    case ADD_SUGGESTION: {
+    case ADD_PROJECT_SUGGESTION: {
       return {
         ...state,
         title: '',
@@ -62,45 +59,11 @@ const reducer = (state = initialState, action = {}) => {
       };
     }
 
-    case APPROVED_SUGGESTION: {
-      // Vote for a suggestion
-      const newSuggestions = state.suggestionsData.map((suggestion) => {
-        if (suggestion.id === action.id) {
-          const newVote = parseInt(suggestion.vote += 1, 10);
-
-          return {
-            ...suggestion,
-            vote: newVote,
-          };
-        }
-        return suggestion;
-      });
-
+    case STOCK_PROJECT_SUGGESTIONS:
       return {
         ...state,
-        suggestions: newSuggestions,
+        suggestions: action.suggestions,
       };
-    }
-
-    case DISAPPROVED_SUGGESTION: {
-      // Vote against a suggestion
-      const newSuggestions = state.suggestionsData.map((suggestion) => {
-        if (suggestion.id === action.id) {
-          const newVote = parseInt(suggestion.vote -= 1, 10);
-
-          return {
-            ...suggestion,
-            vote: newVote,
-          };
-        }
-        return suggestion;
-      });
-
-      return {
-        ...state,
-        suggestions: newSuggestions,
-      };
-    }
 
     default:
       return state;
@@ -121,23 +84,24 @@ export const changeSuggestionType = value => ({
   value,
 });
 
-export const showSuggestionErrors = errors => ({
-  type: SHOW_SUGGESTION_ERRORS,
+export const showSuggestionFormErrors = errors => ({
+  type: SHOW_SUGGESTION_FORM_ERRORS,
   errors,
 });
 
-export const getSuggestions = () => ({
-  type: GET_SUGGESTIONS,
-});
-
-export const stockSuggestions = suggestions => ({
-  type: STOCK_SUGGESTIONS,
-  suggestions,
-});
-
-export const addSuggestion = projectId => ({
-  type: ADD_SUGGESTION,
+export const addProjectSuggestion = projectId => ({
+  type: ADD_PROJECT_SUGGESTION,
   projectId,
+});
+
+export const getProjectSuggestions = projectId => ({
+  type: GET_PROJECT_SUGGESTIONS,
+  projectId,
+});
+
+export const stockProjectSuggestions = suggestions => ({
+  type: STOCK_PROJECT_SUGGESTIONS,
+  suggestions,
 });
 
 export const approvedSuggestion = id => ({
@@ -153,35 +117,28 @@ export const disapprovedSuggestion = id => ({
 /**
  * Selectors
  */
-export const getFilteredSuggestions = (suggestions, typeId, projectId) => {
-  const projectSuggestions = [
-    ...suggestions.filter(
-      suggestion => suggestion.project.id === projectId,
-    )];
+export const getFilteredSuggestions = (suggestions, typeId) => [
+  ...suggestions.filter(
+    suggestion => suggestion.suggestion_type._id === typeId,
+  )];
 
-  return [
-    ...projectSuggestions.filter(
-      suggestion => suggestion.suggestionGender.id === typeId,
-    )];
-};
+// export const getMajorityApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
+//   const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
 
-export const getMajorityApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
-  const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
+//   return [
+//     ...currentSuggestions.filter(
+//       suggestion => (suggestion.vote >= (participants.length * 0.75)),
+//     )];
+// };
 
-  return [
-    ...currentSuggestions.filter(
-      suggestion => (suggestion.vote >= (participants.length * 0.75)),
-    )];
-};
+// export const getFullyApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
+//   const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
 
-export const getFullyApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
-  const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-  return [
-    ...currentSuggestions.filter(
-      suggestion => (suggestion.vote >= (participants.length)),
-    )];
-};
+//   return [
+//     ...currentSuggestions.filter(
+//       suggestion => (suggestion.vote >= (participants.length)),
+//     )];
+// };
 
 
 /**

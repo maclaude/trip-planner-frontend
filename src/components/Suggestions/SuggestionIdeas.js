@@ -23,7 +23,7 @@ const SuggestionIdeas = ({ suggestions }) => (
       <Card.Group>
         {suggestions.map(suggestion => (
           <SingleCard
-            key={suggestion.id}
+            key={suggestion._id}
             {...suggestion}
           />
         ))}
@@ -34,11 +34,11 @@ const SuggestionIdeas = ({ suggestions }) => (
 
 // PropTypes validation
 SuggestionIdeas.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
+};
+
+SuggestionIdeas.defaultProps = {
+  suggestions: [],
 };
 
 /**

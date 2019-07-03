@@ -8,20 +8,15 @@ import { connect } from 'react-redux';
  */
 import Transport from 'src/components/ProjectDetails/Transport';
 
-// Action Creators
-import { getMajorityApprovedSuggestions } from 'src/store/reducers/suggestions';
+// // Action Creators
+// import { getMajorityApprovedSuggestions } from 'src/store/reducers/suggestions';
 
 /**
  * Code
  */
 // === State (data) ===
-const mapStateToProps = (state, ownProps) => ({
-  suggestions: getMajorityApprovedSuggestions(
-    state.suggestions.suggestionsData,
-    ownProps.type,
-    ownProps.projectId,
-    ownProps.participants,
-  ),
+const mapStateToProps = state => ({
+  suggestions: state.suggestions.suggestions,
 });
 
 // === Actions ===

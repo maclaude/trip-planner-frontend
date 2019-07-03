@@ -54,10 +54,6 @@
 }
 
 .card {
-  &:hover {
-    box-shadow: 0 0 4px 2px #AEB6BF !important;
-  }
-
   &-fit-content {
     max-height: fit-content;
   }
@@ -70,6 +66,8 @@
   &-icons {
      &-heart {
       cursor: pointer;
+      width: 30px;
+      height: auto;
 
       &--active {
         color: #FF0000;

@@ -95,6 +95,7 @@ NavigationProjects.propTypes = {
 NavigationProjects.defaultProps = {
   projects: [],
 };
+
 /**
  * Export
  */

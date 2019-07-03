@@ -33,12 +33,13 @@ const Transport = ({ suggestions }) => (
 
 // PropTypes validation
 Transport.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
 };
+
+Transport.defaultProps = {
+  suggestions: [],
+};
+
 /**
  * Export
  */

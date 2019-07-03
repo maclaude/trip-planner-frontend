@@ -33,11 +33,11 @@ const Accomodation = ({ suggestions }) => (
 
 // PropTypes validation
 Accomodation.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
+};
+
+Accomodation.defaultProps = {
+  suggestions: [],
 };
 /**
  * Export

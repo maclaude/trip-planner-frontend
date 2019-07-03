@@ -40,7 +40,12 @@ import {
 
 import { SEND_INVITATION } from '../reducers/participants';
 
-import { ADD_SUGGESTION } from '../reducers/suggestions';
+import {
+  ADD_PROJECT_SUGGESTION,
+  GET_PROJECT_SUGGESTIONS,
+  getProjectSuggestions,
+  stockProjectSuggestions,
+} from '../reducers/suggestions';
 
 /**
  * Middleware
@@ -254,7 +259,7 @@ const ajaxMiddleware = store => next => (action) => {
       break;
     }
 
-    case ADD_SUGGESTION: {
+    case ADD_PROJECT_SUGGESTION: {
       body = {
         title: state.suggestions.title,
         description: state.suggestions.description,
@@ -268,6 +273,18 @@ const ajaxMiddleware = store => next => (action) => {
       axiosToken.post('http://localhost:8000/project/new-suggestion', body)
         .then((response) => {
           console.log(response);
+          store.dispatch(getProjectSuggestions(action.projectId));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case GET_PROJECT_SUGGESTIONS: {
+      axiosToken.get(`http://localhost:8000/project/suggestions/${action.projectId}`)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(stockProjectSuggestions(response.data.suggestions));
         })
         .catch(error => console.log(error));
 

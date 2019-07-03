@@ -33,12 +33,13 @@ const Other = ({ suggestions }) => (
 
 // PropTypes validation
 Other.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
 };
+
+Other.defaultProps = {
+  suggestions: [],
+};
+
 /**
  * Export
  */

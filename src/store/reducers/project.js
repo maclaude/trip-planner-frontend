@@ -21,7 +21,7 @@ const initialState = {
  */
 const CLEAR_PROJECT_STATE = 'CLEAR_PROJECT_STATE';
 const STORE_SERVER_RESPONSE_MESSAGE = 'STORE_SERVER_RESPONSE_MESSAGE';
-const SHOW_FORM_ERRORS = 'SHOW_FORM_ERRORS';
+const SHOW_PROJECT_FORMS_ERRORS = 'SHOW_PROJECT_FORMS_ERRORS';
 
 const CHANGE_NEWPROJECT_INPUTS = 'CHANGE_NEWPROJECT_INPUTS';
 export const GET_DESTINATION_COORDINATES = 'GET_DESTINATION_COORDINATES';
@@ -57,7 +57,7 @@ const reducer = (state = initialState, action = {}) => {
         serverResponseMessage: action.message,
       };
 
-    case SHOW_FORM_ERRORS:
+    case SHOW_PROJECT_FORMS_ERRORS:
       return {
         ...state,
         errors: action.errors,
@@ -124,8 +124,8 @@ export const storeServerResponseMessage = message => ({
   message,
 });
 
-export const showFormErrors = errors => ({
-  type: SHOW_FORM_ERRORS,
+export const showProjectFormsErrors = errors => ({
+  type: SHOW_PROJECT_FORMS_ERRORS,
   errors,
 });
 

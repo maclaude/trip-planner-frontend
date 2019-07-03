@@ -15,7 +15,7 @@ import './projects.scss';
 import 'toasted-notes/src/styles.css';
 // Components
 import UserFooter from 'src/components/UserFooter';
-import SingleProjectCard from './SingleProjectCard';
+import SingleProjectCard from 'src/containers/Projects/SingleProjectCard';
 
 /**
  * Code

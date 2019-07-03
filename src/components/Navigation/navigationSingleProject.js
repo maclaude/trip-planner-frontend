@@ -25,10 +25,7 @@ class NavigationSingleProject extends React.Component {
   /**
    * Lifecycle
    */
-  componentWillMount() {
-    const { getProjectUserRole } = this.props;
-    getProjectUserRole();
-  }
+  componentWillMount() {}
 
   /**
    * Render
@@ -139,7 +136,6 @@ NavigationSingleProject.propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
-  getProjectUserRole: PropTypes.func.isRequired,
 };
 
 /**

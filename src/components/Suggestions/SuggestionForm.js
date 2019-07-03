@@ -47,7 +47,7 @@ class SuggestionForm extends React.Component {
     const {
       type,
       title,
-      addSuggestion,
+      addProjectSuggestion,
       showErrors,
     } = this.props;
 
@@ -55,7 +55,7 @@ class SuggestionForm extends React.Component {
     const errors = getSuggestionFormErrors(type, title);
 
     if (type && title !== '') {
-      addSuggestion();
+      addProjectSuggestion();
     }
     else {
       showErrors(errors);
@@ -192,7 +192,7 @@ SuggestionForm.propTypes = {
   changeInput: PropTypes.func.isRequired,
   changeType: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
-  addSuggestion: PropTypes.func.isRequired,
+  addProjectSuggestion: PropTypes.func.isRequired,
 };
 
 /**

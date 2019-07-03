@@ -12,7 +12,7 @@ import NewProject from 'src/components/NewProject/NewProject';
 import {
   clearProjectState,
   changeNewProjectInputs,
-  showFormErrors,
+  showProjectFormsErrors,
   getDestinationCoordinates,
 } from 'src/store/reducers/project';
 
@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeNewProjectInputs(name, value));
   },
   showErrors: (errors) => {
-    dispatch(showFormErrors(errors));
+    dispatch(showProjectFormsErrors(errors));
   },
   getDestinationCoordinates: () => {
     dispatch(getDestinationCoordinates());

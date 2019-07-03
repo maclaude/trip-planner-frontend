@@ -33,12 +33,13 @@ const Restaurant = ({ suggestions }) => (
 
 // PropTypes validation
 Restaurant.propTypes = {
-  suggestions: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  suggestions: PropTypes.array,
 };
+
+Restaurant.defaultProps = {
+  suggestions: [],
+};
+
 /**
  * Export
  */
