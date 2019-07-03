@@ -22,8 +22,7 @@ export const ADD_PROJECT_SUGGESTION = 'ADD_PROJECT_SUGGESTION';
 export const GET_PROJECT_SUGGESTIONS = 'GET_PROJECT_SUGGESTIONS';
 const STOCK_PROJECT_SUGGESTIONS = 'STOCK_PROJECT_SUGGESTIONS';
 
-const APPROVED_SUGGESTION = 'APPROVED_SUGGESTION';
-const DISAPPROVED_SUGGESTION = 'DISAPPROVED_SUGGESTION';
+export const VOTE_PROJECT_SUGGESTION = 'VOTE_PROJECT_SUGGESTION';
 
 /**
  * Reducer
@@ -104,42 +103,25 @@ export const stockProjectSuggestions = suggestions => ({
   suggestions,
 });
 
-export const approvedSuggestion = id => ({
-  type: APPROVED_SUGGESTION,
-  id,
-});
-
-export const disapprovedSuggestion = id => ({
-  type: DISAPPROVED_SUGGESTION,
-  id,
+export const voteProjectSuggestion = (projectId, suggestionId) => ({
+  type: VOTE_PROJECT_SUGGESTION,
+  projectId,
+  suggestionId,
 });
 
 /**
  * Selectors
  */
-export const getFilteredSuggestions = (suggestions, typeId) => [
-  ...suggestions.filter(
-    suggestion => suggestion.suggestion_type._id === typeId,
-  )];
+export const getFilteredSuggestions = (suggestions, typeId) => {
+  if (!suggestions) {
+    return [];
+  }
 
-// export const getMajorityApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
-//   const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-//   return [
-//     ...currentSuggestions.filter(
-//       suggestion => (suggestion.vote >= (participants.length * 0.75)),
-//     )];
-// };
-
-// export const getFullyApprovedSuggestions = (suggestions, typeId, projectId, participants) => {
-//   const currentSuggestions = getFilteredSuggestions(suggestions, typeId, projectId);
-
-//   return [
-//     ...currentSuggestions.filter(
-//       suggestion => (suggestion.vote >= (participants.length)),
-//     )];
-// };
-
+  return [
+    ...suggestions.filter(
+      suggestion => suggestion.suggestion_type._id === typeId,
+    )];
+};
 
 /**
  * Export

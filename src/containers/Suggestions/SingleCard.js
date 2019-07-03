@@ -9,21 +9,20 @@ import { connect } from 'react-redux';
 import SingleCard from 'src/components/Suggestions/SingleCard';
 
 // Action Creators
-import { approvedSuggestion, disapprovedSuggestion } from 'src/store/reducers/suggestions';
+import { voteProjectSuggestion } from 'src/store/reducers/suggestions';
 
 /**
  * Code
  */
 // === State (data) ===
-const mapStateToProps = null;
+const mapStateToProps = state => ({
+  userId: state.user.id,
+});
 
 // === Actions ===
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  approvedSuggestion: () => {
-    dispatch(approvedSuggestion(ownProps.id));
-  },
-  disapprovedSuggestion: () => {
-    dispatch(disapprovedSuggestion(ownProps.id));
+const mapDispatchToProps = dispatch => ({
+  voteProjectSuggestion: (projectId, suggestionId) => {
+    dispatch(voteProjectSuggestion(projectId, suggestionId));
   },
 });
 

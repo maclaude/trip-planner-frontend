@@ -43,6 +43,7 @@ import { SEND_INVITATION } from '../reducers/participants';
 import {
   ADD_PROJECT_SUGGESTION,
   GET_PROJECT_SUGGESTIONS,
+  VOTE_PROJECT_SUGGESTION,
   getProjectSuggestions,
   stockProjectSuggestions,
 } from '../reducers/suggestions';
@@ -281,6 +282,19 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(stockProjectSuggestions(response.data.suggestions));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case VOTE_PROJECT_SUGGESTION: {
+      body = { suggestionId: action.suggestionId };
+
+      axiosToken.put('http://localhost:8000/project/vote-suggestion', body)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(getProjectSuggestions(action.projectId));
         })
         .catch(error => console.log(error));
 

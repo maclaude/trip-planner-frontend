@@ -13,7 +13,7 @@ import SingleCard from 'src/containers/Suggestions/SingleCard';
 /**
  * Code
  */
-const SuggestionIdeas = ({ suggestions }) => (
+const SuggestionIdeas = ({ project, suggestions }) => (
   <section id="suggestions-ideas">
     <Divider />
     <h2 id="suggestions-ideas__title">
@@ -24,6 +24,7 @@ const SuggestionIdeas = ({ suggestions }) => (
         {suggestions.map(suggestion => (
           <SingleCard
             key={suggestion._id}
+            projectId={project._id}
             {...suggestion}
           />
         ))}
@@ -34,6 +35,9 @@ const SuggestionIdeas = ({ suggestions }) => (
 
 // PropTypes validation
 SuggestionIdeas.propTypes = {
+  project: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
   suggestions: PropTypes.array,
 };
 

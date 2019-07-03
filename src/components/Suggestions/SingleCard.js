@@ -16,34 +16,11 @@ import { FaRegHeart } from 'react-icons/fa';
  */
 class SingleCard extends React.Component {
   /**
-   * Local state
-   */
-  state = {
-    isApproved: false,
-  }
-
-  /**
    * Handlers
    */
-  handleClick = () => {
-    const { approvedSuggestion, disapprovedSuggestion } = this.props;
-
-    const { isApproved } = this.state;
-
-    if (!isApproved) {
-      approvedSuggestion();
-
-      this.setState({
-        isApproved: true,
-      });
-    }
-    else if (isApproved) {
-      disapprovedSuggestion();
-
-      this.setState({
-        isApproved: false,
-      });
-    }
+  voteProjectSuggestion = suggestionId => () => {
+    const { projectId, voteProjectSuggestion } = this.props;
+    voteProjectSuggestion(projectId, suggestionId);
   }
 
   /**
@@ -51,6 +28,8 @@ class SingleCard extends React.Component {
    */
   render() {
     const {
+      userId,
+      _id: suggestionId,
       title,
       description,
       url,
@@ -59,7 +38,7 @@ class SingleCard extends React.Component {
       user_vote: userVote,
     } = this.props;
 
-    const { isApproved } = this.state;
+    const currentUserHasVoted = userVote.find(vote => vote === userId);
 
     const votesCount = userVote.length;
 
@@ -89,9 +68,9 @@ class SingleCard extends React.Component {
             <FaRegHeart
               className={classNames(
                 'card-icons-heart',
-                { 'card-icons-heart--active': isApproved },
+                { 'card-icons-heart--active': currentUserHasVoted },
               )}
-              onClick={this.handleClick}
+              onClick={this.voteProjectSuggestion(suggestionId)}
             />
           </div>
         </Card.Content>
@@ -102,16 +81,18 @@ class SingleCard extends React.Component {
 
 // PropTypes validation
 SingleCard.propTypes = {
+  projectId: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  approvedSuggestion: PropTypes.func.isRequired,
-  disapprovedSuggestion: PropTypes.func.isRequired,
   author: PropTypes.shape({
     firstname: PropTypes.string,
   }).isRequired,
   user_vote: PropTypes.array.isRequired,
+  voteProjectSuggestion: PropTypes.func.isRequired,
 };
 
 /**
