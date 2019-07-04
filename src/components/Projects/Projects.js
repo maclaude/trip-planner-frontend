@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Card } from 'semantic-ui-react';
 import { FaPaperPlane } from 'react-icons/fa';
 
 /**
@@ -84,7 +83,7 @@ class Projects extends React.Component {
         )}
 
         {(projects.length !== 0) && (
-          <Card.Group
+          <section
             id="projects-cards"
           >
             {(projects.map(project => (
@@ -93,7 +92,7 @@ class Projects extends React.Component {
                 {...project}
               />
             )))}
-          </Card.Group>
+          </section>
         )}
 
         <NavLink

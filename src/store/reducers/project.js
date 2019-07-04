@@ -47,6 +47,8 @@ const reducer = (state = initialState, action = {}) => {
         id: '',
         title: '',
         description: '',
+        startDate: '',
+        endDate: '',
         errors: [],
         serverResponseMessage: '',
       };

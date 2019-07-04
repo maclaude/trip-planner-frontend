@@ -33,15 +33,6 @@
   margin: 0;
 }
 
-.project-card {
-  min-height: 200px !important;
-  position: relative;
-
-  &__title {
-    color: $font-color;
-  }
-}
-
 .projects-invitation {
   margin: 1em 0;
   padding: 1em;
@@ -80,6 +71,49 @@
 
     &:hover {
       cursor: pointer;
+    }
+  }
+}
+
+.project-card {
+  min-height: 325px;
+  min-width: 275px;
+  width: 275px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 10px;
+  margin: 1.5em;
+
+  &-header, &-main, &-footer {
+    padding: .75rem;
+  }
+
+  &-header {
+    border-bottom: 1px solid #EBEBEB;
+    height: fit-content;
+
+    &__title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #000;
+      display: block;
+      text-align: center;
+      padding: .3em .5em;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  &-main {
+    &__title {
+      font-size: 1rem;
+      margin: .75em;
+      color: #484848;
+    }
+
+    &__content {
+      color: #484848;
     }
   }
 }

@@ -47,7 +47,7 @@ class ProjectDetails extends React.Component {
 
         <section id="project-details-header">
           <div id="project-details-header-left">
-            <h2>Destination</h2>
+            <h2 className="user-section__title">Localisation</h2>
             <div id="project-details-header-left-map">
               <GoogleMap
                 lat={project.destination.lat}
@@ -58,7 +58,7 @@ class ProjectDetails extends React.Component {
 
           <div id="project-details-header-right">
             <div>
-              <h2>Participants</h2>
+              <h2 className="user-section__title">Participants</h2>
               <List
                 id="project-details-header-right-participants-list"
                 animated
@@ -84,7 +84,7 @@ class ProjectDetails extends React.Component {
             </div>
 
             <div>
-              <h2>Dates retenues</h2>
+              <h2 className="user-section__title">Dates retenues</h2>
               <div id="project-details-header-right-dates">
                 <p>Dates - Notifications</p>
               </div>

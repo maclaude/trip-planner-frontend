@@ -10,6 +10,7 @@ import SuggestDates from 'src/components/SuggestDates/SuggestDates';
 
 // Action creators
 import {
+  clearProjectState,
   changeNewProjectInputs,
   addProjectDates,
   showProjectFormsErrors,
@@ -31,6 +32,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 // === Actions ===
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  clearProjectState: () => {
+    dispatch(clearProjectState());
+  },
   changeInput: (name, value) => {
     dispatch(changeNewProjectInputs(name, value));
   },

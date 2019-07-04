@@ -4,7 +4,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Card } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -30,39 +29,37 @@ class SingleProjectCard extends React.Component {
       _id,
       title,
       description,
+      participants,
     } = this.props;
 
     return (
-      <Card
-        className="project-card"
-      >
-        <Card.Content className="card-fit-content">
-          <Card.Header textAlign="center">
-            <NavLink
-              to={getURL('recapitulatif', title)}
-              key={_id}
-              exact
-              className="project-card__title"
-              onClick={this.handleClick}
-            >
-              {title}
-            </NavLink>
-          </Card.Header>
-        </Card.Content>
-        <Card.Content>
-          <Card.Description>
+      <div className="project-card">
+        <div className="project-card-header">
+          <NavLink
+            to={getURL('recapitulatif', title)}
+            key={_id}
+            exact
+            className="project-card-header__title"
+            onClick={this.handleClick}
+          >
+            {title}
+          </NavLink>
+        </div>
+        <div className="project-card-main">
+          <h4 className="project-card-main__title">
+            Description
+          </h4>
+          <p className="project-card-main__content">
             {description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content
-          className="card-fit-content"
-          textAlign="center"
-        >
-          <Card.Meta>
-            <p>Dates - Notifications </p>
-          </Card.Meta>
-        </Card.Content>
-      </Card>
+          </p>
+          <h4 className="project-card-main__title">
+            Participants
+          </h4>
+          <p>
+            {participants.length}
+          </p>
+        </div>
+      </div>
     );
   }
 }
@@ -72,6 +69,7 @@ SingleProjectCard.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  participants: PropTypes.array.isRequired,
   getProjectUserRole: PropTypes.func.isRequired,
   getProjectSuggestions: PropTypes.func.isRequired,
 };

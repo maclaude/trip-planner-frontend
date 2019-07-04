@@ -24,6 +24,14 @@ import UserFooter from 'src/components/UserFooter';
  */
 class SuggestDates extends React.Component {
   /**
+   * Lifecycle
+   */
+  componentWillMount() {
+    const { clearProjectState } = this.props;
+    clearProjectState();
+  }
+
+  /**
    * Handlers
    */
   handleChange = (evt) => {
@@ -86,24 +94,30 @@ class SuggestDates extends React.Component {
               Sélectionner des dates:
             </h2>
             <div id="dates-form__inputs">
-              <Input
-                label={{ icon: 'asterisk' }}
-                labelPosition="left corner"
-                name="startDate"
-                className="date__input"
-                type="date"
-                value={startDate}
-                onChange={this.handleChange}
-              />
-              <Input
-                label={{ icon: 'asterisk' }}
-                labelPosition="left corner"
-                name="endDate"
-                className="date__input"
-                type="date"
-                value={endDate}
-                onChange={this.handleChange}
-              />
+              <div>
+                <h3 className="date-form__label">Date de début</h3>
+                <Input
+                  label={{ icon: 'asterisk' }}
+                  labelPosition="left corner"
+                  name="startDate"
+                  className="date-form__input"
+                  type="date"
+                  value={startDate}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <h3 className="date-form__label">Date de fin</h3>
+                <Input
+                  label={{ icon: 'asterisk' }}
+                  labelPosition="left corner"
+                  name="endDate"
+                  className="date-form__input"
+                  type="date"
+                  value={endDate}
+                  onChange={this.handleChange}
+                />
+              </div>
               <div
                 className="
                   button
@@ -157,6 +171,7 @@ SuggestDates.propTypes = {
   endDate: PropTypes.string,
   errors: PropTypes.array.isRequired,
   suggestedDates: PropTypes.array.isRequired,
+  clearProjectState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   addProjectDates: PropTypes.func.isRequired,
