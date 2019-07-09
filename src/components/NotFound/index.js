@@ -8,7 +8,6 @@ import React from 'react';
  */
 // Components
 import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
 
 // Style
 import './notfound.scss';
@@ -19,11 +18,10 @@ import './notfound.scss';
 
 
 const NotFoundView = () => (
-  <div id="notFoundView">
-    <div id="container">
-      <Header />
-      <div id="notFound" />
-      <Footer />
+  <div id="not-found-view">
+    <Header />
+    <div id="not-found-view__message">
+      <h1>Page not found</h1>
     </div>
   </div>
 

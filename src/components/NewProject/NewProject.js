@@ -138,7 +138,7 @@ class NewProject extends React.Component {
                 </FormField>
                 <FormField>
                   <label htmlFor="destination">
-                    Destination<strong className="asterisk">*</strong>
+                    Destination <strong className="asterisk">*</strong>
                     <input
                       name="destination"
                       placeholder="Définissez une destination"

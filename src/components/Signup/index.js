@@ -9,7 +9,6 @@ import React from 'react';
 // Components
 import Header from 'src/components/Header';
 import SignupForm from 'src/containers/Signup/SignupForm';
-import Footer from 'src/components/Footer';
 
 // Style
 import './signup.scss';
@@ -18,10 +17,9 @@ import './signup.scss';
  * Code
  */
 const SignupView = () => (
-  <div id="signupView">
+  <div id="signup-view">
     <Header />
     <SignupForm />
-    <Footer />
   </div>
 );
 

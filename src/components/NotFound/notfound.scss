@@ -1,18 +1,10 @@
 @import 'src/styles/vars';
 
-#notFound {
-  height: 70vh;
-  text-align: center;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#container {
-  background-image: url('../../assets/images/background/not_found.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  overflow-y: hidden;
+#not-found-view {
+  &__message {
+    margin: 50vh 0;
+    text-align: center;
+    font-weight: bold;
+  }
 }
 

@@ -1,36 +1,97 @@
 @import 'src/styles/vars';
 
-#header {
-  background: $header-bg-color;
-  height: 15vh;
-  min-height: 60px;
-  width: 100%;
+.auth-header {
+  --text: #0A1D37;
+  --text-inverse: #E4E9ED; 
+  --background: #E4E9ED;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  padding: 2em 3em;
+  transition: background 250ms ease-in;
+  background: var(--background);
+  color: var(--text);
+  box-shadow: 0 3px 20px rgba(black, 0.2);
+  
   &__logo {
-    margin-left: 2em;
-    width: 10%;
-    min-width: 100px;
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+
+    &:hover {
+      color: var(--text);
+    }
   }
 }
 
-.nav {
-  margin-right: 2em;
-  min-width: 200px;
+.auth-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 
-  &__link {
-    color: $font-color;
-    font-size: 1.2em;
-    font-weight: 700;
-    margin-left: 2em;
-    padding: .5em .8em;
+.auth-nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transition: transform 150ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  &--btn {
+    border: 1.5px solid currentColor;
+    border-radius: 2em;
+    margin-left: 1em;
+    transition: background 250ms ease-in-out;
+    letter-spacing: 1px;
+    padding: 0.75em 1.5em;
 
     &:hover {
-      color: $font-color;
-      border-bottom: 3px solid $navigation-border-bottom-color;
-      cursor: pointer;
+      background: var(--text);
+      color: var(--text-inverse);
+      border-color: var(--text);
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &--highlight {
+      background: $red-pink;
+      border-color: $red-pink;
+      color: $navy-blue;
+
+      &:hover {
+        background: var(--text);
+        border-color: var(--text);
+      }
     }
   }
 }

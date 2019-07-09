@@ -9,33 +9,22 @@ import { NavLink } from 'react-router-dom';
  */
 // Style
 import './header.scss';
-// Assets
-import logo from 'src/assets/logo/logo_1.png';
 
 /**
  * Code
  */
 const Header = () => (
-  <div id="header">
-    <NavLink
-      to="/"
-      exact
-    >
-      <img id="header__logo" src={logo} alt="logo trip-planner" />
-    </NavLink>
-    <nav className="nav">
-      <NavLink
-        to="/inscription"
-        className="nav__link"
-      >
-        Inscription
-      </NavLink>
-      <NavLink
-        to="/connexion"
-        className="nav__link"
-      >
-        Connexion
-      </NavLink>
+  <div className="auth-header">
+    <NavLink to="/" exact className="auth-header__logo" href="#">Trip-planner</NavLink>
+    <nav className="acount">
+      <ul className="auth-nav__list">
+        <li className="auth-nav__list-item">
+          <NavLink to="/inscription" exact className="auth-nav__link auth-nav__link--btn">Inscription</NavLink>
+        </li>
+        <li className="auth-nav__list-item">
+          <NavLink to="/connexion" exact className="auth-nav__link auth-nav__link--btn auth-nav__link--btn--highlight">Connexion</NavLink>
+        </li>
+      </ul>
     </nav>
   </div>
 );

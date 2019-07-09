@@ -94,13 +94,13 @@
     &__title {
       font-size: 1.3rem;
       font-weight: 600;
-      color: #000;
+      color: $font-color;
       display: block;
       text-align: center;
       padding: .3em .5em;
 
       &:hover {
-        color: #000;
+        color: rgb(22, 42, 80);
       }
     }
   }
@@ -109,11 +109,11 @@
     &__title {
       font-size: 1rem;
       margin: .75em;
-      color: #484848;
+      color: $project-card-main-color;
     }
 
     &__content {
-      color: #484848;
+      color: $project-card-main-color;
     }
   }
 }
