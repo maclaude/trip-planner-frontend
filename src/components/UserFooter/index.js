@@ -15,7 +15,7 @@ import logo from 'src/assets/logo/logo_2.png';
  * Code
  */
 const UserFooter = () => (
-  <footer id="user-footer">
+  <footer className="user-container__footer">
     <img
       id="user-footer__logo"
       src={logo}

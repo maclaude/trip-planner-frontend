@@ -29,7 +29,7 @@ class NavigationFooter extends React.Component {
       <div id="navigation-footer">
         <NavLink
           className="navigation__link"
-          to="profil"
+          to="/profil"
           activeClassName="navigation__link--active"
         >
           <div className="navigation__link-title">

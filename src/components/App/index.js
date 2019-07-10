@@ -19,6 +19,7 @@ import ProjectDetailsView from 'src/containers/ProjectDetails';
 import SuggestionsView from 'src/containers/Suggestions';
 import SuggestDatesView from 'src/containers/SuggestDates';
 import AddParticipantsView from 'src/containers/AddParticipants';
+import ProfilView from 'src/components/Profil';
 import NotFoundView from 'src/components/NotFound';
 // HOC require authentification
 import requiresAuth from 'src/components/RequiresAuth';
@@ -42,6 +43,7 @@ const App = () => (
       <Route exact path="/recapitulatif/:slug" component={requiresAuth(ProjectDetailsView)} />
       <Route exact path="/dates/:slug" component={requiresAuth(SuggestDatesView)} />
       <Route exact path="/participants/:slug" component={requiresAuth(AddParticipantsView)} />
+      <Route exact path="/profil" component={requiresAuth(ProfilView)} />
 
       {/* Fallback - Page not found */}
       <Route component={NotFoundView} />
