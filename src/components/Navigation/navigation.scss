@@ -54,6 +54,7 @@
   &-main {
     &-project {
       padding-left: 1.5em;
+
       &__title {
         padding: 1em 0 1em 0;
         font-weight: 600;
@@ -72,10 +73,6 @@
   }
 }
 
-.navigation--close {
-  transform: translateY(-110%);
-}
-
 .navigation {
   &__link {
     color: $navigation-font-color;
@@ -83,14 +80,14 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.3rem;
-
+    
     &:hover,
     &--active {
       cursor: pointer;
       color: $navigation-font-color-hover;
       background-color: $navigation-link-bg-color-hover;
     }
-
+    
     &-project {
       &:hover,
       &--active {
@@ -100,5 +97,63 @@
         background-color: $navigation-link-bg-color-hover; 
       }
     }
+  }
+}
+
+.navigation--close {
+  transform: translateY(-110%);
+}
+
+.navigation--appear {
+  transform: translateY(0%);
+}
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 900px) {
+  #navigation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em 0 1.6em;
+    
+    &__button {
+      height: 2.5em;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    &-user {
+      width: fit-content;
+      
+      &__username {
+        display: none;
+      }
+    }
+  }
+
+  /* Close icon */
+
+  .close-icon,
+  .close-icon::after {
+    content: '';
+    display: block;
+    background: $navy-blue;
+    height: 4px;
+    width: 2em;
+    border-radius: 3px;
+  }
+
+  .close-icon {
+    transform: rotate(45deg);
+  }
+  .close-icon::after {
+    transform: rotate(-90deg);
   }
 }

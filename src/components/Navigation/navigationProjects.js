@@ -21,30 +21,48 @@ import NavigationHeader from './NavigationHeader';
  * Code
  */
 class NavigationProjects extends React.Component {
-  // /**
-  //  * Lifecycle
-  //  */
-  // componentDidMount() {
-  //   this.calcWindowSize();
-  //   window.addEventListener('resize', this.calcWindowSize);
-  // }
+  /**
+   * Lifecycle
+   */
+  componentDidMount() {
+    const burgerMenu = document.querySelector('.user-container__menu');
+    const navigation = document.querySelector('#navigation');
+    const closeButton = document.querySelector('#navigation-header__button');
 
-  // /**
-  //  * Handlers
-  //  */
-  // calcWindowSize = () => {
-  //   const navigation = document.querySelector('#navigation');
-  //   const userView = document.querySelector('.user-main');
+    this.calcWindowSize();
 
-  //   if (window.innerWidth <= 900) {
-  //     navigation.classList.add('navigation--close');
-  //     userView.classList.add('user-main--fullscreen');
-  //   }
-  //   else if (window.innerWidth > 900) {
-  //     navigation.classList.remove('navigation--close');
-  //     userView.classList.remove('user-main--fullscreen');
-  //   }
-  // }
+    window.addEventListener('resize', this.calcWindowSize(burgerMenu, navigation));
+    burgerMenu.addEventListener('click', this.onBurgerMenuClick(navigation));
+    closeButton.addEventListener('click', this.onCloseButtonClick(navigation));
+  }
+
+  /**
+   * Handlers
+   */
+  calcWindowSize = (burgerMenu, navigation) => () => {
+    const userView = document.querySelector('.user-container');
+    navigation.classList.remove('navigation--appear');
+
+    if (window.innerWidth <= 900) {
+      navigation.classList.add('navigation--close');
+      userView.classList.add('user-container--fullscreen');
+      burgerMenu.classList.add('user-container__menu--appear');
+    }
+    else if (window.innerWidth > 900) {
+      burgerMenu.classList.remove('user-container__menu--appear');
+      navigation.classList.remove('navigation--close');
+      userView.classList.remove('user-container--fullscreen');
+    }
+  }
+
+  onBurgerMenuClick = navigation => () => {
+    navigation.classList.toggle('navigation--appear');
+    navigation.classList.add('navigation-close-icon');
+  }
+
+  onCloseButtonClick = navigation => () => {
+    navigation.classList.remove('navigation--appear');
+  }
 
   /**
    * Render
