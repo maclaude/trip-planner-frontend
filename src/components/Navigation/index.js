@@ -22,7 +22,27 @@ class Navigation extends React.Component {
   /**
    * Lifecycle
    */
-  componentDidMount() {}
+  componentDidMount() {
+    this.calcWindowSize();
+    window.addEventListener('resize', this.calcWindowSize);
+  }
+
+  /**
+   * Handlers
+   */
+  calcWindowSize = () => {
+    const navigation = document.querySelector('#navigation');
+    const userView = document.querySelector('.user-main');
+
+    if (window.innerWidth <= 900) {
+      navigation.classList.add('navigation--close');
+      userView.classList.add('user-main--fullscreen');
+    }
+    else if (window.innerWidth > 900) {
+      navigation.classList.remove('navigation--close');
+      userView.classList.remove('user-main--fullscreen');
+    }
+  }
 
   /**
    * Render

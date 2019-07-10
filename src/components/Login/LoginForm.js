@@ -99,7 +99,7 @@ class LoginForm extends React.Component {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Saisissez votre adresse email"
                   value={email}
                   onChange={this.handleChange}
                 />

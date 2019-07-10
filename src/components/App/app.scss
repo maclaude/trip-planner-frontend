@@ -110,12 +110,17 @@ h2 {
   width: calc(100vw - 300px);
   min-height: 100vh;
   float: right;
-  padding: 2em 5em;
+  padding: 2em 4em;
   background: $main-bg-color;
   color: $font-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: width ease-out 500ms;
+
+  &--fullscreen {
+    width: 100vw;
+  }
 
     &__title {
       padding-left: .5em;
