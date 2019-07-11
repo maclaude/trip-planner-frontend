@@ -80,18 +80,24 @@ class SuggestDates extends React.Component {
     } = this.props;
 
     return (
-      <main className="user-main" id="dates">
+      <div className="user-container" id="dates">
 
-        <h1 className="user-main__title">Suggérer des dates</h1>
+        <div className="user-container__menu">
+          <div className="hamburger" />
+        </div>
 
-        <section>
+        <div className="user-container__banner">
+          <h1>Suggérer des dates</h1>
+        </div>
+
+        <section className="user-container__section-1">
           <Form
             id="dates-form"
             action=""
             onSubmit={this.handleSubmit}
           >
             <h2 id="dates-form__title">
-              Sélectionner des dates:
+              Choisissez des dates pour votre séjour
             </h2>
             <div id="dates-form__inputs">
               <div>
@@ -145,7 +151,7 @@ class SuggestDates extends React.Component {
           </Form>
         </section>
 
-        <section id="dates-suggested">
+        <section className="user-container__section-2" id="dates-suggested">
           {suggestedDates.map(dates => (
             <div className="dates-suggested-item" key={dates._id}>
               <div>
@@ -160,7 +166,7 @@ class SuggestDates extends React.Component {
 
         <UserFooter />
 
-      </main>
+      </div>
     );
   }
 }

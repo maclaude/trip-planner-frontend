@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import Header from 'src/components/Header';
+import AuthHeader from 'src/components/AuthHeader';
 import SignupForm from 'src/containers/Signup/SignupForm';
 
 // Style
@@ -18,7 +18,7 @@ import './signup.scss';
  */
 const SignupView = () => (
   <div id="signup-view">
-    <Header />
+    <AuthHeader />
     <SignupForm />
   </div>
 );

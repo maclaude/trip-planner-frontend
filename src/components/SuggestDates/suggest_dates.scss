@@ -11,9 +11,9 @@
     &__title {
       padding: .75em 0;
       margin: 1em auto 1.25em;
-      text-align: left;
+      text-align: center;
       color: $font-color;
-      border-bottom: 1px solid #EBEBEB;
+      font-weight: 400;
     }
 
     &__errors {
@@ -35,7 +35,8 @@
 
   &-suggested {
     text-align: center;
-    width: 50%;
+    width: 70%;
+    min-height: 300px;
     font-size: 1.5em;
     margin: 0.5em auto;
   }

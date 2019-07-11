@@ -23,25 +23,43 @@ class Navigation extends React.Component {
    * Lifecycle
    */
   componentDidMount() {
+    const burgerMenu = document.querySelector('.user-container__menu');
+    const navigation = document.querySelector('#navigation');
+    const closeButton = document.querySelector('#navigation-header__button');
+
     this.calcWindowSize();
-    window.addEventListener('resize', this.calcWindowSize);
+
+    window.addEventListener('resize', this.calcWindowSize(burgerMenu, navigation));
+    burgerMenu.addEventListener('click', this.onBurgerMenuClick(navigation));
+    closeButton.addEventListener('click', this.onCloseButtonClick(navigation));
   }
 
   /**
    * Handlers
    */
-  calcWindowSize = () => {
-    const navigation = document.querySelector('#navigation');
-    const userView = document.querySelector('.user-main');
+  calcWindowSize = (burgerMenu, navigation) => () => {
+    const userView = document.querySelector('.user-container');
+    navigation.classList.remove('navigation--appear');
 
     if (window.innerWidth <= 900) {
       navigation.classList.add('navigation--close');
-      userView.classList.add('user-main--fullscreen');
+      userView.classList.add('user-container--fullscreen');
+      burgerMenu.classList.add('user-container__menu--appear');
     }
     else if (window.innerWidth > 900) {
+      burgerMenu.classList.remove('user-container__menu--appear');
       navigation.classList.remove('navigation--close');
-      userView.classList.remove('user-main--fullscreen');
+      userView.classList.remove('user-container--fullscreen');
     }
+  }
+
+  onBurgerMenuClick = navigation => () => {
+    navigation.classList.toggle('navigation--appear');
+    navigation.classList.add('navigation-close-icon');
+  }
+
+  onCloseButtonClick = navigation => () => {
+    navigation.classList.remove('navigation--appear');
   }
 
   /**

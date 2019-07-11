@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Divider } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -14,8 +14,7 @@ import SingleCard from 'src/containers/Suggestions/SingleCard';
  * Code
  */
 const SuggestionIdeas = ({ project, suggestions }) => (
-  <section id="suggestions-ideas">
-    <Divider />
+  <section className="user-container__section-2" id="suggestions-ideas">
     <h2 id="suggestions-ideas__title">
       Suggestions du groupe
     </h2>

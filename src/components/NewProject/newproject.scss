@@ -1,11 +1,12 @@
 @import 'src/styles/vars';
 
 #newproject {
+
   &-form {
     width: 550px;
     min-width:300px;
     max-width: 600px;
-    margin: 2em auto;
+    margin: 5em auto;
 
     &__errors {
       margin-bottom: 15px;

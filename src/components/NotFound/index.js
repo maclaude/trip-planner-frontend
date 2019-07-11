@@ -7,7 +7,7 @@ import React from 'react';
  * Local import
  */
 // Components
-import Header from 'src/components/Header';
+import Header from 'src/components/AuthHeader';
 
 // Style
 import './notfound.scss';

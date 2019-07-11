@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Local import
  */
-import Header from 'src/components/Header';
+import AuthHeader from 'src/components/AuthHeader';
 import LoginForm from 'src/containers/Login/LoginForm';
 
 // Style
@@ -17,7 +17,7 @@ import './login.scss';
  */
 const LoginView = () => (
   <div id="login-view">
-    <Header />
+    <AuthHeader />
     <LoginForm />
   </div>
 );

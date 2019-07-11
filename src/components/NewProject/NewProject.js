@@ -102,12 +102,18 @@ class NewProject extends React.Component {
     } = this.props;
 
     return (
-      <main className="user-main" id="newproject">
+      <div className="user-container" id="newproject">
 
-        <h1 className="user-main__title">Créer un projet</h1>
+        <div className="user-container__menu">
+          <div className="hamburger" />
+        </div>
+
+        <div className="user-container__banner">
+          <h1>Nouveau projet</h1>
+        </div>
 
         {(serverResponseMessage === '') && (
-          <section>
+          <section className="user-container__main">
             <div id="newproject-form">
               <Form
                 onSubmit={this.handleSubmit}
@@ -175,7 +181,7 @@ class NewProject extends React.Component {
         )}
 
         {(serverResponseMessage !== '') && (
-          <section id="project-created">
+          <section className="user-container__main" id="project-created">
             <h2 id="project-created__title">Vous venez de créer le projet <strong>{title}</strong></h2>
             <div className="project-created__options">
               <NavLink
@@ -210,7 +216,7 @@ class NewProject extends React.Component {
 
         <UserFooter />
 
-      </main>
+      </div>
     );
   }
 }

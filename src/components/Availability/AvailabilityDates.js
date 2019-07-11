@@ -21,11 +21,17 @@ import SingleDateButton from 'src/containers/Availability/SingleDateButton';
  * Code
  */
 const Availability = ({ project }) => (
-  <main className="user-main" id="availability">
+  <div className="user-container" id="availability">
 
-    <h1 className="user-main__title">Définir mes disponibilités</h1>
+    <div className="user-container__menu">
+      <div className="hamburger" />
+    </div>
 
-    <section id="availability-section">
+    <div className="user-container__banner">
+      <h1>Définir mes disponibilités</h1>
+    </div>
+
+    <section className="user-container__main" id="availability-section">
       <h2 id="availability-section__title">
         Sélectionner vos disponibilités:
       </h2>
@@ -53,7 +59,7 @@ const Availability = ({ project }) => (
 
     <UserFooter />
 
-  </main>
+  </div>
 );
 
 // PropTypes validation

@@ -9,14 +9,13 @@ import { NavLink } from 'react-router-dom';
  * Local import
  */
 // Style
-import './home.scss';
+import './homepage.scss';
 
 /**
  * Code
  */
 class HomeView extends React.Component {
   componentDidMount() {
-    const section1 = document.querySelector('.home-about');
     const faders = document.querySelectorAll('.fade-in');
 
     // Columns observer
@@ -25,6 +24,7 @@ class HomeView extends React.Component {
       rootMargin: '0px 0px -200px 0px',
     };
 
+    // eslint-disable-next-line no-shadow
     const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
@@ -80,7 +80,7 @@ class HomeView extends React.Component {
               <div className="col fade-in">
                 <h3>Planifier vos étapes</h3>
                 <p>
-                  Inscrivez sur une carte les différente étapes de votre itinéraire, ajoutez-y des informations, partager-les ensuite avec vos amis.
+                  Inscrivez sur une carte les différentes étapes de votre itinéraire, ajoutez-y des informations, partager-les avec vos amis.
                 </p>
               </div>
             </div>

@@ -1,23 +1,11 @@
 @import 'src/styles/vars';
 
-#homepage {
-  min-width: 100vw;
-  min-height: 100vh;
-  font-size: 1.2rem;
-}
+.auth-header {
+  --text: #0A1D37;
+  --text-inverse: #E4E9ED; 
+  --background: #FBFCFC;
 
-#homepage h1,
-#homepage h2,
-#homepage h3 {
-  font-family: 'Poppins', sans-serif;
-}
-
-.home-header {
-  --text: #f4f4f4;
-  --text-inverse: #333;
-  --background: transparent;
-
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -29,27 +17,28 @@
   transition: background 250ms ease-in;
   background: var(--background);
   color: var(--text);
+  border-bottom: 1px solid #e4e4e4;
   
   &__logo {
     width: fit-content;
     font-size: 2rem;
     font-weight: 800;
-    color: #FFF;
+    color: var(--text);
 
     &:hover {
-      color: #FFF;
+      color: var(--text);
     }
   }
 }
 
-.nav__list {
+.auth-nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-.nav__link {
+.auth-nav__link {
   --spacing: 1em;
   text-decoration: none;
   color: inherit;
@@ -97,7 +86,7 @@
     &--highlight {
       background: $red-pink;
       border-color: $red-pink;
-      color: $navy-blue;
+      color: #FFF;
 
       &:hover {
         background: var(--text);
@@ -105,49 +94,4 @@
       }
     }
   }
-}
-
-.nav-scrolled {
-  --text: #333;
-  --text-inverse: #f4f4f4;
-  --background: #f4f4f4;
-
-  box-shadow: 0 3px 20px rgba(black, 0.2);
-}
-
-.home-intro {
-  padding: 50vh 0;
-  background: #123 url(//unsplash.it/900);
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: white;
-  text-align: center;
-}
-
-.home-about {
-  padding: 4em 0;
-  max-width: 900px;
-  margin: 0 auto;
-
-  &__title {
-    font-size: 2rem;
-  }
-}
-
-.columns {
-  display: flex;
-  margin: 2.5em 0;
-}
-
-.col + .col {
-  margin-left: 1.5em;
-}
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 300ms ease-in;
-}
-
-.fade-in.appear {
-  opacity: 1;
 }

@@ -41,11 +41,17 @@ class ProjectDetails extends React.Component {
     const { project } = this.props;
 
     return (
-      <main className="user-main" id="project-details">
+      <div className="user-container" id="project-details">
 
-        <h1 className="user-main__title">Récapitulatif du projet - {project.title}</h1>
+        <div className="user-container__menu">
+          <div className="hamburger" />
+        </div>
 
-        <section id="project-details-header">
+        <div className="user-container__banner">
+          <h1>Récapitulatif - {project.title}</h1>
+        </div>
+
+        <section className="user-container__section-1" id="project-details-header">
           <div id="project-details-header-left">
             <h2 className="user-section__title">Localisation</h2>
             <div id="project-details-header-left-map">
@@ -94,10 +100,7 @@ class ProjectDetails extends React.Component {
 
         <Divider />
 
-        <section
-          id="project-details-suggestions"
-          className="suggestion"
-        >
+        <section className="user-container__section-2" id="project-details-suggestions">
           <div id="project-details-suggestions-activity">
             <h2 className="project-details-title">Activités</h2>
             <Activity
@@ -142,7 +145,7 @@ class ProjectDetails extends React.Component {
 
         <UserFooter />
 
-      </main>
+      </div>
     );
   }
 }

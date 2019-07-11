@@ -20,13 +20,23 @@ import './suggestions.scss';
  */
 const SuggestionsView = ({ project }) => (
   <div className="user-view">
+
     <NavigationSingleProject project={project} />
-    <main className="user-main" id="suggestions">
-      <h1 className="user-main__title">Idées</h1>
+
+    <div className="user-container" id="suggestions">
+
+      <div className="user-container__menu">
+        <div className="hamburger" />
+      </div>
+
+      <div className="user-container__banner">
+        <h1>Idées</h1>
+      </div>
+
       <SuggestionForm project={project} />
       <SuggestionIdeas project={project} />
       <UserFooter />
-    </main>
+    </div>
   </div>
 );
 

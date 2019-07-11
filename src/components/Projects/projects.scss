@@ -21,11 +21,10 @@
   }
 
   &-cards {
-    padding: 2em;
+    padding: 1em;
     display: flex;
-    width: 90%;
     align-self: center;
-    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -81,7 +80,7 @@
   width: 275px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 10px;
-  margin: 1.5em;
+  margin: 1em;
 
   &-header, &-main, &-footer {
     padding: .75rem;
@@ -100,7 +99,7 @@
       padding: .3em .5em;
 
       &:hover {
-        color: rgb(22, 42, 80);
+        color: $font-color;
       }
     }
   }

@@ -43,12 +43,18 @@ class Projects extends React.Component {
     const { projects, invitations } = this.props;
 
     return (
-      <main className="user-main" id="projects">
+      <div className="user-container" id="projects">
 
-        <h1 className="user-main__title">Mes projets</h1>
+        <div className="user-container__menu">
+          <div className="hamburger" />
+        </div>
+
+        <div className="user-container__banner">
+          <h1>Mes projets</h1>
+        </div>
 
         {(invitations.length !== 0) && (
-        <section id="projects-invitations">
+        <section className="user-container__section-1" id="projects-invitations">
           <h2 id="projects-invitations__title">Invitations reçues</h2>
           <div>
             {(invitations.map(invitation => (
@@ -78,13 +84,16 @@ class Projects extends React.Component {
         </section>
         )}
 
-        {(projects.length === 0) && (
-          <p id="projects-information">Vous n'avez aucun projet en cours</p>
+        {(projects.length === 0) && (invitations.length === 0) && (
+          <div className="user-container__section-1" id="projects-information">
+            <p>Vous n'avez aucun projet en cours</p>
+          </div>
         )}
 
         {(projects.length !== 0) && (
           <section
             id="projects-cards"
+            className="user-container__section-1"
           >
             {(projects.map(project => (
               <SingleProjectCard
@@ -95,20 +104,22 @@ class Projects extends React.Component {
           </section>
         )}
 
-        <NavLink
-          to="/nouveau-projet"
-          className="
-            button
-            button--large
-            button-create-project
-          "
-        >
-          <p>Créer un nouveau projet</p>
-          <FaPaperPlane />
-        </NavLink>
+        <div className="user-container__section-2">
+          <NavLink
+            to="/nouveau-projet"
+            className="
+              button
+              button--large
+              button-create-project
+            "
+          >
+            <p>Créer un nouveau projet</p>
+            <FaPaperPlane />
+          </NavLink>
+        </div>
 
         <UserFooter />
-      </main>
+      </div>
     );
   }
 }

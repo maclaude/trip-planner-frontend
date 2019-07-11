@@ -83,7 +83,7 @@ class SuggestionForm extends React.Component {
     } = this.props;
 
     return (
-      <section id="suggestions-form">
+      <section className="user-container__section-1" id="suggestions-form">
         <Form
           onSubmit={this.handleSubmit}
         >

@@ -71,69 +71,77 @@ class AddParticipants extends React.Component {
     } = this.props;
 
     return (
-      <main className="user-main" id="addParticipants">
+      <div className="user-container" id="addParticipants">
 
-        <h1 className="user-main__title">Ajouter des participants</h1>
+        <div className="user-container__menu">
+          <div className="hamburger" />
+        </div>
 
-        <Form
-          id="addParticipants-form"
-          onSubmit={this.handleSubmit}
-        >
-          <Form.Field>
-            <label htmlFor="name">
-              Nom <strong className="asterisk">*</strong>
-              <input
-                className="addParticipants-form__input"
-                name="name"
-                type="text"
-                placeholder="Nom du participant"
-                value={name}
-                onChange={this.handleChange}
-              />
-            </label>
-            <label htmlFor="email">
-              Email <strong className="asterisk">*</strong>
-              <input
-                className="addParticipants__input"
-                name="email"
-                type="email"
-                placeholder="Email du participant"
-                value={email}
-                onChange={this.handleChange}
-              />
-            </label>
-          </Form.Field>
+        <div className="user-container__banner">
+          <h1>Ajouter des participants</h1>
+        </div>
 
-          {(errors.length > 0) && (
-            <div id="addParticipants-form__errors">
-              {errors.map(error => (
-                <Message negative key={error}>
-                  <p>
-                    {error}
-                  </p>
-                </Message>
-              ))}
-            </div>
-          )}
-
-          <Button
-            animated
-            floated="right"
-            type="submit"
-            color="green"
+        <section className="user-container__section-1">
+          <Form
+            id="addParticipants-form"
+            onSubmit={this.handleSubmit}
           >
-            <Button.Content visible>
-              Envoyer l'invitation
-            </Button.Content>
-            <Button.Content hidden>
-              <Icon name="paper plane" />
-            </Button.Content>
-          </Button>
-        </Form>
+            <Form.Field>
+              <label htmlFor="name">
+                Nom <strong className="asterisk">*</strong>
+                <input
+                  className="addParticipants-form__input"
+                  name="name"
+                  type="text"
+                  placeholder="Nom du participant"
+                  value={name}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <label htmlFor="email">
+                Email <strong className="asterisk">*</strong>
+                <input
+                  className="addParticipants__input"
+                  name="email"
+                  type="email"
+                  placeholder="Email du participant"
+                  value={email}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </Form.Field>
+
+            {(errors.length > 0) && (
+              <div id="addParticipants-form__errors">
+                {errors.map(error => (
+                  <Message negative key={error}>
+                    <p>
+                      {error}
+                    </p>
+                  </Message>
+                ))}
+              </div>
+            )}
+
+            <Button
+              animated
+              floated="right"
+              type="submit"
+              color="green"
+            >
+              <Button.Content visible>
+                Envoyer l'invitation
+              </Button.Content>
+              <Button.Content hidden>
+                <Icon name="paper plane" />
+              </Button.Content>
+            </Button>
+          </Form>
+        </section>
 
         <Divider />
 
-        <section id="addParticipants-section">
+        <section className="user-container__section-2" id="addParticipants-section">
           <h2 id="addParticipants-section__title">Participants</h2>
           <div id="addParticipants-section__container">
             <div id="addParticipants-section__container--confirmed">
@@ -180,7 +188,7 @@ class AddParticipants extends React.Component {
         </section>
 
         <UserFooter />
-      </main>
+      </div>
     );
   }
 }

@@ -5,15 +5,14 @@
     width: 60%;
     min-width: 500px;
     max-width: 600px;
-    margin: 0 auto;
-    padding: 2em;
+    margin: 1em auto;
+    padding: 1em;
 
     &-header {
       display: flex;
       justify-content: space-between;
       padding: .8em 0;
       margin-bottom: 1em;
-      border-bottom: 1px solid lightgray;
       align-items: center;
 
       &__title {
@@ -40,13 +39,14 @@
   }
 
   &-ideas {
-    width: 80%;
-    margin: auto;
+    width: 90%;
+    height: auto;
+    margin: 0 auto 2em;
 
     &__title {
+      margin-bottom: 2em;
       font-size: 1.5em;
       font-weight: 600;
-      margin: 30px 0;
       text-transform: uppercase;
     }
 
@@ -62,7 +62,7 @@
   }
 
   &-votes {
-    color: black;
+    color: $font-color;
     padding: 0 0 .6em;
   }
 
@@ -73,26 +73,9 @@
       height: auto;
 
       &--active {
-        color: #FF0000;
+        color: $red-pink;
       }
     }
   }
 }
 
-@media (max-width: 600px) {
-  #suggestions {
-    padding: 2em 2em 2em 0em;
-    &-form {
-      &-header {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
-
-        &-title {
-          text-align: center;
-        }
-      }
-    }
-  }
-}

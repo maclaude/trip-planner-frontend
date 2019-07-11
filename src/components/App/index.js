@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router-dom';
  * Local import
  */
 // Views
-import HomeView from 'src/components/Home';
+import HomeView from 'src/components/Homepage';
 import SignupView from 'src/components/Signup';
 import LoginView from 'src/components/Login';
 import InvitationView from 'src/containers/Invitation';

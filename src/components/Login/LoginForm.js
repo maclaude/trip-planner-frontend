@@ -83,6 +83,7 @@ class LoginForm extends React.Component {
             active
             size="large"
             inline="centered"
+            className="loader-icon"
           />
         )}
         { (status !== 'loading') && (

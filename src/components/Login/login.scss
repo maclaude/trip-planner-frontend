@@ -2,15 +2,14 @@
 
 #login {
   &-form {
-    width: 25%;
-    min-width: 400px;
+    width: 400px;
     margin: 30vh auto 0;
     padding: 2em;
 
     &-title {
       margin-bottom: 1em;
       text-align: center;
-      font-size: 1.3em;
+      font-size: 1.3rem;
       font-weight: 700;
     }
     
@@ -25,7 +24,7 @@
       margin: 1.2em auto;
       color: inherit;
       font-weight: 600;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       &:hover {
         text-decoration: underline;
       }
@@ -34,21 +33,9 @@
     &-errors {
       margin-bottom: 15px;
     }
+  }
+}
 
-    &:hover {
-      box-shadow: 0 5px 1em rgba(68, 74, 81, 0.3);
-    }
-  }
-  
-  @media (max-width: 900px) {
-    &-form {
-      width: 80%;
-    }
-  }
-
-  @media (max-width: 600px) {
-    &-form {
-      width: 95%;
-    }
-  }
+.loader-icon {
+  margin: 50vh auto !important;
 }
