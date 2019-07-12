@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
   Image,
   List,
-  Divider,
 } from 'semantic-ui-react';
 
 /**
@@ -97,8 +96,6 @@ class ProjectDetails extends React.Component {
             </div>
           </div>
         </section>
-
-        <Divider />
 
         <section className="user-container__section-2" id="project-details-suggestions">
           <div id="project-details-suggestions-activity">

@@ -23,43 +23,48 @@ class Navigation extends React.Component {
    * Lifecycle
    */
   componentDidMount() {
-    const burgerMenu = document.querySelector('.user-container__menu');
-    const navigation = document.querySelector('#navigation');
-    const closeButton = document.querySelector('#navigation-header__button');
+    // Select DOM elements
+    this.navigation = document.querySelector('#navigation');
+    this.userView = document.querySelector('.user-container');
+    this.burgerMenu = document.querySelector('.user-container__menu');
+    this.closeButton = document.querySelector('#navigation-header__button');
+    const navigationLinks = document.querySelectorAll('.navigation__link');
 
     this.calcWindowSize();
 
-    window.addEventListener('resize', this.calcWindowSize(burgerMenu, navigation));
-    burgerMenu.addEventListener('click', this.onBurgerMenuClick(navigation));
-    closeButton.addEventListener('click', this.onCloseButtonClick(navigation));
+    // Events listeners
+    window.addEventListener('resize', this.calcWindowSize);
+    this.burgerMenu.addEventListener('click', this.openNavigation);
+    this.closeButton.addEventListener('click', this.closeNavigation);
+    navigationLinks.forEach((navigationLink) => {
+      navigationLink.addEventListener('click', this.closeNavigation);
+    });
   }
 
   /**
    * Handlers
    */
-  calcWindowSize = (burgerMenu, navigation) => () => {
-    const userView = document.querySelector('.user-container');
-    navigation.classList.remove('navigation--appear');
-
+  calcWindowSize = () => {
     if (window.innerWidth <= 900) {
-      navigation.classList.add('navigation--close');
-      userView.classList.add('user-container--fullscreen');
-      burgerMenu.classList.add('user-container__menu--appear');
+      this.navigation.classList.add('navigation--close', 'navigation-close-icon');
+      this.userView.classList.add('user-container--fullscreen');
+      this.burgerMenu.classList.add('user-container__menu--appear');
     }
     else if (window.innerWidth > 900) {
-      burgerMenu.classList.remove('user-container__menu--appear');
-      navigation.classList.remove('navigation--close');
-      userView.classList.remove('user-container--fullscreen');
+      this.navigation.classList.remove('navigation--close', 'navigation-close-icon');
+      this.userView.classList.remove('user-container--fullscreen');
+      this.burgerMenu.classList.remove('user-container__menu--appear');
     }
   }
 
-  onBurgerMenuClick = navigation => () => {
-    navigation.classList.toggle('navigation--appear');
-    navigation.classList.add('navigation-close-icon');
+  openNavigation = () => {
+    this.navigation.classList.add('navigation--open');
+    this.navigation.classList.remove('navigation--close');
   }
 
-  onCloseButtonClick = navigation => () => {
-    navigation.classList.remove('navigation--appear');
+  closeNavigation = () => {
+    this.navigation.classList.remove('navigation--appear');
+    this.navigation.classList.add('navigation--close');
   }
 
   /**
