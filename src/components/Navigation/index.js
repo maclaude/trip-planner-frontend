@@ -28,16 +28,25 @@ class Navigation extends React.Component {
     this.userView = document.querySelector('.user-container');
     this.burgerMenu = document.querySelector('.user-container__menu');
     this.closeButton = document.querySelector('#navigation-header__button');
-    const navigationLinks = document.querySelectorAll('.navigation__link');
+    this.navigationLinks = document.querySelectorAll('.navigation__link');
 
     this.calcWindowSize();
 
-    // Events listeners
+    // Add events listeners
     window.addEventListener('resize', this.calcWindowSize);
     this.burgerMenu.addEventListener('click', this.openNavigation);
     this.closeButton.addEventListener('click', this.closeNavigation);
-    navigationLinks.forEach((navigationLink) => {
+    this.navigationLinks.forEach((navigationLink) => {
       navigationLink.addEventListener('click', this.closeNavigation);
+    });
+  }
+
+  componentWillUnmount() {
+    // Remove events listeners
+    this.burgerMenu.removeEventListener('click', this.openNavigation);
+    this.closeButton.removeEventListener('click', this.closeNavigation);
+    this.navigationLinks.forEach((navigationLink) => {
+      navigationLink.removeEventListener('click', this.closeNavigation);
     });
   }
 
@@ -45,12 +54,12 @@ class Navigation extends React.Component {
    * Handlers
    */
   calcWindowSize = () => {
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 1100) {
       this.navigation.classList.add('navigation--close', 'navigation-close-icon');
       this.userView.classList.add('user-container--fullscreen');
       this.burgerMenu.classList.add('user-container__menu--appear');
     }
-    else if (window.innerWidth > 900) {
+    else if (window.innerWidth > 1100) {
       this.navigation.classList.remove('navigation--close', 'navigation-close-icon');
       this.userView.classList.remove('user-container--fullscreen');
       this.burgerMenu.classList.remove('user-container__menu--appear');
@@ -65,6 +74,7 @@ class Navigation extends React.Component {
   closeNavigation = () => {
     this.navigation.classList.remove('navigation--appear');
     this.navigation.classList.add('navigation--close');
+    this.userView.classList.add('user-container--fullscreen');
   }
 
   /**

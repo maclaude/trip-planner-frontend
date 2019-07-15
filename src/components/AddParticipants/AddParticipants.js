@@ -139,8 +139,6 @@ class AddParticipants extends React.Component {
           </Form>
         </section>
 
-        <Divider />
-
         <section className="user-container__section-2" id="addParticipants-section">
           <h2 id="addParticipants-section__title">Participants</h2>
           <div id="addParticipants-section__container">

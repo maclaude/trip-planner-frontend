@@ -3,10 +3,10 @@
 #availability {  
   &-section {
     width: 600px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 
     &__title {
-      margin: 1em auto 2em;
+      margin-bottom: 2em;
       text-align: left;
     }
 
@@ -14,12 +14,12 @@
       text-align: center;
       width: 80%;
       margin: 0.5em auto 2em;
-      font-size: 1.3em;
+      font-size: 1.3rem;
     }
   }
 }
 
-/* Single dates
+/* Single dates button
 ============================= */
 
 .availability__button {
@@ -37,5 +37,29 @@
 
   &--selected {
     background: linear-gradient(to right, #11998e, #38ef7d);
+  }
+}
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 600px) {
+  #availability {  
+    &-section {
+      width: 350px;
+
+      &__title {
+        text-align: center;
+      }
+  
+      &__content {
+        text-align: center;
+        width: 80%;
+        margin: 0.5em auto 2em;
+        font-size: 1.3rem;
+      }
+    }
   }
 }

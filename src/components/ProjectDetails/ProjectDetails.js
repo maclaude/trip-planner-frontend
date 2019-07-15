@@ -63,6 +63,13 @@ class ProjectDetails extends React.Component {
 
           <div id="project-details-header-right">
             <div>
+              <h2 className="user-section__title">Description</h2>
+              <div id="project-details-header-right-description">
+                {project.description}
+              </div>
+            </div>
+
+            <div>
               <h2 className="user-section__title">Participants</h2>
               <List
                 id="project-details-header-right-participants-list"
@@ -89,7 +96,7 @@ class ProjectDetails extends React.Component {
             </div>
 
             <div>
-              <h2 className="user-section__title">Dates retenues</h2>
+              <h2 className="user-section__title">Dates</h2>
               <div id="project-details-header-right-dates">
                 <p>Dates - Notifications</p>
               </div>

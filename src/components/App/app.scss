@@ -10,11 +10,7 @@
   background-color: $main-bg-color;
 }
 
-h1 {
-  font-weight: 700;
-}
-
-h2 {
+h1, h2 {
   font-weight: 700;
 }
 
@@ -117,7 +113,7 @@ h2 {
     padding: 1.750em;
     grid-template-columns: 50px auto 50px;
     grid-template-rows: 40px auto auto 65px;
-    grid-column-gap: 15px;
+    grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-areas: 
     "burger-menu title ."
@@ -132,8 +128,8 @@ h2 {
     &__menu {
       grid-area: burger-menu;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-self: stretch;
+      justify-self: stretch;
       cursor: pointer;
       opacity: 0;
 
@@ -146,11 +142,12 @@ h2 {
       grid-area: title;
       position: relative;
       border-left: 5px solid $user-title-border-left;
+      align-self: center;
 
       & > h1 {
         height: fit-content;
         padding-left: .75em;
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
     }
 
@@ -186,7 +183,8 @@ h2 {
 .hamburger::after {
   content: '';
   display: block;
-  background: $navy-blue;
+  margin: auto;
+  background: $font-color;
   height: 4px;
   width: 2em;
   border-radius: 3px;
@@ -206,7 +204,7 @@ h2 {
 
 /* User View with burger menu */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .user {
     &-container {
       grid-template-areas: 
@@ -216,7 +214,14 @@ h2 {
       ". footer .";
 
       &__banner > h1 {
-        font-size: 2em;
+        font-size: 2rem;
+      }
+
+      &__main {
+        justify-self: center;
+        align-self: center;
+        grid-column: 1 / span 3;
+        grid-row: 2 / span 2;
       }
 
       &__section-1,
@@ -229,7 +234,7 @@ h2 {
 
 /* User View with navigation without burger menu */
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .user {
     &-container {
       display: grid;

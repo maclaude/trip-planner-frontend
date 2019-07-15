@@ -1,5 +1,9 @@
 @import 'src/styles/vars';
 
+
+/* View layout
+============================= */
+
 #projects {
   &-invitations {
     border-radius: 5px;
@@ -11,7 +15,6 @@
 
     &__title {
       font-weight: 600;
-      color: $h2-color;
     }
   }
   
@@ -21,16 +24,15 @@
   }
 
   &-cards {
-    padding: 1em;
+    padding: 1em 0;
     display: flex;
     align-self: center;
     flex-wrap: wrap;
   }
 }
 
-#toast-alert {
-  margin: 0;
-}
+/* Single project invitation
+============================= */
 
 .projects-invitation {
   margin: 1em 0;
@@ -74,6 +76,9 @@
   }
 }
 
+/* Single project card
+============================= */
+
 .project-card {
   min-height: 325px;
   min-width: 275px;
@@ -114,5 +119,16 @@
     &__content {
       color: $project-card-main-color;
     }
+  }
+}
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 1100px) {
+  #projects-cards {
+    justify-content: center;
   }
 }

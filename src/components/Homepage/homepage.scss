@@ -125,8 +125,8 @@
 }
 
 .home-about {
-  padding: 4em 0;
-  max-width: 900px;
+  padding: 4em;
+  max-width: 1100px;
   margin: 0 auto;
 
   &__title {
@@ -139,8 +139,8 @@
   margin: 2.5em 0;
 }
 
-.col + .col {
-  margin-left: 1.5em;
+.col {
+  margin-right: 2em;
 }
 
 .fade-in {
@@ -150,4 +150,20 @@
 
 .fade-in.appear {
   opacity: 1;
+}
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 900px) {
+  .columns {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    margin: 1em 0;
+    margin-right: 0;
+  }
 }

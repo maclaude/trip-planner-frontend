@@ -99,8 +99,8 @@ class SuggestDates extends React.Component {
             <h2 id="dates-form__title">
               Choisissez des dates pour votre séjour
             </h2>
-            <div id="dates-form__inputs">
-              <div>
+            <div id="dates-form__main">
+              <div className="dates-form__element">
                 <h3 className="date-form__label">Date de début</h3>
                 <Input
                   label={{ icon: 'asterisk' }}
@@ -112,7 +112,7 @@ class SuggestDates extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div>
+              <div className="dates-form__element">
                 <h3 className="date-form__label">Date de fin</h3>
                 <Input
                   label={{ icon: 'asterisk' }}
@@ -124,15 +124,17 @@ class SuggestDates extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div
-                className="
-                  button
-                  button--circular
-                  button-add
-                "
-                onClick={this.handleSubmit}
-              >
-                <FaPlus className="button__icon" />
+              <div className="dates-form__element">
+                <div
+                  className="
+                    button
+                    button--circular
+                    button-add
+                  "
+                  onClick={this.handleSubmit}
+                >
+                  <FaPlus className="button__icon" />
+                </div>
               </div>
             </div>
 

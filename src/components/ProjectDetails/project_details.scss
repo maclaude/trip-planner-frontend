@@ -4,17 +4,16 @@
   &-header {
     height: fit-content;
     width: 100%;
-    margin: 1.5em 1em 1em;
-    padding: 1em;
+    margin: .5em 1em;
+    padding: .5em 1em 1em;
     display: flex;
     justify-content: space-between;
-
-    &-left, &-right {
-      width: 45%;
-      margin-bottom: 2em;
-    }
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 10px;
+    background-color: $section-bg-color;
 
     &-left {
+      width: 50%;
       min-height: 400px;
       min-width: 500px;
       &-map {
@@ -23,21 +22,28 @@
     }
 
     &-right {
+      width: 45%;
       margin-left: 2em;
+
+      &-description {
+        margin-bottom: 1em;
+        font-size: 1.2rem;
+        color: #484848;
+      }
 
       &-participants-list {
         width: 80%;
-        margin-left: 50px;
-        margin-bottom: 20px;
+        margin-left: 1em;
+        margin-bottom: 1em;
       }
 
       &-dates {
-        width: auto;
+        width: 300px;
         font-size: 1.5rem;
-        border: solid 1px $info-block-border-color;
+        border: solid 1px #000;
         border-radius: 5px;
         padding: .5em 1em;
-        margin-left: 3em;
+        margin: 0 1em;
         text-align: center;
         display: inline-block;
       }
@@ -64,3 +70,25 @@
     }
   }
 }
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 1100px) {
+  #project-details {  
+    &-header {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &-left,
+      &-right {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
+

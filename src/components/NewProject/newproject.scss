@@ -1,12 +1,10 @@
 @import 'src/styles/vars';
 
 #newproject {
-
   &-form {
-    width: 550px;
-    min-width:300px;
+    min-width: 350px;
     max-width: 600px;
-    margin: 5em auto;
+    margin: 1em;
 
     &__errors {
       margin-bottom: 15px;
@@ -14,9 +12,12 @@
   }
 }
 
+/* Add participants & Suggest dates view */
+
 #project-created {
-  width: 70%;
-  margin: auto;
+  width: fit-content;
+  margin: 1em;
+  padding: 1em;
 
   &__title {
     text-align: center;
@@ -25,7 +26,7 @@
 
 .project-created {
   &__options {
-    margin: 3em auto;
+    margin: 1em auto;
     height: fit-content;
     display: flex;
     flex-direction: column;

@@ -4,13 +4,13 @@
   &-form {
     text-align: center;
     margin: 1em auto;
-    padding: 2em;
+    padding: 1em;
     font-size: 1.2em;
-    width: 600px;
+    width: fit-content;
 
     &__title {
-      padding: .75em 0;
-      margin: 1em auto 1.25em;
+      padding: .5em 0;
+      margin: .5em;
       text-align: center;
       color: $font-color;
       font-weight: 400;
@@ -21,37 +21,40 @@
       margin: 1.5em auto;
     }
 
-    &__inputs {
+    &__main {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      width: 600px;
-      height: fit-content;
-      margin: 2em auto;
+      margin: 1.5em auto;
     }
   }
 
   &-suggested {
     text-align: center;
-    width: 70%;
     min-height: 300px;
     font-size: 1.5em;
     margin: 0.5em auto;
   }
 }
 
+.dates-form__element {
+  margin: .5em;
+}
+
 .date-form__label {
   text-align: left;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .date-form__input {
   width: 50%;
   margin-right: 2em;
   min-width: 210px !important;
+  z-index: 0;
 }
+
 
 .dates-suggested-item {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
@@ -69,5 +72,31 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+
+/* Media queries
+============================= */
+
+
+@media (max-width: 900px) {
+  #dates-form__main {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dates-form__element {
+    width: 70%;
+  }
+
+  .date-form__label {
+    padding: 0;
+    text-align: center;
+  }
+
+  .date-form__input {
+    margin: auto;
   }
 }
