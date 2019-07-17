@@ -1,1 +1,70 @@
 @import 'src/styles/vars';
+
+/* Form Container */
+
+.form {
+  &__container {
+    width: 450px;
+    margin: 1em;
+    padding: 1em;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    all: unset;
+    display: block;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: 1.8em auto 0;
+    padding: .6em 1em;
+    background-color: $red-pink;
+    color: #FFF;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 8px 1em rgba(68, 74, 81, 0.3);
+    transition: transform ease-in-out 250ms;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}
+
+/* Field */
+
+.field {
+  width: 100%;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 1.3rem;
+    margin-bottom: .3em;
+  }
+
+  &__input {
+    all: unset;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: .6em;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 4px;
+    color: #484848;
+    font-size: 1.1rem;
+
+    &:focus {
+      border-color: #5D6D7E;
+    }
+  }
+}
