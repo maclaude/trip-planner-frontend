@@ -76,7 +76,7 @@
 .navigation {
   &__link {
     color: $navigation-font-color;
-    padding: 1rem .5rem 1rem 1rem;
+    padding: .8em;
     display: flex;
     justify-content: space-between;
     font-size: 1.3rem;
@@ -144,7 +144,7 @@
   .close-icon::after {
     content: '';
     display: block;
-    background: $navy-blue;
+    background: $font-color;
     height: 4px;
     width: 2em;
     border-radius: 3px;

@@ -3,9 +3,6 @@
 #app {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   font-family: 'PT Sans', sans-serif;
   background-color: $main-bg-color;
 }
@@ -145,7 +142,7 @@ h1, h2 {
       align-self: center;
 
       & > h1 {
-        height: fit-content;
+        height: 100%;
         padding-left: .75em;
         font-size: 2.2rem;
       }
@@ -172,7 +169,13 @@ h1, h2 {
     &__footer {
       grid-area: footer;
     }
+  }
 
+  &-section {
+    &__title {
+      color: $h2-title;
+      margin-bottom: .9em;
+    }
   }
 }
 

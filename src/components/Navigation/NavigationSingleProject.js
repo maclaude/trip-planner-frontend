@@ -3,8 +3,13 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import {
+  FaPlus,
+  FaChevronDown,
+  FaCalendarPlus,
+  FaUserPlus,
+} from 'react-icons/fa';
 
 /**
  * Local import
@@ -98,7 +103,7 @@ class NavigationSingleProject extends React.Component {
             <div className="navigation__link-title">
               Nouveau projet
             </div>
-            <Icon name="plus" />
+            <FaPlus />
           </NavLink>
           <NavLink
             to="/mes-projets"
@@ -108,7 +113,7 @@ class NavigationSingleProject extends React.Component {
             <div className="navigation__link-title">
               Mes projets
             </div>
-            <Icon name="chevron down" />
+            <FaChevronDown />
           </NavLink>
           <div id="navigation-main-project">
             <div id="navigation-main-project__title">
@@ -159,7 +164,7 @@ class NavigationSingleProject extends React.Component {
               <div className="navigation__link-title">
                 Ajouter des dates
               </div>
-              <Icon name="plus" />
+              <FaCalendarPlus />
             </NavLink>
             <NavLink
               to={getURL('/participants', project.title)}
@@ -170,7 +175,7 @@ class NavigationSingleProject extends React.Component {
               <div className="navigation__link-title">
                 Ajouter des participants
               </div>
-              <Icon name="add user" />
+              <FaUserPlus />
             </NavLink>
           </div>
           )}

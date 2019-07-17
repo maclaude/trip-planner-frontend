@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
 import { NavLink, Redirect } from 'react-router-dom';
+import { FaCog, FaSignOutAlt } from 'react-icons/fa';
 
 /**
  * Code
@@ -35,14 +35,14 @@ class NavigationFooter extends React.Component {
           <div className="navigation__link-title">
           Mon profil
           </div>
-          <Icon name="cog" />
+          <FaCog />
         </NavLink>
 
         <div className="navigation__link" onClick={this.disconnectUser}>
           <div className="navigation__link-title">
             Déconnexion
           </div>
-          <Icon name="sign-out" />
+          <FaSignOutAlt />
         </div>
 
       </div>

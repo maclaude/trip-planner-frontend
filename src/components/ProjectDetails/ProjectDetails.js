@@ -47,7 +47,7 @@ class ProjectDetails extends React.Component {
         </div>
 
         <div className="user-container__banner">
-          <h1>Récapitulatif - {project.title}</h1>
+          <h1>Récapitulatif</h1>
         </div>
 
         <section className="user-container__section-1" id="project-details-header">
@@ -160,6 +160,11 @@ ProjectDetails.propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    destination: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired,
+    }),
     dates: PropTypes.array,
     participants: PropTypes.array,
   }),

@@ -27,12 +27,13 @@ class Profil extends React.Component {
   render() {
     return (
       <div className="user-container" id="profil">
+
         <div className="user-container__menu">
           <div className="hamburger" />
         </div>
 
         <div className="user-container__banner">
-          <h1>Mon profil</h1>
+          <h1>Profil</h1>
         </div>
 
         <UserFooter />

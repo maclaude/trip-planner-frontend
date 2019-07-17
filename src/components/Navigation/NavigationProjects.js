@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { FaPlus, FaChevronDown } from 'react-icons/fa';
 
 /**
  * Local import
@@ -97,7 +97,7 @@ class NavigationProjects extends React.Component {
             <div className="navigation__link-title">
               Nouveau projet
             </div>
-            <Icon name="plus" />
+            <FaPlus />
           </NavLink>
           <NavLink
             to="/mes-projets"
@@ -107,7 +107,7 @@ class NavigationProjects extends React.Component {
             <div className="navigation__link-title">
               Mes projets
             </div>
-            <Icon name="chevron down" />
+            <FaChevronDown />
           </NavLink>
           {(projects.length !== 0) && (
             <div id="navigation-main-projects">

@@ -28,7 +28,7 @@ const Availability = ({ project }) => (
     </div>
 
     <div className="user-container__banner">
-      <h1>Définir mes disponibilités</h1>
+      <h1>Disponibilités</h1>
     </div>
 
     <section className="user-container__main" id="availability-section">
