@@ -3,7 +3,7 @@
  * NPM import
  */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * Local import
@@ -18,19 +18,38 @@ import UserFooter from 'src/components/UserFooter';
  */
 class Profil extends React.Component {
   /**
+   * Lifecycles
+   */
+  componentWillUnmount() {
+    const { getUserInformations } = this.props;
+    getUserInformations();
+  }
+
+  /**
    * Handlers
    */
   handleChange = (evt) => {
     const { name, value } = evt.target;
-    console.log(name, value);
-    // const { changeInput } = this.props;
-    // changeInput(name, value);
+    const { changeInput } = this.props;
+    changeInput(name, value);
+  }
+
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+    const { updateUserInformations } = this.props;
+    updateUserInformations();
   }
 
   /**
    * Render
    */
   render() {
+    const {
+      lastname,
+      firstname,
+      email,
+    } = this.props;
+
     return (
       <div className="user-container" id="profil">
 
@@ -47,32 +66,67 @@ class Profil extends React.Component {
           <div className="form__title">Mes informations</div>
 
           <div className="field">
-            <label htmlFor="lastname" className="field__label">
-              Nom
-            </label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="lastname"
-              className="field__input"
-              placeholder="Votre nom"
-            />
-          </div>
-
-          <div className="field">
             <label htmlFor="firstname" className="field__label">
               Prénom
             </label>
             <input
-              onChange={this.handleChange}
               type="text"
               name="firstname"
               className="field__input"
               placeholder="Votre prénom"
+              value={firstname}
+              onChange={this.handleChange}
             />
           </div>
 
-          <button className="form__button" type="submit">Modifier</button>
+          <div className="field">
+            <label htmlFor="lastname" className="field__label">
+              Nom
+            </label>
+            <input
+              type="text"
+              name="lastname"
+              className="field__input"
+              placeholder="Votre nom"
+              value={lastname}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="email" className="field__label">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              className="field__input"
+              placeholder="Votre email"
+              value={email}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="email" className="field__label">
+              Avatar
+            </label>
+            <input
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              name="avatar"
+              className="field__input--file"
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="form__button"
+            onClick={this.handleSubmit}
+          >
+            Modifier
+          </button>
         </form>
 
         <UserFooter />
@@ -83,7 +137,14 @@ class Profil extends React.Component {
 }
 
 // PropTypes validation
-Profil.propTypes = {};
+Profil.propTypes = {
+  firstname: PropTypes.string.isRequired,
+  lastname: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  changeInput: PropTypes.func.isRequired,
+  updateUserInformations: PropTypes.func.isRequired,
+  getUserInformations: PropTypes.func.isRequired,
+};
 
 /**
  * Export

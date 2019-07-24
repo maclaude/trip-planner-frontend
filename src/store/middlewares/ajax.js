@@ -20,12 +20,15 @@ import {
   ADD_USER_INVITATION,
   GET_USER_INVITATIONS,
   POST_USER_INVITATION_RESPONSE,
+  GET_USER_INFORMATIONS,
+  UPDATE_USER_INFORMATIONS,
   storeUserData,
   getUserProjects,
   storeUserProjects,
   addUserInvitation,
   getUserInvitations,
   storeUserInvitations,
+  storeUserInformations,
 } from 'src/store/reducers/user';
 
 import {
@@ -295,6 +298,33 @@ const ajaxMiddleware = store => next => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(getProjectSuggestions(action.projectId));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case GET_USER_INFORMATIONS: {
+      axiosToken.get('http://localhost:8000/user/informations')
+        .then((response) => {
+          console.log(response);
+          store.dispatch(storeUserInformations(response.data.user));
+        })
+        .catch(error => console.log(error));
+
+      break;
+    }
+
+    case UPDATE_USER_INFORMATIONS: {
+      body = {
+        firstname: state.user.firstname,
+        lastname: state.user.lastname,
+        email: state.user.email,
+      };
+
+      axiosToken.put('http://localhost:8000/user/informations', body)
+        .then((response) => {
+          console.log(response);
         })
         .catch(error => console.log(error));
 

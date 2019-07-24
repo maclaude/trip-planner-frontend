@@ -31,6 +31,11 @@ export const GET_USER_INVITATIONS = 'GET_USER_INVITATIONS';
 const STORE_USER_INVITATIONS = 'STORE_USER_INVITATIONS';
 export const POST_USER_INVITATION_RESPONSE = 'POST_USER_INVITATION_RESPONSE';
 
+const CHANGE_USER_PROFIL_INPUTS = 'CHANGE_USER_PROFIL_INPUTS';
+export const GET_USER_INFORMATIONS = 'GET_USER_INFORMATIONS';
+const STORE_USER_INFORMATIONS = 'STORE_USER_INFORMATIONS';
+export const UPDATE_USER_INFORMATIONS = 'UPDATE_USER_INFORMATIONS';
+
 /**
  * Reducer
  */
@@ -77,6 +82,21 @@ const reducer = (state = initialState, action = {}) => {
         invitations: [],
       };
 
+    case CHANGE_USER_PROFIL_INPUTS:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+
+    case STORE_USER_INFORMATIONS:
+      return {
+        ...state,
+        firstname: action.informations.firstname,
+        lastname: action.informations.lastname,
+        email: action.informations.email,
+        avatar: action.informations.avatar,
+      };
+
     default:
       return state;
   }
@@ -121,6 +141,25 @@ export const postUserInvitationResponse = (response, projectId) => ({
   type: POST_USER_INVITATION_RESPONSE,
   response,
   projectId,
+});
+
+export const changeUserProfilInputs = (name, value) => ({
+  type: CHANGE_USER_PROFIL_INPUTS,
+  name,
+  value,
+});
+
+export const getUserInformations = () => ({
+  type: GET_USER_INFORMATIONS,
+});
+
+export const storeUserInformations = informations => ({
+  type: STORE_USER_INFORMATIONS,
+  informations,
+});
+
+export const updateUserInformations = () => ({
+  type: UPDATE_USER_INFORMATIONS,
 });
 
 /**

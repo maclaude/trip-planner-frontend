@@ -8,7 +8,7 @@ import React from 'react';
  */
 // Components
 import NavigationProjects from 'src/containers/Navigation/NavigationProjects';
-import Profil from './Profil';
+import Profil from 'src/containers/Profil/Profil';
 
 
 /**

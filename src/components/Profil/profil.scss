@@ -66,5 +66,10 @@
     &:focus {
       border-color: #5D6D7E;
     }
+
+    &--file {
+      width: fit-content;
+      margin: auto;
+    }
   }
 }
