@@ -78,27 +78,27 @@ export const changeSuggestionInputs = (name, value) => ({
   value,
 });
 
-export const changeSuggestionType = value => ({
+export const changeSuggestionType = (value) => ({
   type: CHANGE_SUGGESTION_TYPE,
   value,
 });
 
-export const showSuggestionFormErrors = errors => ({
+export const showSuggestionFormErrors = (errors) => ({
   type: SHOW_SUGGESTION_FORM_ERRORS,
   errors,
 });
 
-export const addProjectSuggestion = projectId => ({
+export const addProjectSuggestion = (projectId) => ({
   type: ADD_PROJECT_SUGGESTION,
   projectId,
 });
 
-export const getProjectSuggestions = projectId => ({
+export const getProjectSuggestions = (projectId) => ({
   type: GET_PROJECT_SUGGESTIONS,
   projectId,
 });
 
-export const stockProjectSuggestions = suggestions => ({
+export const stockProjectSuggestions = (suggestions) => ({
   type: STOCK_PROJECT_SUGGESTIONS,
   suggestions,
 });
@@ -119,7 +119,7 @@ export const getFilteredSuggestions = (suggestions, typeId) => {
 
   return [
     ...suggestions.filter(
-      suggestion => suggestion.suggestion_type._id === typeId,
+      (suggestion) => suggestion.suggestion_type === typeId,
     )];
 };
 
@@ -128,7 +128,7 @@ export const getMajorityApprovedSuggestions = (suggestions, typeId, participants
 
   return [
     ...filteredSuggestions.filter(
-      suggestion => (suggestion.user_vote.length >= (participants.length * 0.75)),
+      (suggestion) => (suggestion.user_vote.length >= (participants.length * 0.75)),
     )];
 };
 
@@ -137,7 +137,7 @@ export const getFullyApprovedSuggestions = (suggestions, typeId, participants) =
 
   return [
     ...filteredSuggestions.filter(
-      suggestion => (suggestion.user_vote.length >= (participants.length)),
+      (suggestion) => (suggestion.user_vote.length >= (participants.length)),
     )];
 };
 /**

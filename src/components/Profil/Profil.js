@@ -28,8 +28,16 @@ class Profil extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleInputChange = (evt) => {
     const { name, value } = evt.target;
+    const { changeInput } = this.props;
+    changeInput(name, value);
+  }
+
+  handleFileChange = (evt) => {
+    const { name, files } = evt.target;
+    const value = files[0];
+
     const { changeInput } = this.props;
     changeInput(name, value);
   }
@@ -61,7 +69,9 @@ class Profil extends React.Component {
           <h1>Profil</h1>
         </div>
 
-        <form className="user-container__section-1 form__container">
+        <form
+          className="user-container__section-1 form__container"
+        >
 
           <div className="form__title">Mes informations</div>
 
@@ -75,7 +85,7 @@ class Profil extends React.Component {
               className="field__input"
               placeholder="Votre prénom"
               value={firstname}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </div>
 
@@ -89,7 +99,7 @@ class Profil extends React.Component {
               className="field__input"
               placeholder="Votre nom"
               value={lastname}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </div>
 
@@ -103,7 +113,7 @@ class Profil extends React.Component {
               className="field__input"
               placeholder="Votre email"
               value={email}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </div>
 
@@ -116,7 +126,7 @@ class Profil extends React.Component {
               accept="image/png, image/jpeg, image/jpg"
               name="avatar"
               className="field__input--file"
-              onChange={this.handleChange}
+              onChange={this.handleFileChange}
             />
           </div>
 

@@ -320,6 +320,7 @@ const ajaxMiddleware = store => next => (action) => {
         firstname: state.user.firstname,
         lastname: state.user.lastname,
         email: state.user.email,
+        avatar: state.user.avatar,
       };
 
       axiosToken.put('http://localhost:8000/user/informations', body)

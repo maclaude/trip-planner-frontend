@@ -67,7 +67,7 @@ class Navigation extends React.Component {
   }
 
   openNavigation = () => {
-    this.navigation.classList.add('navigation--open');
+    this.navigation.classList.add('navigation--appear');
     this.navigation.classList.remove('navigation--close');
   }
 
