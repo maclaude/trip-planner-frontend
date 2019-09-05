@@ -28,13 +28,13 @@ class Profil extends React.Component {
   /**
    * Handlers
    */
-  handleInputChange = (evt) => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
   }
 
-  handleFileChange = (evt) => {
+  handleFileChange = evt => {
     const { name, files } = evt.target;
     const value = files[0];
 
@@ -42,7 +42,7 @@ class Profil extends React.Component {
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
     const { updateUserInformations } = this.props;
     updateUserInformations();
@@ -117,22 +117,9 @@ class Profil extends React.Component {
             />
           </div>
 
-          <div className="field">
-            <label htmlFor="email" className="field__label">
-              Avatar
-            </label>
-            <input
-              type="file"
-              accept="image/png, image/jpeg, image/jpg"
-              name="avatar"
-              className="field__input--file"
-              onChange={this.handleFileChange}
-            />
-          </div>
-
           <button
             type="submit"
-            className="form__button"
+            className="form__button form__button--red"
             onClick={this.handleSubmit}
           >
             Modifier

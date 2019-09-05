@@ -6,6 +6,7 @@
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],
+    "arrow-parens": ["error", "as-needed"],
     "no-param-reassign": ["error", { "props": false }],
     "no-mixed-operators": ["error", { "allowSamePrecedence": true }],
     "no-underscore-dangle": ["error", { "allow": ["_id"] }],
@@ -21,7 +22,8 @@
     "react/no-access-state-in-setstate": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/destructuring-assignment": "warn",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "react/jsx-props-no-spreading": "off",
   },
   "settings": {
     "import/resolver": "webpack"

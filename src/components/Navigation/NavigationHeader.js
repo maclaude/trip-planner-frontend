@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * Local import
  */
 // Assets
-import avatar from 'src/assets/avatar/maclaude.jpg';
+import avatar from 'src/assets/avatar/default-user.png';
 
 /**
  * Code

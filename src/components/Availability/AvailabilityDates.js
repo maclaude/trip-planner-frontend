@@ -65,6 +65,8 @@ const Availability = ({ project }) => (
 // PropTypes validation
 Availability.propTypes = {
   project: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     dates: PropTypes.array,
   }),
 };

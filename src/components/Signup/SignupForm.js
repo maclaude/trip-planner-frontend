@@ -1,16 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Redirect } from 'react-router-dom';
-import {
-  Button,
-  Checkbox,
-  Form,
-  Message,
-  Icon,
-} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -33,7 +27,7 @@ class SignupForm extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
 
@@ -47,7 +41,7 @@ class SignupForm extends React.Component {
     toogleTermsCheckbox();
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
 
     const {
@@ -56,7 +50,6 @@ class SignupForm extends React.Component {
       email,
       password,
       confirmedPassword,
-      termsChecked,
       showErrors,
       addNewUser,
     } = this.props;
@@ -68,13 +61,11 @@ class SignupForm extends React.Component {
       email,
       password,
       confirmedPassword,
-      termsChecked,
     );
 
     if (
       (firstname && lastname && email !== '')
       && password === confirmedPassword
-      && termsChecked
     ) {
       addNewUser();
     }
@@ -93,7 +84,6 @@ class SignupForm extends React.Component {
       email,
       password,
       confirmedPassword,
-      termsChecked,
       errors,
       status,
       responseError,
@@ -105,129 +95,124 @@ class SignupForm extends React.Component {
 
     return (
       <div id="signup">
-        <Form
-          id="signup-form"
+        <form
+          className="form__container"
           onSubmit={this.handleSubmit}
         >
-          <div id="signup-form-title">
-            Inscription
-          </div>
-          <Form.Field>
-            <label htmlFor="firstname">
+
+          <div className="form__title">Inscription</div>
+
+          <div className="field">
+            <label htmlFor="firstname" className="field__label">
               Prénom
-              <input
-                type="text"
-                name="firstname"
-                placeholder="Prénom"
-                value={firstname}
-                onChange={this.handleChange}
-              />
             </label>
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="lastname">
-              Nom
-              <input
-                type="text"
-                name="lastname"
-                placeholder="Nom"
-                value={lastname}
-                onChange={this.handleChange}
-              />
-            </label>
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="email">
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={this.handleChange}
-              />
-            </label>
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="password">
-              Mot de passe
-              <input
-                type="password"
-                name="password"
-                placeholder="Mot de passe"
-                value={password}
-                onChange={this.handleChange}
-              />
-            </label>
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="confirm-password">
-              Confirmez votre mot de passe
-              <input
-                type="password"
-                name="confirmedPassword"
-                placeholder="Confirmez votre mot de passe"
-                value={confirmedPassword}
-                onChange={this.handleChange}
-              />
-            </label>
-          </Form.Field>
-          <Form.Field>
-            <Checkbox
-              label="J'accepte les termes et conditions"
-              checked={termsChecked}
-              onClick={this.handleClick}
+            <input
+              type="text"
+              name="firstname"
+              className="field__input"
+              placeholder="Votre prénom"
+              value={firstname}
+              onChange={this.handleInputChange}
             />
-          </Form.Field>
+          </div>
+
+          <div className="field">
+            <label htmlFor="lastname" className="field__label">
+              Nom
+            </label>
+            <input
+              type="text"
+              name="lastname"
+              className="field__input"
+              placeholder="Votre nom"
+              value={lastname}
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="email" className="field__label">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              className="field__input"
+              placeholder="Votre email"
+              value={email}
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="password" className="field__label">
+              Mot de passe
+            </label>
+            <input
+              type="password"
+              name="password"
+              className="field__input"
+              placeholder="Votre mot de passe"
+              value={password}
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="confirm-password" className="field__label">
+              Confirmation du mot de passe
+            </label>
+            <input
+              type="password"
+              name="confirmedPassword"
+              className="field__input"
+              placeholder="Confirmez votre mot de passe"
+              value={confirmedPassword}
+              onChange={this.handleInputChange}
+            />
+          </div>
 
           {(errors.length > 0) && (
-            <div id="signup-form-errors">
+            <div>
               {errors.map(error => (
-                <Message negative key={error}>
+                <div className="form__error" key={error}>
                   <p>
                     {error}
                   </p>
-                </Message>
+                </div>
               ))}
             </div>
           )}
 
           {(responseError !== '') && (
-            <div id="signup-form-errors">
-              <Message negative>
+            <div>
+              <div className="form__error">
                 <p>
                   {responseError}
                 </p>
-              </Message>
+              </div>
             </div>
           )}
 
           <div id="signup-form-buttons">
             <NavLink to="/connexion">
-              <Button
-                animated="vertical"
+              <button
                 type="button"
+                className="form__button form__button--blue"
               >
-                <Button.Content visible>J'ai déjà un compte</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="user" />
-                </Button.Content>
-              </Button>
+                J'ai déjà un compte
+              </button>
             </NavLink>
 
-            <Button
-              animated
-              color="green"
+            <button
               type="submit"
+              className="form__button form__button--red"
               onClick={this.handleSubmit}
             >
-              <Button.Content visible>S'inscrire</Button.Content>
-              <Button.Content hidden>
-                <Icon name="angle double right" />
-              </Button.Content>
-            </Button>
+              S'inscrire
+            </button>
           </div>
-        </Form>
+        </form>
       </div>
     );
   }
@@ -240,7 +225,6 @@ SignupForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   confirmedPassword: PropTypes.string.isRequired,
-  termsChecked: PropTypes.bool.isRequired,
   errors: PropTypes.array.isRequired,
   status: PropTypes.string.isRequired,
   responseError: PropTypes.string.isRequired,

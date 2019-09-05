@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  voteProjectDates: (datesId) => {
+  voteProjectDates: datesId => {
     dispatch(voteProjectDates(datesId));
   },
 });

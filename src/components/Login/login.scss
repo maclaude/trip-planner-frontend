@@ -1,37 +1,12 @@
 @import 'src/styles/vars';
 
 #login {
-  &-form {
-    width: 400px;
-    margin: 30vh auto 0;
-    padding: 2em;
+  margin-top: 10em;
 
-    &-title {
-      margin-bottom: 1em;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    
+  &-form {
     &-buttons {
       display: flex;
       justify-content: center;
-    }
-
-    &-forgottenPassword {
-      display: inherit;
-      width: fit-content;
-      margin: 1.2em auto;
-      color: inherit;
-      font-weight: 600;
-      font-size: 1.1rem;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &-errors {
-      margin-bottom: 15px;
     }
   }
 }

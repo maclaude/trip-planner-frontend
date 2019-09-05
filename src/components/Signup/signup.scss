@@ -2,24 +2,9 @@
 
 #signup {
   &-form {
-    width: 400px;
-    margin: 20vh auto 0;
-    padding: 2em;
-
-    &-title {
-      margin-bottom: 1em;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    
     &-buttons {
       display: flex;
       justify-content: center;
-    }
-
-    &-errors {
-      margin-bottom: 15px;
     }
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
@@ -5,10 +6,6 @@ import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Button,
-  Form,
-  Message,
-  Icon,
   Loader,
 } from 'semantic-ui-react';
 
@@ -34,13 +31,13 @@ class LoginForm extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
     const {
       email,
@@ -77,7 +74,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <div>
+      <div id="login">
         { (status === 'loading') && (
           <Loader
             active
@@ -87,90 +84,82 @@ class LoginForm extends React.Component {
           />
         )}
         { (status !== 'loading') && (
-          <Form
-            id="login-form"
+          <form
+            className="form__container"
             onSubmit={this.handleSubmit}
           >
-            <div id="login-form-title">
-              Connexion
-            </div>
-            <Form.Field>
-              <label htmlFor="email">
+
+            <div className="form__title">Connexion</div>
+
+            <div className="field">
+              <label htmlFor="email" className="field__label">
                 Email
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Saisissez votre adresse email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
               </label>
-            </Form.Field>
-            <Form.Field>
-              <label htmlFor="password">
+              <input
+                type="email"
+                name="email"
+                className="field__input"
+                placeholder="Votre email"
+                value={email}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="password" className="field__label">
                 Mot de passe
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Mot de passe"
-                  value={password}
-                  onChange={this.handleChange}
-                />
               </label>
-            </Form.Field>
+              <input
+                type="password"
+                name="password"
+                className="field__input"
+                placeholder="Votre mot de passe"
+                value={password}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
             {(errors.length > 0) && (
-              <div id="signup-form-errors">
+              <div>
                 {errors.map(error => (
-                  <Message negative key={error}>
+                  <div className="form__error" key={error}>
                     <p>
                       {error}
                     </p>
-                  </Message>
+                  </div>
                 ))}
               </div>
             )}
 
             {(responseError !== '') && (
-              <div id="signup-form-errors">
-                <Message negative>
+              <div>
+                <div className="form__error">
                   <p>
                     {responseError}
                   </p>
-                </Message>
+                </div>
               </div>
             )}
 
             <div id="login-form-buttons">
               <NavLink to="/inscription">
-                <Button
-                  animated="vertical"
+                <button
                   type="button"
+                  className="form__button form__button--blue"
                 >
-                  <Button.Content visible>
-                    Je n'ai pas de compte
-                  </Button.Content>
-                  <Button.Content hidden>
-                    <Icon name="edit" />
-                  </Button.Content>
-                </Button>
+                  Je n'ai pas de compte
+                </button>
               </NavLink>
 
-              <Button
-                animated
-                color="green"
+              <button
                 type="submit"
+                className="form__button form__button--red"
+                onClick={this.handleSubmit}
               >
-                <Button.Content visible>
-                  Connexion
-                </Button.Content>
-                <Button.Content hidden>
-                  <Icon name="angle double right" />
-                </Button.Content>
-              </Button>
+                Connexion
+              </button>
             </div>
-            <a id="login-form-forgottenPassword" href="#">Mot de passe oublié</a>
-          </Form>
+          </form>
         )}
       </div>
     );

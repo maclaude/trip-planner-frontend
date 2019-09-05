@@ -9,7 +9,6 @@ import {
   Button,
   List,
   Image,
-  Divider,
   Message,
 } from 'semantic-ui-react';
 
@@ -22,6 +21,8 @@ import './add_participants.scss';
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components
 import UserFooter from 'src/components/UserFooter';
+// Avatar
+import avatar from 'src/assets/avatar/default-user.png';
 
 /**
  * Code
@@ -30,7 +31,7 @@ class AddParticipants extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleChange = evt => {
     const { name, value } = evt.target;
 
     const { changeInput } = this.props;
@@ -38,7 +39,7 @@ class AddParticipants extends React.Component {
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
 
     const {
@@ -154,7 +155,7 @@ class AddParticipants extends React.Component {
                   <List.Item
                     key={participant._id}
                   >
-                    <Image avatar src={participant.avatar} />
+                    <Image avatar src={avatar} />
                     <List.Content>
                       <List.Header>{participant.firstname}</List.Header>
                     </List.Content>
@@ -164,23 +165,6 @@ class AddParticipants extends React.Component {
             </div>
             <div id="addParticipants-section__container--pending">
               <h3>En attente</h3>
-              <List
-                id="addParticipants-section__container-list"
-                animated
-                verticalAlign="middle"
-                size="big"
-              >
-                {/* {invitedParticipants.map(participant => (
-                  <List.Item
-                    key={email}
-                  >
-                    <Image avatar src={avatar} />
-                    <List.Content>
-                      <List.Header>{participant.name}</List.Header>
-                    </List.Content>
-                  </List.Item>
-                ))} */}
-              </List>
             </div>
           </div>
         </section>
@@ -195,6 +179,7 @@ class AddParticipants extends React.Component {
 AddParticipants.propTypes = {
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
+    participants: PropTypes.array.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

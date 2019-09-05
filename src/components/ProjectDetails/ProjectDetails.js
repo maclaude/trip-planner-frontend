@@ -22,7 +22,7 @@ import Other from 'src/containers/ProjectDetails/Other';
 import UserFooter from 'src/components/UserFooter';
 import GoogleMap from 'src/components/GoogleMap';
 // Assets
-import avatar from 'src/assets/avatar/maclaude.jpg';
+import avatar from 'src/assets/avatar/default-user.png';
 
 /**
  * Code
