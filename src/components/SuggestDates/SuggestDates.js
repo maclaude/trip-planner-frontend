@@ -129,11 +129,11 @@ class SuggestDates extends React.Component {
                   className="
                     button
                     button--circular
-                    button-add
+                    button-add-dates
                   "
                   onClick={this.handleSubmit}
                 >
-                  <FaPlus className="button__icon" />
+                  <FaPlus className="button--circular__icon" />
                 </div>
               </div>
             </div>

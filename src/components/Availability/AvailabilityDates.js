@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 /**
@@ -48,12 +47,16 @@ const Availability = ({ project }) => (
         key={project._id}
         exact
       >
-        <Button animated floated="right" color="green">
-          <Button.Content visible>Étape suivante</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow right" />
-          </Button.Content>
-        </Button>
+        <button
+          type="button"
+          className="
+            form__button
+            form__button--red
+            form__button--right
+          "
+        >
+         Etape suivante
+        </button>
       </NavLink>
     </section>
 

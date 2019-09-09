@@ -131,7 +131,7 @@ class NewProject extends React.Component {
                     Description <strong className="asterisk">*</strong>
                   </label>
                   <textarea
-                    name="destination"
+                    name="description"
                     className="field__input"
                     placeholder="Description de votre projet"
                     value={description}

@@ -108,6 +108,28 @@
   transform: translateX(0%);
 }
 
+/* === Burger menu icon === */
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  margin: auto;
+  background: $black;
+  height: 4px;
+  width: 2em;
+  border-radius: 3px;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(4px);
+}
+
 
 /* Media queries
 ============================= */
@@ -144,7 +166,7 @@
   .close-icon::after {
     content: '';
     display: block;
-    background: $font-color;
+    background: $black;
     height: 4px;
     width: 2em;
     border-radius: 3px;

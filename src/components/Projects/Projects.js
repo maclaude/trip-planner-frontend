@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { FaPaperPlane } from 'react-icons/fa';
 
 /**
  * Local import
@@ -110,11 +109,10 @@ class Projects extends React.Component {
             className="
               button
               button--large
-              button-create-project
+              button-new-project
             "
           >
             <p>Créer un nouveau projet</p>
-            <FaPaperPlane />
           </NavLink>
         </div>
 

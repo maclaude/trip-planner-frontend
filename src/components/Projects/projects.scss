@@ -46,7 +46,7 @@
     min-width: 400px;
     width: fit-content;
     border-radius: 4px;
-    background-color: $main-bg-color;
+    background-color: $white;
     font-size: 1.3em;
     font-weight: 600;
   }
@@ -98,13 +98,13 @@
     &__title {
       font-size: 1.3rem;
       font-weight: 600;
-      color: $font-color;
+      color: $black;
       display: block;
       text-align: center;
       padding: .3em .5em;
 
       &:hover {
-        color: $font-color;
+        color: $black;
       }
     }
   }
