@@ -26,7 +26,7 @@ class HomeView extends React.Component {
 
     // eslint-disable-next-line no-shadow
     const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) {
           return;
         }
@@ -36,7 +36,7 @@ class HomeView extends React.Component {
       });
     }, appearOptions);
 
-    faders.forEach((fader) => {
+    faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
   }

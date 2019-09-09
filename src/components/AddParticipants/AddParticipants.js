@@ -3,14 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Form,
-  Icon,
-  Button,
-  List,
-  Image,
-  Message,
-} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -21,19 +13,24 @@ import './add_participants.scss';
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components
 import UserFooter from 'src/components/UserFooter';
-// Avatar
-import avatar from 'src/assets/avatar/default-user.png';
 
 /**
  * Code
  */
 class AddParticipants extends React.Component {
   /**
+   * Lifecycle
+   */
+  componentDidMount() {
+    const { clearParticipantsState } = this.props;
+    clearParticipantsState();
+  }
+
+  /**
    * Handlers
    */
-  handleChange = evt => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
-
     const { changeInput } = this.props;
 
     changeInput(name, value);
@@ -72,7 +69,7 @@ class AddParticipants extends React.Component {
     } = this.props;
 
     return (
-      <div className="user-container" id="addParticipants">
+      <div className="user-container" id="add-participants">
 
         <div className="user-container__menu">
           <div className="hamburger" />
@@ -83,89 +80,86 @@ class AddParticipants extends React.Component {
         </div>
 
         <section className="user-container__section-1">
-          <Form
-            id="addParticipants-form"
+
+          <form
+            className="form__container"
             onSubmit={this.handleSubmit}
           >
-            <Form.Field>
-              <label htmlFor="name">
+
+            <div className="field">
+              <label htmlFor="name" className="field__label">
                 Nom <strong className="asterisk">*</strong>
-                <input
-                  className="addParticipants-form__input"
-                  name="name"
-                  type="text"
-                  placeholder="Nom du participant"
-                  value={name}
-                  onChange={this.handleChange}
-                />
               </label>
-              <label htmlFor="email">
+              <input
+                name="name"
+                className="field__input"
+                placeholder="Nom du participant"
+                value={name}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="email" className="field__label">
                 Email <strong className="asterisk">*</strong>
-                <input
-                  className="addParticipants__input"
-                  name="email"
-                  type="email"
-                  placeholder="Email du participant"
-                  value={email}
-                  onChange={this.handleChange}
-                />
               </label>
-            </Form.Field>
+              <input
+                type="email"
+                name="email"
+                className="field__input"
+                placeholder="Email du participant"
+                value={email}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
             {(errors.length > 0) && (
-              <div id="addParticipants-form__errors">
+              <div>
                 {errors.map(error => (
-                  <Message negative key={error}>
+                  <div className="form__error" key={error}>
                     <p>
                       {error}
                     </p>
-                  </Message>
+                  </div>
                 ))}
               </div>
             )}
 
-            <Button
-              animated
-              floated="right"
+            <button
               type="submit"
-              color="green"
+              className="
+                form__button
+                form__button--right
+                form__button--red"
             >
-              <Button.Content visible>
-                Envoyer l'invitation
-              </Button.Content>
-              <Button.Content hidden>
-                <Icon name="paper plane" />
-              </Button.Content>
-            </Button>
-          </Form>
+              Envoyer l'invitation
+            </button>
+
+          </form>
+
         </section>
 
-        <section className="user-container__section-2" id="addParticipants-section">
-          <h2 id="addParticipants-section__title">Participants</h2>
-          <div id="addParticipants-section__container">
-            <div id="addParticipants-section__container--confirmed">
+        <section className="user-container__section-2" id="add-participants-section">
+
+          <h2 id="add-participants-section__title">Participants</h2>
+
+          <div id="add-participants-section__container">
+
+            <div id="add-participants-section__container--confirmed">
               <h3>Confirmé</h3>
-              <List
-                id="addParticipants-section__container-list"
-                animated
-                verticalAlign="middle"
-                size="big"
-              >
+              <ul id="add-participants-section__container-list">
                 {project.participants.map(participant => (
-                  <List.Item
-                    key={participant._id}
-                  >
-                    <Image avatar src={avatar} />
-                    <List.Content>
-                      <List.Header>{participant.firstname}</List.Header>
-                    </List.Content>
-                  </List.Item>
+                  <li key={participant._id}>
+                    {participant.firstname}
+                  </li>
                 ))}
-              </List>
+              </ul>
             </div>
-            <div id="addParticipants-section__container--pending">
+
+            <div id="add-participants-section__container--pending">
               <h3>En attente</h3>
             </div>
+
           </div>
         </section>
 
@@ -184,6 +178,7 @@ AddParticipants.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
+  clearParticipantsState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   sendInvitation: PropTypes.func.isRequired,

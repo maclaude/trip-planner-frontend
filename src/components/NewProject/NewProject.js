@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
@@ -27,7 +26,7 @@ class NewProject extends React.Component {
   /**
    * Lifecycles
    */
-  componentWillMount() {
+  componentDidMount() {
     const { clearProjectState } = this.props;
     clearProjectState();
   }
@@ -156,7 +155,7 @@ class NewProject extends React.Component {
                 {(errors.length > 0) && (
                   <div>
                     {errors.map(error => (
-                      <div className="form__error">
+                      <div className="form__error" key={error}>
                         <p>{error}</p>
                       </div>
                     ))}

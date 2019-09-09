@@ -40,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
   changeInput: (name, value) => {
     dispatch(changeLoginInputs(name, value));
   },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showLoginErrors(errors));
   },
   connectUser: () => {

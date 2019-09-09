@@ -17,6 +17,7 @@ const SuggestDatesErrors = (startDate, endDate) => {
   const ISOendDate = getISODateFormat(endDate);
   const ISOcurrentDate = getISODateFormat(currentDate);
 
+  // Error conditions
   if (startDate === '') {
     const error = 'Vous devez ajouter une date de debut à votre projet';
     errors.push(error);

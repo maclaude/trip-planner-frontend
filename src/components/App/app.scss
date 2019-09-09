@@ -26,12 +26,12 @@ h1, h2 {
   margin: auto;
   font-weight: 700;
   text-align: center;
-  box-shadow: 0 10px 1em rgba(68, 74, 81, 0.3);
+  box-shadow: 0 10px 1em $main-box-shadow-color;
   transform: scale(1);
   transition: transform ease-in-out 250ms;
   
   &--large {
-    margin: 1.5em auto;
+    margin: .8em auto;
     padding: 1em 1.5em;
     width: 280px;
     height: 65px;
@@ -104,8 +104,7 @@ h1, h2 {
 .form {
   &__container {
     width: 450px;
-    margin: 2.5em auto 0;
-    position: relative;
+    margin: 2em auto;
   }
 
   &__title {
@@ -120,33 +119,32 @@ h1, h2 {
     all: unset;
     box-sizing: border-box;
     width: fit-content;
-    margin: .2em 0;
+    margin: .2em;
     padding: .6em 1em;
     border-radius: 4px;
     font-size: 1.3rem;
     font-weight: 700;
     text-align: center;
-    box-shadow: 0 8px 1em rgba(68, 74, 81, 0.3);
+    box-shadow: 0 8px 1em $main-box-shadow-color;
     transition: transform ease-in-out 250ms;
 
     &--right {
-      position: absolute;
-      right: 0;
+      float: right;
     }
 
     &--red {
       background-color: $red-pink;
-      color: #FFF;
+      color: $white;
     }
 
     &--blue {
       background-color: $navy-blue;
-      color: #FFF;
+      color: $white;
     }
     
     &--grey {
-      background-color: #F8F9F9;
-      color: #000;
+      background-color: $light-grey;
+      color: $black;
     }
 
     &:hover {

@@ -34,10 +34,10 @@
     width: fit-content;
     font-size: 2rem;
     font-weight: 800;
-    color: #FFF;
+    color: $white;
 
     &:hover {
-      color: #FFF;
+      color: $white;
     }
   }
 }
@@ -97,7 +97,7 @@
     &--highlight {
       background: $red-pink;
       border-color: $red-pink;
-      color: #FFF;
+      color: $white;
 
       &:hover {
         background: var(--text);
@@ -112,7 +112,7 @@
   --text-inverse: #f4f4f4;
   --background: #f4f4f4;
 
-  box-shadow: 0 3px 20px rgba(black, 0.2);
+  box-shadow: 0 3px 20px $main-box-shadow-color;
 }
 
 .home-intro {

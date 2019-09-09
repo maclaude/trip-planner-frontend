@@ -16,7 +16,7 @@ import {
 /**
  * Middleware
  */
-const geocodeMiddleware = store => next => (action) => {
+const geocodeMiddleware = store => next => action => {
   // set Google Maps Geocoding API key
   Geocode.setApiKey(process.env.GOOGLE_API);
 
@@ -31,13 +31,13 @@ const geocodeMiddleware = store => next => (action) => {
 
       // Get latidude & longitude from address.
       Geocode.fromAddress(destination.name).then(
-        (response) => {
+        response => {
           const { lat, lng } = response.results[0].geometry.location;
           console.log(lat, lng);
           store.dispatch(storeDestinationCoordinates(lat, lng));
           store.dispatch(createNewProject());
         },
-        (error) => {
+        error => {
           console.error(error);
         },
       );

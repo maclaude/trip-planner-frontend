@@ -16,6 +16,7 @@
     "jsx-a11y/mouse-events-have-key-events": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/label-has-for": "off",
     "react/jsx-filename-extension": "off",
     "react/forbid-prop-types": "off",
@@ -23,7 +24,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/destructuring-assignment": "warn",
     "react/no-unescaped-entities": "off",
-    "react/jsx-props-no-spreading": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "settings": {
     "import/resolver": "webpack"

@@ -20,10 +20,10 @@ const mapStateToProps = null;
 
 // === Actions ===
 const mapDispatchToProps = dispatch => ({
-  getProjectUserRole: (projectId) => {
+  getProjectUserRole: projectId => {
     dispatch(getProjectUserRole(projectId));
   },
-  getProjectSuggestions: (projectId) => {
+  getProjectSuggestions: projectId => {
     dispatch(getProjectSuggestions(projectId));
   },
 });

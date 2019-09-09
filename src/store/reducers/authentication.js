@@ -24,7 +24,6 @@ const STORE_RESPONSE_ERROR_MESSAGE = 'STORE_RESPONSE_ERROR_MESSAGE';
 
 // Signup
 const CHANGE_SIGNUP_INPUTS = 'CHANGE_SIGNUP_INPUTS';
-const TOOGLE_TERMS_CHECKBOX = 'TOOGLE_TERMS_CHECKBOX';
 const SHOW_SIGNUP_ERRORS = 'SHOW_SIGNUP_ERRORS';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const SET_STATUS_CREATED = 'SET_STATUS_CREATED';
@@ -75,12 +74,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         responseError: '',
         [action.name]: action.value,
-      };
-
-    case TOOGLE_TERMS_CHECKBOX:
-      return {
-        ...state,
-        termsChecked: !state.termsChecked,
       };
 
     case SHOW_SIGNUP_ERRORS:
@@ -178,10 +171,6 @@ export const changeSignupInputs = (name, value) => ({
   type: CHANGE_SIGNUP_INPUTS,
   name,
   value,
-});
-
-export const toogleTermsCheckbox = () => ({
-  type: TOOGLE_TERMS_CHECKBOX,
 });
 
 export const addNewUser = () => ({

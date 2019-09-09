@@ -36,7 +36,7 @@ const mapDispatchToProps = dispatch => ({
   changeInput: (name, value) => {
     dispatch(changeNewProjectInputs(name, value));
   },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showProjectFormsErrors(errors));
   },
   getDestinationCoordinates: () => {

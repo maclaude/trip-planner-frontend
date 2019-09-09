@@ -38,13 +38,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
     dispatch(changeNewProjectInputs(name, value));
   },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showProjectFormsErrors(errors));
   },
   addProjectDates: () => {
     dispatch(addProjectDates(ownProps.project._id));
   },
-  deleteDates: (datesId) => {
+  deleteDates: datesId => {
     dispatch(deleteProjectDates(ownProps.project._id, datesId));
   },
 });

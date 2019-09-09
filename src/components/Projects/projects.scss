@@ -11,7 +11,7 @@
     margin: 2em auto;
     width: fit-content;
     background-color: $section-bg-color;
-    box-shadow: 0 5px 1em rgba(68, 74, 81, 0.3);
+    box-shadow: 0 5px 1em $main-box-shadow-color;
 
     &__title {
       font-weight: 600;
@@ -56,7 +56,7 @@
     margin-left: 1em;
     padding: .6em;
     border-radius: 4px;
-    box-shadow: 0 10px 1em rgba(68, 74, 81, 0.3);
+    box-shadow: 0 10px 1em $main-box-shadow-color;
     background-color: $button-accept-bg-color;
     color: $button-text-color;
     font-weight: 600;
@@ -80,7 +80,7 @@
 ============================= */
 
 .project-card {
-  min-height: 325px;
+  min-height: 300px;
   min-width: 275px;
   width: 275px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;

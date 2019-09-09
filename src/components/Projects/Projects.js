@@ -23,7 +23,7 @@ class Projects extends React.Component {
   /**
    * Lifecycles
    */
-  componentWillMount() {
+  componentDidMount() {
     const { getUserInvitations } = this.props;
     getUserInvitations();
   }

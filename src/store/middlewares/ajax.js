@@ -54,7 +54,7 @@ import {
 /**
  * Middleware
  */
-const ajaxMiddleware = store => next => (action) => {
+const ajaxMiddleware = store => next => action => {
   const state = store.getState();
 
   // Request header auth token configuration
@@ -75,11 +75,11 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axios.post('http://localhost:8000/auth/signup', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(setStatusCreated());
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
           store.dispatch(storeResponseErrorMessage(error.response.data.message));
         });
@@ -94,7 +94,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axios.post('http://localhost:8000/auth/login', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeToken(response.data.token));
           store.dispatch(storeUserData(response.data.user));
@@ -104,7 +104,7 @@ const ajaxMiddleware = store => next => (action) => {
             store.dispatch(addUserInvitation());
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error.response);
           store.dispatch(storeResponseErrorMessage(error.response.data.message));
         });
@@ -114,7 +114,7 @@ const ajaxMiddleware = store => next => (action) => {
 
     case GET_USER_PROJECTS: {
       axiosToken.get('http://localhost:8000/user/projects')
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeUserProjects(response.data.userProjects));
         })
@@ -125,7 +125,7 @@ const ajaxMiddleware = store => next => (action) => {
 
     case GET_PROJECT_USER_ROLE: {
       axiosToken.get(`http://localhost:8000/project/user-role/${action.projectId}`)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeProjectUserRole(response.data.role));
         })
@@ -145,7 +145,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.post('http://localhost:8000/project/new-project', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeNewprojectResponse(response.data.message, response.data.data));
           store.dispatch(getUserProjects());
@@ -163,7 +163,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.post('http://localhost:8000/project/new-dates', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
         })
@@ -179,7 +179,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.delete('http://localhost:8000/project/delete-dates', { data: body })
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
         })
@@ -192,7 +192,7 @@ const ajaxMiddleware = store => next => (action) => {
       body = { datesId: action.datesId };
 
       axiosToken.put('http://localhost:8000/project/vote-dates', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
         })
@@ -211,7 +211,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.post('http://localhost:8000/project/add-participants', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
         .catch(error => console.log(error));
@@ -223,7 +223,7 @@ const ajaxMiddleware = store => next => (action) => {
       body = { projectId: state.user.invitationProjectId };
 
       axiosToken.post('http://localhost:8000/user/invitation', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getUserInvitations());
         })
@@ -234,7 +234,7 @@ const ajaxMiddleware = store => next => (action) => {
 
     case GET_USER_INVITATIONS: {
       axiosToken.get('http://localhost:8000/user/invitations')
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeUserInvitations(response.data.userInvitations));
         })
@@ -250,7 +250,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.post('http://localhost:8000/user/invitation-response', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
         })
@@ -271,7 +271,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.post('http://localhost:8000/project/new-suggestion', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getProjectSuggestions(action.projectId));
         })
@@ -282,7 +282,7 @@ const ajaxMiddleware = store => next => (action) => {
 
     case GET_PROJECT_SUGGESTIONS: {
       axiosToken.get(`http://localhost:8000/project/suggestions/${action.projectId}`)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(stockProjectSuggestions(response.data.suggestions));
         })
@@ -295,7 +295,7 @@ const ajaxMiddleware = store => next => (action) => {
       body = { suggestionId: action.suggestionId };
 
       axiosToken.put('http://localhost:8000/project/vote-suggestion', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(getProjectSuggestions(action.projectId));
         })
@@ -306,7 +306,7 @@ const ajaxMiddleware = store => next => (action) => {
 
     case GET_USER_INFORMATIONS: {
       axiosToken.get('http://localhost:8000/user/informations')
-        .then((response) => {
+        .then(response => {
           console.log(response);
           store.dispatch(storeUserInformations(response.data.user));
         })
@@ -324,7 +324,7 @@ const ajaxMiddleware = store => next => (action) => {
       };
 
       axiosToken.put('http://localhost:8000/user/informations', body)
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
         .catch(error => console.log(error));

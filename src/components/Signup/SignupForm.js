@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
@@ -19,7 +18,7 @@ class SignupForm extends React.Component {
   /**
    * Lifecycle
    */
-  componentWillMount() {
+  componentDidMount() {
     const { clearAuthState } = this.props;
     clearAuthState();
   }
@@ -32,13 +31,6 @@ class SignupForm extends React.Component {
     const { changeInput } = this.props;
 
     changeInput(name, value);
-  }
-
-  handleClick = () => {
-    const { toogleTermsCheckbox } = this.props;
-
-    // Handle terms checkbox
-    toogleTermsCheckbox();
   }
 
   handleSubmit = evt => {
@@ -230,7 +222,6 @@ SignupForm.propTypes = {
   responseError: PropTypes.string.isRequired,
   clearAuthState: PropTypes.func.isRequired,
   changeInput: PropTypes.func.isRequired,
-  toogleTermsCheckbox: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   addNewUser: PropTypes.func.isRequired,
 };

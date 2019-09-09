@@ -38,7 +38,7 @@ class NavigationProjects extends React.Component {
     window.addEventListener('resize', this.calcWindowSize);
     this.burgerMenu.addEventListener('click', this.openNavigation);
     this.closeButton.addEventListener('click', this.closeNavigation);
-    this.navigationLinks.forEach((navigationLink) => {
+    this.navigationLinks.forEach(navigationLink => {
       navigationLink.addEventListener('click', this.closeNavigation);
     });
   }
@@ -47,7 +47,7 @@ class NavigationProjects extends React.Component {
     // Remove events listeners
     this.burgerMenu.removeEventListener('click', this.openNavigation);
     this.closeButton.removeEventListener('click', this.closeNavigation);
-    this.navigationLinks.forEach((navigationLink) => {
+    this.navigationLinks.forEach(navigationLink => {
       navigationLink.removeEventListener('click', this.closeNavigation);
     });
   }

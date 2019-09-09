@@ -7,9 +7,9 @@ const NewProjectErrors = (
   description,
   destination,
 ) => {
-  // Initialisation du tableau d'erreurs
   const errors = [];
 
+  // Error conditions
   if (title === '') {
     const error = 'Vous devez ajouter un titre à votre projet';
     errors.push(error);

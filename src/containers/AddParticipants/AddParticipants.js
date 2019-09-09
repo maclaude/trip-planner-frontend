@@ -11,6 +11,7 @@ import AddParticipants from 'src/components/AddParticipants/AddParticipants';
 
 // Action Creators & Selectors
 import {
+  clearParticipantsState,
   changeParticipantsInputs,
   showParticipantsErrors,
   sendInvitation,
@@ -28,10 +29,13 @@ const mapStateToProps = state => ({
 
 // === Actions ===
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  clearParticipantsState: () => {
+    dispatch(clearParticipantsState());
+  },
   changeInput: (name, value) => {
     dispatch(changeParticipantsInputs(name, value));
   },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showParticipantsErrors(errors));
   },
   sendInvitation: () => {

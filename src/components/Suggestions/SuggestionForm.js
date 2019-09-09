@@ -33,7 +33,7 @@ class SuggestionForm extends React.Component {
     changeType(newType);
   }
 
-  handleInputChange = (evt) => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
 
     const { changeInput } = this.props;
@@ -41,7 +41,7 @@ class SuggestionForm extends React.Component {
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
 
     const {

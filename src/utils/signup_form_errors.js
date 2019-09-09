@@ -12,17 +12,17 @@ const getSignupFormErrors = (
 
   // Error conditions
   if (firstname === '') {
-    const error = 'Le champ Prénom doit être rempli';
+    const error = 'Le champ prénom doit être rempli';
     errors.push(error);
   }
 
   if (lastname === '') {
-    const error = 'Le champ Nom doit être rempli';
+    const error = 'Le champ nom doit être rempli';
     errors.push(error);
   }
 
   if (email === '') {
-    const error = 'Le champ Email doit être rempli';
+    const error = 'Le champ email doit être rempli';
     errors.push(error);
   }
 

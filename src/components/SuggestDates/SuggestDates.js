@@ -26,7 +26,7 @@ class SuggestDates extends React.Component {
   /**
    * Lifecycle
    */
-  componentWillMount() {
+  componentDidMount() {
     const { clearProjectState } = this.props;
     clearProjectState();
   }
@@ -34,13 +34,13 @@ class SuggestDates extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleChange = evt => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
 
     const {

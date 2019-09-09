@@ -1,15 +1,6 @@
 @import 'src/styles/vars';
 
-#addParticipants {
-  &-form {
-    width: 400px;
-    margin: 3em auto 5em; 
-
-    &__errors {
-      margin-bottom: 15px;
-    }
-  }
-
+#add-participants {
   &-section {
     &__title {
       margin: 1em 0 1.5em;
@@ -26,7 +17,7 @@
         width: 50%;
         height: auto;
         text-align: center;
-        margin-bottom: 4em;
+        margin-bottom: 2em;
       }
 
       &--confirmed h3, &--pending h3 {
@@ -35,19 +26,16 @@
       }
 
       &--confirmed {
-        border-right: 1px solid lightgrey;
+        border-right: 1px solid $main-border-color;
       }
       
       &-list {
-        text-align: left;
+        text-align: center;
         width: fit-content;
         min-width: 200px;
         margin: auto;
+        font-size: 1.3em;
       }
     }
   }
-}
-
-.addParticipants-form__input {
-  min-width: 200px;
 }

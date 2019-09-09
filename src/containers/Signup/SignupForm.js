@@ -12,7 +12,6 @@ import SignupForm from 'src/components/Signup/SignupForm';
 import {
   clearAuthState,
   changeSignupInputs,
-  toogleTermsCheckbox,
   showSignupErrors,
   addNewUser,
 } from 'src/store/reducers/authentication';
@@ -27,7 +26,6 @@ const mapStateToProps = state => ({
   email: state.authentication.email,
   password: state.authentication.password,
   confirmedPassword: state.authentication.confirmedPassword,
-  termsChecked: state.authentication.termsChecked,
   errors: state.authentication.errors,
   status: state.authentication.status,
   responseError: state.authentication.responseError,
@@ -41,10 +39,7 @@ const mapDispatchToProps = dispatch => ({
   changeInput: (name, value) => {
     dispatch(changeSignupInputs(name, value));
   },
-  toogleTermsCheckbox: () => {
-    dispatch(toogleTermsCheckbox());
-  },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showSignupErrors(errors));
   },
   addNewUser: () => {

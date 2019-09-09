@@ -34,10 +34,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
     dispatch(changeSuggestionInputs(name, value));
   },
-  changeType: (value) => {
+  changeType: value => {
     dispatch(changeSuggestionType(value));
   },
-  showErrors: (errors) => {
+  showErrors: errors => {
     dispatch(showSuggestionFormErrors(errors));
   },
   addProjectSuggestion: () => {

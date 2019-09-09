@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
@@ -22,7 +21,7 @@ class LoginForm extends React.Component {
   /**
    * Lifecycle
    */
-  componentWillMount() {
+  componentDidMount() {
     const { clearAuthState, clearStatus } = this.props;
     clearAuthState();
     clearStatus();

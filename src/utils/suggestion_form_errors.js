@@ -2,10 +2,9 @@
  * Utils: getSuggestionFormErrors
  */
 const getSuggestionFormErrors = (type, title) => {
-  // Initialisation du tableau d'erreurs
   const errors = [];
 
-  // Ecriture des différentes erreurs
+  // Error conditions
   if (type === '') {
     const error = 'Vous devez selectionner un type de suggestion';
     errors.push(error);

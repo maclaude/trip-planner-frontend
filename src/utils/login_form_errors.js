@@ -2,10 +2,9 @@
  * Utils: getLoginFormErrors
  */
 const getLoginFormErrors = (email, password) => {
-  // Initialisation du tableau d'erreurs
   const errors = [];
 
-  // Ecriture des différentes erreurs
+  // Error conditions
   if (email === '') {
     const error = 'Le champ email doit être rempli';
     errors.push(error);

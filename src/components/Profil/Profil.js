@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
@@ -119,7 +118,7 @@ class Profil extends React.Component {
 
           <button
             type="submit"
-            className="form__button form__button--red"
+            className="form__button form__button--red form__button--right"
             onClick={this.handleSubmit}
           >
             Modifier
