@@ -7,12 +7,10 @@ const getSignupFormErrors = (
   email,
   password,
   confirmedPassword,
-  termsChecked,
 ) => {
-  // Initialisation du tableau d'erreurs
   const errors = [];
 
-  // Ecriture des différentes erreurs
+  // Error conditions
   if (firstname === '') {
     const error = 'Le champ Prénom doit être rempli';
     errors.push(error);
@@ -35,11 +33,6 @@ const getSignupFormErrors = (
 
   if (password !== confirmedPassword) {
     const error = 'Les mots de passe ne sont pas identiques';
-    errors.push(error);
-  }
-
-  if (!termsChecked) {
-    const error = 'Vous devez accepter les termes et conditions du site';
     errors.push(error);
   }
 

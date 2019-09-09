@@ -104,8 +104,8 @@ h1, h2 {
 .form {
   &__container {
     width: 450px;
-    margin: 1em auto;
-    padding: 1em;
+    margin: 2.5em auto 0;
+    position: relative;
   }
 
   &__title {
@@ -120,7 +120,7 @@ h1, h2 {
     all: unset;
     box-sizing: border-box;
     width: fit-content;
-    margin: .2em;
+    margin: .2em 0;
     padding: .6em 1em;
     border-radius: 4px;
     font-size: 1.3rem;
@@ -129,14 +129,24 @@ h1, h2 {
     box-shadow: 0 8px 1em rgba(68, 74, 81, 0.3);
     transition: transform ease-in-out 250ms;
 
+    &--right {
+      position: absolute;
+      right: 0;
+    }
+
+    &--red {
+      background-color: $red-pink;
+      color: #FFF;
+    }
+
     &--blue {
       background-color: $navy-blue;
       color: #FFF;
     }
     
-    &--red {
-      background-color: $red-pink;
-      color: #FFF;
+    &--grey {
+      background-color: #F8F9F9;
+      color: #000;
     }
 
     &:hover {
@@ -149,9 +159,9 @@ h1, h2 {
   &__error {
     padding: .5em;
     margin: .5em 0;
-    color: $red-pink;
+    color: #484848;
     font-size: 1.2rem;
-    border: 1px solid $red-pink;
+    border: 1px solid #484848;
     border-radius: 3px;
   }
 }

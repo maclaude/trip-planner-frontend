@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
       addNewUser,
     } = this.props;
 
-    // Gestion des erreurs
+    // Error handler
     const errors = getSignupFormErrors(
       firstname,
       lastname,
@@ -206,7 +206,7 @@ class SignupForm extends React.Component {
 
             <button
               type="submit"
-              className="form__button form__button--red"
+              className="form__button form__button--grey"
               onClick={this.handleSubmit}
             >
               S'inscrire

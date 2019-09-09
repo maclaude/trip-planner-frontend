@@ -153,7 +153,7 @@ class LoginForm extends React.Component {
 
               <button
                 type="submit"
-                className="form__button form__button--red"
+                className="form__button form__button--grey"
                 onClick={this.handleSubmit}
               >
                 Connexion

@@ -1,16 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /**
  * NPM import
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import {
-  Form,
-  Button,
-  Icon,
-  FormField,
-  Message,
-} from 'semantic-ui-react';
 import { FaUserPlus, FaCalendarPlus } from 'react-icons/fa';
 import toast from 'toasted-notes';
 import uuidV4 from 'uuid/v4';
@@ -44,7 +38,7 @@ class NewProject extends React.Component {
     if (serverResponseMessage === 'Project created') {
       toast.notify(
         <p id="toast-alert">
-          <Icon name="check" color="green" size="large" /> Votre projet à bien été crée !
+          Votre projet à bien été crée !
         </p>,
         {
           position: 'top-right',
@@ -57,13 +51,13 @@ class NewProject extends React.Component {
   /**
    * Handlers
    */
-  handleChange = (evt) => {
+  handleInputChange = evt => {
     const { name, value } = evt.target;
     const { changeInput } = this.props;
     changeInput(name, value);
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit = evt => {
     evt.preventDefault();
 
     const {
@@ -115,67 +109,70 @@ class NewProject extends React.Component {
         {(serverResponseMessage === '') && (
           <section className="user-container__main">
             <div id="newproject-form">
-              <Form
+              <form
+                className="form__container"
                 onSubmit={this.handleSubmit}
               >
-                <FormField>
-                  <label htmlFor="title">
+
+                <div className="field">
+                  <label htmlFor="title" className="field__label">
                     Nom du projet <strong className="asterisk">*</strong>
-                    <input
-                      name="title"
-                      placeholder="Donnez un nom a votre projet"
-                      value={title}
-                      onChange={this.handleChange}
-                    />
                   </label>
-                </FormField>
-                <FormField>
-                  <label htmlFor="description">
+                  <input
+                    name="title"
+                    className="field__input"
+                    placeholder="Donnez un nom à votre projet"
+                    value={title}
+                    onChange={this.handleInputChange}
+                  />
+                </div>
+
+                <div className="field">
+                  <label htmlFor="description" className="field__label">
                     Description <strong className="asterisk">*</strong>
-                    <textarea
-                      name="description"
-                      placeholder="Description de votre projet"
-                      rows="5"
-                      cols="50"
-                      value={description}
-                      onChange={this.handleChange}
-                    />
                   </label>
-                </FormField>
-                <FormField>
-                  <label htmlFor="destination">
+                  <textarea
+                    name="destination"
+                    className="field__input"
+                    placeholder="Description de votre projet"
+                    value={description}
+                    onChange={this.handleInputChange}
+                  />
+                </div>
+
+                <div className="field">
+                  <label htmlFor="destination" className="field__label">
                     Destination <strong className="asterisk">*</strong>
-                    <input
-                      name="destination"
-                      placeholder="Définissez une destination"
-                      value={destination}
-                      onChange={this.handleChange}
-                    />
                   </label>
-                </FormField>
+                  <input
+                    name="destination"
+                    className="field__input"
+                    placeholder="Définissez une destination"
+                    value={destination}
+                    onChange={this.handleInputChange}
+                  />
+                </div>
 
                 {(errors.length > 0) && (
-                  <div id="newproject-form__errors">
+                  <div>
                     {errors.map(error => (
-                      <Message negative key={error}>
+                      <div className="form__error">
                         <p>{error}</p>
-                      </Message>
+                      </div>
                     ))}
                   </div>
                 )}
 
-                <Button
-                  animated
-                  color="green"
+                <button
                   type="submit"
-                  floated="right"
+                  className="
+                    form__button
+                    form__button--right
+                    form__button--red"
                 >
-                  <Button.Content visible>Créer le projet</Button.Content>
-                  <Button.Content hidden>
-                    <Icon name="arrow right" />
-                  </Button.Content>
-                </Button>
-              </Form>
+                  Créer le projet
+                </button>
+              </form>
             </div>
           </section>
         )}
