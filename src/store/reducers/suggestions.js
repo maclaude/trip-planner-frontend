@@ -2,7 +2,7 @@
  * Initial State
  */
 const initialState = {
-  type: 0,
+  type: '1',
   title: '',
   description: '',
   url: '',
@@ -15,7 +15,6 @@ const initialState = {
  * Types
  */
 const CHANGE_SUGGESTION_INPUTS = 'CHANGE_SUGGESTION_INPUTS';
-const CHANGE_SUGGESTION_TYPE = 'CHANGE_SUGGESTION_TYPE';
 const SHOW_SUGGESTION_FORM_ERRORS = 'SHOW_SUGGESTION_FORM_ERRORS';
 
 export const ADD_PROJECT_SUGGESTION = 'ADD_PROJECT_SUGGESTION';
@@ -33,12 +32,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
-      };
-
-    case CHANGE_SUGGESTION_TYPE:
-      return {
-        ...state,
-        type: action.value,
       };
 
     case SHOW_SUGGESTION_FORM_ERRORS:
@@ -78,11 +71,6 @@ export const changeSuggestionInputs = (name, value) => ({
   value,
 });
 
-export const changeSuggestionType = value => ({
-  type: CHANGE_SUGGESTION_TYPE,
-  value,
-});
-
 export const showSuggestionFormErrors = errors => ({
   type: SHOW_SUGGESTION_FORM_ERRORS,
   errors,
@@ -119,7 +107,7 @@ export const getFilteredSuggestions = (suggestions, typeId) => {
 
   return [
     ...suggestions.filter(
-      suggestion => suggestion.suggestion_type === typeId,
+      suggestion => Number(suggestion.suggestion_type) === Number(typeId),
     )];
 };
 

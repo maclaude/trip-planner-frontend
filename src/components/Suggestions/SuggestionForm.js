@@ -3,14 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Form,
-  Button,
-  Icon,
-  Input,
-  FormField,
-  Message,
-} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -25,14 +17,6 @@ class SuggestionForm extends React.Component {
   /**
    * Handlers
    */
-  handleOptionChange = (evt, data) => {
-    const { changeType } = this.props;
-
-    const newType = data.value;
-
-    changeType(newType);
-  }
-
   handleInputChange = evt => {
     const { name, value } = evt.target;
 
@@ -66,15 +50,8 @@ class SuggestionForm extends React.Component {
    * Render
    */
   render() {
-    const options = [
-      { key: 'activity', text: 'Activité', value: 1 },
-      { key: 'accomodation', text: 'Hébergement', value: 2 },
-      { key: 'transport', text: 'Transport', value: 3 },
-      { key: 'restaurant', text: 'Restaurant', value: 4 },
-      { key: 'others', text: 'Autres', value: 5 },
-    ];
-
     const {
+      type,
       title,
       description,
       url,
@@ -84,95 +61,110 @@ class SuggestionForm extends React.Component {
 
     return (
       <section className="user-container__section-1" id="suggestions-form">
-        <Form
+        <form
+          className="form__container"
           onSubmit={this.handleSubmit}
         >
           <div id="suggestions-form-header">
+
             <h2 id="suggestions-form-header__title">
               Soumettre une idée concernant
             </h2>
-            <Form.Field id="suggestion-form-header__options">
-              <Form.Select
+
+            <div id="suggestion-form-header__options">
+              <select
                 name="type"
-                placeholder="Type"
-                options={options}
-                onChange={this.handleOptionChange}
-              />
-            </Form.Field>
+                value={type}
+                onChange={this.handleInputChange}
+                className="field__select"
+              >
+                <option value={1}>Activité</option>
+                <option value={2}>Hébergement</option>
+                <option value={3}>Transport</option>
+                <option value={4}>Restaurant</option>
+                <option value={5}>Autres</option>
+              </select>
+            </div>
           </div>
+
           <div id="suggestion-form-inputs">
-            <FormField>
-              <label htmlFor="title">
+
+            <div className="field">
+              <label htmlFor="title" className="field__label">
                 Titre <strong className="asterisk">*</strong>
-                <input
-                  type="text"
-                  name="title"
-                  placeholder="Votre idée"
-                  value={title}
-                  onChange={this.handleInputChange}
-                />
               </label>
-            </FormField>
-            <Form.Field>
-              <label htmlFor="description">
+              <input
+                name="title"
+                className="field__input"
+                placeholder="Titre de votre idée"
+                value={title}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="description" className="field__label">
                 Description
-                <textarea
-                  name="description"
-                  placeholder="Votre description"
-                  value={description}
-                  onChange={this.handleInputChange}
-                />
               </label>
-            </Form.Field>
-            <FormField>
-              <label htmlFor="idea-url">
+              <textarea
+                name="description"
+                className="field__input"
+                placeholder="Description de votre idée"
+                value={description}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="url" className="field__label">
                 Lien
-                <input
-                  type="text"
-                  name="url"
-                  placeholder="Lien"
-                  value={url}
-                  onChange={this.handleInputChange}
-                />
               </label>
-            </FormField>
-            <FormField width={8}>
-              <Input
-                label="Prix"
+              <input
+                name="url"
+                className="field__input"
+                placeholder="Ajouter un lien"
+                value={url}
+                onChange={this.handleInputChange}
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="price" className="field__label">
+                Prix estimé par personne (€)
+              </label>
+              <input
                 type="number"
                 name="price"
-                icon="euro sign"
+                className="field__input"
+                placeholder="Prix"
                 value={price}
                 onChange={this.handleInputChange}
               />
-            </FormField>
+            </div>
           </div>
 
           {(errors.length > 0) && (
             <div id="suggestions-form-errors">
               {errors.map(error => (
-                <Message negative key={error}>
-                  <p>
-                    {error}
-                  </p>
-                </Message>
+                <div className="form__error" key={error}>
+                  <p>{error}</p>
+                </div>
               ))}
             </div>
           )}
 
-          <Button
-            animated
-            color="green"
+          <button
             type="submit"
-            floated="right"
+            className="
+              form__button
+              form__button--right
+              form__button--grey
+            "
             onClick={this.handleSubmit}
           >
-            <Button.Content visible>Envoyer</Button.Content>
-            <Button.Content hidden>
-              <Icon name="paper plane" />
-            </Button.Content>
-          </Button>
-        </Form>
+            Envoyer
+          </button>
+        </form>
       </section>
     );
   }
@@ -183,14 +175,13 @@ SuggestionForm.propTypes = {
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
   }).isRequired,
-  type: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   errors: PropTypes.array.isRequired,
   changeInput: PropTypes.func.isRequired,
-  changeType: PropTypes.func.isRequired,
   showErrors: PropTypes.func.isRequired,
   addProjectSuggestion: PropTypes.func.isRequired,
 };

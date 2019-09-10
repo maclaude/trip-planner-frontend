@@ -265,7 +265,7 @@ const ajaxMiddleware = store => next => action => {
         description: state.suggestions.description,
         url: state.suggestions.url,
         price: parseInt(state.suggestions.price, 10),
-        suggestionType: state.suggestions.type,
+        suggestionType: Number(state.suggestions.type),
         userId: state.user.id,
         projectId: action.projectId,
       };

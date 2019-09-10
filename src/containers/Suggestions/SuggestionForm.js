@@ -11,7 +11,6 @@ import SuggestionForm from 'src/components/Suggestions/SuggestionForm';
 // Action Creators
 import {
   changeSuggestionInputs,
-  changeSuggestionType,
   showSuggestionFormErrors,
   addProjectSuggestion,
 } from 'src/store/reducers/suggestions';
@@ -33,9 +32,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   changeInput: (name, value) => {
     dispatch(changeSuggestionInputs(name, value));
-  },
-  changeType: value => {
-    dispatch(changeSuggestionType(value));
   },
   showErrors: errors => {
     dispatch(showSuggestionFormErrors(errors));
