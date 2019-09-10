@@ -1,6 +1,11 @@
 @import 'src/styles/vars';
 
 #add-participants {
+  &-form {
+    width: 350px;
+    margin: 2em auto;
+  }
+
   &-section {
     &__title {
       margin: 1em 0 1.5em;

@@ -7,6 +7,11 @@
   background-color: $white;
 }
 
+
+/* Fonts
+========================== */
+
+
 h1, h2 {
   font-weight: 700;
 }
@@ -15,10 +20,15 @@ h1, h2 {
   color: $asterisk-color;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 
 /* Buttons
-============================= */
+========================== */
 
+/* Button class added to NavLink element */
 
 .button {
   margin: auto;
@@ -63,6 +73,10 @@ h1, h2 {
     color: $white;
   }
 
+  .button p {
+    margin: auto;
+  }
+
   /* Custom buttons (colors + special properties) */
     
   &-new-project {
@@ -99,10 +113,6 @@ h1, h2 {
   }
 }
 
-.button p {
-  margin: auto;
-}
-
 
 /* Form
 ========================== */
@@ -110,8 +120,7 @@ h1, h2 {
 
 .form {
   &__container {
-    width: 450px;
-    margin: 2em auto;
+    width: 100%;
   }
 
 /* === Form title === */
@@ -124,10 +133,15 @@ h1, h2 {
     text-transform: uppercase;
   }
 
-  /* === Form buttons === */
+  /* === Form buttons ===
+   * Selectors added to <button> HTML element
+   */
 
   &__button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
     all: unset;
+
     box-sizing: border-box;
     width: fit-content;
     margin: .2em;
@@ -138,14 +152,19 @@ h1, h2 {
     text-align: center;
     box-shadow: 0 8px 1em $main-box-shadow-color;
     transition: transform ease-in-out 250ms;
+    cursor: pointer;
 
-    /* Button position */
+    /* Form button position */
+
+    &--left {
+      float: left;
+    }
 
     &--right {
       float: right;
     }
 
-    /* Button color */
+    /* Form button color */
 
     &--red {
       background-color: $red-pink;
@@ -167,7 +186,7 @@ h1, h2 {
     }
   }
 
-  /* === Form error === */
+  /* === Form errors === */
 
   &__error {
     padding: .5em;
@@ -187,6 +206,8 @@ h1, h2 {
   display: flex;
   flex-direction: column;
 
+  /* Field label */
+
   &__label {
     font-size: 1.2rem;
     font-weight: 700;
@@ -195,8 +216,10 @@ h1, h2 {
     cursor: default;
   }
 
+  /* Field input && textarea */
+
   &__input {
-    all: unset;
+    all: unset;    
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -211,17 +234,20 @@ h1, h2 {
     }
   }
 
+  /* Field select dropdown options */
+
   &__select {
-    display: block;
-    padding: .6em;
-    border: 1px solid rgb(235, 235, 235);
-    width: 150px;
-    border-radius: 4px;
-    color: #000;
-    font-size: 1.1rem;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+  
+    display: block;
+    width: 150px;
+    padding: .6em;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 4px;
+    color: #000;
+    font-size: 1.1rem;
     background-color: #fff;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
@@ -317,37 +343,10 @@ h1, h2 {
 /* Media queries
 ============================= */
 
-/* User View with burger menu */
-
-@media (max-width: 1100px) {
-  .user {
-    &-container {
-      grid-template-areas: 
-      "burger-menu title ."
-      "section-1 section-1 section-1"
-      "section-2 section-2 section-2"
-      ". footer .";
-
-      &__banner > h1 {
-        font-size: 2rem;
-      }
-
-      &__main {
-        justify-self: center;
-        align-self: center;
-        grid-column: 1 / span 3;
-        grid-row: 2 / span 2;
-      }
-
-      &__section-1,
-      &__section-2 {
-        margin: 0 1em;
-      }
-    }
-  }
-}
-
-/* User View with navigation without burger menu */
+/* 
+ * User view with navigation && without burger menu
+ * @screen-min: 1100px
+ */
 
 @media (min-width: 1100px) {
   .user {
@@ -357,9 +356,73 @@ h1, h2 {
       grid-template-rows: 40px auto auto 65px;
       grid-column-gap: 15px;
       grid-row-gap: 15px;
-
+      
+      &__banner > h1 {
+        height: 100%;
+        padding-left: .65em;
+        font-size: 1.8rem;
+      }
+      
       &__menu {
         display: none;
+      }
+    }
+  }
+}
+
+/* 
+ * User wiew with burger menu
+ * @screen-max: 1100px
+ */
+
+@media (max-width: 1100px) {
+  .user {
+    &-container {
+      padding: 1em;
+      grid-template-areas: 
+      "burger-menu title ."
+      "section-1 section-1 section-1"
+      "section-2 section-2 section-2"
+      ". footer .";
+      
+      &__banner > h1 {
+        padding-left: .70em;
+        font-size: 2rem;
+      }
+      
+      &__main {
+        justify-self: center;
+        align-self: center;
+        grid-column: 1 / span 3;
+        grid-row: 2 / span 2;
+      }
+      
+      &__section-1,
+      &__section-2 {
+        margin: 0 1em;
+      }
+    }
+  }
+}
+
+/* 
+ * @screen-max: 600px
+ */
+
+@media (max-width: 600px) {
+  /* Special case when the button needs a container to be centered */
+
+  .button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user {
+    &-container {
+      &__banner > h1 {
+        padding-left: .65em;
+        font-size: 1.8rem;
       }
     }
   }

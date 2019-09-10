@@ -87,124 +87,126 @@ class SignupForm extends React.Component {
 
     return (
       <div id="signup">
-        <form
-          className="form__container"
-          onSubmit={this.handleSubmit}
-        >
+        <div id="signup-form">
+          <form
+            className="form__container"
+            onSubmit={this.handleSubmit}
+          >
 
-          <div className="form__title">Inscription</div>
+            <div className="form__title">Inscription</div>
 
-          <div className="field">
-            <label htmlFor="firstname" className="field__label">
-              Prénom
-            </label>
-            <input
-              type="text"
-              name="firstname"
-              className="field__input"
-              placeholder="Votre prénom"
-              value={firstname}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="firstname" className="field__label">
+                Prénom
+              </label>
+              <input
+                type="text"
+                name="firstname"
+                className="field__input"
+                placeholder="Votre prénom"
+                value={firstname}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="lastname" className="field__label">
-              Nom
-            </label>
-            <input
-              type="text"
-              name="lastname"
-              className="field__input"
-              placeholder="Votre nom"
-              value={lastname}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="lastname" className="field__label">
+                Nom
+              </label>
+              <input
+                type="text"
+                name="lastname"
+                className="field__input"
+                placeholder="Votre nom"
+                value={lastname}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="email" className="field__label">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              className="field__input"
-              placeholder="Votre email"
-              value={email}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="email" className="field__label">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="field__input"
+                placeholder="Votre email"
+                value={email}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="password" className="field__label">
-              Mot de passe
-            </label>
-            <input
-              type="password"
-              name="password"
-              className="field__input"
-              placeholder="Votre mot de passe"
-              value={password}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="password" className="field__label">
+                Mot de passe
+              </label>
+              <input
+                type="password"
+                name="password"
+                className="field__input"
+                placeholder="Votre mot de passe"
+                value={password}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="confirm-password" className="field__label">
-              Confirmation du mot de passe
-            </label>
-            <input
-              type="password"
-              name="confirmedPassword"
-              className="field__input"
-              placeholder="Confirmez votre mot de passe"
-              value={confirmedPassword}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="confirm-password" className="field__label">
+                Confirmation du mot de passe
+              </label>
+              <input
+                type="password"
+                name="confirmedPassword"
+                className="field__input"
+                placeholder="Confirmez votre mot de passe"
+                value={confirmedPassword}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          {(errors.length > 0) && (
-            <div>
-              {errors.map(error => (
-                <div className="form__error" key={error}>
+            {(errors.length > 0) && (
+              <div>
+                {errors.map(error => (
+                  <div className="form__error" key={error}>
+                    <p>
+                      {error}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {(responseError !== '') && (
+              <div>
+                <div className="form__error">
                   <p>
-                    {error}
+                    {responseError}
                   </p>
                 </div>
-              ))}
-            </div>
-          )}
-
-          {(responseError !== '') && (
-            <div>
-              <div className="form__error">
-                <p>
-                  {responseError}
-                </p>
               </div>
-            </div>
-          )}
+            )}
 
-          <div id="signup-form-buttons">
-            <NavLink to="/connexion">
+            <div id="signup-form-buttons">
+              <NavLink to="/connexion">
+                <button
+                  type="button"
+                  className="form__button form__button--blue"
+                >
+                  J'ai déjà un compte
+                </button>
+              </NavLink>
+
               <button
-                type="button"
-                className="form__button form__button--blue"
+                type="submit"
+                className="form__button form__button--grey"
+                onClick={this.handleSubmit}
               >
-                J'ai déjà un compte
+                S'inscrire
               </button>
-            </NavLink>
-
-            <button
-              type="submit"
-              className="form__button form__button--grey"
-              onClick={this.handleSubmit}
-            >
-              S'inscrire
-            </button>
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

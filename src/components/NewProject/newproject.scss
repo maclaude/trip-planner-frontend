@@ -1,5 +1,12 @@
 @import 'src/styles/vars';
 
+#newproject {
+  &-form {
+    width: 450px;
+    margin: 2em auto;
+  }
+}
+
 /* Add participants & Suggest dates view */
 
 #project-created {

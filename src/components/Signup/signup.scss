@@ -1,7 +1,12 @@
 @import 'src/styles/vars';
 
 #signup {
+  margin-top: 4em;
+  
   &-form {
+    width: 450px;
+    margin: 2em auto;
+
     &-buttons {
       display: flex;
       justify-content: center;

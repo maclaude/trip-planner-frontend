@@ -59,6 +59,17 @@ class SuggestionForm extends React.Component {
       errors,
     } = this.props;
 
+    /* Price label for each suggestion types */
+
+    let priceLabel = 'Prix estimé par personne (€)';
+
+    if (type === '2') {
+      priceLabel = 'Prix par nuit et par personne (€)';
+    }
+    else if (type === '3') {
+      priceLabel = 'Prix du trajet (€)';
+    }
+
     return (
       <section className="user-container__section-1" id="suggestions-form">
         <form
@@ -130,7 +141,7 @@ class SuggestionForm extends React.Component {
 
             <div className="field">
               <label htmlFor="price" className="field__label">
-                Prix estimé par personne (€)
+                {priceLabel}
               </label>
               <input
                 type="number"

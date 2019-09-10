@@ -84,82 +84,85 @@ class LoginForm extends React.Component {
 
         */}
         { (status !== 'loading') && (
-          <form
-            className="form__container"
-            onSubmit={this.handleSubmit}
-          >
 
-            <div className="form__title">Connexion</div>
+          <div id="login-form">
+            <form
+              className="form__container"
+              onSubmit={this.handleSubmit}
+            >
 
-            <div className="field">
-              <label htmlFor="email" className="field__label">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                className="field__input"
-                placeholder="Votre email"
-                value={email}
-                onChange={this.handleInputChange}
-              />
-            </div>
+              <div className="form__title">Connexion</div>
 
-            <div className="field">
-              <label htmlFor="password" className="field__label">
-                Mot de passe
-              </label>
-              <input
-                type="password"
-                name="password"
-                className="field__input"
-                placeholder="Votre mot de passe"
-                value={password}
-                onChange={this.handleInputChange}
-              />
-            </div>
+              <div className="field">
+                <label htmlFor="email" className="field__label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="field__input"
+                  placeholder="Votre email"
+                  value={email}
+                  onChange={this.handleInputChange}
+                />
+              </div>
 
-            {(errors.length > 0) && (
-              <div>
-                {errors.map(error => (
-                  <div className="form__error" key={error}>
+              <div className="field">
+                <label htmlFor="password" className="field__label">
+                  Mot de passe
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="field__input"
+                  placeholder="Votre mot de passe"
+                  value={password}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              {(errors.length > 0) && (
+                <div>
+                  {errors.map(error => (
+                    <div className="form__error" key={error}>
+                      <p>
+                        {error}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {(responseError !== '') && (
+                <div>
+                  <div className="form__error">
                     <p>
-                      {error}
+                      {responseError}
                     </p>
                   </div>
-                ))}
-              </div>
-            )}
-
-            {(responseError !== '') && (
-              <div>
-                <div className="form__error">
-                  <p>
-                    {responseError}
-                  </p>
                 </div>
-              </div>
-            )}
+              )}
 
-            <div id="login-form-buttons">
-              <NavLink to="/inscription">
+              <div id="login-form-buttons">
+                <NavLink to="/inscription">
+                  <button
+                    type="button"
+                    className="form__button form__button--blue"
+                  >
+                    Je n'ai pas de compte
+                  </button>
+                </NavLink>
+
                 <button
-                  type="button"
-                  className="form__button form__button--blue"
+                  type="submit"
+                  className="form__button form__button--grey"
+                  onClick={this.handleSubmit}
                 >
-                  Je n'ai pas de compte
+                  Connexion
                 </button>
-              </NavLink>
-
-              <button
-                type="submit"
-                className="form__button form__button--grey"
-                onClick={this.handleSubmit}
-              >
-                Connexion
-              </button>
-            </div>
-          </form>
+              </div>
+            </form>
+          </div>
         )}
       </div>
     );

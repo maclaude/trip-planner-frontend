@@ -81,61 +81,61 @@ class AddParticipants extends React.Component {
 
         <section className="user-container__section-1">
 
-          <form
-            className="form__container"
-            onSubmit={this.handleSubmit}
-          >
-
-            <div className="field">
-              <label htmlFor="name" className="field__label">
-                Nom <strong className="asterisk">*</strong>
-              </label>
-              <input
-                name="name"
-                className="field__input"
-                placeholder="Nom du participant"
-                value={name}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            <div className="field">
-              <label htmlFor="email" className="field__label">
-                Email <strong className="asterisk">*</strong>
-              </label>
-              <input
-                type="email"
-                name="email"
-                className="field__input"
-                placeholder="Email du participant"
-                value={email}
-                onChange={this.handleInputChange}
-              />
-            </div>
-
-            {(errors.length > 0) && (
-              <div>
-                {errors.map(error => (
-                  <div className="form__error" key={error}>
-                    <p>
-                      {error}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              className="
-                form__button
-                form__button--right
-                form__button--red"
+          <div id="add-participants-form">
+            <form
+              className="form__container"
+              onSubmit={this.handleSubmit}
             >
-              Envoyer l'invitation
-            </button>
+              <div className="field">
+                <label htmlFor="name" className="field__label">
+                  Nom <strong className="asterisk">*</strong>
+                </label>
+                <input
+                  name="name"
+                  className="field__input"
+                  placeholder="Nom du participant"
+                  value={name}
+                  onChange={this.handleInputChange}
+                />
+              </div>
 
-          </form>
+              <div className="field">
+                <label htmlFor="email" className="field__label">
+                  Email <strong className="asterisk">*</strong>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="field__input"
+                  placeholder="Email du participant"
+                  value={email}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              {(errors.length > 0) && (
+                <div>
+                  {errors.map(error => (
+                    <div className="form__error" key={error}>
+                      <p>
+                        {error}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="
+                  form__button
+                  form__button--right
+                  form__button--red"
+              >
+                Envoyer l'invitation
+              </button>
+            </form>
+          </div>
 
         </section>
 

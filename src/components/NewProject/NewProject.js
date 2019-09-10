@@ -107,6 +107,7 @@ class NewProject extends React.Component {
 
         {(serverResponseMessage === '') && (
           <section className="user-container__main">
+
             <div id="newproject-form">
               <form
                 className="form__container"
@@ -173,6 +174,7 @@ class NewProject extends React.Component {
                 </button>
               </form>
             </div>
+
           </section>
         )}
 

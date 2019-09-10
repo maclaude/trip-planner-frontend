@@ -68,62 +68,62 @@ class Profil extends React.Component {
           <h1>Profil</h1>
         </div>
 
-        <form
-          className="user-container__section-1 form__container"
-        >
+        <div className="user-container__section-1" id="profil-form">
+          <form className="form__container">
 
-          <div className="form__title">Mes informations</div>
+            <div className="form__title">Mes informations</div>
 
-          <div className="field">
-            <label htmlFor="firstname" className="field__label">
-              Prénom
-            </label>
-            <input
-              type="text"
-              name="firstname"
-              className="field__input"
-              placeholder="Votre prénom"
-              value={firstname}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="firstname" className="field__label">
+                Prénom
+              </label>
+              <input
+                type="text"
+                name="firstname"
+                className="field__input"
+                placeholder="Votre prénom"
+                value={firstname}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="lastname" className="field__label">
-              Nom
-            </label>
-            <input
-              type="text"
-              name="lastname"
-              className="field__input"
-              placeholder="Votre nom"
-              value={lastname}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="lastname" className="field__label">
+                Nom
+              </label>
+              <input
+                type="text"
+                name="lastname"
+                className="field__input"
+                placeholder="Votre nom"
+                value={lastname}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <div className="field">
-            <label htmlFor="email" className="field__label">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              className="field__input"
-              placeholder="Votre email"
-              value={email}
-              onChange={this.handleInputChange}
-            />
-          </div>
+            <div className="field">
+              <label htmlFor="email" className="field__label">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="field__input"
+                placeholder="Votre email"
+                value={email}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          <button
-            type="submit"
-            className="form__button form__button--red form__button--right"
-            onClick={this.handleSubmit}
-          >
-            Modifier
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="form__button form__button--red form__button--right"
+              onClick={this.handleSubmit}
+            >
+              Modifier
+            </button>
+          </form>
+        </div>
 
         <UserFooter />
       </div>

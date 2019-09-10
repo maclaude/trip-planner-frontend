@@ -32,7 +32,7 @@ const Availability = ({ project }) => (
 
     <section className="user-container__main" id="availability-section">
       <h2 id="availability-section__title">
-        Sélectionner vos disponibilités:
+        Vos disponibilités pour le projet - <span className="bold">{project.title}</span>
       </h2>
       <div id="availability-section__content">
         {project.dates.map(date => (
@@ -42,22 +42,25 @@ const Availability = ({ project }) => (
           />
         ))}
       </div>
-      <NavLink
-        to={getURL('/idees', project.title)}
-        key={project._id}
-        exact
-      >
-        <button
-          type="button"
-          className="
-            form__button
-            form__button--red
-            form__button--right
-          "
+      <div className="button__container">
+        <NavLink
+          to={getURL('/idees', project.title)}
+          key={project._id}
+          className=""
+          exact
         >
-         Etape suivante
-        </button>
-      </NavLink>
+          <button
+            type="button"
+            className="
+              form__button
+              form__button--right
+              form__button--grey
+            "
+          >
+          Etape suivante
+          </button>
+        </NavLink>
+      </div>
     </section>
 
     <UserFooter />
