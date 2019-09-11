@@ -2,11 +2,6 @@
 
 #dates {
   &-form {
-    text-align: center;
-    margin: 1em auto;
-    padding: 1em;
-    font-size: 1.2em;
-    width: fit-content;
 
     &__title {
       padding: .5em 0;
@@ -37,23 +32,6 @@
   }
 }
 
-.dates-form__element {
-  margin: .5em;
-}
-
-.date-form__label {
-  text-align: left;
-  padding-left: 20px;
-}
-
-.date-form__input {
-  width: 50%;
-  margin-right: 2em;
-  min-width: 210px !important;
-  z-index: 0;
-}
-
-
 .dates-suggested-item {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
   color: $button-text-color;
@@ -77,6 +55,16 @@
 /* Media queries
 ============================= */
 
+@media (max-width: 600px) {
+  #dates {
+    &-form {
+      &__title {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
 
 @media (max-width: 900px) {
   #dates-form__main {
@@ -85,16 +73,13 @@
     justify-content: center;
   }
 
-  .dates-form__element {
-    width: 70%;
-  }
-
-  .date-form__label {
-    padding: 0;
-    text-align: center;
-  }
-
-  .date-form__input {
-    margin: auto;
+  .dates-form {
+    &__label {
+      margin: auto;
+    }
+     
+    &__input {
+      margin: .5em auto;
+    }
   }
 }

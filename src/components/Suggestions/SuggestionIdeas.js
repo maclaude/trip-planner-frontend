@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -18,16 +17,14 @@ const SuggestionIdeas = ({ project, suggestions }) => (
     <h2 id="suggestions-ideas__title">
       Suggestions du groupe
     </h2>
-    <div id="suggestion-ideas__cards">
-      <Card.Group>
-        {suggestions.map(suggestion => (
-          <SingleCard
-            key={suggestion._id}
-            projectId={project._id}
-            {...suggestion}
-          />
-        ))}
-      </Card.Group>
+    <div id="suggestions-ideas__cards">
+      {suggestions.map(suggestion => (
+        <SingleCard
+          key={suggestion._id}
+          projectId={project._id}
+          {...suggestion}
+        />
+      ))}
     </div>
   </section>
 );

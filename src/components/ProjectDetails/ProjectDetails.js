@@ -3,10 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Image,
-  List,
-} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -21,8 +17,6 @@ import Restaurant from 'src/containers/ProjectDetails/Restaurant';
 import Other from 'src/containers/ProjectDetails/Other';
 import UserFooter from 'src/components/UserFooter';
 import GoogleMap from 'src/components/GoogleMap';
-// Assets
-import avatar from 'src/assets/avatar/default-user.png';
 
 /**
  * Code
@@ -71,7 +65,7 @@ class ProjectDetails extends React.Component {
 
             <div>
               <h2 className="user-section__title">Participants</h2>
-              <List
+              <ul
                 id="project-details-header-right-participants-list"
                 animated
                 verticalAlign="middle"
@@ -82,17 +76,12 @@ class ProjectDetails extends React.Component {
                 )}
                 {project.participants.length !== 0 && (
                   project.participants.map(participant => (
-                    <List.Item
-                      key={participant._id}
-                    >
-                      <Image avatar src={avatar} />
-                      <List.Content>
-                        <List.Header>{participant.firstname}</List.Header>
-                      </List.Content>
-                    </List.Item>
+                    <li key={participant._id}>
+                      {participant.firstname}
+                    </li>
                   ))
                 )}
-              </List>
+              </ul>
             </div>
 
             <div>

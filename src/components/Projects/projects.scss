@@ -76,12 +76,13 @@
   }
 }
 
+
 /* Single project card
 ============================= */
 
+
 .project-card {
-  min-height: 300px;
-  min-width: 275px;
+  height: 300px;
   width: 275px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 10px;
@@ -90,6 +91,8 @@
   &-header, &-main, &-footer {
     padding: .75rem;
   }
+
+  /* Card header */
 
   &-header {
     border-bottom: 1px solid #EBEBEB;
@@ -108,6 +111,8 @@
       }
     }
   }
+
+  /* Card main */
 
   &-main {
     &__title {

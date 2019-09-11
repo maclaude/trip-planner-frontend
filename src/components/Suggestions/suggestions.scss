@@ -1,6 +1,14 @@
 @import 'src/styles/vars';
 
+
+/* View layout
+============================= */
+
+
 #suggestions {
+
+  /* Form section */
+
   &-form {
     &-header {
       display: flex;
@@ -11,8 +19,8 @@
 
       &__title {
         margin-block-start: 0;
-        padding: 0;
         margin: 0 20px 0 0;
+        padding: 0;
         font-size: 1.4rem;
         font-weight: 600;
         width: 70%;
@@ -29,6 +37,8 @@
     }
   }
 
+  /* Suggestions by type section */
+
   &-ideas {
     width: 90%;
     height: auto;
@@ -42,26 +52,85 @@
     }
 
     &__cards {
-      margin: 2em 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
   }
 }
 
-.card {
-  &-fit-content {
-    max-height: fit-content;
+
+/* Single suggestion card
+============================= */
+
+
+.suggestion-card {
+  width: 250px;
+  height: fit-content;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+  &-header, &-main, &-footer {
+    padding: .75rem;
   }
 
-  &-votes {
-    color: $black;
-    padding: 0 0 .6em;
+  /* Card header */
+
+  &-header {
+    border-bottom: 1px solid #EBEBEB;
+
+    &__title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: .3em;
+      text-align: center;
+    }
   }
 
-  &-icons {
-     &-heart {
-      cursor: pointer;
+  /* Card main */
+  
+  &-main {
+    &__description {
+      margin-bottom: .2em;
+      font-size: 1.1rem;
+    }
+
+    &__link {
+      margin-bottom: 1em;
+      color: #000;
+      text-decoration: underline;
+      float: right;
+
+      &:hover {
+        color:#000;
+      }
+    }
+
+    &__price {
+      margin-top: 2em;
+    }
+
+    &__author {
+      margin-top: .5em;
+    }
+  }
+
+  /* Card footer */
+
+  &-footer {
+    border-top: 1px solid #EBEBEB;
+    text-align: center;
+
+    &__participants {
+      margin: .5em 0;
+      font-size: 1.1rem;
+    }
+
+    &__icon {
       width: 30px;
       height: auto;
+      cursor: pointer;
 
       &--active {
         color: $red-pink;

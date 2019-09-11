@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Card, Icon } from 'semantic-ui-react';
 import { FaRegHeart } from 'react-icons/fa';
 
 /**
@@ -40,41 +39,47 @@ class SingleCard extends React.Component {
 
     const currentUserHasVoted = userVote.find(vote => vote === userId);
 
-    const votesCount = userVote.length;
+    // const votesCount = userVote.length;
 
     return (
-      <Card className="card">
-        <Card.Content
-          header={title}
-          description={description}
-        />
-        <Card.Content
-          className="card-fit-content"
-          meta={<a target="new" href={url}>Lien</a>}
-        />
-        <Card.Content
-          className="card-fit-content"
-          description={`Prix: ${price}€`}
-        />
-        <Card.Content className="card-fit-content" textAlign="center" extra>
-          <Icon name="user" />
-          <strong>{author.firstname}</strong>
-        </Card.Content>
-        <Card.Content className="card-fit-content" textAlign="center" extra>
-          <div className="card-votes">
+      <div className="suggestion-card">
+        <div className="suggestion-card-header">
+          <div className="suggestion-card-header__title">
+            {title}
+          </div>
+        </div>
+
+        <div className="suggestion-card-main">
+          <div className="suggestion-card-main__description">
+            {description}
+          </div>
+
+          <a className="suggestion-card-main__link" target="new" href={url}>Site web</a>
+
+          <div className="suggestion-card-main__price">
+            Prix: <strong>{price}€</strong>
+          </div>
+
+          <div className="suggestion-card-main__author">
+            Suggéré par <strong>{author.firstname}</strong>
+          </div>
+        </div>
+
+        <div className="suggestion-card-footer">
+
+          {/* <div className="suggestion-card-footer__participants">
             {votesCount} participants ont approuvés
-          </div>
-          <div className="card-icons">
-            <FaRegHeart
-              className={classNames(
-                'card-icons-heart',
-                { 'card-icons-heart--active': currentUserHasVoted },
-              )}
-              onClick={this.voteProjectSuggestion(suggestionId)}
-            />
-          </div>
-        </Card.Content>
-      </Card>
+          </div> */}
+
+          <FaRegHeart
+            className={classNames(
+              'suggestion-card-footer__icon',
+              { 'suggestion-card-footer__icon--active': currentUserHasVoted },
+            )}
+            onClick={this.voteProjectSuggestion(suggestionId)}
+          />
+        </div>
+      </div>
     );
   }
 }

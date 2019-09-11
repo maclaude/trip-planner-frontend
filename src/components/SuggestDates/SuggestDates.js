@@ -3,11 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Input,
-  Form,
-  Message,
-} from 'semantic-ui-react';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 
 /**
@@ -91,66 +86,71 @@ class SuggestDates extends React.Component {
         </div>
 
         <section className="user-container__section-1">
-          <Form
-            id="dates-form"
-            action=""
-            onSubmit={this.handleSubmit}
-          >
-            <h2 id="dates-form__title">
-              Choisissez des dates pour votre séjour
-            </h2>
-            <div id="dates-form__main">
-              <div className="dates-form__element">
-                <h3 className="date-form__label">Date de début</h3>
-                <Input
-                  label={{ icon: 'asterisk' }}
-                  labelPosition="left corner"
-                  name="startDate"
-                  className="date-form__input"
-                  type="date"
-                  value={startDate}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="dates-form__element">
-                <h3 className="date-form__label">Date de fin</h3>
-                <Input
-                  label={{ icon: 'asterisk' }}
-                  labelPosition="left corner"
-                  name="endDate"
-                  className="date-form__input"
-                  type="date"
-                  value={endDate}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="dates-form__element">
-                <div
-                  className="
-                    button
-                    button--circular
-                    button-add-dates
-                  "
-                  onClick={this.handleSubmit}
-                >
-                  <FaPlus className="button--circular__icon" />
+          <div id="dates-form">
+            <form
+              className="form__container"
+              onSubmit={this.handleSubmit}
+            >
+              <h2 id="dates-form__title">
+                Choisissez des dates pour votre séjour
+              </h2>
+
+              <div id="dates-form__main">
+
+                <div className="field">
+                  <label className="field__label dates-form__label">
+                    Date de début <span className="asterisk">*</span>
+                  </label>
+                  <input
+                    name="startDate"
+                    className="field__date dates-form__input"
+                    type="date"
+                    value={startDate}
+                    onChange={this.handleChange}
+                  />
                 </div>
+
+                <div className="field">
+                  <label className="field__label dates-form__label">
+                    Date de fin <span className="asterisk">*</span>
+                  </label>
+                  <input
+                    name="endDate"
+                    className="field__date dates-form__input"
+                    type="date"
+                    value={endDate}
+                    onChange={this.handleChange}
+                  />
+                </div>
+
+                <div className="dates-form__element">
+                  <div
+                    className="
+                      button
+                      button--circular
+                      button-add-dates
+                    "
+                    onClick={this.handleSubmit}
+                  >
+                    <FaPlus className="button--circular__icon" />
+                  </div>
+                </div>
+
               </div>
-            </div>
 
-            {(errors.length > 0) && (
-            <div id="dates-form-errors">
-              {errors.map(error => (
-                <Message negative key={error}>
-                  <p>
-                    {error}
-                  </p>
-                </Message>
-              ))}
-            </div>
-            )}
-
-          </Form>
+              {(errors.length > 0) && (
+                <div id="dates-form-errors">
+                  {errors.map(error => (
+                    <div className="form__error" key={error}>
+                      <p>
+                        {error}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </form>
+          </div>
         </section>
 
         <section className="user-container__section-2" id="dates-suggested">
