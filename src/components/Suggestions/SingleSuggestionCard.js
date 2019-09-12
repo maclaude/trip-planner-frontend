@@ -51,9 +51,9 @@ class SingleSuggestionCard extends React.Component {
 
         <div className="suggestion-card-main">
           <section>
-            <div className="suggestion-card-main__description">
+            <p className="suggestion-card-main__description">
               {description}
-            </div>
+            </p>
 
             <a className="suggestion-card-main__link" target="new" href={url}>Site web</a>
           </section>
@@ -71,7 +71,7 @@ class SingleSuggestionCard extends React.Component {
 
         <div className="suggestion-card-footer">
 
-          {/* <div className="suggestion-card-footer__participants">
+          {/* <div className="suggestion-card-footer__participants-vote">
             {votesCount} participants ont approuvés
           </div> */}
 

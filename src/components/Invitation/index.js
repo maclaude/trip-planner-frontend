@@ -33,9 +33,9 @@ class InvitationView extends React.Component {
     return (
       <div id="invitation">
         <div id="invitation_main">
-          <h1 id="invitation_main-title">Bonjour !</h1>
+          <h1 id="invitation_main__title">Bonjour !</h1>
           <h2>Vous avez été invité à rejoindre le projet de Marc-Antoine</h2>
-          <div id="invitation_main-authentication">
+          <div id="invitation_main__authentication">
             <NavLink
               to="/inscription"
               exact

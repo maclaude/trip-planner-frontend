@@ -9,7 +9,8 @@
   &-section {
     &__title {
       margin: 1em 0 1.5em;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.4rem;
       text-align: center;
     }
 
@@ -17,6 +18,7 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: nowrap;
+      font-size: 1.3em;
 
       &--confirmed, &--pending {
         width: 50%;
@@ -26,8 +28,9 @@
       }
 
       &--confirmed h3, &--pending h3 {
-        text-decoration: underline;
         margin-bottom: 1.8em;
+        text-transform: uppercase;
+        text-decoration: underline;
       }
 
       &--confirmed {
@@ -39,7 +42,6 @@
         width: fit-content;
         min-width: 200px;
         margin: auto;
-        font-size: 1.3em;
       }
     }
   }

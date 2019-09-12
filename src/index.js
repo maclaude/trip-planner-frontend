@@ -7,7 +7,6 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import 'semantic-ui-css/semantic.min.css';
 
 /**
  * Local import

@@ -2,11 +2,15 @@
 
 #dates {
   &-form {
+    margin-top: 3em;
+    width: 500px;
 
     &__title {
       padding: .5em 0;
-      margin: .5em;
+      margin: 2em 0;
       text-align: center;
+      font-size: 1.6rem;
+      font-weight: 400;
     }
 
     &__errors {
@@ -34,11 +38,12 @@
 
 .dates-suggested-item {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
+  font-weight: 700;
+  font-size: 1.4rem;
   color: $button-text-color;
-  font-weight: 600;
   margin: 1em auto;
-  padding: .5em;
-  width: 350px;
+  padding: 1em;
+  width: 400px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -67,15 +72,22 @@
 
 
 @media (max-width: 900px) {
-  #dates-form__main {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  #dates {
+    &-form {
+      width: 400px;
+  
+      &__main {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   .dates-form {
     &__label {
       margin: auto;
+      font-weight: 400;
     }
      
     &__input {

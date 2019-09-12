@@ -45,7 +45,7 @@ class SingleDateButton extends React.Component {
         )}
         onClick={this.voteProjectDates(datesId)}
       >
-        {`Du ${getDateFormat(startDate)} au ${getDateFormat(endDate)}`}
+        Du <strong>{getDateFormat(startDate)}</strong> au <strong>{getDateFormat(endDate)}</strong>
       </div>
     );
   }

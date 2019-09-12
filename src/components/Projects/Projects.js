@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
  */
 // Styles
 import './projects.scss';
-import 'toasted-notes/src/styles.css';
+
 // Components
 import UserFooter from 'src/components/UserFooter';
 import SingleProjectCard from 'src/containers/Projects/SingleProjectCard';

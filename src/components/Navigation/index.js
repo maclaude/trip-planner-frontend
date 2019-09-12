@@ -94,7 +94,7 @@ class Navigation extends React.Component {
             activeClassName="navigation__link--active"
           >
             <div className="navigation__link-title">
-              Nouveau projet
+              <strong>Nouveau projet</strong>
             </div>
             <FaPlus />
           </NavLink>

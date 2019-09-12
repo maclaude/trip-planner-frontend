@@ -14,7 +14,7 @@ import { getURL } from 'src/utils/url';
 import './availability.scss';
 // Components
 import UserFooter from 'src/components/UserFooter';
-import SingleDateButton from 'src/containers/Availability/SingleDateButton';
+import SingleDatesButton from 'src/containers/Availability/SingleDatesButton';
 
 /**
  * Code
@@ -32,11 +32,11 @@ const Availability = ({ project }) => (
 
     <section className="user-container__main" id="availability-section">
       <h2 id="availability-section__title">
-        Vos disponibilités pour le projet - <span className="bold">{project.title}</span>
+        Vos disponibilités pour le projet - <strong>{project.title}</strong>
       </h2>
       <div id="availability-section__content">
         {project.dates.map(date => (
-          <SingleDateButton
+          <SingleDatesButton
             key={date._id}
             {...date}
           />

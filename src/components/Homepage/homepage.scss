@@ -1,7 +1,6 @@
 @import 'src/styles/vars';
 
 #homepage {
-  min-width: 100vw;
   min-height: 100vh;
   font-size: 1.2rem;
 }
@@ -10,6 +9,8 @@
 #homepage h2,
 #homepage h3 {
   font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: .8em;
 }
 
 .home-header {

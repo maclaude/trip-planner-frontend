@@ -67,9 +67,6 @@ class ProjectDetails extends React.Component {
               <h2 className="user-section__title">Participants</h2>
               <ul
                 id="project-details-header-right-participants-list"
-                animated
-                verticalAlign="middle"
-                size="big"
               >
                 {project.participants.length === 0 && (
                   <p>Aucun participant au projet</p>
@@ -95,7 +92,7 @@ class ProjectDetails extends React.Component {
 
         <section className="user-container__section-2" id="project-details-suggestions">
           <div id="project-details-suggestions-activity">
-            <h2 className="project-details-title">Activités</h2>
+            <h2 className="user-container__section-2__title">Activités</h2>
             <Activity
               type={1}
               projectId={project._id}
@@ -103,7 +100,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="project-details-suggestions-accomodation">
-            <h2 className="suggestion-title">Hébergements</h2>
+            <h2 className="user-container__section-2__title">Hébergements</h2>
             <Accomodation
               type={2}
               projectId={project._id}
@@ -111,7 +108,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="project-details-suggestions-transport">
-            <h2 className="suggestion-title">Transports</h2>
+            <h2 className="user-container__section-2__title">Transports</h2>
             <Transport
               type={3}
               projectId={project._id}
@@ -119,7 +116,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="project-details-suggestions-restaurant">
-            <h2 className="suggestion-title">Restaurants</h2>
+            <h2 className="user-container__section-2__title">Restaurants</h2>
             <Restaurant
               type={4}
               projectId={project._id}
@@ -127,7 +124,7 @@ class ProjectDetails extends React.Component {
             />
           </div>
           <div id="project-details-suggestions-others">
-            <h2 className="suggestion-title">Autres</h2>
+            <h2 className="user-container__section-2__title">Autres</h2>
             <Other
               type={5}
               projectId={project._id}

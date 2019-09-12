@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -18,18 +17,26 @@ const SuggestionCard = ({
   description,
   user_vote: userVote,
 }) => (
-  <Card className="suggestion-card">
-    <Card.Content>
-      <Card.Header>{title}</Card.Header>
-      <Card.Meta>{author.firstname}</Card.Meta>
-      <Card.Description>
+  <div className="suggestion-card-mini">
+    <div className="suggestion-card-mini-header">
+      <div className="suggestion-card-mini-header__title">
+        {title}
+      </div>
+      <p className="suggestion-card-mini-header__author">
+        {author.firstname}
+      </p>
+    </div>
+    <div className="suggestion-card-mini-main">
+      <p className="suggestion-card-mini-main__description">
         {description}
-      </Card.Description>
-    </Card.Content>
-    <Card.Content className="suggestion-card-participants-approval" textAlign="center">
-      <Card.Meta>Appouvé par {userVote.length} participants</Card.Meta>
-    </Card.Content>
-  </Card>
+      </p>
+    </div>
+    <div className="suggestion-card-mini-footer">
+      <div className="suggestion-card-mini-footer__participants-vote">
+        Approuvé par <strong>{userVote.length}</strong> participants
+      </div>
+    </div>
+  </div>
 );
 
 // PropTypes validation
