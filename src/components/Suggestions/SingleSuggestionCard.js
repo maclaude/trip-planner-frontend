@@ -13,7 +13,7 @@ import { FaRegHeart } from 'react-icons/fa';
 /**
  * Code
  */
-class SingleCard extends React.Component {
+class SingleSuggestionCard extends React.Component {
   /**
    * Handlers
    */
@@ -50,19 +50,23 @@ class SingleCard extends React.Component {
         </div>
 
         <div className="suggestion-card-main">
-          <div className="suggestion-card-main__description">
-            {description}
-          </div>
+          <section>
+            <div className="suggestion-card-main__description">
+              {description}
+            </div>
 
-          <a className="suggestion-card-main__link" target="new" href={url}>Site web</a>
+            <a className="suggestion-card-main__link" target="new" href={url}>Site web</a>
+          </section>
 
-          <div className="suggestion-card-main__price">
-            Prix: <strong>{price}€</strong>
-          </div>
+          <section>
+            <div className="suggestion-card-main__price">
+              Prix: <strong>{price}€</strong>
+            </div>
 
-          <div className="suggestion-card-main__author">
-            Suggéré par <strong>{author.firstname}</strong>
-          </div>
+            <div className="suggestion-card-main__author">
+              Suggéré par <strong>{author.firstname}</strong>
+            </div>
+          </section>
         </div>
 
         <div className="suggestion-card-footer">
@@ -85,7 +89,7 @@ class SingleCard extends React.Component {
 }
 
 // PropTypes validation
-SingleCard.propTypes = {
+SingleSuggestionCard.propTypes = {
   projectId: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
   _id: PropTypes.string.isRequired,
@@ -103,4 +107,4 @@ SingleCard.propTypes = {
 /**
  * Export
  */
-export default SingleCard;
+export default SingleSuggestionCard;

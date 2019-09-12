@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 /**
  * Local import
  */
-import SingleCard from 'src/containers/Suggestions/SingleCard';
+import SingleSuggestionCard from 'src/containers/Suggestions/SingleSuggestionCard';
 
 /**
  * Code
@@ -19,7 +19,7 @@ const SuggestionIdeas = ({ project, suggestions }) => (
     </h2>
     <div id="suggestions-ideas__cards">
       {suggestions.map(suggestion => (
-        <SingleCard
+        <SingleSuggestionCard
           key={suggestion._id}
           projectId={project._id}
           {...suggestion}
