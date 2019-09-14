@@ -15,7 +15,7 @@ import UserFooter from 'src/components/UserFooter';
 // Styles
 import './newproject.scss';
 // Utils
-import NewProjectErrors from 'src/utils/newProject_form_errors';
+import NewProjectErrors from 'src/utils/new-project_form_errors';
 import { getURL } from 'src/utils/url';
 
 /**

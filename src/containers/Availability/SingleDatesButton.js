@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 /**
  * Local import
  */
-import singleDatesButton from 'src/components/Availability/SingleDateButton';
+import SingleDatesButton from 'src/components/Availability/SingleDatesButton';
 
 // Action Creators
 import { voteProjectDates } from 'src/store/reducers/project';
@@ -29,12 +29,12 @@ const mapDispatchToProps = dispatch => ({
 /**
  * Connect
  */
-const singleDatesButtonContainer = connect(
+const SingleDatesButtonContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(singleDatesButton);
+)(SingleDatesButton);
 
 /**
  * Export
  */
-export default singleDatesButtonContainer;
+export default SingleDatesButtonContainer;

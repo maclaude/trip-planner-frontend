@@ -9,7 +9,7 @@ import { FaPlus, FaTrash } from 'react-icons/fa';
  * Local import
  */
 // Utils
-import SuggestDatesErrors from 'src/utils/suggestdates_form_errors';
+import SuggestDatesErrors from 'src/utils/suggest-dates_form_errors';
 import { getDateFormat } from 'src/utils/date_format';
 // Components
 import UserFooter from 'src/components/UserFooter';
