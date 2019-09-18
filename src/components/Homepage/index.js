@@ -58,9 +58,11 @@ class HomeView extends React.Component {
           </nav>
         </header>
 
-        <main>
+        <div>
           <section className="home-intro">
-            <h1>Planifier facilement vos prochains voyages</h1>
+            <h1 className="home-intro__title">
+              Planifier facilement vos prochains voyages
+            </h1>
           </section>
           <div className="home-about">
             <h2 className="home-about__title">Les fonctionnalités</h2>
@@ -85,7 +87,7 @@ class HomeView extends React.Component {
               </div>
             </div>
           </div>
-        </main>
+        </div>
       </div>
     );
   }

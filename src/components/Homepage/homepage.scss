@@ -13,35 +13,90 @@
   margin-bottom: .8em;
 }
 
-.home-header {
-  --text: #f4f4f4;
-  --text-inverse: #333;
-  --background: transparent;
+.home {
 
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2em 3em;
-  transition: background 250ms ease-in;
-  background: var(--background);
-  color: var(--text);
+  /* Homepage header */
+
+  &-header {
+    --text: #f4f4f4;
+    --text-inverse: #333;
+    --background: transparent;
   
-  &__logo {
-    width: fit-content;
-    font-size: 2rem;
-    font-weight: 800;
-    color: $white;
-
-    &:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 3em;
+    transition: background 250ms ease-in;
+    background: var(--background);
+    color: var(--text);
+    
+    &__logo {
+      min-width: fit-content;
+      margin-right: 1em;
+      font-size: 2rem;
+      font-weight: 800;
       color: $white;
+  
+      &:hover {
+        color: $white;
+      }
     }
   }
+
+  /* Homepage slogan + backround image */
+
+  &-intro {
+    padding: 50vh 0;
+    background: #123 url(//unsplash.it/900);
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: white;
+    text-align: center;
+  
+    &__title {
+      display: inline-block;
+      margin: 1em;
+    }
+  }
+
+  /* Homepage website functionalities description */
+
+  &-about {
+    padding: 4em;
+    max-width: 1100px;
+    margin: 0 auto;
+  
+    &__title {
+      font-size: 2rem;
+    }
+  }
+  
+  .columns {
+    display: flex;
+    margin: 2.5em 0;
+  }
+  
+  .col {
+    margin-right: 2em;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+  
+  .fade-in.appear {
+    opacity: 1;
+  }
 }
+
+
+// Navigation
 
 .nav__list {
   list-style: none;
@@ -116,49 +171,13 @@
   box-shadow: 0 3px 20px $main-box-shadow-color;
 }
 
-.home-intro {
-  padding: 50vh 0;
-  background: #123 url(//unsplash.it/900);
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: white;
-  text-align: center;
-}
-
-.home-about {
-  padding: 4em;
-  max-width: 1100px;
-  margin: 0 auto;
-
-  &__title {
-    font-size: 2rem;
-  }
-}
-
-.columns {
-  display: flex;
-  margin: 2.5em 0;
-}
-
-.col {
-  margin-right: 2em;
-}
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 300ms ease-in;
-}
-
-.fade-in.appear {
-  opacity: 1;
-}
-
 
 /* Media queries
 ============================= */
 
 
-@media (max-width: 900px) {
+/* Tablettes */
+@media screen and (max-width: 1000px) {
   .columns {
     flex-wrap: wrap;
   }
@@ -166,5 +185,69 @@
   .col {
     margin: 1em 0;
     margin-right: 0;
+  }
+}
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  .home-header {
+    padding: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__logo {
+      margin: 0 0 .25em;
+    }
+  }
+
+  .nav__link {
+    margin: .75em;
+  }
+
+  .home-about {
+    padding: 1em;
+
+    &__title {
+      text-align: center;
+    }
+  }
+  
+  .col {
+    text-align: center;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  .home-header {
+    padding: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__logo {
+      margin: 0 0 .25em;
+    }
+  }
+
+  .home-intro {
+    &__title {
+      font-size: 1.2rem;
+    }
+  }
+
+  .nav__link {
+    margin: .75em;
+  }
+
+  .home-about {
+    padding: 1em;
+
+    &__title {
+      text-align: center;
+    }
+  }
+
+  .col {
+    text-align: center;
   }
 }
