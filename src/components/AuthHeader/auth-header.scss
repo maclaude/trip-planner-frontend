@@ -16,7 +16,8 @@
   border-bottom: 1px solid #e4e4e4;
   
   &__logo {
-    width: fit-content;
+    min-width: fit-content;
+    margin-right: 1em;
     font-size: 2rem;
     font-weight: 800;
     color: var(--text);
@@ -89,5 +90,44 @@
         border-color: var(--text);
       }
     }
+  }
+}
+
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  .auth-header {
+    padding: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__logo {
+      margin: 0 0 .25em;
+    }
+  }
+
+  .auth-nav__link {
+    margin: .75em;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  .auth-header {
+    padding: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__logo {
+      margin: 0 0 .25em;
+    }
+  }
+  
+  .auth-nav__link {
+    margin: .75em;
   }
 }

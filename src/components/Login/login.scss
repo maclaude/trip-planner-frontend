@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 #login {
-  margin-top: 10em;
+  margin-top: 8em;
 
   &-form {
     width: 450px;
@@ -16,4 +16,31 @@
 
 .loader-icon {
   margin: 50vh auto !important;
+}
+
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #login {
+    margin-top: 7em;
+
+    &-form {
+      width: 350px;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #login {
+    margin-top: 5em;
+
+    &-form {
+      width: 290px;
+    }
+  }
 }

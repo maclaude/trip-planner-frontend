@@ -175,6 +175,10 @@
       &__title {
         text-align: center;
       }
+
+      &__cards {
+        justify-content: center;
+      }
     }
   }
 
@@ -198,6 +202,10 @@
     &-ideas {
       &__title {
         text-align: center;
+      }
+
+      &__cards {
+        justify-content: center;
       }
     }
   }

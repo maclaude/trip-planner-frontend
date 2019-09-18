@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
  * Local import
  */
 // Style
-import './header.scss';
+import './auth-header.scss';
 
 /**
  * Code
@@ -16,7 +16,7 @@ import './header.scss';
 const Header = () => (
   <div className="auth-header">
     <NavLink to="/" exact className="auth-header__logo" href="#">Trip-planner</NavLink>
-    <nav className="acount">
+    <nav>
       <ul className="auth-nav__list">
         <li className="auth-nav__list-item">
           <NavLink to="/inscription" exact className="auth-nav__link auth-nav__link--btn">Inscription</NavLink>

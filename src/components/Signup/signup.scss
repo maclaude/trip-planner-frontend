@@ -13,3 +13,30 @@
     }
   }
 }
+
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #signup {
+    margin-top: 3em;
+
+    &-form {
+      width: 350px;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #signup {
+    margin-top: 2em;
+
+    &-form {
+      width: 290px;
+    }
+  }
+}

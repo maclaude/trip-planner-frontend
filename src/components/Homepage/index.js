@@ -46,7 +46,7 @@ class HomeView extends React.Component {
       <div id="homepage">
         <header className="home-header">
           <NavLink to="/" exact className="home-header__logo" href="#">Trip-planner</NavLink>
-          <nav className="acount">
+          <nav>
             <ul className="nav__list">
               <li className="nav__list-item">
                 <NavLink to="/inscription" exact className="nav__link nav__link--btn">Inscription</NavLink>
