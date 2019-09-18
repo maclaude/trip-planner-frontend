@@ -10,6 +10,8 @@
   /* Form section */
 
   &-form {
+    margin: .5em;
+
     &-header {
       display: flex;
       justify-content: space-between;
@@ -153,3 +155,55 @@
   }
 }
 
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #suggestions {
+    &-form {
+      &-header {
+        &__title {
+          font-size: 1.2rem
+        }
+      }
+    }
+
+    &-ideas {
+      &__title {
+        text-align: center;
+      }
+    }
+  }
+
+  .suggestion-card {
+    width: 250px;
+    margin: 1em 0;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #suggestions {
+    &-form {
+      &-header {
+        &__title {
+          font-size: 1.2rem
+        }
+      }
+    }
+
+    &-ideas {
+      &__title {
+        text-align: center;
+      }
+    }
+  }
+
+  .suggestion-card {
+    width: 250px;
+    margin: 1em 0;
+  }
+}

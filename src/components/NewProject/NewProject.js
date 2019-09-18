@@ -171,7 +171,7 @@ class NewProject extends React.Component {
 
         {(serverResponseMessage !== '') && (
           <section className="user-container__main" id="project-created">
-            <h2 id="project-created__title">Vous venez de créer le projet <strong>{title}</strong></h2>
+            <h3 id="project-created__title">Vous venez de créer le projet <strong>{title}</strong></h3>
             <div className="project-created__options">
               <NavLink
                 to={getURL('/dates', title)}

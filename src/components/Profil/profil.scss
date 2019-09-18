@@ -6,3 +6,26 @@
     margin: 2em auto;
   }
 }
+
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #profil {
+    &-form {
+      width: 100%;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #profil {
+    &-form {
+      width: 100%;
+    }
+  }
+}

@@ -30,3 +30,26 @@
     justify-content: space-between;
   }
 }
+
+
+/* Media queries
+============================= */
+
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #newproject {
+    &-form {
+      width: 95%;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #newproject {
+    &-form {
+      width: 95%;
+    }
+  }
+}

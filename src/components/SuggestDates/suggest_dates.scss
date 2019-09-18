@@ -7,7 +7,7 @@
 
     &__title {
       padding: .5em 0;
-      margin: 2em 0;
+      margin: 1.5em 0;
       text-align: center;
       font-size: 1.6rem;
       font-weight: 400;
@@ -32,18 +32,18 @@
     text-align: center;
     min-height: 300px;
     font-size: 1.5em;
-    margin: 0.5em auto;
   }
 }
 
 .dates-suggested-item {
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: $button-text-color;
+  width: 400px;
   margin: 1em auto;
   padding: 1em;
-  width: 400px;
+  font-size: 1.4rem;
+  color: #000;
+  opacity: .8;
+  background: #F8F9F9;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -60,21 +60,17 @@
 /* Media queries
 ============================= */
 
-@media (max-width: 600px) {
-  #dates {
-    &-form {
-      &__title {
-        font-size: 1.5em;
-      }
-    }
-  }
-}
 
-
-@media (max-width: 900px) {
+/* Phablets */
+@media screen and (max-width: 750px) and (min-width: 550px) {
   #dates {
     &-form {
       width: 400px;
+      margin-top: 2.75em;
+
+      &__title {
+        font-size: 1.5rem;
+      }
   
       &__main {
         flex-wrap: wrap;
@@ -93,5 +89,79 @@
     &__input {
       margin: .5em auto;
     }
+  }
+}
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #dates {
+    &-form {
+      width: 350px;
+      margin-top: 2.5em;
+
+      &__title {
+        font-size: 1.4rem;
+      }
+
+      &__main {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .dates-form {
+    &__label {
+      margin: auto;
+      font-weight: 400;
+    }
+     
+    &__input {
+      margin: .5em auto;
+    }
+  }
+
+  .dates-suggested-item {
+    width: 350px;
+    margin: .75em auto;
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #dates {
+    &-form {
+      width: 275px;
+      margin-top: 2.25em;
+
+      &__title {
+        font-size: 1.35rem;
+      }
+
+      &__main {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .dates-form {
+    &__label {
+      margin: auto;
+      font-weight: 400;
+    }
+     
+    &__input {
+      margin: .5em auto;
+    }
+  }
+
+  .dates-suggested-item {
+    width: 280px;
+    margin: .75em auto;
+    font-size: 1rem;
   }
 }

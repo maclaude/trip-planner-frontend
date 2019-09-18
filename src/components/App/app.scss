@@ -35,11 +35,6 @@ strong {
   color: $asterisk-color;
 }
 
-.bold {
-  font-weight: 700;
-}
-
-
 /* Buttons
 ========================== */
 
@@ -61,7 +56,7 @@ strong {
     width: 250px;
     height: auto;
     border-radius: 50px;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,13 +88,23 @@ strong {
   }
 
   /* Custom buttons (colors + special properties) */
-    
+
+    // New project view
+  
   &-new-project {
     background: linear-gradient(to right, #009fff, #ec2f4b);
     color: $white;
     grid-area: section-2;
   }
+
+    // Project created view
   
+  &-suggest-dates, &-add-participants {
+    & > p {
+      margin: 0;
+    }
+  }
+
   &-suggest-dates {
     background: linear-gradient(to right, #f12711, #f5af19);
     color: $white;
@@ -109,6 +114,8 @@ strong {
     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
     color: $white;
   }
+
+    // Suggest dates view
 
   &-add-dates {
     background: linear-gradient(to top, #ff416c, #ff4b2b);
@@ -295,19 +302,21 @@ strong {
     height: 100vh;
     float: right;
     display: grid;
-    padding: 1.750em;
+    padding: 1.5em;
+    margin: auto;
     grid-template-columns: 50px auto 50px;
     grid-template-rows: 40px auto auto 65px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-areas: 
-    "burger-menu title ."
+    "burger-menu title title"
     ". section-1 ."
     ". section-2 ."
     ". footer .";
 
     &--fullscreen {
-      width: 100vw;
+      float: none;
+      width: calc(100vw - 15px); // 15px // Scrollbar width
     }
 
     &__menu {
@@ -332,7 +341,7 @@ strong {
       & > h1 {
         height: 100%;
         padding-left: .75em;
-        font-size: 2.2rem;
+        font-size: 1.9rem;
       }
     }
 
@@ -341,6 +350,7 @@ strong {
       align-self: center;
       grid-column: 2 / span 1;
       grid-row: 2 / span 2;
+      width: 100%;
     }
 
     &__section-1 {
@@ -375,75 +385,56 @@ strong {
 /* Media queries
 ============================= */
 
-/* 
- * User view with navigation && without burger menu
- * @screen-min: 1100px
- */
-
-@media (min-width: 1100px) {
-  .user {
-    &-container {
-      display: grid;
-      grid-template-columns: 20px auto 20px;
-      grid-template-rows: 40px auto auto 65px;
-      grid-column-gap: 15px;
-      grid-row-gap: 15px;
-      
-      &__banner > h1 {
-        height: 100%;
-        padding-left: .65em;
-        font-size: 1.8rem;
-      }
-      
-      &__menu {
-        display: none;
-      }
-    }
-  }
-}
-
-/* 
- * User wiew with burger menu
- * @screen-max: 1100px
- */
-
-@media (max-width: 1100px) {
+/* Sidebar navigation disappears breakpoint */ 
+@media screen and (max-width: 1100px) {
   .user {
     &-container {
       padding: 1em;
       grid-template-areas: 
-      "burger-menu title ."
+      "burger-menu title title"
       "section-1 section-1 section-1"
       "section-2 section-2 section-2"
       ". footer .";
       
       &__banner > h1 {
-        padding-left: .70em;
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       &__main {
-        justify-self: center;
-        align-self: center;
         grid-column: 1 / span 3;
-        grid-row: 2 / span 2;
-      }
-      
-      &__section-1,
-      &__section-2 {
-        margin: 0 1em;
       }
     }
   }
 }
 
-/* 
- * @screen-max: 600px
- */
+/* Tablettes */
+@media screen and (max-width: 1000px) and (min-width: 750px) {
+  .user {
+    &-container {
+      padding: 1em;
+  
+      &__banner > h1 {
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
 
-@media (max-width: 600px) {
-  /* Special case when the button needs a container to be centered */
+/* Phablets */
+@media screen and (max-width: 750px) and (min-width: 550px) {
+  .user {
+    &-container {    
+      padding: .75em;
 
+      &__banner > h1 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px)  {
   .button__container {
     width: 100%;
     display: flex;
@@ -452,10 +443,36 @@ strong {
 
   .user {
     &-container {
+      padding: .75em;
+ 
       &__banner > h1 {
-        padding-left: .65em;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
     }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  .button__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .button--large {
+    width: 225px;
+    font-size: 1rem;
+  }
+
+  .user {
+    &-container {
+      padding: .75em;
+
+      &__banner > h1 {
+        font-size: 1.4rem;
+      }
+    }
+     
   }
 }

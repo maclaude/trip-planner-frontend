@@ -157,7 +157,8 @@ class SuggestDates extends React.Component {
           {suggestedDates.map(dates => (
             <div className="dates-suggested-item" key={dates._id}>
               <div>
-                Du {getDateFormat(dates.start_date)} au {getDateFormat(dates.end_date)}
+                {/* eslint-disable-next-line max-len */}
+                Du <strong>{getDateFormat(dates.start_date)}</strong> au <strong>{getDateFormat(dates.end_date)}</strong>
               </div>
               <div className="dates-suggested-item__icon">
                 <FaTrash onClick={this.deleteProjectDates(dates._id)} />

@@ -7,9 +7,8 @@
 #projects {
   &-invitations {
     border-radius: 5px;
-    padding: 2em 3em;
-    margin: 2em auto;
-    width: fit-content;
+    padding: 2em;
+    margin: 2em auto 3em;
     background-color: $section-bg-color;
     box-shadow: 0 5px 1em $main-box-shadow-color;
 
@@ -25,7 +24,6 @@
   }
 
   &-cards {
-    padding: 1em 0;
     display: flex;
     align-self: center;
     flex-wrap: wrap;
@@ -35,26 +33,33 @@
 /* Single project invitation
 ============================= */
 
-.projects-invitation {
-  margin: 1em 0;
-  padding: 1em;
+.project-invitation {
+  min-width: 500px;
+  margin: .75em 0;
+  padding: .75em;
+  background-color: $white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   &__title {
     padding: 1em;
-    min-width: 400px;
-    width: fit-content;
+    min-width: fit-content;
+    width: 300px;
     border-radius: 4px;
-    background-color: $white;
     font-size: 1.2em;
     font-weight: 700;
   }
 
-  &__button {
-    width: fit-content;
+  &__buttons {
+    display: flex;
+    flex-wrap: nowrap;
     margin-left: 1em;
+  }
+
+  &__button {
+    width: 100px;
+    margin: .5em;
     padding: .6em;
     border-radius: 4px;
     box-shadow: 0 10px 1em $main-box-shadow-color;
@@ -62,6 +67,7 @@
     color: $button-text-color;
     font-weight: 700;
     font-size: 1.2em;
+    text-align: center;
 
     &--accept {
       background-color: $button-accept-bg-color;
@@ -133,9 +139,75 @@
 /* Media queries
 ============================= */
 
-
+/* Sidebar navigation disappears breakpoint */ 
 @media (max-width: 1100px) {
   #projects-cards {
     justify-content: center;
+  }
+}
+
+/* Tablettes */
+@media screen and (max-width: 1000px) and (min-width: 750px) { /* ... */ }
+
+/* Phablets */
+@media screen and (max-width: 750px) and (min-width: 550px) { /* ... */ }
+
+/* Mobile + */
+@media screen and (max-width: 550px) and (min-width: 400px) {
+  #projects {
+    &-invitations {
+      padding: 1em;
+    }
+  }
+
+  .project-card {
+    height: 300px;
+    width: 275px;
+    margin: 1em 0;
+  }
+
+  .project-invitation {
+    min-width: 250px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+
+    &__title {
+      width: fit-content;
+    }
+
+    &__buttons {
+      margin-left: 0;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #projects {
+    &-invitations {
+      padding: 1em;
+    }
+  }
+
+  .project-card {
+    height: 300px;
+    width: 250px;
+    margin: 1em 0;
+  }
+
+  .project-invitation {
+    min-width: 250px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+
+    &__title {
+      width: fit-content;
+    }
+
+    &__buttons {
+      margin-left: 0;
+    }
   }
 }

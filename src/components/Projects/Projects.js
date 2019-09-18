@@ -52,56 +52,57 @@ class Projects extends React.Component {
           <h1>Mes projets</h1>
         </div>
 
-        {(invitations.length !== 0) && (
-        <section className="user-container__section-1" id="projects-invitations">
-          <h2 id="projects-invitations__title">Invitations reçues</h2>
-          <div>
-            {(invitations.map(invitation => (
-              <div className="projects-invitation" key={invitation._id}>
-                <div className="projects-invitation__title">{invitation.title}</div>
-                <div
-                  className="
-                    projects-invitation__button
-                    projects-invitation__button--decline
-                  "
-                  onClick={this.sendInvitationResponse(invitation._id, 'declined')}
-                >
-                  Refuser
-                </div>
-                <div
-                  className="
-                    projects-invitation__button
-                    projects-invitation__button--accept
-                  "
-                  onClick={this.sendInvitationResponse(invitation._id, 'accepted')}
-                >
-                  Accepter
-                </div>
+        <div className="user-container__section-1">
+          {(invitations.length !== 0) && (
+            <section id="projects-invitations">
+              <h2 id="projects-invitations__title">Invitations reçues</h2>
+              <div>
+                {(invitations.map(invitation => (
+                  <div className="project-invitation" key={invitation._id}>
+                    <div className="project-invitation__title">{invitation.title}</div>
+                    <div className="project-invitation__buttons">
+                      <div
+                        className="
+                          project-invitation__button
+                          project-invitation__button--decline
+                        "
+                        onClick={this.sendInvitationResponse(invitation._id, 'declined')}
+                      >
+                        Refuser
+                      </div>
+                      <div
+                        className="
+                          project-invitation__button
+                          project-invitation__button--accept
+                        "
+                        onClick={this.sendInvitationResponse(invitation._id, 'accepted')}
+                      >
+                        Accepter
+                      </div>
+                    </div>
+                  </div>
+                )))}
               </div>
-            )))}
-          </div>
-        </section>
-        )}
+            </section>
+          )}
 
-        {(projects.length === 0) && (invitations.length === 0) && (
-          <div className="user-container__section-1" id="projects-information">
-            <p>Vous n'avez aucun projet en cours</p>
-          </div>
-        )}
+          {(projects.length === 0) && (invitations.length === 0) && (
+            <div id="projects-information">
+              <p>Vous n'avez aucun projet en cours</p>
+            </div>
+          )}
 
-        {(projects.length !== 0) && (
-          <section
-            id="projects-cards"
-            className="user-container__section-1"
-          >
-            {(projects.map(project => (
-              <SingleProjectCard
-                key={project._id}
-                {...project}
-              />
-            )))}
-          </section>
-        )}
+          {(projects.length !== 0) && (
+            <section id="projects-cards">
+              {(projects.map(project => (
+                <SingleProjectCard
+                  key={project._id}
+                  {...project}
+                />
+              )))}
+            </section>
+          )}
+        </div>
 
         <div className="user-container__section-2">
           <NavLink
