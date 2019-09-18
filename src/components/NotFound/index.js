@@ -22,6 +22,7 @@ const NotFoundView = () => (
     <Header />
     <div id="not-found-view__message">
       <h1>Page not found</h1>
+      <p>Cette fonctionnalité est actuellement en cours de dévelopement <span role="img" aria-label="tool">&#128736;</span></p>
     </div>
   </div>
 

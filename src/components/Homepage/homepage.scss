@@ -73,26 +73,27 @@
   
     &__title {
       font-size: 2rem;
+      margin: 2em 0;
     }
-  }
-  
-  .columns {
-    display: flex;
-    margin: 2.5em 0;
-  }
-  
-  .col {
-    margin-right: 2em;
-  }
-  
-  .fade-in {
-    opacity: 0;
-    transition: opacity 300ms ease-in;
-  }
-  
-  .fade-in.appear {
-    opacity: 1;
-  }
+  }  
+}
+
+.columns {
+  display: flex;
+  margin: 2.5em 0;
+}
+
+.col {
+  margin-right: 2em;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
 }
 
 
@@ -196,7 +197,7 @@
     justify-content: center;
 
     &__logo {
-      margin: 0 0 .25em;
+      margin: 0 .2em .2em 0;
     }
   }
 
@@ -225,7 +226,7 @@
     justify-content: center;
 
     &__logo {
-      margin: 0 0 .25em;
+      margin: 0 .2em .2em 0;
     }
   }
   

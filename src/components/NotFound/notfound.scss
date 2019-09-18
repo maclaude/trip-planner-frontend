@@ -2,9 +2,16 @@
 
 #not-found-view {
   &__message {
-    margin: 50vh 0;
+    margin: 8em 0;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    & > p {
+      font-weight: 400;
+      margin: 2em;
+      line-height: 30px;
+    } 
   }
 }
 

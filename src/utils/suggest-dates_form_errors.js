@@ -34,7 +34,7 @@ const SuggestDatesErrors = (startDate, endDate) => {
   }
 
   if (ISOstartDate < ISOcurrentDate) {
-    const error = 'La date de début doit être supérieure à la date actuelle';
+    const error = 'La date de début doit être ultérieure à la date actuelle';
     errors.push(error);
   }
 
