@@ -74,7 +74,7 @@ const ajaxMiddleware = store => next => action => {
         password: state.authentication.password,
       };
 
-      axios.post('http://trip-planner-app-backend.herokuapp.com/auth/signup', body)
+      axios.post('https://trip-planner-app-backend.herokuapp.com/auth/signup', body)
         .then(response => {
           console.log(response);
           store.dispatch(setStatusCreated());
@@ -93,7 +93,7 @@ const ajaxMiddleware = store => next => action => {
         password: state.authentication.password,
       };
 
-      axios.post('http://trip-planner-app-backend.herokuapp.com/auth/login', body)
+      axios.post('https://trip-planner-app-backend.herokuapp.com/auth/login', body)
         .then(response => {
           console.log(response);
           store.dispatch(storeToken(response.data.token));
@@ -113,7 +113,7 @@ const ajaxMiddleware = store => next => action => {
     }
 
     case GET_USER_PROJECTS: {
-      axiosToken.get('http://trip-planner-app-backend.herokuapp.com/user/projects')
+      axiosToken.get('https://trip-planner-app-backend.herokuapp.com/user/projects')
         .then(response => {
           console.log(response);
           store.dispatch(storeUserProjects(response.data.userProjects));
@@ -124,7 +124,7 @@ const ajaxMiddleware = store => next => action => {
     }
 
     case GET_PROJECT_USER_ROLE: {
-      axiosToken.get(`http://trip-planner-app-backend.herokuapp.com/project/user-role/${action.projectId}`)
+      axiosToken.get(`https://trip-planner-app-backend.herokuapp.com/project/user-role/${action.projectId}`)
         .then(response => {
           console.log(response);
           store.dispatch(storeProjectUserRole(response.data.role));
@@ -144,7 +144,7 @@ const ajaxMiddleware = store => next => action => {
         userId: state.user.id,
       };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/project/new-project', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/project/new-project', body)
         .then(response => {
           console.log(response);
           store.dispatch(storeNewprojectResponse(response.data.message, response.data.data));
@@ -162,7 +162,7 @@ const ajaxMiddleware = store => next => action => {
         projectId: action.projectId,
       };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/project/new-dates', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/project/new-dates', body)
         .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
@@ -178,7 +178,7 @@ const ajaxMiddleware = store => next => action => {
         datesId: action.datesId,
       };
 
-      axiosToken.delete('http://trip-planner-app-backend.herokuapp.com/project/delete-dates', { data: body })
+      axiosToken.delete('https://trip-planner-app-backend.herokuapp.com/project/delete-dates', { data: body })
         .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
@@ -191,7 +191,7 @@ const ajaxMiddleware = store => next => action => {
     case VOTE_PROJECT_DATES: {
       body = { datesId: action.datesId };
 
-      axiosToken.put('http://trip-planner-app-backend.herokuapp.com/project/vote-dates', body)
+      axiosToken.put('https://trip-planner-app-backend.herokuapp.com/project/vote-dates', body)
         .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
@@ -210,7 +210,7 @@ const ajaxMiddleware = store => next => action => {
         invitedUserEmail: state.participants.email,
       };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/project/add-participants', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/project/add-participants', body)
         .then(response => {
           console.log(response);
         })
@@ -222,7 +222,7 @@ const ajaxMiddleware = store => next => action => {
     case ADD_USER_INVITATION: {
       body = { projectId: state.user.invitationProjectId };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/user/invitation', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/user/invitation', body)
         .then(response => {
           console.log(response);
           store.dispatch(getUserInvitations());
@@ -233,7 +233,7 @@ const ajaxMiddleware = store => next => action => {
     }
 
     case GET_USER_INVITATIONS: {
-      axiosToken.get('http://trip-planner-app-backend.herokuapp.com/user/invitations')
+      axiosToken.get('https://trip-planner-app-backend.herokuapp.com/user/invitations')
         .then(response => {
           console.log(response);
           store.dispatch(storeUserInvitations(response.data.userInvitations));
@@ -249,7 +249,7 @@ const ajaxMiddleware = store => next => action => {
         projectId: action.projectId,
       };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/user/invitation-response', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/user/invitation-response', body)
         .then(response => {
           console.log(response);
           store.dispatch(getUserProjects());
@@ -270,7 +270,7 @@ const ajaxMiddleware = store => next => action => {
         projectId: action.projectId,
       };
 
-      axiosToken.post('http://trip-planner-app-backend.herokuapp.com/project/new-suggestion', body)
+      axiosToken.post('https://trip-planner-app-backend.herokuapp.com/project/new-suggestion', body)
         .then(response => {
           console.log(response);
           store.dispatch(getProjectSuggestions(action.projectId));
@@ -281,7 +281,7 @@ const ajaxMiddleware = store => next => action => {
     }
 
     case GET_PROJECT_SUGGESTIONS: {
-      axiosToken.get(`http://trip-planner-app-backend.herokuapp.com/project/suggestions/${action.projectId}`)
+      axiosToken.get(`https://trip-planner-app-backend.herokuapp.com/project/suggestions/${action.projectId}`)
         .then(response => {
           console.log(response);
           store.dispatch(stockProjectSuggestions(response.data.suggestions));
@@ -294,7 +294,7 @@ const ajaxMiddleware = store => next => action => {
     case VOTE_PROJECT_SUGGESTION: {
       body = { suggestionId: action.suggestionId };
 
-      axiosToken.put('http://trip-planner-app-backend.herokuapp.com/project/vote-suggestion', body)
+      axiosToken.put('https://trip-planner-app-backend.herokuapp.com/project/vote-suggestion', body)
         .then(response => {
           console.log(response);
           store.dispatch(getProjectSuggestions(action.projectId));
@@ -305,7 +305,7 @@ const ajaxMiddleware = store => next => action => {
     }
 
     case GET_USER_INFORMATIONS: {
-      axiosToken.get('http://trip-planner-app-backend.herokuapp.com/user/informations')
+      axiosToken.get('https://trip-planner-app-backend.herokuapp.com/user/informations')
         .then(response => {
           console.log(response);
           store.dispatch(storeUserInformations(response.data.user));
@@ -323,7 +323,7 @@ const ajaxMiddleware = store => next => action => {
         avatar: state.user.avatar,
       };
 
-      axiosToken.put('http://trip-planner-app-backend.herokuapp.com/user/informations', body)
+      axiosToken.put('https://trip-planner-app-backend.herokuapp.com/user/informations', body)
         .then(response => {
           console.log(response);
         })
