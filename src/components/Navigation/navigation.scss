@@ -2,7 +2,9 @@
 
 #navigation {
   min-width: 300px;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
+  max-height: 100vh;
   overflow-y: auto;
   position: fixed;
   color: $navigation-font-color;
