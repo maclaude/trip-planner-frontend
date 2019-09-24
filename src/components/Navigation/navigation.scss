@@ -184,3 +184,11 @@
     transform: rotate(-90deg);
   }
 }
+
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #navigation {
+    width: 100vw;
+  }
+}
