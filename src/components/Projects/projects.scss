@@ -37,7 +37,7 @@
   min-width: 500px;
   margin: .75em 0;
   padding: .75em;
-  background-color: $white;
+  background-color: #FFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -108,12 +108,12 @@
     &__title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: $black;
+      color: #000;
       display: block;
       text-align: center;
 
       &:hover {
-        color: $black;
+        color: #000;
       }
     }
   }

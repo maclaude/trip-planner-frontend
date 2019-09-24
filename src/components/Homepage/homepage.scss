@@ -40,10 +40,10 @@
       margin-right: 1em;
       font-size: 2rem;
       font-weight: 800;
-      color: $white;
+      color: #FFF;
   
       &:hover {
-        color: $white;
+        color: #FFF;
       }
     }
   }
@@ -154,7 +154,7 @@
     &--highlight {
       background: $red-pink;
       border-color: $red-pink;
-      color: $white;
+      color: #FFF;
 
       &:hover {
         background: var(--text);

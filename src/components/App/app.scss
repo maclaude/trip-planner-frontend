@@ -3,7 +3,7 @@
 #app {
   min-height: 100vh;
   font-family: 'PT Sans', sans-serif;
-  background-color: $white;
+  background-color: #FFF;
 }
 
 
@@ -80,7 +80,7 @@ strong {
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
-    color: $white;
+    color: #FFF;
   }
 
   & > p {
@@ -93,7 +93,7 @@ strong {
   
   &-new-project {
     background: linear-gradient(to right, #009fff, #ec2f4b);
-    color: $white;
+    color: #FFF;
     grid-area: section-2;
   }
 
@@ -107,30 +107,30 @@ strong {
 
   &-suggest-dates {
     background: linear-gradient(to right, #f12711, #f5af19);
-    color: $white;
+    color: #FFF;
   }
 
   &-add-participants {
     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
-    color: $white;
+    color: #FFF;
   }
 
     // Suggest dates view
 
   &-add-dates {
     background: linear-gradient(to top, #ff416c, #ff4b2b);
-    color: $white;
+    color: #FFF;
     position: relative;
     align-self: flex-end;
   }
   
   &-invitation {
-    color: $black;
+    color: #000;
     width: 250px;
     text-align: center;
     
     &:hover {
-      color: $black;
+      color: #000;
     }
   }
 }
@@ -190,17 +190,17 @@ strong {
 
     &--red {
       background-color: $red-pink;
-      color: $white !important;
+      color: #FFF;
     }
 
     &--blue {
       background-color: $navy-blue;
-      color: $white !important;
+      color: #FFF;
     }
     
     &--grey {
       background-color: $light-grey;
-      color: $black;
+      color: #000;
     }
 
     &:hover {
