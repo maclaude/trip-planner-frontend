@@ -190,5 +190,8 @@
 @media screen and (max-width: 400px) {
   #navigation {
     width: 100vw;
+    min-height: calc(100vh - 50px);
+    height: fit-content;
+    max-height: calc(100vh - 50px);
   }
 }
