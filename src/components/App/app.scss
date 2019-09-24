@@ -172,6 +172,7 @@ strong {
     font-size: 1.1rem;
     font-weight: 700 !important;
     text-align: center !important;
+    color: #FFF;
     box-shadow: 0 8px 1em $main-box-shadow-color;
     transition: transform ease-in-out 250ms;
     cursor: pointer;
@@ -190,12 +191,10 @@ strong {
 
     &--red {
       background-color: $red-pink;
-      color: #FFF;
     }
 
     &--blue {
       background-color: $navy-blue;
-      color: #FFF;
     }
     
     &--grey {
