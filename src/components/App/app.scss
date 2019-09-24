@@ -160,19 +160,15 @@ strong {
    */
 
   &__button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
     all: unset;
-
     box-sizing: border-box;
     width: fit-content;
     margin: .2em;
     padding: .6em 1em;
     border-radius: 4px;
     font-size: 1.1rem;
-    font-weight: 700 !important;
-    text-align: center !important;
-    color: #FFF !important;
+    font-weight: 700;
+    text-align: center;
     box-shadow: 0 8px 1em $main-box-shadow-color;
     transition: transform ease-in-out 250ms;
     cursor: pointer;
@@ -191,10 +187,12 @@ strong {
 
     &--red {
       background-color: $red-pink;
+      color: #FFF;
     }
 
     &--blue {
       background-color: $navy-blue;
+      color: #FFF;
     }
     
     &--grey {
