@@ -24,6 +24,7 @@
   }
 
   &-header {
+    min-height: fit-content;
     border-bottom: 2px solid $navigation-separator-color;
 
     &-user {
@@ -70,6 +71,7 @@
   }
 
   &-footer {
+    min-height: fit-content;
     border-top: 2px solid $navigation-separator-color;
     padding: 1.5rem 0;
   }
