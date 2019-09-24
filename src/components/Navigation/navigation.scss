@@ -4,6 +4,7 @@
   min-width: 300px;
   min-height: 100vh;
   height: fit-content;
+  max-height: 100vh;
   overflow-y: auto;
   position: fixed;
   color: $navigation-font-color;
@@ -189,7 +190,8 @@
 @media screen and (max-width: 400px) {
   #navigation {
     width: 100vw;
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 55px);
     height: fit-content;
+    max-height: calc(100vh - 55px);
   }
 }

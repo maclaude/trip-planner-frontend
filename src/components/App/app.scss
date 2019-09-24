@@ -190,12 +190,12 @@ strong {
 
     &--red {
       background-color: $red-pink;
-      color: $white;
+      color: $white !important;
     }
 
     &--blue {
       background-color: $navy-blue;
-      color: $white;
+      color: $white !important;
     }
     
     &--grey {
