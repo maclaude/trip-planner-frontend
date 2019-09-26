@@ -1,8 +1,15 @@
 @import 'src/styles/vars';
 
+
+/* Sidebar navigation
+============================= */
+
+
 #navigation {
   min-width: 300px;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
+  max-height: 100vh;
   overflow-y: auto;
   position: fixed;
   color: $navigation-font-color;
@@ -13,15 +20,12 @@
   justify-content: space-between;
   box-shadow: 0 0 10px 2px $main-box-shadow-color;
   transition: transform ease-in-out 250ms;
-  z-index: 1;
+  z-index: 100;
 
-  &-main,
-  &-footer {
-    display: flex;
-    flex-direction: column;
-  }
+  /* Sidebar navigation - header */
 
   &-header {
+    min-height: fit-content;
     border-bottom: 2px solid $navigation-separator-color;
 
     &-user {
@@ -49,7 +53,13 @@
     }
   }
 
+  /* Sidebar navigation - main */
+
   &-main {
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+
     &-project {
       padding-left: 1.5em;
 
@@ -65,11 +75,19 @@
     }
   }
 
+  /* Sidebar navigation - footer */
+
   &-footer {
+    display: flex;
+    flex-direction: column;
     border-top: 2px solid $navigation-separator-color;
     padding: 1.5rem 0;
   }
 }
+
+
+/* Navigation links */
+
 
 .navigation {
   &__link {
@@ -98,6 +116,10 @@
   }
 }
 
+
+/* Navigation state: close or open */
+
+
 .navigation--close {
   transform: translateX(-110%);
 }
@@ -106,7 +128,9 @@
   transform: translateX(0%);
 }
 
-/* === Burger menu icon === */
+
+/* Burger menu icon */
+
 
 .hamburger,
 .hamburger::before,
@@ -133,6 +157,7 @@
 ============================= */
 
 
+/* Burger menu breakpoint */ 
 @media (max-width: 1100px) {
   #navigation-header {
     display: flex;
@@ -175,5 +200,15 @@
   }
   .close-icon::after {
     transform: rotate(-90deg);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+  #navigation {
+    width: 100vw;
+    min-height: calc(100vh - 50px);
+    height: fit-content;
+    max-height: calc(100vh - 50px);
   }
 }
