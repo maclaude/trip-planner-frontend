@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Environnement variables file
-# .env
+.env
 
 # VS Code files
 .vs/
