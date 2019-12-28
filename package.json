@@ -17,8 +17,7 @@
     "build:prod": "NODE_ENV=production webpack --mode production",
     "build:prod:win": "set NODE_ENV=production && webpack --mode production",
     "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev",
-    "lint": "eslint --fix 'src/**/*.js'",
-    "lambda-build": "netlify-lambda build functions && node -p 'process.env'"
+    "lint": "eslint --fix 'src/**/*.js'"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
