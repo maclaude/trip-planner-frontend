@@ -3,12 +3,14 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import toast from 'toasted-notes';
 
 /**
  * Local import
  */
 // Style
 import './add_participants.scss';
+import 'toasted-notes/src/styles.css';
 // Utils
 import getParticipantsFormErrors from 'src/utils/participants_form_errors';
 // Components
@@ -44,6 +46,7 @@ class AddParticipants extends React.Component {
       email,
       showErrors,
       sendInvitation,
+      clearParticipantsState,
     } = this.props;
 
     // Handling errors
@@ -51,10 +54,16 @@ class AddParticipants extends React.Component {
 
     if (name && email !== '') {
       sendInvitation();
+      toast.notify('Votre invitation a bien été envoyée', {
+        position: 'top-right',
+        duration: 2000,
+      });
     }
     else {
       showErrors(errors);
     }
+
+    clearParticipantsState();
   }
 
   /**

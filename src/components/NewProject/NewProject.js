@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FaUserPlus, FaCalendarPlus } from 'react-icons/fa';
 import uuidV4 from 'uuid/v4';
+import toast from 'toasted-notes';
 
 /**
  * Local import
@@ -14,6 +15,7 @@ import uuidV4 from 'uuid/v4';
 import UserFooter from 'src/components/UserFooter';
 // Styles
 import './newproject.scss';
+import 'toasted-notes/src/styles.css';
 // Utils
 import NewProjectErrors from 'src/utils/new-project_form_errors';
 import { getURL } from 'src/utils/url';
@@ -34,7 +36,10 @@ class NewProject extends React.Component {
     const { serverResponseMessage } = this.props;
 
     if (serverResponseMessage === 'Project created') {
-      // Toast alert
+      toast.notify('Votre nouveau projet a bien été créé', {
+        position: 'top-right',
+        duration: 2000,
+      });
     }
   }
 
