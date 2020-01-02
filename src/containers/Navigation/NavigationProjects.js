@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom';
 // Components
 import NavigationProjects from 'src/components/Navigation/NavigationProjects';
 // Action Creators
+import { getProjectSuggestions } from 'src/store/reducers/suggestions';
 
 /**
  * Code
@@ -21,7 +22,11 @@ const mapStateToProps = state => ({
 });
 
 // === Actions ===
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  getProjectSuggestions: projectId => {
+    dispatch(getProjectSuggestions(projectId));
+  },
+});
 
 /**
  * Connect

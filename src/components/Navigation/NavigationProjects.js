@@ -76,6 +76,11 @@ class NavigationProjects extends React.Component {
     this.userView.classList.add('user-container--fullscreen');
   }
 
+  fetchProjectSuggestions = projectId => () => {
+    const { getProjectSuggestions } = this.props;
+    getProjectSuggestions(projectId);
+  }
+
   /**
    * Render
    */
@@ -114,6 +119,7 @@ class NavigationProjects extends React.Component {
                   to={getURL('recapitulatif', project.title)}
                   key={project._id}
                   activeClassName="navigation__link--active"
+                  onClick={this.fetchProjectSuggestions(project._id)}
                   exact
                 >
                   <div className="navigation__link-title">
@@ -139,6 +145,7 @@ NavigationProjects.propTypes = {
       title: PropTypes.string.isRequired,
     }).isRequired,
   ),
+  getProjectSuggestions: PropTypes.func.isRequired,
 };
 
 NavigationProjects.defaultProps = {
