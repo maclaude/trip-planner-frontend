@@ -15,6 +15,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from 'src/components/App';
 // Store - Persistor
 import { store, persistor } from 'src/store';
+// Semantic UI CSS
+import 'semantic-ui-css/semantic.min.css';
 
 /**
  * Render
