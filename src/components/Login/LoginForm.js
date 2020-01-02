@@ -4,6 +4,7 @@
 import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BarLoader } from 'react-css-loaders';
 
 /**
  * Local import
@@ -71,18 +72,11 @@ class LoginForm extends React.Component {
 
     return (
       <div id="login">
-        {/* Loading icon (disabled)
 
         { (status === 'loading') && (
-          <Loader
-            active
-            size="large"
-            inline="centered"
-            className="loader-icon"
-          />
+          <BarLoader className="loader-icon" />
         )}
 
-        */}
         { (status !== 'loading') && (
 
           <div id="login-form">
