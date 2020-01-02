@@ -25,8 +25,6 @@ import NotFoundView from 'src/components/NotFound';
 import requiresAuth from 'src/components/RequiresAuth';
 // Style
 import './app.scss';
-// Semantic UI CSS
-import 'semantic-ui-css/semantic.min.css';
 
 /**
  * Code

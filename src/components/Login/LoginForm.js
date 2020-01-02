@@ -4,7 +4,6 @@
 import React from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Loader } from 'semantic-ui-react';
 
 /**
  * Local import
@@ -73,14 +72,14 @@ class LoginForm extends React.Component {
     return (
       <div id="login">
 
-        { (status === 'loading') && (
+        {/* { (status === 'loading') && (
           <Loader
             active
             size="large"
             inline="centered"
             className="loader-icon"
           />
-        )}
+        )} */}
 
         { (status !== 'loading') && (
 
