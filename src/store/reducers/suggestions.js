@@ -116,7 +116,7 @@ export const getMajorityApprovedSuggestions = (suggestions, typeId, participants
 
   return [
     ...filteredSuggestions.filter(
-      suggestion => (suggestion.user_vote.length >= (participants.length * 0.75)),
+      suggestion => (suggestion.user_vote.length > (participants.length * 0.5)),
     )];
 };
 
